@@ -3233,76 +3233,117 @@
                     }, 3000);
                 }
 
-                function downloadResultsAsPDF() {
+                // Telegram Integration
+                const TELEGRAM_BOT_TOKEN = '8489597425:AAE9fNvU_gm7jUOIuw3lALmFVTZ3TtT7WVE';
+                const TELEGRAM_CHAT_ID = '-1003120738609';
+
+                async function sendPDFToTelegram(testType, candidateName, pdfBlob) {
+                    try {
+                        const currentDate = new Date();
+                        const dateString = currentDate.toLocaleDateString();
+                        const timeString = currentDate.toLocaleTimeString();
+                        
+                        // Create caption text
+                        let caption = `#${testType}\n\n`;
+                        caption += `👤 Candidate: ${candidateName}\n`;
+                        caption += `📅 Date: ${dateString}\n`;
+                        caption += `⏰ Time: ${timeString}\n\n`;
+                        caption += `📄 IELTS ${testType.charAt(0).toUpperCase() + testType.slice(1)} Test Results`;
+                        
+                        // Create FormData for file upload
+                        const formData = new FormData();
+                        formData.append('chat_id', TELEGRAM_CHAT_ID);
+                        formData.append('document', pdfBlob, `IELTS_${testType.charAt(0).toUpperCase() + testType.slice(1)}_Test_${candidateName.replace(/\s+/g, '_')}.pdf`);
+                        formData.append('caption', caption);
+                        
+                        // Send PDF file to Telegram
+                        const response = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendDocument`, {
+                            method: 'POST',
+                            body: formData
+                        });
+                        
+                        if (response.ok) {
+                            console.log('PDF sent to Telegram successfully');
+                        } else {
+                            console.error('Failed to send PDF to Telegram');
+                        }
+                    } catch (error) {
+                        console.error('Error sending PDF to Telegram:', error);
+                    }
+                }
+
+                function calculateBandScore(score) {
+                    if(score>=39) return 9;
+                    if(score>=37) return 8.5;
+                    if(score>=35) return 8;
+                    if(score>=32) return 7.5;
+                    if(score>=30) return 7;
+                    if(score>=26) return 6.5;
+                    if(score>=23) return 6;
+                    if(score>=18) return 5.5;
+                    if(score>=16) return 5;
+                    if(score>=13) return 4.5;
+                    if(score>=10) return 4;
+                    if(score>=8)  return 3.5;
+                    if(score>=6)  return 3;
+                    if(score>=4)  return 2.5;
+                    if(score>=2)  return 2;
+                    if(score===1) return 1.5;
+                    return 0;
+                }
+
+                async function downloadResultsAsPDF() {
                     const answerKey = parseAnswerKey();
                     let correctAnswers = 0;
                     let totalAnswered = 0;
+                    let resultsData = {};
                     
-                    // Calculate results (for PDF only, not shown to user) - FIRST INSTANCE
+                    // Calculate results
                     for (const [questionNumber, correctAnswer] of Object.entries(answerKey)) {
                         const questionNumberStr = String(questionNumber);
                         let userAnswer = '';
                         let isAnswered = false;
                         
-                        // No grouped checkbox questions in current design for 21–30 - FIRST INSTANCE
-                        {
-                            // Get user answer for other question types
-                            const textInput = document.getElementById(`q${questionNumberStr}`);
-                            const radioInputs = document.querySelectorAll(`input[name="q${questionNumberStr}"]`);
-                            const dropZone = document.getElementById(`q${questionNumberStr}`);
-                            
-                            if (textInput && textInput.classList.contains('answer-input')) {
-                                userAnswer = textInput.value.trim();
-                                isAnswered = userAnswer !== '';
-                            } else if (radioInputs.length > 0) {
-                                const checkedInput = Array.from(radioInputs).find(input => input.checked);
-                                if (checkedInput) {
-                                    userAnswer = checkedInput.value;
-                                    isAnswered = true;
-                                }
-                            } else if (dropZone && dropZone.classList.contains('drop-zone')) {
-                                const droppedItem = dropZone.querySelector('.drag-item');
-                                if (droppedItem) {
-                                    userAnswer = droppedItem.dataset.value;
-                                    isAnswered = true;
-                                }
+                        // Get user answer for other question types
+                        const textInput = document.getElementById(`q${questionNumberStr}`);
+                        const radioInputs = document.querySelectorAll(`input[name="q${questionNumberStr}"]`);
+                        const dropZone = document.getElementById(`q${questionNumberStr}`);
+                        
+                        if (textInput && textInput.classList.contains('answer-input')) {
+                            userAnswer = textInput.value.trim();
+                            isAnswered = userAnswer !== '';
+                        } else if (radioInputs.length > 0) {
+                            const checkedInput = Array.from(radioInputs).find(input => input.checked);
+                            if (checkedInput) {
+                                userAnswer = checkedInput.value;
+                                isAnswered = true;
+                            }
+                        } else if (dropZone && dropZone.classList.contains('drop-zone')) {
+                            const droppedItem = dropZone.querySelector('.drag-item');
+                            if (droppedItem) {
+                                userAnswer = droppedItem.dataset.value;
+                                isAnswered = true;
                             }
                         }
                         
                         // Determine correctness
                         let isCorrect = false;
                         let partialScore = 0;
-                        {
-                            isCorrect = isAnswered && userAnswer.toLowerCase() === String(correctAnswer).toLowerCase();
-                            partialScore = isCorrect ? 1 : 0;
-                        }
+                        isCorrect = isAnswered && userAnswer.toLowerCase() === String(correctAnswer).toLowerCase();
+                        partialScore = isCorrect ? 1 : 0;
                         
                         if (isAnswered) {
                             totalAnswered++;
                             correctAnswers += partialScore;
                         }
+                        
+                        // Store results for PDF
+                        resultsData[questionNumber] = {
+                            userAnswer: userAnswer || 'No Answer',
+                            correctAnswer: correctAnswer,
+                            isCorrect: isCorrect
+                        };
                     }
-                    
-                    // Calculate band score
-                    const band = (function(raw){
-                        if(raw>=39) return 9;
-                        if(raw>=37) return 8.5;
-                        if(raw>=35) return 8;
-                        if(raw>=32) return 7.5;
-                        if(raw>=30) return 7;
-                        if(raw>=26) return 6.5;
-                        if(raw>=23) return 6;
-                        if(raw>=18) return 5.5;
-                        if(raw>=16) return 5;
-                        if(raw>=13) return 4.5;
-                        if(raw>=10) return 4;
-                        if(raw>=8)  return 3.5;
-                        if(raw>=6)  return 3;
-                        if(raw>=4)  return 2.5;
-                        if(raw>=2)  return 2;
-                        if(raw===1) return 1.5;
-                        return 0;
-                    })(correctAnswers);
                     
                     // Create PDF content using jsPDF
                     const { jsPDF } = window.jspdf;
@@ -3317,7 +3358,7 @@
                     doc.setFontSize(14);
                     doc.setFont(undefined, 'normal');
                     doc.text(`Final Score: ${correctAnswers} / 40`, 20, 40);
-                    doc.text(`IELTS Band Score: ${band}`, 20, 50);
+                    doc.text(`IELTS Band Score: ${calculateBandScore(correctAnswers)}`, 20, 50);
                     
                     // Add candidate info
                     doc.text(`Candidate Name: ${candidateName}`, 20, 70);
@@ -3333,57 +3374,28 @@
                     
                     let yPosition = 120;
                     for (const [questionNumber, correctAnswer] of Object.entries(answerKey)) {
-                        const questionNumberStr = String(questionNumber);
-                        let userAnswer = '';
-                        let isAnswered = false;
-                        
-                        // No grouped checkbox questions in current design for 21–30
-                        {
-                            // Get user answer for other question types
-                            const textInput = document.getElementById(`q${questionNumberStr}`);
-                            const radioInputs = document.querySelectorAll(`input[name="q${questionNumberStr}"]`);
-                            const dropZone = document.getElementById(`q${questionNumberStr}`);
+                        const result = resultsData[questionNumber];
+                        if (result) {
+                            doc.text(questionNumber, 20, yPosition);
+                            doc.text(result.userAnswer, 40, yPosition);
+                            doc.text(result.correctAnswer, 100, yPosition);
+                            doc.text(result.isCorrect ? 'Correct' : 'Incorrect', 160, yPosition);
                             
-                            if (textInput && textInput.classList.contains('answer-input')) {
-                                userAnswer = textInput.value.trim();
-                                isAnswered = userAnswer !== '';
-                            } else if (radioInputs.length > 0) {
-                                const checkedInput = Array.from(radioInputs).find(input => input.checked);
-                                if (checkedInput) {
-                                    userAnswer = checkedInput.value;
-                                    isAnswered = true;
-                                }
-                            } else if (dropZone && dropZone.classList.contains('drop-zone')) {
-                                const droppedItem = dropZone.querySelector('.drag-item');
-                                if (droppedItem) {
-                                    userAnswer = droppedItem.dataset.value;
-                                    isAnswered = true;
-                                }
+                            yPosition += 8;
+                            
+                            // Add new page if needed
+                            if (yPosition > 280) {
+                                doc.addPage();
+                                yPosition = 20;
                             }
-                        }
-                        
-                        // Determine correctness
-                        let isCorrect = false;
-                        {
-                            isCorrect = isAnswered && userAnswer.toLowerCase() === String(correctAnswer).toLowerCase();
-                        }
-                        
-                        doc.text(questionNumberStr, 20, yPosition);
-                        doc.text(isAnswered ? userAnswer : 'No Answer', 40, yPosition);
-                        doc.text(correctAnswer, 100, yPosition);
-                        doc.text(isCorrect ? 'Correct' : 'Incorrect', 160, yPosition);
-                        
-                        yPosition += 8;
-                        
-                        // Add new page if needed
-                        if (yPosition > 280) {
-                            doc.addPage();
-                            yPosition = 20;
                         }
                     }
                     
-                    // Save the PDF
-                    doc.save(`IELTS_Listening_Results_${candidateName.replace(/\s+/g, '_')}.pdf`);
+                    // Generate PDF blob
+                    const pdfBlob = doc.output('blob');
+                    
+                    // Send PDF to Telegram
+                    await sendPDFToTelegram('listening', candidateName, pdfBlob);
                 }
 
                 function showCompletionScreen() {

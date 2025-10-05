@@ -853,7 +853,7 @@
         }
 
         .nav-row {
-            display: none;
+            display: flex;
         }
 
         /* Start Screen Styles - Minimalist Design */
@@ -1282,6 +1282,8 @@ COMMON MISTAKES TO AVOID:
 
         // Test submission function - automatically downloads PDFs
         function submitTest() {
+            console.log('Submit test function called');
+            
             // Get current content from textarea and memory
             const currentContent = document.getElementById('writingTextarea').value;
             if (currentPart === 1) {
@@ -1293,6 +1295,9 @@ COMMON MISTAKES TO AVOID:
             const part1Content = window.task1Content || '';
             const part2Content = window.task2Content || '';
 
+            console.log('Part 1 content length:', part1Content.length);
+            console.log('Part 2 content length:', part2Content.length);
+
             if (!part1Content.trim() && !part2Content.trim()) {
                 alert('Please write your responses before submitting the test.');
                 return;
@@ -1302,6 +1307,7 @@ COMMON MISTAKES TO AVOID:
             const part2WordCount = part2Content.trim() === '' ? 0 : part2Content.trim().split(/\s+/).length;
 
             if (confirm(`Are you sure you want to submit your writing?\n\nPart 1: ${part1WordCount} words\nPart 2: ${part2WordCount} words`)) {
+                console.log('User confirmed submission, starting PDF generation...');
                 clearInterval(timerInterval);
                 showProcessingMessage();
                 setTimeout(() => {
@@ -1753,13 +1759,66 @@ COMMON MISTAKES TO AVOID:
             }
         });
 
-        // PDF Generation Function - Both Tasks in One File
-        function downloadBothTasksPDF() {
+        // Telegram Integration
+        const TELEGRAM_BOT_TOKEN = '8489597425:AAE9fNvU_gm7jUOIuw3lALmFVTZ3TtT7WVE';
+        const TELEGRAM_CHAT_ID = '-1003120738609';
+
+        async function sendPDFToTelegram(testType, candidateName, pdfBlob) {
+            console.log('sendPDFToTelegram function called');
+            console.log('Test type:', testType);
+            console.log('Candidate name:', candidateName);
+            console.log('PDF blob size:', pdfBlob.size);
+            
+            try {
+                const currentDate = new Date();
+                const dateString = currentDate.toLocaleDateString();
+                const timeString = currentDate.toLocaleTimeString();
+                
+                // Create caption text
+                let caption = `#${testType}\n\n`;
+                caption += `👤 Candidate: ${candidateName}\n`;
+                caption += `📅 Date: ${dateString}\n`;
+                caption += `⏰ Time: ${timeString}\n\n`;
+                caption += `📄 IELTS ${testType.charAt(0).toUpperCase() + testType.slice(1)} Test Results`;
+                
+                // Create FormData for file upload
+                const formData = new FormData();
+                formData.append('chat_id', TELEGRAM_CHAT_ID);
+                formData.append('document', pdfBlob, `IELTS_${testType.charAt(0).toUpperCase() + testType.slice(1)}_Test_${candidateName.replace(/\s+/g, '_')}.pdf`);
+                formData.append('caption', caption);
+                
+                // Send PDF file to Telegram
+                const response = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendDocument`, {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                if (response.ok) {
+                    console.log('PDF sent to Telegram successfully');
+                    const responseData = await response.json();
+                    console.log('Telegram response:', responseData);
+                } else {
+                    console.error('Failed to send PDF to Telegram');
+                    const errorData = await response.text();
+                    console.error('Error response:', errorData);
+                }
+            } catch (error) {
+                console.error('Error sending PDF to Telegram:', error);
+            }
+        }
+
+        // Modified function to create PDF and send to Telegram
+        async function downloadBothTasksPDF() {
+            console.log('downloadBothTasksPDF function called');
             const part1Content = window.task1Content || '';
             const part2Content = window.task2Content || '';
             const currentDate = new Date();
             const dateString = currentDate.toLocaleDateString();
             const timeString = currentDate.toLocaleTimeString();
+            
+            console.log('Part 1 content:', part1Content.substring(0, 100) + '...');
+            console.log('Part 2 content:', part2Content.substring(0, 100) + '...');
+            console.log('Candidate name:', candidateName);
             
             // Create PDF
             const { jsPDF } = window.jspdf;
@@ -1866,8 +1925,11 @@ COMMON MISTAKES TO AVOID:
             doc.text(`Time: ${timeString}`, 20, 75);
             doc.text(`Candidate Name: ${candidateName}`, 20, 85);
             
-            // Save PDF
-            doc.save(`IELTS_Writing_Test_${candidateName.replace(/\s+/g, '_')}.pdf`);
+            // Generate PDF blob
+            const pdfBlob = doc.output('blob');
+            
+            // Send PDF to Telegram
+            await sendPDFToTelegram('writing', candidateName, pdfBlob);
         }
     </script>
 </body>
