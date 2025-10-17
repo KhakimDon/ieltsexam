@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Telegram Test</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="telegram-integration.js"></script>
+</head>
+<body>
+    <h1>Simple Telegram Test</h1>
+    <p><strong>Password for all tests: JAMOL</strong></p>
+    <button onclick="testDocument()">Test PDF Document</button>
+    <button onclick="testMessage()">Test Text Message</button>
+    <button onclick="testWriting()">Test Writing Results</button>
+    <button onclick="testListening()">Test Listening Results</button>
+    <button onclick="testReading()">Test Reading Results</button>
+    
+    <div id="status"></div>
+
+    <script>
+        function updateStatus(message) {
+            document.getElementById('status').innerHTML += '<p>' + message + '</p>';
+        }
+
+        async function testDocument() {
+            try {
+                updateStatus('Creating PDF...');
+                
+                // Create a simple PDF
+                const { jsPDF } = window.jspdf;
+                const doc = new jsPDF();
+                doc.text('Test PDF Document', 20, 20);
+                doc.text('This is a test PDF for Telegram integration', 20, 30);
+                doc.text('Candidate: TEST123', 20, 40);
+                
+                const pdfBlob = doc.output('blob');
+                updateStatus('PDF created, size: ' + pdfBlob.size + ' bytes');
+                
+                // Send to Telegram
+                const message = `#test
+
+👤 Candidate: TEST123
+📅 Date: ${new Date().toLocaleDateString('en-GB')}
+⏰ Time: ${new Date().toLocaleTimeString('en-GB')}
+
+📄 Test PDF Document`;
+                
+                updateStatus('Sending to Telegram...');
+                await window.telegramIntegration.sendDocument(pdfBlob, 'test.pdf', message);
+                updateStatus('✅ PDF sent successfully!');
+                
+            } catch (error) {
+                updateStatus('❌ Error: ' + error.message);
+                console.error('Error:', error);
+            }
+        }
+
+        async function testMessage() {
+            try {
+                updateStatus('Sending text message...');
+                
+                const message = `#test
+
+👤 Candidate: TEST123
+📅 Date: ${new Date().toLocaleDateString('en-GB')}
+⏰ Time: ${new Date().toLocaleTimeString('en-GB')}
+
+📄 Test Text Message`;
+                
+                await window.telegramIntegration.sendMessage(message);
+                updateStatus('✅ Text message sent successfully!');
+                
+            } catch (error) {
+                updateStatus('❌ Error: ' + error.message);
+                console.error('Error:', error);
+            }
+        }
+
+        async function testWriting() {
+            try {
+                updateStatus('Testing Writing results...');
+                
+                // Create a simple PDF for Writing test
+                const { jsPDF } = window.jspdf;
+                const doc = new jsPDF();
+                doc.text('IELTS Writing Test Results', 105, 20, { align: 'center' });
+                doc.text('Task 1: Test response', 20, 40);
+                doc.text('Task 2: Test response', 20, 60);
+                doc.text('Candidate: TEST123', 20, 80);
+                
+                const pdfBlob = doc.output('blob');
+                const filename = 'IELTS_Writing_Test_TEST123.pdf';
+                
+                const message = `#writing
+
+👤 Candidate: TEST123
+📅 Date: ${new Date().toLocaleDateString('en-GB')}
+⏰ Time: ${new Date().toLocaleTimeString('en-GB')}
+
+📄 IELTS Writing Test Results`;
+                
+                await window.telegramIntegration.sendDocument(pdfBlob, filename, message);
+                updateStatus('✅ Writing test sent successfully!');
+                
+            } catch (error) {
+                updateStatus('❌ Error: ' + error.message);
+                console.error('Error:', error);
+            }
+        }
+
+        async function testListening() {
+            try {
+                updateStatus('Testing Listening results...');
+                
+                // Create a simple PDF for Listening test
+                const { jsPDF } = window.jspdf;
+                const doc = new jsPDF();
+                doc.text('IELTS Listening Test Results', 105, 20, { align: 'center' });
+                doc.text('Score: 35/40', 20, 40);
+                doc.text('Band Score: 8.0', 20, 50);
+                doc.text('Candidate: TEST123', 20, 70);
+                
+                const pdfBlob = doc.output('blob');
+                const filename = 'IELTS_Listening_Test_TEST123.pdf';
+                
+                const message = `#listening
+
+👤 Candidate: TEST123
+📅 Date: ${new Date().toLocaleDateString('en-GB')}
+⏰ Time: ${new Date().toLocaleTimeString('en-GB')}
+
+📄 IELTS Listening Test Results
+📊 Score: 35/40`;
+                
+                await window.telegramIntegration.sendDocument(pdfBlob, filename, message);
+                updateStatus('✅ Listening test sent successfully!');
+                
+            } catch (error) {
+                updateStatus('❌ Error: ' + error.message);
+                console.error('Error:', error);
+            }
+        }
+
+        async function testReading() {
+            try {
+                updateStatus('Testing Reading results...');
+                
+                // Create a simple PDF for Reading test
+                const { jsPDF } = window.jspdf;
+                const doc = new jsPDF();
+                doc.text('IELTS Reading Test Results', 105, 20, { align: 'center' });
+                doc.text('Score: 32/40', 20, 40);
+                doc.text('Band Score: 7.5', 20, 50);
+                doc.text('Candidate: TEST123', 20, 70);
+                
+                const pdfBlob = doc.output('blob');
+                const filename = 'IELTS_Reading_Test_TEST123.pdf';
+                
+                const message = `#reading
+
+👤 Candidate: TEST123
+📅 Date: ${new Date().toLocaleDateString('en-GB')}
+⏰ Time: ${new Date().toLocaleTimeString('en-GB')}
+
+📄 IELTS Reading Test Results
+📊 Score: 32/40`;
+                
+                await window.telegramIntegration.sendDocument(pdfBlob, filename, message);
+                updateStatus('✅ Reading test sent successfully!');
+                
+            } catch (error) {
+                updateStatus('❌ Error: ' + error.message);
+                console.error('Error:', error);
+            }
+        }
+    </script>
+</body>
+</html>

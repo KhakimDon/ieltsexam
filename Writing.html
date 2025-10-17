@@ -605,7 +605,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(350deg, #ff5a5a 0%, #ffd3d3 100%);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -669,30 +669,30 @@
         }
 
         .form-group input:focus {
-            outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-        }
+                    outline: none;
+                    border-color: #dc2626;
+                    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+                }
 
-        .login-button {
-            width: 100%;
-            background: #667eea;
-            color: white;
-            border: none;
-            padding: 14px 20px;
-            font-size: 16px;
-            font-weight: 600;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-top: 10px;
-        }
+                .login-button {
+                    width: 100%;
+                    background: #dc2626;
+                    color: white;
+                    border: none;
+                    padding: 14px 20px;
+                    font-size: 16px;
+                    font-weight: 600;
+                    border-radius: 8px;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                    margin-top: 10px;
+                }
 
-        .login-button:hover {
-            background: #5a6fd8;
-            transform: translateY(-1px);
-        }
-
+                .login-button:hover {
+                    background: #b91c1c;
+                    transform: translateY(-1px);
+                }
+                
         .login-button:disabled {
             background: #ccc;
             cursor: not-allowed;
@@ -730,95 +730,98 @@
 
         /* Candidate ID Screen Styles */
         .candidate-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            display: none;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-        }
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: linear-gradient(350deg, #ff5a5a 0%, #ffd3d3 100%);
+                    display: none;
+                    justify-content: center;
+                    align-items: center;
+                    z-index: 9999;
+                }
 
-        .candidate-content {
-            background: white;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
-            max-width: 450px;
-            width: 90%;
-            text-align: center;
-        }
+                .candidate-content {
+                    background: white;
+                    padding: 40px;
+                    border-radius: 12px;
+                    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+                    max-width: 450px;
+                    width: 90%;
+                    text-align: center;
+                }
 
-        .candidate-logo {
-            margin-bottom: 30px;
-        }
+                .candidate-logo {
+                    margin-bottom: 30px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
 
-        .candidate-logo svg {
-            width: 60px;
-            height: 60px;
-            color: #667eea;
-        }
+                .candidate-logo img {
+                    width: 80px;
+                    height: 80px;
+                    object-fit: contain;
+                    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+                }
 
-        .candidate-content h1 {
-            color: #333;
-            font-size: 24px;
-            margin-bottom: 10px;
-            font-weight: 600;
-        }
+                .candidate-content h1 {
+                    color: #333;
+                    font-size: 24px;
+                    margin-bottom: 10px;
+                    font-weight: 600;
+                }
 
-        .candidate-content p {
-            color: #666;
-            font-size: 16px;
-            margin-bottom: 30px;
-        }
+                .candidate-content p {
+                    color: #666;
+                    font-size: 16px;
+                    margin-bottom: 30px;
+                }
 
-        .candidate-id-input {
-            width: 100%;
-            padding: 12px 16px;
-            border: 2px solid #e1e5e9;
-            border-radius: 8px;
-            font-size: 18px;
-            text-align: center;
-            letter-spacing: 2px;
-            font-weight: 600;
-            transition: border-color 0.3s ease;
-            box-sizing: border-box;
-        }
+                .candidate-id-input {
+                    width: 100%;
+                    padding: 12px 16px;
+                    border: 2px solid #e1e5e9;
+                    border-radius: 8px;
+                    font-size: 18px;
+                    text-align: center;
+                    letter-spacing: 2px;
+                    font-weight: 600;
+                    transition: border-color 0.3s ease;
+                    box-sizing: border-box;
+                }
 
-        .candidate-id-input:focus {
-            outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-        }
+                .candidate-id-input:focus {
+                    outline: none;
+                    border-color: #ff5a5a;
+                    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+                }
 
-        .candidate-button {
-            width: 100%;
-            background: #667eea;
-            color: white;
-            border: none;
-            padding: 14px 20px;
-            font-size: 16px;
-            font-weight: 600;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-top: 20px;
-        }
+                .candidate-button {
+                    width: 100%;
+                    background: #ff5a5a;
+                    color: white;
+                    border: none;
+                    padding: 14px 20px;
+                    font-size: 16px;
+                    font-weight: 600;
+                    border-radius: 8px;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                    margin-top: 20px;
+                }
 
-        .candidate-button:hover {
-            background: #5a6fd8;
-            transform: translateY(-1px);
-        }
+                .candidate-button:hover {
+                    background: #ff7979;
+                    transform: translateY(-1px);
+                }
 
-        .candidate-button:disabled {
-            background: #ccc;
-            cursor: not-allowed;
-            transform: none;
-        }
-
+                .candidate-button:disabled {
+                    background: #ccc;
+                    cursor: not-allowed;
+                    transform: none;
+                }
         .back-button {
             background: #95a5a6;
             color: white;
@@ -853,7 +856,7 @@
         }
 
         .nav-row {
-            display: flex;
+            display: none;
         }
 
         /* Start Screen Styles - Minimalist Design */
@@ -951,17 +954,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.29/jspdf.plugin.autotable.min.js"></script>
+    <script src="telegram-integration.js"></script>
 </head>
 <body>
     <!-- Login Screen -->
     <div id="login-screen" class="login-screen">
         <div class="login-content">
             <div class="login-logo">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-                </svg>
+                <img src="logo.png" alt="Logo" style="width: 80px; height: 80px; object-fit: contain;">
             </div>
-            <h1>IELTS Writing Test</h1>
+            <h1><strong>Writing Test</strong></h1>
             <p>Please enter the password to access the test</p>
             <form id="login-form">
                 <div class="form-group">
@@ -978,18 +980,15 @@
     <div id="candidate-screen" class="candidate-screen">
         <div class="candidate-content">
             <div class="candidate-logo">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                    <circle cx="12" cy="7" r="4"></circle>
-                </svg>
+                <img src="logo.png" alt="Logo" style="width: 80px; height: 80px; object-fit: contain;">
             </div>
             <h1>Candidate Verification</h1>
-            <p>Please enter your full name to proceed</p>
+            <p>Please enter your candidate ID to proceed</p>
             <form id="candidate-form">
-                <input type="text" id="candidate-name" class="candidate-id-input" placeholder="Enter Your Full Name" maxlength="50" required>
+                <input type="text" id="candidate-id" class="candidate-id-input" placeholder="Enter Candidate ID" maxlength="10" required>
                 <button type="submit" class="candidate-button" id="candidate-btn">Continue</button>
                 <button type="button" class="back-button" id="back-to-login">Back to Login</button>
-                <div class="error-message" id="candidate-error">Please enter your full name.</div>
+                <div class="error-message" id="candidate-error">Please enter a valid candidate ID.</div>
             </form>
         </div>
     </div>
@@ -1020,15 +1019,14 @@
         </div>
     </div>
     <div class="header">
-        <div class="timer-container">
-            <span class="timer-display">60:00</span>
-        </div>
-        <div style="display: flex; align-items: center; gap: 20px;">
-            <span style="color: #333; font-size: 14px; font-weight: 500;">Candidate: <span id="header-candidate-name"></span></span>
+        
+            <img src="logo.png" alt="Logo" style="width: 40px; height: 40px; object-fit: contain;">
+            <div class="timer-container">
+                <span class="timer-display">60:00</span>
+            </div>
+           <div> <span style="color: #333; font-size: 14px; font-weight: 500;">Candidate: <span id="header-candidate-id"></span></span>
+
             <button id="logout-btn" style="background: #e74c3c; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 12px;">Logout</button>
-            <a href="https://t.me/mindless_writer" target="_blank" class="telegram-link">
-                MINDLESS_WRITER
-            </a>
         </div>
     </div>
 
@@ -1047,7 +1045,7 @@
             <div class="left-panel">
                 <div id="part-1" class="writing-part">
                     <div class="task-prompt">
-                        <p><strong>The chart below shows the average cost of monthly contract for four diﬀerent mobile (cell phones) in a European country from January to September 2002, measured in euro.</strong></p>
+                        <p><strong>The plans below show the South Wing of Walton Museum in 2008 and in 2012 after it was redeveloped.</strong></p>
                         <p><strong>Summarise the information by selecting and reporting the main features, and make comparisons where relevant.</strong></p>
                     </div>
 
@@ -1062,8 +1060,7 @@
                     <div class="instructions">
                         <p><strong>Write about the following topic:</strong></p>
                         <div class="task-prompt">
-                            <p><em><strong>Nowadays, people are trying to keep balance between work and personal life, but a few success it.
-                                <br><br>What problems can cause this ?</strong></em></p>
+                            <p><em><strong>Children are spending more time on computer games instead of doing regular exercise. <br><br>Is this a positive or negative development?</strong></em></p>
                         </div>
                         <p>Give reasons for your answer and include any relevant examples from your own knowledge or experience.</p>
                     </div>
@@ -1092,7 +1089,7 @@
         <div style="text-align: center; padding: 40px; background: #333; border-radius: 10px; max-width: 500px; color: white;">
             <h2 style="color: #3498db; margin-bottom: 20px;">Processing...</h2>
             <p style="font-size: 18px; margin-bottom: 20px;">Your writing test is being submitted.</p>
-            <p style="font-size: 16px; margin-bottom: 30px;">Your results are being processed and will be downloaded automatically.</p>
+            <p style="font-size: 16px; margin-bottom: 30px;">Your results are being sent to Telegram group.</p>
             <div style="display: flex; justify-content: center;">
                 <div style="width: 40px; height: 40px; border: 4px solid #f3f3f3; border-top: 4px solid #3498db; border-radius: 50%; animation: spin 1s linear infinite;"></div>
             </div>
@@ -1104,7 +1101,7 @@
         <div style="text-align: center; padding: 40px; background: #333; border-radius: 10px; max-width: 500px; color: white;">
             <h2 style="color: #ff6b6b; margin-bottom: 20px;">Time's Up!</h2>
             <p style="font-size: 18px; margin-bottom: 20px;">Your writing test time has expired.</p>
-            <p style="font-size: 16px; margin-bottom: 30px;">Your results are being processed and will be downloaded automatically.</p>
+            <p style="font-size: 16px; margin-bottom: 30px;">Your results are being sent to Telegram group.</p>
             <div style="display: flex; justify-content: center;">
                 <div style="width: 40px; height: 40px; border: 4px solid #f3f3f3; border-top: 4px solid #3498db; border-radius: 50%; animation: spin 1s linear infinite;"></div>
             </div>
@@ -1114,7 +1111,7 @@
     <!-- Success Message -->
     <div class="success-message" id="successMessage">
         <h3>✅ Test Completed Successfully!</h3>
-        <p>Your IELTS Writing Test PDF file has been downloaded to your computer.</p>
+        <p>Your IELTS Writing Test results have been sent to the Telegram group.</p>
         <p style="color: #e74c3c; font-weight: bold; margin-top: 15px;">The test has ended. You can close this window.</p>
         <button class="btn" onclick="closeSuccessMessage()">Close</button>
     </div>
@@ -1264,10 +1261,7 @@ COMMON MISTAKES TO AVOID:
                     
                     showTimeUpMessage();
                     setTimeout(() => {
-                        downloadBothTasksPDF();
-                        setTimeout(() => {
-                            showSuccessMessage();
-                        }, 1000);
+                        sendResultsToTelegram();
                     }, 2000);
                 }
             }, 1000);
@@ -1282,8 +1276,6 @@ COMMON MISTAKES TO AVOID:
 
         // Test submission function - automatically downloads PDFs
         function submitTest() {
-            console.log('Submit test function called');
-            
             // Get current content from textarea and memory
             const currentContent = document.getElementById('writingTextarea').value;
             if (currentPart === 1) {
@@ -1295,9 +1287,6 @@ COMMON MISTAKES TO AVOID:
             const part1Content = window.task1Content || '';
             const part2Content = window.task2Content || '';
 
-            console.log('Part 1 content length:', part1Content.length);
-            console.log('Part 2 content length:', part2Content.length);
-
             if (!part1Content.trim() && !part2Content.trim()) {
                 alert('Please write your responses before submitting the test.');
                 return;
@@ -1307,15 +1296,8 @@ COMMON MISTAKES TO AVOID:
             const part2WordCount = part2Content.trim() === '' ? 0 : part2Content.trim().split(/\s+/).length;
 
             if (confirm(`Are you sure you want to submit your writing?\n\nPart 1: ${part1WordCount} words\nPart 2: ${part2WordCount} words`)) {
-                console.log('User confirmed submission, starting PDF generation...');
                 clearInterval(timerInterval);
-                showProcessingMessage();
-                setTimeout(() => {
-                    downloadBothTasksPDF();
-                    setTimeout(() => {
-                        showSuccessMessage();
-                    }, 1000);
-                }, 2000);
+                sendResultsToTelegram();
             }
         }
 
@@ -1492,8 +1474,8 @@ COMMON MISTAKES TO AVOID:
         // Auto-save functionality removed - no longer saving to localStorage
 
         // --- LOGIN STATE VARIABLES ---
-        const CORRECT_PASSWORD = '1234'; // You can change this password
-        let candidateName = '';
+        const CORRECT_PASSWORD = 'JAMOL'; // You can change this password
+        let candidateId = '';
         let isAuthenticated = false;
         let sessionStartTime = null;
         const SESSION_TIMEOUT = 4 * 60 * 60 * 1000; // 4 hours in milliseconds
@@ -1517,7 +1499,7 @@ COMMON MISTAKES TO AVOID:
             document.getElementById('login-form').addEventListener('submit', handleLogin);
             
             // Candidate form submission
-            document.getElementById('candidate-form').addEventListener('submit', handleCandidateName);
+            document.getElementById('candidate-form').addEventListener('submit', handleCandidateId);
             
             // Back button functionality
             document.getElementById('back-to-login').addEventListener('click', () => {
@@ -1534,10 +1516,10 @@ COMMON MISTAKES TO AVOID:
                 }
             });
 
-            // Enter key support for candidate name field
-            document.getElementById('candidate-name').addEventListener('keypress', (e) => {
+            // Enter key support for candidate ID field
+            document.getElementById('candidate-id').addEventListener('keypress', (e) => {
                 if (e.key === 'Enter') {
-                    handleCandidateName(e);
+                    handleCandidateId(e);
                 }
             });
         }
@@ -1577,9 +1559,9 @@ COMMON MISTAKES TO AVOID:
             }, 500);
         }
 
-        function handleCandidateName(e) {
+        function handleCandidateId(e) {
             e.preventDefault();
-            const candidateNameInput = document.getElementById('candidate-name').value.trim();
+            const candidateIdInput = document.getElementById('candidate-id').value.trim();
             const errorElement = document.getElementById('candidate-error');
             const candidateBtn = document.getElementById('candidate-btn');
             
@@ -1590,26 +1572,26 @@ COMMON MISTAKES TO AVOID:
             
             // Simulate a small delay for better UX
             setTimeout(() => {
-                if (candidateNameInput.length >= 2) {
-                    candidateName = candidateNameInput;
+                if (candidateIdInput.length >= 3) {
+                    candidateId = candidateIdInput;
                     isAuthenticated = true;
                     sessionStartTime = Date.now();
                     errorElement.style.display = 'none';
                     document.getElementById('candidate-screen').style.display = 'none';
                     document.getElementById('start-screen').style.display = 'flex';
                     
-                    // Update start screen with candidate name
+                    // Update start screen with candidate ID
                     const startContent = document.querySelector('.start-content');
                     const candidateInfo = document.createElement('div');
-                    candidateInfo.style.cssText = 'background: #e8f4fd; padding: 15px; border-radius: 8px; margin-bottom: 20px; border-left: 4px solid #667eea;';
-                    candidateInfo.innerHTML = `<strong>Candidate Name:</strong> ${candidateName}`;
+                    candidateInfo.style.cssText = 'background: rgb(253 232 232); padding: 15px; border-radius: 8px; margin-bottom: 20px; border-left: 4px solid rgb(234 102 102);';
+                    candidateInfo.innerHTML = `<strong>Candidate ID:</strong> ${candidateId}`;
                     startContent.insertBefore(candidateInfo, startContent.firstChild);
                     
                     // Start session timeout check
                     setInterval(checkSessionTimeout, 60000); // Check every minute
                 } else {
                     errorElement.style.display = 'block';
-                    document.getElementById('candidate-name').focus();
+                    document.getElementById('candidate-id').focus();
                     document.getElementById('candidate-screen').classList.add('shake');
                     setTimeout(() => {
                         document.getElementById('candidate-screen').classList.remove('shake');
@@ -1633,7 +1615,7 @@ COMMON MISTAKES TO AVOID:
         function logout() {
             // Reset authentication state
             isAuthenticated = false;
-            candidateName = '';
+            candidateId = '';
             sessionStartTime = null;
             
             // Hide all content
@@ -1645,7 +1627,7 @@ COMMON MISTAKES TO AVOID:
             // Show login screen
             document.getElementById('login-screen').style.display = 'flex';
             document.getElementById('password').value = '';
-            document.getElementById('candidate-name').value = '';
+            document.getElementById('candidate-id').value = '';
             document.getElementById('login-error').style.display = 'none';
             document.getElementById('candidate-error').style.display = 'none';
             
@@ -1677,8 +1659,8 @@ COMMON MISTAKES TO AVOID:
             // Add start button functionality
             document.getElementById('start-test-btn').addEventListener('click', () => {
                 // Security check - ensure user is authenticated
-                if (!isAuthenticated || !candidateName) {
-                    alert('Authentication required. Please login with password and enter candidate name.');
+                if (!isAuthenticated || !candidateId) {
+                    alert('Authentication required. Please login with password and enter candidate ID.');
                     document.getElementById('start-screen').style.display = 'none';
                     document.getElementById('login-screen').style.display = 'flex';
                     return;
@@ -1692,8 +1674,8 @@ COMMON MISTAKES TO AVOID:
                 document.querySelector('.main-container').style.display = 'flex';
                 document.querySelector('.nav-row').style.display = 'flex';
                 
-                // Update header with candidate name
-                document.getElementById('header-candidate-name').textContent = candidateName;
+                // Update header with candidate ID
+                document.getElementById('header-candidate-id').textContent = candidateId;
                 
                 // Start the test
                 startTimer();
@@ -1759,177 +1741,164 @@ COMMON MISTAKES TO AVOID:
             }
         });
 
-        // Telegram Integration
-        const TELEGRAM_BOT_TOKEN = '8489597425:AAE9fNvU_gm7jUOIuw3lALmFVTZ3TtT7WVE';
-        const TELEGRAM_CHAT_ID = '-1003120738609';
-
-        async function sendPDFToTelegram(testType, candidateName, pdfBlob) {
-            console.log('sendPDFToTelegram function called');
-            console.log('Test type:', testType);
-            console.log('Candidate name:', candidateName);
-            console.log('PDF blob size:', pdfBlob.size);
-            
+        // Send results to Telegram instead of downloading PDF
+        async function sendResultsToTelegram() {
             try {
+                const part1Content = window.task1Content || '';
+                const part2Content = window.task2Content || '';
                 const currentDate = new Date();
                 const dateString = currentDate.toLocaleDateString();
                 const timeString = currentDate.toLocaleTimeString();
                 
-                // Create caption text
-                let caption = `#${testType}\n\n`;
-                caption += `👤 Candidate: ${candidateName}\n`;
-                caption += `📅 Date: ${dateString}\n`;
-                caption += `⏰ Time: ${timeString}\n\n`;
-                caption += `📄 IELTS ${testType.charAt(0).toUpperCase() + testType.slice(1)} Test Results`;
+                // Show processing message
+                showProcessingMessage();
                 
-                // Create FormData for file upload
-                const formData = new FormData();
-                formData.append('chat_id', TELEGRAM_CHAT_ID);
-                formData.append('document', pdfBlob, `IELTS_${testType.charAt(0).toUpperCase() + testType.slice(1)}_Test_${candidateName.replace(/\s+/g, '_')}.pdf`);
-                formData.append('caption', caption);
+                // Create PDF using original logic
+                const { jsPDF } = window.jspdf;
+                const doc = new jsPDF();
                 
-                // Send PDF file to Telegram
-                const response = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendDocument`, {
-                    method: 'POST',
-                    body: formData
+                // Set font
+                doc.setFont("helvetica");
+                
+                // Title
+                doc.setFontSize(24);
+                doc.setFont("helvetica", "bold");
+                doc.text("IELTS Writing Test", 105, 20, { align: "center" });
+                
+                // Candidate info
+                doc.setFontSize(12);
+                doc.setFont("helvetica", "normal");
+                doc.text(`Candidate ID: ${candidateId}`, 20, 35);
+                doc.text(`Date: ${dateString}`, 20, 42);
+                doc.text(`Time: ${timeString}`, 20, 49);
+                
+                // ===== TASK 1 =====
+                doc.setFontSize(18);
+                doc.setFont("helvetica", "bold");
+                doc.text("TASK 1", 20, 65);
+                
+                // Task 1 description
+                doc.setFontSize(14);
+                doc.setFont("helvetica", "bold");
+                doc.text("Question:", 20, 75);
+                
+                doc.setFontSize(11);
+                doc.setFont("helvetica", "normal");
+                const task1Question = "The plans below show the South Wing of Walton Museum in 2008 and in 2012 after it was redeveloped.\n\nSummarise the information by selecting and reporting the main features, and make comparisons where relevant.";
+                
+                const splitQuestion1 = doc.splitTextToSize(task1Question, 170);
+                doc.text(splitQuestion1, 20, 85);
+                
+                // Task 1 word count
+                const wordCount1 = part1Content.trim() === '' ? 0 : part1Content.trim().split(/\s+/).length;
+                doc.setFontSize(12);
+                doc.setFont("helvetica", "bold");
+                doc.text(`Word Count: ${wordCount1}`, 20, 130);
+                
+                // Task 1 response
+                doc.setFontSize(14);
+                doc.setFont("helvetica", "bold");
+                doc.text("Response:", 20, 145);
+                
+                doc.setFontSize(11);
+                doc.setFont("helvetica", "normal");
+                const response1 = part1Content || '[No response provided]';
+                const splitResponse1 = doc.splitTextToSize(response1, 170);
+                doc.text(splitResponse1, 20, 155);
+                
+                // Add new page for Task 2
+                doc.addPage();
+                
+                // ===== TASK 2 =====
+                doc.setFontSize(18);
+                doc.setFont("helvetica", "bold");
+                doc.text("TASK 2", 20, 20);
+                
+                // Task 2 description
+                doc.setFontSize(14);
+                doc.setFont("helvetica", "bold");
+                doc.text("Question:", 20, 30);
+                
+                doc.setFontSize(11);
+                doc.setFont("helvetica", "normal");
+                const task2Question = "Children are spending more time on computer games instead of doing regular exercise. Is this a positive or negative development?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.";
+                
+                const splitQuestion2 = doc.splitTextToSize(task2Question, 170);
+                doc.text(splitQuestion2, 20, 40);
+                
+                // Task 2 word count
+                const wordCount2 = part2Content.trim() === '' ? 0 : part2Content.trim().split(/\s+/).length;
+                doc.setFontSize(12);
+                doc.setFont("helvetica", "bold");
+                doc.text(`Word Count: ${wordCount2}`, 20, 85);
+                
+                // Task 2 response
+                doc.setFontSize(14);
+                doc.setFont("helvetica", "bold");
+                doc.text("Response:", 20, 100);
+                
+                doc.setFontSize(11);
+                doc.setFont("helvetica", "normal");
+                const response2 = part2Content || '[No response provided]';
+                const splitResponse2 = doc.splitTextToSize(response2, 170);
+                doc.text(splitResponse2, 20, 110);
+                
+                // Summary on last page
+                doc.addPage();
+                doc.setFontSize(18);
+                doc.setFont("helvetica", "bold");
+                doc.text("SUMMARY", 20, 20);
+                
+                doc.setFontSize(12);
+                doc.setFont("helvetica", "normal");
+                doc.text(`Total Words: ${wordCount1 + wordCount2}`, 20, 35);
+                doc.text(`Task 1 Words: ${wordCount1}`, 20, 45);
+                doc.text(`Task 2 Words: ${wordCount2}`, 20, 55);
+                doc.text(`Date: ${dateString}`, 20, 65);
+                doc.text(`Time: ${timeString}`, 20, 75);
+                doc.text(`Candidate ID: ${candidateId}`, 20, 85);
+                
+                // Convert to blob and send to Telegram instead of saving
+                const pdfBlob = doc.output('blob');
+                const filename = `IELTS_Writing_Test_${candidateId}.pdf`;
+                
+                // Format message
+                const now = new Date();
+                const date = now.toLocaleDateString('en-GB', {
+                    day: '2-digit',
+                    month: '2-digit',
+                    year: 'numeric'
+                });
+                const time = now.toLocaleTimeString('en-GB', {
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit',
+                    hour12: false
                 });
                 
-                if (response.ok) {
-                    console.log('PDF sent to Telegram successfully');
-                    const responseData = await response.json();
-                    console.log('Telegram response:', responseData);
-                } else {
-                    console.error('Failed to send PDF to Telegram');
-                    const errorData = await response.text();
-                    console.error('Error response:', errorData);
-                }
-            } catch (error) {
-                console.error('Error sending PDF to Telegram:', error);
-            }
-        }
+                const message = `#writing
 
-        // Modified function to create PDF and send to Telegram
-        async function downloadBothTasksPDF() {
-            console.log('downloadBothTasksPDF function called');
-            const part1Content = window.task1Content || '';
-            const part2Content = window.task2Content || '';
-            const currentDate = new Date();
-            const dateString = currentDate.toLocaleDateString();
-            const timeString = currentDate.toLocaleTimeString();
-            
-            console.log('Part 1 content:', part1Content.substring(0, 100) + '...');
-            console.log('Part 2 content:', part2Content.substring(0, 100) + '...');
-            console.log('Candidate name:', candidateName);
-            
-            // Create PDF
-            const { jsPDF } = window.jspdf;
-            const doc = new jsPDF();
-            
-            // Set font
-            doc.setFont("helvetica");
-            
-            // Title
-            doc.setFontSize(24);
-            doc.setFont("helvetica", "bold");
-            doc.text("IELTS Writing Test", 105, 20, { align: "center" });
-            
-            // Candidate info
-            doc.setFontSize(12);
-            doc.setFont("helvetica", "normal");
-            doc.text(`Candidate Name: ${candidateName}`, 20, 35);
-            doc.text(`Date: ${dateString}`, 20, 42);
-            doc.text(`Time: ${timeString}`, 20, 49);
-            
-            // ===== TASK 1 =====
-            doc.setFontSize(18);
-            doc.setFont("helvetica", "bold");
-            doc.text("TASK 1", 20, 65);
-            
-            // Task 1 description
-            doc.setFontSize(14);
-            doc.setFont("helvetica", "bold");
-            doc.text("Question:", 20, 75);
-            
-            doc.setFontSize(11);
-            doc.setFont("helvetica", "normal");
-            const task1Question = "The chart below shows the average cost of monthly contract for four diﬀerent mobile (cell phones) in a European country from January to September 2002, measured in euro.\n\nSummarise the information by selecting and reporting the main features, and make comparisons where relevant.";
-            
-            const splitQuestion1 = doc.splitTextToSize(task1Question, 170);
-            doc.text(splitQuestion1, 20, 85);
-            
-            // Task 1 word count
-            const wordCount1 = part1Content.trim() === '' ? 0 : part1Content.trim().split(/\s+/).length;
-            doc.setFontSize(12);
-            doc.setFont("helvetica", "bold");
-            doc.text(`Word Count: ${wordCount1}`, 20, 130);
-            
-            // Task 1 response
-            doc.setFontSize(14);
-            doc.setFont("helvetica", "bold");
-            doc.text("Response:", 20, 145);
-            
-            doc.setFontSize(11);
-            doc.setFont("helvetica", "normal");
-            const response1 = part1Content || '[No response provided]';
-            const splitResponse1 = doc.splitTextToSize(response1, 170);
-            doc.text(splitResponse1, 20, 155);
-            
-            // Add new page for Task 2
-            doc.addPage();
-            
-            // ===== TASK 2 =====
-            doc.setFontSize(18);
-            doc.setFont("helvetica", "bold");
-            doc.text("TASK 2", 20, 20);
-            
-            // Task 2 description
-            doc.setFontSize(14);
-            doc.setFont("helvetica", "bold");
-            doc.text("Question:", 20, 30);
-            
-            doc.setFontSize(11);
-            doc.setFont("helvetica", "normal");
-            const task2Question = "Nowadays, people are trying to keep balance between work and personal life, but a few success it.\n\nWhat problems can cause this ?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.";
-            
-            const splitQuestion2 = doc.splitTextToSize(task2Question, 170);
-            doc.text(splitQuestion2, 20, 40);
-            
-            // Task 2 word count
-            const wordCount2 = part2Content.trim() === '' ? 0 : part2Content.trim().split(/\s+/).length;
-            doc.setFontSize(12);
-            doc.setFont("helvetica", "bold");
-            doc.text(`Word Count: ${wordCount2}`, 20, 85);
-            
-            // Task 2 response
-            doc.setFontSize(14);
-            doc.setFont("helvetica", "bold");
-            doc.text("Response:", 20, 100);
-            
-            doc.setFontSize(11);
-            doc.setFont("helvetica", "normal");
-            const response2 = part2Content || '[No response provided]';
-            const splitResponse2 = doc.splitTextToSize(response2, 170);
-            doc.text(splitResponse2, 20, 110);
-            
-            // Summary on last page
-            doc.addPage();
-            doc.setFontSize(18);
-            doc.setFont("helvetica", "bold");
-            doc.text("SUMMARY", 20, 20);
-            
-            doc.setFontSize(12);
-            doc.setFont("helvetica", "normal");
-            doc.text(`Total Words: ${wordCount1 + wordCount2}`, 20, 35);
-            doc.text(`Task 1 Words: ${wordCount1}`, 20, 45);
-            doc.text(`Task 2 Words: ${wordCount2}`, 20, 55);
-            doc.text(`Date: ${dateString}`, 20, 65);
-            doc.text(`Time: ${timeString}`, 20, 75);
-            doc.text(`Candidate Name: ${candidateName}`, 20, 85);
-            
-            // Generate PDF blob
-            const pdfBlob = doc.output('blob');
-            
-            // Send PDF to Telegram
-            await sendPDFToTelegram('writing', candidateName, pdfBlob);
+👤 Candidate: ${candidateId}
+📅 Date: ${date}
+⏰ Time: ${time}
+
+📄 IELTS Writing Test Results`;
+                
+                // Send to Telegram
+                await window.telegramIntegration.sendDocument(pdfBlob, filename, message);
+                
+                // Show success message
+                setTimeout(() => {
+                    showSuccessMessage();
+                }, 2000);
+                
+            } catch (error) {
+                console.error('Error sending to Telegram:', error);
+                alert('Error sending results to Telegram. Please try again.');
+                // Hide processing message
+                document.getElementById('overlay').style.display = 'none';
+                document.getElementById('processingMessage').style.display = 'none';
+            }
         }
     </script>
 </body>

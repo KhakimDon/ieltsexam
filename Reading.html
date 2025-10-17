@@ -25,7 +25,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(350deg, #ff5a5a 0%, #ffd3d3 100%);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -89,30 +89,30 @@
         }
 
         .form-group input:focus {
-            outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-        }
+                    outline: none;
+                    border-color: #dc2626;
+                    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+                }
 
-        .login-button {
-            width: 100%;
-            background: #667eea;
-            color: white;
-            border: none;
-            padding: 14px 20px;
-            font-size: 16px;
-            font-weight: 600;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-top: 10px;
-        }
+                .login-button {
+                    width: 100%;
+                    background: #dc2626;
+                    color: white;
+                    border: none;
+                    padding: 14px 20px;
+                    font-size: 16px;
+                    font-weight: 600;
+                    border-radius: 8px;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                    margin-top: 10px;
+                }
 
-        .login-button:hover {
-            background: #5a6fd8;
-            transform: translateY(-1px);
-        }
-
+                .login-button:hover {
+                    background: #b91c1c;
+                    transform: translateY(-1px);
+                }
+                
         .login-button:disabled {
             background: #ccc;
             cursor: not-allowed;
@@ -150,94 +150,99 @@
 
         /* Candidate ID Screen Styles */
         .candidate-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            display: none;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-        }
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: linear-gradient(350deg, #ff5a5a 0%, #ffd3d3 100%);
+                    display: none;
+                    justify-content: center;
+                    align-items: center;
+                    z-index: 9999;
+                }
 
-        .candidate-content {
-            background: white;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
-            max-width: 450px;
-            width: 90%;
-            text-align: center;
-        }
+                .candidate-content {
+                    background: white;
+                    padding: 40px;
+                    border-radius: 12px;
+                    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+                    max-width: 450px;
+                    width: 90%;
+                    text-align: center;
+                }
 
-        .candidate-logo {
-            margin-bottom: 30px;
-        }
+                .candidate-logo {
+                    margin-bottom: 30px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
 
-        .candidate-logo svg {
-            width: 60px;
-            height: 60px;
-            color: #667eea;
-        }
+                .candidate-logo img {
+                    width: 80px;
+                    height: 80px;
+                    object-fit: contain;
+                    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+                }
 
-        .candidate-content h1 {
-            color: #333;
-            font-size: 24px;
-            margin-bottom: 10px;
-            font-weight: 600;
-        }
+                .candidate-content h1 {
+                    color: #333;
+                    font-size: 24px;
+                    margin-bottom: 10px;
+                    font-weight: 600;
+                }
 
-        .candidate-content p {
-            color: #666;
-            font-size: 16px;
-            margin-bottom: 30px;
-        }
+                .candidate-content p {
+                    color: #666;
+                    font-size: 16px;
+                    margin-bottom: 30px;
+                }
 
-        .candidate-id-input {
-            width: 100%;
-            padding: 12px 16px;
-            border: 2px solid #e1e5e9;
-            border-radius: 8px;
-            font-size: 18px;
-            text-align: center;
-            letter-spacing: 2px;
-            font-weight: 600;
-            transition: border-color 0.3s ease;
-            box-sizing: border-box;
-        }
+                .candidate-id-input {
+                    width: 100%;
+                    padding: 12px 16px;
+                    border: 2px solid #e1e5e9;
+                    border-radius: 8px;
+                    font-size: 18px;
+                    text-align: center;
+                    letter-spacing: 2px;
+                    font-weight: 600;
+                    transition: border-color 0.3s ease;
+                    box-sizing: border-box;
+                }
 
-        .candidate-id-input:focus {
-            outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-        }
+                .candidate-id-input:focus {
+                    outline: none;
+                    border-color: #ff5a5a;
+                    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+                }
 
-        .candidate-button {
-            width: 100%;
-            background: #667eea;
-            color: white;
-            border: none;
-            padding: 14px 20px;
-            font-size: 16px;
-            font-weight: 600;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-top: 20px;
-        }
+                .candidate-button {
+                    width: 100%;
+                    background: #ff5a5a;
+                    color: white;
+                    border: none;
+                    padding: 14px 20px;
+                    font-size: 16px;
+                    font-weight: 600;
+                    border-radius: 8px;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                    margin-top: 20px;
+                }
 
-        .candidate-button:hover {
-            background: #5a6fd8;
-            transform: translateY(-1px);
-        }
+                .candidate-button:hover {
+                    background: #ff7979;
+                    transform: translateY(-1px);
+                }
 
-        .candidate-button:disabled {
-            background: #ccc;
-            cursor: not-allowed;
-            transform: none;
-        }
+                .candidate-button:disabled {
+                    background: #ccc;
+                    cursor: not-allowed;
+                    transform: none;
+                }
+
 
         .back-button {
             background: #95a5a6;
@@ -731,34 +736,6 @@
             cursor: not-allowed;
         }
 
-        /* Submit Answers Button */
-        .submit-answers-button {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: #dc3545;
-            color: white;
-            border: none;
-            padding: 15px 25px;
-            font-size: 16px;
-            font-weight: 600;
-            border-radius: 8px;
-            cursor: pointer;
-            z-index: 102;
-            box-shadow: 0 4px 12px rgba(220, 53, 69, 0.3);
-            transition: all 0.3s ease;
-        }
-
-        .submit-answers-button:hover {
-            background: #c82333;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(220, 53, 69, 0.4);
-        }
-
-        .submit-answers-button:active {
-            transform: translateY(0);
-        }
-
         /* Bottom Navigation - Exact Match */
         .nav-row {
             position: fixed;
@@ -898,9 +875,9 @@
         .footer__deliverButton___3FM07 {
             margin-left: auto;
             margin-right: 20px;
-            background-color: #f0f0f0;
-            color: #333;
-            border: 1px solid #ccc;
+            background-color: #dc3545;
+            color: #fff;
+            border: 1px solid #dc3545;
             padding: 12px 20px;
             border-radius: 4px;
             font-size: 16px;
@@ -915,8 +892,8 @@
         }
 
         .footer__deliverButton___3FM07:hover {
-            background-color: #e0e0e0;
-            border-color: #bbb;
+            background-color: #c82333;
+            border-color: #bd2130;
         }
 
         .footer__deliverButton___3FM07:disabled {
@@ -1585,79 +1562,6 @@
             display: inline-block;
         }
 
-        /* Matching Table Styles */
-        .matching-table-container {
-            margin: 20px 0;
-        }
-
-        .matching-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
-            background: white;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-
-        .matching-table th {
-            background-color: #4a90e2;
-            color: white;
-            padding: 15px 10px;
-            text-align: center;
-            font-weight: 600;
-            font-size: 16px;
-        }
-
-        .matching-table td {
-            padding: 12px 10px;
-            border: 1px solid #ddd;
-            text-align: center;
-            vertical-align: middle;
-        }
-
-        .matching-table tbody tr:nth-child(even) {
-            background-color: #f8f9fa;
-        }
-
-        .matching-table tbody tr:hover {
-            background-color: #e3f2fd;
-        }
-
-        .matching-table td:first-child {
-            text-align: left;
-            font-weight: 500;
-            background-color: #f8f9fa;
-            border-right: 2px solid #4a90e2;
-        }
-
-        .matching-table input[type="radio"] {
-            transform: scale(1.2);
-            accent-color: #4a90e2;
-        }
-
-        .matching-legend {
-            background-color: #f8f9fa;
-            padding: 15px;
-            border-radius: 8px;
-            border-left: 4px solid #4a90e2;
-            margin-top: 20px;
-        }
-
-        .matching-legend p {
-            margin: 0 0 10px 0;
-            font-weight: 600;
-            color: #333;
-        }
-
-        .matching-legend ul {
-            margin: 0;
-            padding-left: 20px;
-        }
-
-        .matching-legend li {
-            margin-bottom: 5px;
-            color: #555;
-        }
-
         /* Results Modal */
         .modal-overlay {
             position: fixed;
@@ -1842,11 +1746,9 @@
     <div id="login-screen" class="login-screen">
         <div class="login-content">
             <div class="login-logo">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-                </svg>
+                <img src="logo.png" alt="Logo" style="width: 80px; height: 80px; object-fit: contain;">
             </div>
-            <h1>IELTS Reading Test</h1>
+            <h1><strong>Reading Test</strong></h1>
             <p>Please enter the password to access the test</p>
             <form id="login-form">
                 <div class="form-group">
@@ -1863,18 +1765,15 @@
     <div id="candidate-screen" class="candidate-screen">
         <div class="candidate-content">
             <div class="candidate-logo">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                    <circle cx="12" cy="7" r="4"></circle>
-                </svg>
+                <img src="logo.png" alt="Logo" style="width: 80px; height: 80px; object-fit: contain;">
             </div>
             <h1>Candidate Verification</h1>
-            <p>Please enter your full name to proceed</p>
+            <p>Please enter your candidate ID to proceed</p>
             <form id="candidate-form">
-                <input type="text" id="candidate-name" class="candidate-id-input" placeholder="Enter Your Full Name" maxlength="50" required>
+                <input type="text" id="candidate-id" class="candidate-id-input" placeholder="Enter Candidate ID" maxlength="10" required>
                 <button type="submit" class="candidate-button" id="candidate-btn">Continue</button>
                 <button type="button" class="back-button" id="back-to-login">Back to Login</button>
-                <div class="error-message" id="candidate-error">Please enter your full name.</div>
+                <div class="error-message" id="candidate-error">Please enter a valid candidate ID.</div>
             </form>
         </div>
     </div>
@@ -1904,16 +1803,17 @@
     </div>
 
     <div class="header">
-        <div class="timer-container">
-            <span class="timer-display" title="">60:00</span>
-        </div>
-        <div style="display: flex; align-items: center; gap: 20px;">
-            <span style="color: #333; font-size: 14px; font-weight: 500;">Candidate: <span id="header-candidate-name"></span></span>
+       
+        
+            <img src="logo.png" alt="Logo" style="width: 40px; height: 40px; object-fit: contain;">
+            <div class="timer-container">
+                <span class="timer-display" title="">60:00</span>
+            </div>
+            <div>
+                <span style="color: #333; font-size: 14px; font-weight: 500;">Candidate: <span id="header-candidate-id"></span></span>
             <button id="logout-btn" style="background: #e74c3c; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 12px;">Logout</button>
-            <a href="https://t.me/mindless_writer" target="_blank" class="telegram-link">
-                MINDLESS_WRITER
-            </a>
-        </div>
+            </div>
+        
     </div>
 
     <div class="main-container" id="main-container">
@@ -1934,48 +1834,53 @@
         <div class="panels-container">
             <div class="passage-panel" id="passage-panel">
                 <div id="passage-text-1" class="reading-passage">
-                    <h4 class="text-center">The rise and fall of detective stories</h4>
-                    <p><em>Detective stones became hugely popular in the 19th and 20th centuries. William D. Rubinstein looks at why social changes eventually led to their downfall</em></p>
-                    <p>The detective story is normally said to have begun in the fertile brain of the great American writer Edgar Allan Poe (1809-49), especially in his stories featuring the detective C. Auguste Dupin. From 1859, Dupin had a counterpart in Monsleur Lecoq, created by the French author Emile Gaboriau. Despite these American and French origins, it was to Britain that detective fiction migrated, where it too root and flourished, becoming a characteristically British genre.</p>
-                    <p>This transition occurred because of one author and his great detective. The most famous of all fictional detectives, Sherlock Holmes, was introduced by Sir Arthur Conan Doyle in A Study in Scarlet, first published in 1887, and later became the subject of four novels and 56 short stones. Nearly all of the Holmes stones are narrated by his friend Dr Watson. Watson is constantly amazed and stupefied by Holmes genius, but despite years of working with him. Watson is never able to produce these brilliant insights himself. Holmes is memorably eccentric, with a range of endearing and less endearing habits. He is a brilliant private detective, categorically better than the plodding and mediocre officials of Scotland Yard, who constantly turn to him when they are baffled. This in itself is pure fiction: in real life there were never any brilliant private detectives to whom Scotland Yard turned when they failed, and the Yard's Criminal Investigation Department (CID)had a remarkable clear-up rate and was highly competent.</p>
-                    <p>Most of the Holmes stories are set among the higher levels of 19th-century British society, a word inhabited by professional men, retired army officers and country gentlemen, as well as members of royalty and cabinet ministers. Few take place among the working classes or the very poor, whereas in fact much crime was product of the poverty and gangs in London's underworld.</p>
-                    <p>In the 20th century detective stories became increasingly popular. Reading these stories was one of the characteristic Aspects of the British middle classes in the 'golden age' of British detective fiction-the 1920s and 30s. Their emphasis on Rationality, the inevitable triumph of justice. And the existence of an unofficial superdetective tells us much about the society of the time. So, too, do the stock characters and unstated prejudices in these works: country folk and domestic servants were almost always depicted as unintelligent, and women were often depicted in a simplistic, two-dimensional way, although a few female detective writers would present female characters in a more realistic manner.</p>
-                    <p>Most of the well-known British authors of 'golden age' detective stories were drawn from the middle classes, like their audience. Conan Doyle was a doctor who turned to writing fiction while he awaited his patient; Freeman Wills Crofts was a railway engineer in Northern Ireland; Gilberts Keith Chesterton and Anthony Berkeley were journalists; Cecil Street a Career army officer. Apart from a few Superstars such as Agatha Christie, financial rewards for these interwar authors were rather meagre; a few hundred pounds per book-a useful income, but nothing princely.</p>
-                    <p>US writer such as Rex Stout and Ellery Queen attempted to recreate the 'golden age' of British detective fiction. For the most part their books were mere imitations of the British models, although they were seldom wholly successful. But in the 1920s and 1930s, America also saw the rise of the 'hard-boiled' genre and its detective type: the tough private cop who appeared in the works of Dashiell Hammett and Raymond Chandler. Apart from the violence that appeared throughout their works, Hammett's and Chandler's novels were often marked by a political agenda that sought to expose the inequality they saw at the heart of American life. Britain had no real parallel either to their outlook on the world or (until much later) to their violence but upheld the belief that the authorities should punish criminals regardless of their circumstances.</p>
-                    <p>By around 1960, the classic British detective story was in serious decline. It seemed that writers had simply run out of ingenious plots and puzzles for their detectives to solve. The best-known crime fiction writers, such as P D. James, eschewed private detectives for police inspectors, and straightforward puzzles for stories that were full of unexpected twists.</p>
-                    <p>Today the detective story no longer exists in Britain. at least in its old form. Arguably this mirrors the transformation of that society as a whole. The belief that scientific developments were invariably beneficial possibly reached its height during the period when the classic detective story flourished, as did the belief in putting rationality at the heart of Britain's education system. And finally, the central belief that evil-doers would inevitably get their just deserts through the incorruptibility of the judicial system was replaced by a questioning of some of the procedures and decisions associated with that system.</p>
+                    <h4 class="text-center">Building a New Future</h4>
+                    <p style="text-align: center; font-style: italic;">As agriculture in New Zealand has changed over time, some buildings once associated with the farming industry have found new uses.</p>
+                    <p>The first European settlers arrived in the Taranaki region of New Zealand in 1841. Their initial aim was not to be dairy farmers — who keep cows for their milk and make dairy products such as butter. In fact, the dense bush was cleared to grow commercial crops of wheat. However, most of the settlers came from the English counties of Devon and Cornwall, where for generations their families had been involved in dairy farming, so it was natural for them to keep cows for domestic purposes. Throughout the 1840s women made butter for their families, and any extra was traded at local stores for other goods that they would normally have needed to pay for. By the 1860s some farmers had recognised that the region's future lay in grasslands for dairy cows, not crops, and new dairy farms were created as a result. At the same time, a corresponding growth in farmhouse butter production led to a surplus, so clever merchants began packing butter in barrels, preserving it either in brine or layers of dry salt so that it would last for up to two months, and sending it to other parts of the country.</p>
+                    <p>One early trader was a Chinese entrepreneur called Chew Chong, whose name is closely linked to dairy farming in Taranaki. He arrived in the area in 1870 via the goldfields of Australia, determined to try something new, namely travelling throughout the district selling essential goods and buying “Taranaki wool” — a type of edible fungus that was exported to China. Chew Chong opened several stores around Taranaki and began buying excess farmhouse butter, which he packed for resale, even attempting to export it to Australia and England. In 1882, the development of the first refrigerated ships created greater economic potential for the Taranaki dairy farming industry, because it allowed fresh produce to be traded to distant cities. As a result, the first small factories were built in the region in order to process local milk. However, throughout the 1880s the industry was characterised by two particular problems: inconsistent quality control and irregular supply.</p>
+                    <p>In 1887 a new era began when Chew Chong built his own dairy products factory near the town of Eltham. Initially called Riverside, and later Jubilee, Chew Chong's state-of-the-art factory attracted so much admiration that in 1889 he won a prestigious award for its production methods. Jubilee was the first New Zealand dairy factory to install a refrigeration machine, and is believed to have been the first to produce rectangular blocks of butter weighing 1 pound (0.45 kilograms) and to wrap them in paper, also making it possible for the place of origin to be shown.</p>
+                    <p>In the 1890s, with prospects for the dairy industry looking better and better, Taranaki farmers began to form special companies called “cooperatives”, which gave each of them a larger proportion of the profits made by the industry as a whole. By the early 1900s, the cooperative system dominated the industry, forcing the closure of some smaller independent factories like Jubilee in 1901. Another factor influencing development was that the roads in the area were very rough and badly maintained, so factories were located every few kilometres, becoming the focus of rural communities. From the early 1900s onwards, these factories were constructed in concrete, so the structures were solid and practical, making them ideally suited for industrial or agricultural enterprises.</p>
+                    <p>The decline of Taranaki's small dairy factories has been long and slow. As technology improved, dairy cooperative companies joined together until, by 1992, only a single large factory survived in the region. Some of those that closed have been demolished, while many are used for other purposes. The factory at Tawhiti, for example, closed in 1967 and was subsequently bought by a local artist. Today the building houses an acclaimed museum, where artworks and artefacts jointly depict aspects of Taranaki history. Further around the coast, the Kaupokonui factory had been one of the most successful dairy cooperatives in the country until a merger in 1962 saw the building closed. Soon afterwards, however, the complex became the base for an international company manufacturing natural gut strings for tennis racquets. The company continues to provide employment for locals, and the buildings have not undergone any significant alterations.</p>
+                    <p>While other Taranaki factories are today used for substantially different purposes from milk processing, the Okato factory recently returned to its original function. The factory closed in 1985 and was subsequently used as a youth hostel and an entertainment venue. Then in late 2009, Organic Dairy Ltd. again started to manufacture cheese on the site. A new multimillion dollar plant was built, and once again milk tankers call daily to supply the raw materials. So for at least one of Taranaki's old dairy factories, it seems things have come full circle.</p>
                 </div>
                 <div id="passage-text-2" class="reading-passage hidden">
-                    <h4 class="text-center">The plan to bring an asteroid to Earth</h4>
-                    <p><em>Moving in orbit around our sun are millions of rocks known as asteroids. Now scientists have plans to capture one</em></p>
-                    <p><strong>A</strong>&nbsp;&nbsp;Send a robot into space, catch an asteroid and bring it back to Earth's orbit. This may sound like science fiction, but it's a serious proposal being considered by scientists and engineers at the California Institute of Technology (Caltech). A four-day workshop was dedicated to investigating the feasibility of capturing a near-Earth asteroid, bringing it closer to our planet and using it as a base for future manned spaceflight missions.</p>
-                    <p><strong>B</strong>&nbsp;&nbsp;This is not something the scientists are imagining could be done some day off in the future. It is possible with the technology we have today and could be accomplished within a decade. A robotic probe could anchor to an asteroid with simple magnets or grab it with specialized claws. Alternatively, a large spacecraft could use its gravitational field to shift the orbit of a larger asteroid, sending it towards Earth. 'Once you get over the initial reaction - You want to do what?!' - it actually starts to seem like a reasonable idea says engineer John Brophy, who helped organize the workshop. In fact, many of these ideas have been on the drawing board for years as part of the NASA planetary defense program against large space-based objects that might threaten Earth. And there's no shortage of potential targets. NASA estimates there are 19,500 asteroids at least 100 meters wide within 45 million kilometers of Earth.</p>
-                    <p><strong>C</strong>&nbsp;&nbsp;Though rearranging the heavens may seem an excessive undertaking, the US mission has its merits. The US already has plans to send astronauts to a near-Earth asteroid, a mission that would mean confining them in a tiny capsule for three to six months and involve all the risks of a deep-space voyage. Instead, robots could bring an asteroid close enough for them to get there in just a month. An asteroid would provide a stationary base from which to launch missions further into space. There are several advantages to this. For one, launching missions carrying materials from Earth requires a lot of power, fuel, and consequently money, because of our planet's strong force of gravity. Since this would be far weaker on an asteroid, materials mined there could be more easily taken off the asteroid and shuttled around the solar system. And many asteroids have a lot to offer. Some are full of metals, which can be mined and used to build space-based habitats, or brought back to Earth. Others are up to one-quarter water, which would either be used for life-support or broken down into hydrogen and oxygen to make fuel. And astronomers would have the chance to get a close-up look at one of the solar system's earliest relics, generating important scientific data. 'Executing the asteroid retrieval plan would help demonstrate and greatly expand mankind's space-based engineering capabilities,' says engineer Louis Friedman, another co-organizer of the Caltech workshop. For instance, the mission would teach engineers how to capture an uncooperative target, which could be useful practice for planetary defense missions in the event of a threat from a meteoroid or comet from space approaching our planet,' he adds.</p>
-                    <p><strong>D</strong>&nbsp;&nbsp;Former astronaut Rusty Schweickart, cofounder of the B612 Foundation, an organization dedicated to protecting Earth from asteroid strikes, points out that though it would be technically feasible, shifting such a hefty and substantial target would not be easy: "You're moving the largest mother lode imaginable," he says. Engineers would need to be absolutely certain they could control such a potentially dangerous object. "It's the opposite of planetary defense, if you do something wrong you have a Tunguska event," says engineer Marco Tantardini from the Planetary Society, referring to the powerful 1908 explosion above a remote Russian region thought to have been caused by a meteoroid or comet. Still, these obstacles only add to the appeal of the project for engineers, who love to go over every potential difficulty in order to solve it. And if the challenges for a large asteroid seem too daunting, researchers could always start with a smaller asteroid perhaps 2 to 10 meters across. Last year, Brophy helped conduct a study to look at the feasibility of bringing a two-meter, 1,000 kilogram asteroid - of which there might conceivably be millions - to the International Space Station. The study suggested the asteroid could be captured robotically in something as simple as a large bag. Of course, such a small object might not have the same emotional impact as a larger target. 'NASA isn't going to want to go to something that is smaller than our spaceships,' says engineer Dan Mazanek from NASA Langley Research Center.</p>
-                    <p><strong>E</strong>&nbsp;&nbsp;No matter the size of the asteroid, these plans would require hefty investments. Even capturing a small asteroid would consume at least a billion dollars. Convincing taxpayers to foot such a bill could be difficult. However, private industry might be interested in getting involved. One possibility would be to push the asteroid to near-Earth orbit and then invite anyone who wants to develop the capabilities to reach and mine the object. However, though the undertaking might be scientifically exciting, and provide great insight into the solar system formation, this is not enough on its own to justify the expense of bringing an asteroid to Earth. Investigations of asteroids can be done much more cheaply with an unmanned spacecraft, says chemist Joseph A Nuth from NASA's Goddard Space Flight Center. According to Brophy, ultimately, we would be working towards bringing an asteroid closer to Earth in order to help move out into the solar system.</p>
+                    <h4 class="text-center">The conquest of malaria in Italy</h4>
+                    <p style="text-align: center; font-style: italic;">A review of Frank M Snowden's masterly history of a country's fight to eradicate a deadly disease</p>
+                    <p><strong>A</strong>&nbsp;&nbsp;The word 'malaria' means 'bad air' in Italian, and this terrible disease marked the life of the people of that country for thousands of years. Yet by 1962, Italy was officially declared malaria-free, and it has remained so ever since. Frank Snowden's study of this successful endeavour is a remarkable piece of historical work. Original, crystal clear, analytical and passionate, Snowden takes us to areas historians have rarely visited before.</p>
+                    <p><strong>B</strong>&nbsp;&nbsp;Everybody now knows that malaria is carried by mosquitoes. But in the 19th century most experts subscribed to the theory of 'miasma' or 'poisoning of the air'. Others made a link between swamps, water and malaria, but did not make the further leap towards insects. The consequence of these theories was that little was done to combat the disease before the end of that century. The situation was so serious that from a total population of 25m Italians, 11m were 'permanently at risk'. In warm, damp, malarial zones, the life expectancy of land workers was a terrifying 22.5 years. The economic impact of the disease was immense. Epidemics were blamed on people who originated from the hotter parts of Italy, given the widespread belief that malaria was hereditary.</p>
+                    <p><strong>C</strong>&nbsp;&nbsp;One of the first breakthroughs in the war against malaria came in 1898 when the zoologist Giovanni Battista Grassi demonstrated that the micro-organisms causing the disease were carried in the digestive tract of the mosquito. By releasing mosquitoes into rooms to drink the blood of healthy human volunteers, Grassi was able to make the direct link between the insects and the disease. Definitive proof of this theory was obtained after an extraordinary series of experiments in Italy, where healthy people were introduced into malarial zones but kept free of mosquito bites - and remained well. The recently formed Italian state at last had the necessary information to begin tackling the disease.</p>
+                    <p><strong>D</strong>&nbsp;&nbsp;A complicated approach was adopted, which made use of quinine - a drug obtained from tree bark which had long been used to combat fever, but was now seen as a crucial part of the war on malaria. Italy introduced a quinine law and a quinine tax in 1904, and the drug was administered to large numbers of rural workers. Despite its often terrible side effects, the drug was successful in limiting the spread of the disease, and in breaking cycles of infection. In addition, Italy set up rural health centres and invested heavily in education programmes. Malaria, as Snowden shows, was not just a medical problem, but a social and regional issue, and could only be defeated through multi-layered strategies.</p>
+                    <p><strong>E</strong>&nbsp;&nbsp;It was originally decided to give quinine to all those in vulnerable regions - even healthy people. However, peasants were often suspicious of medicine being forced upon them, and doctors were frequently met with hostility and stubborn refusal to accept the treatment offered. But despite the refusals, the strategy as a whole was hugely successful. Deaths from malaria fell by some 80% in the first decade of the 20th century and some areas escaped altogether from the scourge of the disease.</p>
+                    <p><strong>F</strong>&nbsp;&nbsp;The 1915-18 war delayed the campaign, as funds were diverted to the battlefields. In the 1920s and 1930s the draining of the damp, unhealthy marshlands around Rome had a certain impact on the spread of malaria. However, as war swept through the drained lands in the 1940s, the disease returned with a vengeance. Yet the country's leading malariologist Alberto Missiroli refused to order the distribution of quinine, so allowing the epidemic to spread unchecked. According to Snowden, he did this in order to create the ideal conditions for a new strategy, supported by the US Rockefeller Foundation - a massive experiment involving the extermination of mosquitoes with the chemical DDT. It is estimated that more than a third of the inhabitants in the affected area contracted malaria and countless thousands died.</p>
+                    <p><strong>G</strong>&nbsp;&nbsp;With the end of the war in 1945, the US government and the Rockefeller Foundation were free to experiment. DDT was sprayed from the air, and 3m Italians had their bodies covered with the chemical. The effects were immense, and by 1962 malaria was more or less gone from the whole country. One of the final victims to die of the disease in Italy was the popular cyclist, Fausto Coppi. He had contracted malaria in Africa in 1960, and the failure of doctors in Italy to spot the disease was a sign of the times. A few decades earlier, they would have immediately noticed the telltale signs; it was later claimed that a small dose of quinine would have saved his life.</p>
+                    <p><strong>H</strong>&nbsp;&nbsp;As there are still more than 1m deaths every year from malaria worldwide, Snowden's book also has contemporary relevance. This is a disease that affects every level of the societies where it is rampant. The economic miracle of the 1950s and 1960s which made Italy into a modern industrial nation would not have been possible without the eradication of malaria. Moreover, this book convincingly argues that the disease was 'an integral part of the big picture of modern Italian history'. This magnificent study, beautifully written and impeccably documented, deserves an audience beyond specialists in history, or in Italy.</p>
                 </div>
                 <div id="passage-text-3" class="reading-passage hidden">
-                    <h4 class="text-center">The science of sleep</h4>
-                    <p><em>Emma Bailey explores the curious world of deep (or NREM) sleep and light (or REM) sleep</em></p>
-                    <p>Sleep is not an optional activity and is more essential to our survival than food. By the time they die, most people will have spent more than 25 years asleep. As Paul Martin, author of Counting Sheep: The Science and Pleasures of sleep and Dreams, puts it: When you die, a bigger slice of your existence will have passed in this state than in raising children, playing games, listening to music, or any other activity that humanity values highly. Why is it necessary to spend quite so long in this unconscious state? Unlike breathing or eating, the biological benefits of sleep are not immediately obvious.</p>
-                    <p>It is a behaviour that can be found remarkably far back down the evolutionary ladder. In all creatures, sleep generally involves a cessation of physical activity and reduction of sensory awareness for regular periods. Like us, other animals are kept awake by stimulants such as caffeine and sleep more as babies.</p>
-                    <p>Sleep is therefore a mainstay of animal existence and has been honed by millions of years of evolution. Yet until 1952, scientists assumed it was a passive state in which brain activity ceased. But then an extraordinary discovery was made. Sleep research pioneer Nathaniel Kleitman, of the University of Chicago noticed it was marked by periods of rapid eye movement, now known as REM sleep, and that REM sleep was accompanied by a frenzy of brain activity akin to that seen during periods of consciousness.</p>
-                    <p>We now know that brain activity is far from uniform while we sleep Over a 60-minute period it goes through four distinct stages of NON-REM(NREM) sleep, and one episode of REM sleep. It has been discovered that most dreaming occurs during REM sleep, and that deep sleep occurs during the NREM stages. In fact, the two types of sleep are as different as sleeping is from wakefulness. Interestingly, while all mammals, birds and more recent reptiles have both types of sleep, primitive reptiles experience just NREM sleep. This Implies that REM sleep evolved more recently, possibly around the time of the reptilian ancestors of all mammals, 250 million years ago.</p>
-                    <p>For centuries it was assumed that sleep served simply as a mechanism for allowing the body to recuperate. Recently, it has been shown that NREM sleep does indeed increase after vigorous exercise. However, people who lie in bed all day also enter NREM sleep, so it can't only be due to this, Jerome M Siegel of the University of California believes that NREM sleep provides an opportunity to repair the body cells damaged during wakefulness. As he explains, 'The decrease both in metabolic rate and in brain temperature occurring during NREM sleep seems to provide an opportunity to repair this damage.'</p>
-                    <p>However, Professor Jim Horne of the University of Loughborough disagrees: There is little evidence that any organ apart from the brain goes through repair during sleep. All the evidence shows that these other organs recover just as well during restful wakefulness. The brain, Horne points out, never shuts down during wakefulness. Even if we are resting, it remains in a state of readiness. Scans have shown that it is only during NREM sleep that the brain gets any rest. Recognising that when NREM sleep evolved millions of years ago, animals didn't have highly developed brains, he concludes, " The functions of NREM sleep have probably changed with evolution, maybe beginning as an energy conserver, and culminating, in humans, as a facilitator for the recovery of high-level brain function.'</p>
-                    <p>While NREM most probably involves rest and recovery, REM sleep and dreams is much more contentious area of research. According to Dr Claudio Stampi, deprived of REM sleep, memory consolidation is compromised. We need it to reprocess what has happened during the previous period of wakefulness in order to store information that is useful.'</p>
-                    <p>Certainly, there are studies that suggest a strong link between REM sleep and memory. After being taught a new skill, people exhibit a rise in REM sleep. If they are deprived of REM sleep, they are less able to remember the skill. Experiments have shown that REM sleep must occur within 24 hours of an experience if it is to be remembered.</p>
-                    <p>There are other views about the function of REM sleep. The pioneering sleep researcher Michel Jouvet believes that the intense activity seen in the brain during REM sleep is essential to neuronal development before birth. There is little to activate the developing brain during the long, dark months in the uterus, so Jouvet hypotheses that the brain generates its own stimuli in the form of REM sleep and dreams to aid its own development.</p>
-                    <p>In short, the function of REM sleep and dreaming is still something of a mystery. The hope is that, as scanning techniques become more refined, the brain regions underlying the two types of sleep will be better understood. However, we're not likely to get a straightforward answer, As Horne says:Already over 100 neurochemicals and brain regions connected with sleep have been found, and more and more are being discovered, So clearly there's no single sleep centre.' One thing is certain, we'll never be without sleep. It's highly improbable that any new drug could enable us to avoid it and remain healthy for any length of time.</p>
+                    <h4 class="text-center">Images and Places</h4>
+                    <p style="text-align: center; font-style: italic;">A new research method uses photography to try to explain why people form an attachment to certain places</p>
+                    <div class="drop-zone" data-q-start="27" data-dnd-group="headings-27-32" style="margin: 10px 0;border: 2px dashed #999; border-radius: 4px; text-align: center; color: #aaa; font-weight: bold;">27</div>
+                    <p>Human beings naturally become attached to places they visit or inhabit and these emotional attachments have become increasingly important in research on recreation sites and activities. Research into this phenomenon is called 'sense-of-place research'. This research has employed a variety of approaches to gauge people's feelings toward a place, including surveys and personal interviews, but so far has not used photo-based methods. However, Visitor Employed Photography (VEP), used to capture visitor perceptions of landscape and recreational quality, represents a potential innovation in sense-of-place research.</p>
+                    <div class="drop-zone" data-q-start="28" data-dnd-group="headings-27-32" style="margin: 10px 0;border: 2px dashed #999; border-radius: 4px; text-align: center; color: #aaa; font-weight: bold;">28</div>
+                    <p>A 'place' is a setting that we give meaning to based on the personal experiences, relationships and feelings we associate with it. A crucial distinction that needs to be made is between the more subjective concept of attachment and the symbolic 'meanings' or labels we use to describe the type of place a setting represents. Is, for example, a multiple-use forest area a wilderness? A playground? A workplace? Symbolic meanings are important in that they form the basis of our attachment to a place: we attribute meaning to our settings, and in turn become attached to the meanings (Stedman, 2003).</p>
+                    <p>All settings can have multiple meanings depending on how we encounter them. Some researchers suggest that, because meaning emerges through individual experience, for example 'my camping trip', place meanings are completely individualistic: a given setting such as a park will contain as many different meanings as there are people using the setting (Meinig, 1979). Others, however, (e.g. Grieder & Garkovich, 1994) assert that meanings are based on social categories and therefore are shared by others within these categories. For example, farmers share certain meanings for a plot of land that are distinct from those of real estate developers or hunters.</p>
+                    <div class="drop-zone" data-q-start="29" data-dnd-group="headings-27-32" style="margin: 10px 0;border: 2px dashed #999; border-radius: 4px; text-align: center; color: #aaa; font-weight: bold;">29</div>
+                    <p>Clearly, place attachment is built through familiarity with a place over a period of months or even years. Relph (1976) describes sense-of-place attachment as the steady accumulation of events within a setting; this creates 'home places'. According to this view, those who have participated fully in the life of the home or community, or have accumulated a series of everyday events in a setting, will have the strongest attachment to it. Extended residence in a place tends to make us feel toward it almost as a living thing, affecting our emotions in the same way as a family would (Ryden, 1993). However, Tuan (1977) notes that a sense of place may also develop quite rapidly in 'chosen places', where dramatic landscapes and intense experiences can lead to an immediate attachment. Indeed, many settings, especially those that attract visitors, may simultaneously exist as home places and chosen places.</p>
+                    <div class="drop-zone" data-q-start="30" data-dnd-group="headings-27-32" style="margin: 10px 0;border: 2px dashed #999; border-radius: 4px; text-align: center; color: #aaa; font-weight: bold;">30</div>
+                    <p>Clearly we are dealing with a complex phenomenon and photo-based research methods may help us to understand it better. In VEP, tourists are asked to take photographs. This technique has primarily been used to assess the perceptions of visitors to parks and recreation places. Haywood (1990) describes several benefits of VEP. Photography is an enjoyable, familiar activity to tourists which helps to sharpen observation and identify specific locations that are important. It can give clearer ideas on elements that are liked or disliked and also facilitates comparisons between places.</p>
+                    <div class="drop-zone" data-q-start="31" data-dnd-group="headings-27-32" style="margin: 10px 0;border: 2px dashed #999; border-radius: 4px; text-align: center; color: #aaa; font-weight: bold;">31</div>
+                    <p>However, several methodological issues need to be taken into account. First, who should take the photographs? VEP research typically involves visitors or tourists but, when applied to questions of attachment to a community, this approach has potential pitfalls. Chenoweth (1984) notes that research subjects may take photos that represent only a part of their entire recreational experience. This tendency probably relates to unfamiliarity with the setting. For example, when researchers assign the task of photographing a travel route with which respondents are not familiar, participants may save too many pictures and then use them all up at the end of their visit, even if there is no suitable material. Markwell (1997) noted an opposite tendency in his study of pictures taken on a nature tour: beginnings of excursions were over-represented, due perhaps to the initial novelty of the trip. Furthermore, Haywood (1990) suggests that compressing the photo-taking period into a single day (as he did in his work) may result in an over-representation of tourist icons rather than ordinary places.<br><br> In contrast, Yamashita (2002), when focusing on local residents' perceptions of the qualities of the water around them, noted that residents may have more difficulty expressing visual appeal than visitors, precisely because they are insiders and less conscious of aesthetic qualities. When addressing complex attachment to landscape, we would expect, however, that familiarity ought to increase the validity of the items selected to represent sources of attachment. We also expect that photographs taken by local residents will represent a wider range of phenomena than pictures taken by transient visitors.</p> 
+                    <div class="drop-zone" data-q-start="32" data-dnd-group="headings-27-32" style="margin: 10px 0;border: 2px dashed #999; border-radius: 4px; text-align: center; color: #aaa; font-weight: bold;">32</div>
+                    <p>But how should the photographs be interpreted? Goin (2001) notes that with every photo taken 'a fiction is created ... but presents to the uninformed an overwhelming conviction of fact' (p. 363). By implication, what photos appear to be and what they really represent may be very different things, and some follow-up helps to uncover the intended meanings of the participant. Yamashita (2002) notes the utility of asking respondents to provide descriptions of each photo in a notebook or diary. These elaborations are helpful, but in cases of complex phenomena, an interview may help participants clarify their intentions (Markwell, 1997).</p>
                 </div>
             </div>
             <div class="resizer" id="resizer"></div>
             <div class="questions-panel" id="questions-panel">
                 <div id="questions-1" class="question-set">
                     <div class="questions-container">
-                        <div class="question" data-q-start="1" data-q-end="8">
+                        <div class="question" data-q-start="1" data-q-end="5">
                             <div class="question-prompt">
-                                <p><strong>Questions 1-8</strong><br>Do the following statements agree with the information given in Reading Passage 1?</p>
+                                <p><strong>Questions 1-5</strong><br>Do the following statements agree with the information given in Reading Passage 1?</p>
+                                <p>In boxes 1-5 on your answer sheet, write</p>
                                 <ul style="list-style: none; padding-left: 0;">
                                     <li><strong>TRUE</strong> if the statement agrees with the information</li>
                                     <li><strong>FALSE</strong> if the statement contradicts the information</li>
@@ -1983,288 +1888,260 @@
                                 </ul>
                             </div>
                             <div class="tf-question" data-q-start="1" data-q-end="1">
-                                <div class="tf-question-line"><span class="tf-question-number">1</span><span class="tf-question-text">C. Auguste Dupin and Emile Gaboriau were both writers of detective stories.</span></div>
+                                <div class="tf-question-line"><span class="tf-question-number">1</span><span class="tf-question-text">Many of the Europeans who first settled in the Taranaki region of New Zealand were descended from dairy farmers.</span></div>
                                 <div class="tf-options"><label class="tf-option"><input type="radio" name="q1" value="TRUE"> TRUE</label><label class="tf-option"><input type="radio" name="q1" value="FALSE"> FALSE</label><label class="tf-option"><input type="radio" name="q1" value="NOT GIVEN"> NOT GIVEN</label></div>
                             </div>
                             <div class="tf-question" data-q-start="2" data-q-end="2">
-                                <div class="tf-question-line"><span class="tf-question-number">2</span><span class="tf-question-text">It was Conan Doyle's creation of Sherlock Holmes that made the detective story a typically British genre.</span></div>
+                                <div class="tf-question-line"><span class="tf-question-number">2</span><span class="tf-question-text">There was an increase in land used for dairy farming in Taranaki in the 1860s.</span></div>
                                 <div class="tf-options"><label class="tf-option"><input type="radio" name="q2" value="TRUE"> TRUE</label><label class="tf-option"><input type="radio" name="q2" value="FALSE"> FALSE</label><label class="tf-option"><input type="radio" name="q2" value="NOT GIVEN"> NOT GIVEN</label></div>
                             </div>
                             <div class="tf-question" data-q-start="3" data-q-end="3">
-                                <div class="tf-question-line"><span class="tf-question-number">3</span><span class="tf-question-text">The positive qualities of the character of Sherlock Holmes outweigh the negative qualities.</span></div>
+                                <div class="tf-question-line"><span class="tf-question-number">3</span><span class="tf-question-text">In the 1860s, butter had to be eaten within a few days of being made.</span></div>
                                 <div class="tf-options"><label class="tf-option"><input type="radio" name="q3" value="TRUE"> TRUE</label><label class="tf-option"><input type="radio" name="q3" value="FALSE"> FALSE</label><label class="tf-option"><input type="radio" name="q3" value="NOT GIVEN"> NOT GIVEN</label></div>
                             </div>
                             <div class="tf-question" data-q-start="4" data-q-end="4">
-                                <div class="tf-question-line"><span class="tf-question-number">4</span><span class="tf-question-text">Officials at Scotland Yard were unhappy at the way they were portrayed in the Sherlock Holmes stories.</span></div>
+                                <div class="tf-question-line"><span class="tf-question-number">4</span><span class="tf-question-text">Chew Chong's early stores in Taranaki quickly made a profit.</span></div>
                                 <div class="tf-options"><label class="tf-option"><input type="radio" name="q4" value="TRUE"> TRUE</label><label class="tf-option"><input type="radio" name="q4" value="FALSE"> FALSE</label><label class="tf-option"><input type="radio" name="q4" value="NOT GIVEN"> NOT GIVEN</label></div>
                             </div>
                             <div class="tf-question" data-q-start="5" data-q-end="5">
-                                <div class="tf-question-line"><span class="tf-question-number">5</span><span class="tf-question-text">Sherlock Holmes is based on a real private detective who was consulted by Scotland Yard.</span></div>
+                                <div class="tf-question-line"><span class="tf-question-number">5</span><span class="tf-question-text">In the 1880s, Taranaki milk was the same standard each time it was produced.</span></div>
                                 <div class="tf-options"><label class="tf-option"><input type="radio" name="q5" value="TRUE"> TRUE</label><label class="tf-option"><input type="radio" name="q5" value="FALSE"> FALSE</label><label class="tf-option"><input type="radio" name="q5" value="NOT GIVEN"> NOT GIVEN</label></div>
                             </div>
-                            <div class="tf-question" data-q-start="6" data-q-end="6">
-                                <div class="tf-question-line"><span class="tf-question-number">6</span><span class="tf-question-text">Conan Doyle's work fails to reflect the reality of crime in 19th-century Britain.</span></div>
-                                <div class="tf-options"><label class="tf-option"><input type="radio" name="q6" value="TRUE"> TRUE</label><label class="tf-option"><input type="radio" name="q6" value="FALSE"> FALSE</label><label class="tf-option"><input type="radio" name="q6" value="NOT GIVEN"> NOT GIVEN</label></div>
                             </div>
-                            <div class="tf-question" data-q-start="7" data-q-end="7">
-                                <div class="tf-question-line"><span class="tf-question-number">7</span><span class="tf-question-text">In the 1920s and 30s, most writers of detective stories started to include interesting female characters in their work.</span></div>
-                                <div class="tf-options"><label class="tf-option"><input type="radio" name="q7" value="TRUE"> TRUE</label><label class="tf-option"><input type="radio" name="q7" value="FALSE"> FALSE</label><label class="tf-option"><input type="radio" name="q7" value="NOT GIVEN"> NOT GIVEN</label></div>
-                            </div>
-                            <div class="tf-question" data-q-start="8" data-q-end="8">
-                                <div class="tf-question-line"><span class="tf-question-number">8</span><span class="tf-question-text">Agatha Christie only earned a few hundred pounds for her books.</span></div>
-                                <div class="tf-options"><label class="tf-option"><input type="radio" name="q8" value="TRUE"> TRUE</label><label class="tf-option"><input type="radio" name="q8" value="FALSE"> FALSE</label><label class="tf-option"><input type="radio" name="q8" value="NOT GIVEN"> NOT GIVEN</label></div>
-                            </div>
-                    </div>
-                        <div class="question" data-q-start="9" data-q-end="13">
+                        <div class="question" data-q-start="6" data-q-end="13">
                             <div class="question-prompt">
-                                <p><strong>Questions 9-13</strong><br>Complete the table below. Choose <strong>ONE WORD ONLY</strong> from the passage for each answer.</p>
+                                <p><strong>Questions 6-13</strong><br>Complete the notes below.</p>
+                                <p>Choose <strong>ONE WORD ONLY</strong> from the passage for each answer.</p>
+                                <p>Write your answers in boxes 6-13 on your answer sheet.</p>
                             </div>
                             <div class="summary-text">
-                                <p class="centered-title">The detective story and society</p>
-                                <table class="people-table" style="width: 100%; border-collapse: collapse; border: 1px solid #ccc;">
-                                <thead>
-                                        <tr style="background-color: #f5f5f5;">
-                                            <th style="border: 1px solid #ccc; padding: 10px; text-align: left;">Country</th>
-                                            <th style="border: 1px solid #ccc; padding: 10px; text-align: left;">Date</th>
-                                            <th style="border: 1px solid #ccc; padding: 10px; text-align: left;">Key Developments</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                            <td style="border: 1px solid #ccc; padding: 10px;">USA</td>
-                                            <td style="border: 1px solid #ccc; padding: 10px;">1920s-1930s</td>
-                                            <td style="border: 1px solid #ccc; padding: 10px;">Rex Stout and Ellery Queen's works<br>• Were mainly unsuccessful <input type="text" class="answer-input" id="q9" placeholder="9"> of British detective fiction</td>
-                                    </tr>
-                                    <tr>
-                                            <td style="border: 1px solid #ccc; padding: 10px;">USA</td>
-                                            <td style="border: 1px solid #ccc; padding: 10px;">1920s-1930s</td>
-                                            <td style="border: 1px solid #ccc; padding: 10px;">Hammett and Chandler's works:<br>• introduced the 'tough' private detective<br>• were full of <input type="text" class="answer-input" id="q10" placeholder="10"><br>• had a <input type="text" class="answer-input" id="q11" placeholder="11"> message about the unfairness of society</td>
-                                    </tr>
-                                    <tr>
-                                            <td style="border: 1px solid #ccc; padding: 10px;">Britain</td>
-                                            <td style="border: 1px solid #ccc; padding: 10px;">1950s-1960s</td>
-                                            <td style="border: 1px solid #ccc; padding: 10px;">Writers such as PD James:<br>• wrote about police inspectors, not private detectives<br>• created stories with many <input type="text" class="answer-input" id="q12" placeholder="12"></td>
-                                    </tr>
-                                    <tr>
-                                            <td style="border: 1px solid #ccc; padding: 10px;">Britain</td>
-                                            <td style="border: 1px solid #ccc; padding: 10px;">Present day</td>
-                                            <td style="border: 1px solid #ccc; padding: 10px;">The end of the traditional detective story reflects social changes.<br>For example:<br>• scientific progress is not always seen as <input type="text" class="answer-input" id="q13" placeholder="13"><br>• Less trust is now placed in rationality<br>• There is more questioning of the judicial system</td>
-                                    </tr>
-                                </tbody>
-                                </table>
-                        </div>
+                                <p class="centered-title">The dairy factories of Taranaki</p>
+                                <p><strong>Chew Chong's 1887 factory</strong></p>
+                                <ul>
+                                    <li>&nbsp;&nbsp;&bull; was the first of its sort in the region</li>
+                                    <li>&nbsp;&nbsp;&bull; was given a significant <input type="text" class="answer-input" id="q6" placeholder="6"> because of the modern techniques used</li>
+                                    <li>&nbsp;&nbsp;&bull; sold butter covered in <input type="text" class="answer-input" id="q7" placeholder="7"> for the first time</li>
+                                </ul>
+                                <p><strong>Factories in the 1890s and early 1900s</strong></p>
+                                <ul>
+                                    <li>&nbsp;&nbsp;&bull; farmers set up special companies in order to share the <input type="text" class="answer-input" id="q8" placeholder="8"> from milk sales</li>
+                                    <li>&nbsp;&nbsp;&bull; many factories were needed because the local <input type="text" class="answer-input" id="q9" placeholder="9"> were in bad condition</li>
+                                    <li>&nbsp;&nbsp;&bull; most factories were built of <input type="text" class="answer-input" id="q10" placeholder="10"> so they were very strong</li>
+                                </ul>
+                                <p><strong>The decline of dairy factories</strong></p>
+                                <ul>
+                                    <li>&nbsp;&nbsp;&bull; companies merged so fewer factories were needed</li>
+                                    <li>&nbsp;&nbsp;&bull; the Tawhiti factory is now a <input type="text" class="answer-input" id="q11" placeholder="11"></li>
+                                    <li>&nbsp;&nbsp;&bull; the Kaupokonui factory makes equipment for <input type="text" class="answer-input" id="q12" placeholder="12"></li>
+                                    <li>&nbsp;&nbsp;&bull; the Okato factory once more produces <input type="text" class="answer-input" id="q13" placeholder="13"></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div id="questions-2" class="question-set hidden">
                     <div class="questions-container">
-                        <div class="question" data-q-start="14" data-q-end="18">
+                        <div class="question" data-q-start="14" data-q-end="17">
                             <div class="question-prompt">
-                                <p><strong>Questions 14-18</strong><br>Reading Passage 2 has five sections, A-E. Choose the correct heading for each section from the list of headings below.</p>
-                                <p>Write the correct number, <strong>i-vii</strong>, in boxes 14-18 on your answer sheet.</p>
-                            </div>
-                            <div class="people-section">
-                                <p class="section-title">List of Headings</p>
-                                <ul>
-                                    <li><strong>i</strong> The need for skill and care</li>
-                                    <li><strong>ii</strong> Choosing the richest asteroid</li>
-                                    <li><strong>iii</strong> The safest way to protect an asteroid</li>
-                                    <li><strong>iv</strong> Obtaining support for the project</li>
-                                    <li><strong>v</strong> An achievable goal, not an impossible dream</li>
-                                    <li><strong>vi</strong> The need for global cooperation</li>
-                                    <li><strong>vii</strong> Beginning with a less challenging task</li>
-                                    <li><strong>viii</strong> Practical, economic and research justifications</li>
-                                </ul>
-                            </div>
-                            <div class="matching-form-container">
-                                <div class="matching-form-row">
-                                    <label for="q14" class="matching-form-label"><strong>14</strong>&nbsp;&nbsp;Section A</label>
-                                    <select class="answer-input" id="q14"><option value=""></option><option value="i">i</option><option value="ii">ii</option><option value="iii">iii</option><option value="iv">iv</option><option value="v">v</option><option value="vi">vi</option><option value="vii">vii</option><option value="viii">viii</option></select>
-                        </div>
-                                <div class="matching-form-row">
-                                    <label for="q15" class="matching-form-label"><strong>15</strong>&nbsp;&nbsp;Section B</label>
-                                    <select class="answer-input" id="q15"><option value=""></option><option value="i">i</option><option value="ii">ii</option><option value="iii">iii</option><option value="iv">iv</option><option value="v">v</option><option value="vi">vi</option><option value="vii">vii</option><option value="viii">viii</option></select>
-                            </div>
-                                <div class="matching-form-row">
-                                    <label for="q16" class="matching-form-label"><strong>16</strong>&nbsp;&nbsp;Section C</label>
-                                    <select class="answer-input" id="q16"><option value=""></option><option value="i">i</option><option value="ii">ii</option><option value="iii">iii</option><option value="iv">iv</option><option value="v">v</option><option value="vi">vi</option><option value="vii">vii</option><option value="viii">viii</option></select>
-                                    </div>
-                                <div class="matching-form-row">
-                                    <label for="q17" class="matching-form-label"><strong>17</strong>&nbsp;&nbsp;Section D</label>
-                                    <select class="answer-input" id="q17"><option value=""></option><option value="i">i</option><option value="ii">ii</option><option value="iii">iii</option><option value="iv">iv</option><option value="v">v</option><option value="vi">vi</option><option value="vii">vii</option><option value="viii">viii</option></select>
-                            </div>
-                                <div class="matching-form-row">
-                                    <label for="q18" class="matching-form-label"><strong>18</strong>&nbsp;&nbsp;Section E</label>
-                                    <select class="answer-input" id="q18"><option value=""></option><option value="i">i</option><option value="ii">ii</option><option value="iii">iii</option><option value="iv">iv</option><option value="v">v</option><option value="vi">vi</option><option value="vii">vii</option><option value="viii">viii</option></select>
-                                </div>
-                            </div>
-                                </div>
-                        <div class="question" data-q-start="19" data-q-end="22">
-                            <div class="question-prompt">
-                                <p><strong>Questions 19-22</strong></p>
-                                <p>Look at the following experts (Questions 19-22) and the list of statements below.</p>
-                                <p>Match each expert with the correct statement, A-G.</p>
-                                <p>Write the correct letter, <strong>A-G</strong>, in boxes 19-22 on your answer sheet.</p>
-                            </div>
-
-                            <div class="people-section">
-                                <p class="section-title">List of statements</p>
-                                <ul>
-                                    <li><strong>A</strong> A mistake could have serious consequences for Earth.</li>
-                                    <li><strong>B</strong> It might be difficult to arouse interest in an asteroid of limited size.</li>
-                                    <li><strong>C</strong> The project could be an early step in space exploration.</li>
-                                    <li><strong>D</strong> An asteroid's weight makes the project extremely challenging.</li>
-                                    <li><strong>E</strong> The skill gained could save Earth from future danger.</li>
-                                    <li><strong>F</strong> An asteroid could be a useful landing place for a spaceship.</li>
-                                    <li><strong>G</strong> Capturing an asteroid would not be an efficient method of research.</li>
-                                </ul>
-                                </div>
-                            <div class="matching-form-container">
-                                <div class="matching-form-row">
-                                    <label for="q19" class="matching-form-label"><strong>19</strong>&nbsp;&nbsp;Louis Friedman</label>
-                                    <select class="answer-input" id="q19"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option></select>
-                            </div>
-                                <div class="matching-form-row">
-                                    <label for="q20" class="matching-form-label"><strong>20</strong>&nbsp;&nbsp;Rusty Schweickart</label>
-                                    <select class="answer-input" id="q20"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option></select>
-                                </div>
-                                <div class="matching-form-row">
-                                    <label for="q21" class="matching-form-label"><strong>21</strong>&nbsp;&nbsp;Dan Mazanek</label>
-                                    <select class="answer-input" id="q21"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option></select>
-                            </div>
-                                <div class="matching-form-row">
-                                    <label for="q22" class="matching-form-label"><strong>22</strong>&nbsp;&nbsp;Joseph A Nuth</label>
-                                    <select class="answer-input" id="q22"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option></select>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="question" data-q-start="23" data-q-end="26">
-                            <div class="question-prompt">
-                                <p><strong>Questions 23-26</strong><br>Complete the summary below. Choose <strong>ONE WORD ONLY</strong> from the passage for each answer.</p>
-                                <p>Write your answers in boxes 23-26 on your answer sheet.</p>
+                                <p><strong>Questions 14-17</strong><br>Complete the summary below.</p>
+                                <p>Choose <strong>NO MORE THAN TWO WORDS</strong> from the passage for each answer.</p>
+                                <p>Write your answers in boxes 14-17 on your answer sheet.</p>
                             </div>
                             <div class="summary-text">
-                                <p><strong>The merits of the US mission</strong></p>
-                                <p>Capture of an asteroid would reduce the time that astronauts travelling to it needed to spend in space. An asteroid could also act as a <input type="text" class="answer-input" id="q23" placeholder="23"> for further space travel and exploration. The fact that an asteroid would have weaker <input type="text" class="answer-input" id="q24" placeholder="24"> would allow easier movement of resources.</p>
-                                <p>These resources include <input type="text" class="answer-input" id="q25" placeholder="25"> which could be used in space or on Earth and <input type="text" class="answer-input" id="q26" placeholder="26"> which could be consumed or used as a source of power.</p>
-                                <p>The mission could provide data on the history of our sun and planets. It could also be good practice if there was a threat to Earth from a body from space.</p>
+                                <p class="centered-title">Malaria in 19th-century Italy</p>
+                                <p>Up until the late nineteenth century, experts failed to make the connection between malaria and <input type="text" class="answer-input" id="q14" placeholder="14">. The most popular belief at the time was the <input type="text" class="answer-input" id="q15" placeholder="15"> theory, which upheld the idea that diseases were carried by unclean air. Another common idea was that malaria was a <input type="text" class="answer-input" id="q16" placeholder="16"> disease, and as a result people from certain parts of the country were often held responsible for the spread of epidemics. Malaria was particularly widespread in rural regions, where <input type="text" class="answer-input" id="q17" placeholder="17"> could be extremely short.</p>
                             </div>
+                        </div>
+                        <div class="question" data-q-start="18" data-q-end="20">
+                            <div class="question-prompt">
+                                <p><strong>Questions 18-20</strong><br>Do the following statements agree with the information given in Reading Passage 2?</p>
+                                <p>In boxes 18-20 on your answer sheet, write</p>
+                                <ul style="list-style: none; padding-left: 0;">
+                                    <li><strong>TRUE</strong> if the statement agrees with the information</li>
+                                    <li><strong>FALSE</strong> if the statement contradicts the information</li>
+                                    <li><strong>NOT GIVEN</strong> if there is no information on this</li>
+                                </ul>
                             </div>
-
+                            <div class="tf-question" data-q-start="18" data-q-end="18">
+                                <div class="tf-question-line"><span class="tf-question-number">18</span><span class="tf-question-text">The volunteers in Giovanni Battista Grassi's research came from all parts of Italy.</span></div>
+                                <div class="tf-options"><label class="tf-option"><input type="radio" name="q18" value="TRUE"> TRUE</label><label class="tf-option"><input type="radio" name="q18" value="FALSE"> FALSE</label><label class="tf-option"><input type="radio" name="q18" value="NOT GIVEN"> NOT GIVEN</label></div>
+                                </div>
+                            <div class="tf-question" data-q-start="19" data-q-end="19">
+                                <div class="tf-question-line"><span class="tf-question-number">19</span><span class="tf-question-text">Experiments in Italy proved that it was possible to remain healthy despite being in malarial zones.</span></div>
+                                <div class="tf-options"><label class="tf-option"><input type="radio" name="q19" value="TRUE"> TRUE</label><label class="tf-option"><input type="radio" name="q19" value="FALSE"> FALSE</label><label class="tf-option"><input type="radio" name="q19" value="NOT GIVEN"> NOT GIVEN</label></div>
                             </div>
+                            <div class="tf-question" data-q-start="20" data-q-end="20">
+                                <div class="tf-question-line"><span class="tf-question-number">20</span><span class="tf-question-text">In the early twentieth century, quinine was successfully administered to all inhabitants of vulnerable regions.</span></div>
+                                <div class="tf-options"><label class="tf-option"><input type="radio" name="q20" value="TRUE"> TRUE</label><label class="tf-option"><input type="radio" name="q20" value="FALSE"> FALSE</label><label class="tf-option"><input type="radio" name="q20" value="NOT GIVEN"> NOT GIVEN</label></div>
+                        </div>
                             </div>
+                        <div class="question" data-q-start="21" data-q-end="26">
+                            <div class="question-prompt">
+                                <p><strong>Questions 21-26</strong><br>Reading Passage 2 has eight paragraphs, <strong>A-H</strong>.</p>
+                                <p>Which paragraph contains the following information?</p>
+                                <p>Write the correct letter, <strong>A-H</strong>, in boxes 21-26 on your answer sheet.</p>
+                            </div>
+                            <div class="matching-form-container">
+                                <div class="matching-form-row">
+                                    <label for="q21" class="matching-form-label"><strong>21</strong>&nbsp;&nbsp;a figure showing the dramatic results of an anti-malarial drug programme</label>
+                                    <select class="answer-input" id="q21"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option></select>
+                                </div>
+                                <div class="matching-form-row">
+                                    <label for="q22" class="matching-form-label"><strong>22</strong>&nbsp;&nbsp;an important discovery about how malaria is spread</label>
+                                    <select class="answer-input" id="q22"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option></select>
+                                </div>
+                                <div class="matching-form-row">
+                                    <label for="q23" class="matching-form-label"><strong>23</strong>&nbsp;&nbsp;mention of an expert's decision not to halt the spread of the disease</label>
+                                    <select class="answer-input" id="q23"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option></select>
+                                </div>
+                                <div class="matching-form-row">
+                                    <label for="q24" class="matching-form-label"><strong>24</strong>&nbsp;&nbsp;the significance of the malaria story for today's readers</label>
+                                    <select class="answer-input" id="q24"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option></select>
+                                </div>
+                                <div class="matching-form-row">
+                                    <label for="q25" class="matching-form-label"><strong>25</strong>&nbsp;&nbsp;examples of false assumptions which held back scientific understanding of malaria</label>
+                                    <select class="answer-input" id="q25"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option></select>
+                                </div>
+                                <div class="matching-form-row">
+                                    <label for="q26" class="matching-form-label"><strong>26</strong>&nbsp;&nbsp;reference to legislation to support the fight against malaria</label>
+                                    <select class="answer-input" id="q26"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option></select>
+                                </div>
+                            </div>
+                        </div>
+                            </div>
+                                    </div>
                 <div id="questions-3" class="question-set hidden">
                     <div class="questions-container">
                         <div class="question" data-q-start="27" data-q-end="32">
                             <div class="question-prompt">
-                                <p><strong>Questions 27-32</strong></p>
-                                <p>Look at the following statements and the list of sleep stages below.</p>
-                                <p>Match each statement with the correct sleep stage, A-C.</p>
-                                <p>Write the correct letter, <strong>A-C</strong>, in boxes 27-32 on your answer sheet.</p>
-                            </div>
-                            
-                            <div class="matching-table-container">
-                                <div class="matching-legend">
-                                    <p><strong>Sleep Stages:</strong></p>
-                                    <ul>
-                                        <li><strong>A</strong> early adolescence</li>
-                                        <li><strong>B</strong> middle adolescence</li>
-                                        <li><strong>C</strong> later adolescence</li>
-                                    </ul>
+                                <p><strong>Questions 27-32</strong><br>The text has four sections. Choose the correct heading for each section and move it into the gap.</p>
                                 </div>
-                                <table class="matching-table">
-                                    <thead>
-                                        <tr>
-                                            <th>Questions</th>
-                                            <th>A</th>
-                                            <th>B</th>
-                                            <th>C</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td><strong>27</strong> interested in the opposite sex</td>
-                                            <td><input type="radio" name="q27" value="A" id="q27A"></td>
-                                            <td><input type="radio" name="q27" value="B" id="q27B"></td>
-                                            <td><input type="radio" name="q27" value="C" id="q27C"></td>
-                                        </tr>
-                                        <tr>
-                                            <td><strong>28</strong> exposure to danger</td>
-                                            <td><input type="radio" name="q28" value="A" id="q28A"></td>
-                                            <td><input type="radio" name="q28" value="B" id="q28B"></td>
-                                            <td><input type="radio" name="q28" value="C" id="q28C"></td>
-                                        </tr>
-                                        <tr>
-                                            <td><strong>29</strong> the same as others</td>
-                                            <td><input type="radio" name="q29" value="A" id="q29A"></td>
-                                            <td><input type="radio" name="q29" value="B" id="q29B"></td>
-                                            <td><input type="radio" name="q29" value="C" id="q29C"></td>
-                                        </tr>
-                                        <tr>
-                                            <td><strong>30</strong> beginning to form individual thinking without family context</td>
-                                            <td><input type="radio" name="q30" value="A" id="q30A"></td>
-                                            <td><input type="radio" name="q30" value="B" id="q30B"></td>
-                                            <td><input type="radio" name="q30" value="C" id="q30C"></td>
-                                        </tr>
-                                        <tr>
-                                            <td><strong>31</strong> less need the approval of friends</td>
-                                            <td><input type="radio" name="q31" value="A" id="q31A"></td>
-                                            <td><input type="radio" name="q31" value="B" id="q31B"></td>
-                                            <td><input type="radio" name="q31" value="C" id="q31C"></td>
-                                        </tr>
-                                        <tr>
-                                            <td><strong>32</strong> intellectual booming</td>
-                                            <td><input type="radio" name="q32" value="A" id="q32A"></td>
-                                            <td><input type="radio" name="q32" value="B" id="q32B"></td>
-                                            <td><input type="radio" name="q32" value="C" id="q32C"></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                
-                               
-                            </div>
-                        </div>
-                        <div class="question" data-q-start="33" data-q-end="39">
-                            <div class="question-prompt">
-                                <p><strong>Questions 33-39</strong><br>Complete the notes below. Choose <strong>NO MORE THAN TWO WORDS</strong> from the passage for each answer.</p>
-                                <p>Write your answers in boxes 33-39 on your answer sheet.</p>
-                            </div>
-                            <div class="summary-text">
-                                <p><strong>People</strong></p>
-                                <p>• sleep is vital for human survival</p>
-                                <p>• biological advantages of sleep not clear - this makes it different from either <input type="text" class="answer-input" id="q33" placeholder="33"> or eating</p>
-                                <p><strong>Animals</strong></p>
-                                <p>• aspects of sleep that most creatures share:</p>
-                                <p>  - lack of physical movement</p>
-                                <p>  - reduced sensory awareness</p>
-                                <p>  - sleep longer when they are <input type="text" class="answer-input" id="q34" placeholder="34"></p>
-                                <p><strong>Research</strong></p>
-                                <p>• scientists once believed that <input type="text" class="answer-input" id="q35" placeholder="35"> stopped during sleep - now know it takes place but not in uniform way</p>
-                                <p>• Types of sleep - REM and NREM</p>
-                                <p>  - primitive reptiles do not experience REM sleep</p>
-                                <p>  - now possible to prove that amount of NREM sleep rises with <input type="text" class="answer-input" id="q36" placeholder="36"></p>
-                                <p>  - the metabolic rate and the <input type="text" class="answer-input" id="q37" placeholder="37"> of the brain fall during NREM sleep</p>
-                                <p><strong>The Future</strong></p>
-                                <p>• mysteries of REM sleep may become clearer as the <input type="text" class="answer-input" id="q38" placeholder="38"> improve</p>
-                                <p>• unlikely that a <input type="text" class="answer-input" id="q39" placeholder="39"> will ever replace the need for sleep</p>
-                            </div>
-                        </div>
-                        <div class="question" data-q-start="40" data-q-end="40">
-                            <div class="question-prompt">
-                                <p><strong>Question 40</strong><br>Choose the correct letter <strong>A</strong>, <strong>B</strong>, <strong>C</strong> or <strong>D</strong></p>
-                                <p>Write the correct letter in box 40 on your answer sheet.</p>
-                            </div>
-                            <div class="tf-question" data-q-start="40" data-q-end="40">
-                                <div class="tf-question-line"><span class="tf-question-number">40</span><span class="tf-question-text">The writer's main aim in this passage is to</span></div>
-                                <div class="tf-options">
-                                    <label class="tf-option"><input type="radio" name="q40" value="A"> compare animal and human brain activity during sleep.</label>
-                                    <label class="tf-option"><input type="radio" name="q40" value="B"> suggest why some people need more sleep than others.</label>
-                                    <label class="tf-option"><input type="radio" name="q40" value="C"> account for the fact that some dreams are easily forgotten.</label>
-                                    <label class="tf-option"><input type="radio" name="q40" value="D"> describe the differences between two types of sleep.</label>
+                            <div class="recommendations-box" data-dnd-group="headings-27-32" style="width: 100%;">
+                                <p><strong>List of Headings</strong></p>
+                                <div class="drag-item" draggable="true" data-value="i" data-dnd-group="headings-27-32">The relevance of time to the sense of belonging to a place</div>
+                                <div class="drag-item" draggable="true" data-value="ii" data-dnd-group="headings-27-32">Making sense of photographic studies</div>
+                                <div class="drag-item" draggable="true" data-value="iii" data-dnd-group="headings-27-32">The advantages of photography in sense-of-place research</div>
+                                <div class="drag-item" draggable="true" data-value="iv" data-dnd-group="headings-27-32">Reasons for weak attachments</div>
+                                <div class="drag-item" draggable="true" data-value="v" data-dnd-group="headings-27-32">A new approach to sense-of-place research</div>
+                                <div class="drag-item" draggable="true" data-value="vi" data-dnd-group="headings-27-32">Defining the significance of places</div>
+                                <div class="drag-item" draggable="true" data-value="vii" data-dnd-group="headings-27-32">Important considerations when using VEP</div>
+                                <div class="drag-item" draggable="true" data-value="viii" data-dnd-group="headings-27-32">Local residents' feelings towards visitors</div>
                                 </div>
                             </div>
+                        <div class="question" data-q-start="33" data-q-end="38">
+                            <div class="question-prompt">
+                                <p><strong>Questions 33-38</strong><br>Match each observation with the correct person by selecting one letter A-G in the table.</p>
+                            </div>
+                            <div class="people-section">
+                                <p class="section-title">List of People</p>
+                                <ul>
+                                    <li><strong>A</strong> Meinig</li>
+                                    <li><strong>B</strong> Grieder and Garkovich</li>
+                                    <li><strong>C</strong> Ryden</li>
+                                    <li><strong>D</strong> Tuan</li>
+                                    <li><strong>E</strong> Haywood</li>
+                                    <li><strong>F</strong> Markwell</li>
+                                    <li><strong>G</strong> Yamashita</li>
+                                </ul>
+                                    </div>
+                            <table class="matrix-table" id="q33-38-matrix">
+                                <thead>
+                                    <tr>
+                                        <th style="text-align:left;">&nbsp;</th>
+                                        <th>A</th>
+                                        <th>B</th>
+                                        <th>C</th>
+                                        <th>D</th>
+                                        <th>E</th>
+                                        <th>F</th>
+                                        <th>G</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>33</strong> Our attachment to a place can happen quickly.</td>
+                                        <td class="selectable" data-q="33" data-val="A"></td>
+                                        <td class="selectable" data-q="33" data-val="B"></td>
+                                        <td class="selectable" data-q="33" data-val="C"></td>
+                                        <td class="selectable" data-q="33" data-val="D"></td>
+                                        <td class="selectable" data-q="33" data-val="E"></td>
+                                        <td class="selectable" data-q="33" data-val="F"></td>
+                                        <td class="selectable" data-q="33" data-val="G"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>34</strong> Limiting the amount of time for taking photographs may produce a narrow range of images.</td>
+                                        <td class="selectable" data-q="34" data-val="A"></td>
+                                        <td class="selectable" data-q="34" data-val="B"></td>
+                                        <td class="selectable" data-q="34" data-val="C"></td>
+                                        <td class="selectable" data-q="34" data-val="D"></td>
+                                        <td class="selectable" data-q="34" data-val="E"></td>
+                                        <td class="selectable" data-q="34" data-val="F"></td>
+                                        <td class="selectable" data-q="34" data-val="G"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>35</strong> Members of a group will hold a similar view about a place.</td>
+                                        <td class="selectable" data-q="35" data-val="A"></td>
+                                        <td class="selectable" data-q="35" data-val="B"></td>
+                                        <td class="selectable" data-q="35" data-val="C"></td>
+                                        <td class="selectable" data-q="35" data-val="D"></td>
+                                        <td class="selectable" data-q="35" data-val="E"></td>
+                                        <td class="selectable" data-q="35" data-val="F"></td>
+                                        <td class="selectable" data-q="35" data-val="G"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>36</strong> Given time, a place can have the same impact on us as people do.</td>
+                                        <td class="selectable" data-q="36" data-val="A"></td>
+                                        <td class="selectable" data-q="36" data-val="B"></td>
+                                        <td class="selectable" data-q="36" data-val="C"></td>
+                                        <td class="selectable" data-q="36" data-val="D"></td>
+                                        <td class="selectable" data-q="36" data-val="E"></td>
+                                        <td class="selectable" data-q="36" data-val="F"></td>
+                                        <td class="selectable" data-q="36" data-val="G"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>37</strong> Tourists should keep a written account of their photographs.</td>
+                                        <td class="selectable" data-q="37" data-val="A"></td>
+                                        <td class="selectable" data-q="37" data-val="B"></td>
+                                        <td class="selectable" data-q="37" data-val="C"></td>
+                                        <td class="selectable" data-q="37" data-val="D"></td>
+                                        <td class="selectable" data-q="37" data-val="E"></td>
+                                        <td class="selectable" data-q="37" data-val="F"></td>
+                                        <td class="selectable" data-q="37" data-val="G"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>38</strong> Each place means something different to each visitor.</td>
+                                        <td class="selectable" data-q="38" data-val="A"></td>
+                                        <td class="selectable" data-q="38" data-val="B"></td>
+                                        <td class="selectable" data-q="38" data-val="C"></td>
+                                        <td class="selectable" data-q="38" data-val="D"></td>
+                                        <td class="selectable" data-q="38" data-val="E"></td>
+                                        <td class="selectable" data-q="38" data-val="F"></td>
+                                        <td class="selectable" data-q="38" data-val="G"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                                </div>
+                        <div class="question" data-q-start="39" data-q-end="40">
+                            <div class="question-prompt">
+                                <p><strong>Questions 39 and 40</strong><br>Choose the correct answer.</p>
+                                <p>Write the correct letter in boxes 39 and 40 on your answer sheet.</p>
+                            </div>
+                            <div class="multi-choice-question" data-q-start="39" data-q-end="40">
+                                <div class="multi-choice-options">
+                                    <p><strong>39</strong> The 2002 study by Yamashita shows that local residents</p>
+                                    <div class="multi-choice-option"><label><input type="radio" name="q39" value="A"> appreciate the beauty of their surroundings.</label></div>
+                                    <div class="multi-choice-option"><label><input type="radio" name="q39" value="B"> know their surroundings too well to appreciate them.</label></div>
+                                    <div class="multi-choice-option"><label><input type="radio" name="q39" value="C"> consider water the most important aspect of their surroundings.</label></div>
+                                    <div class="multi-choice-option"><label><input type="radio" name="q39" value="D"> dislike the negative impact of visitors on their surroundings.</label></div>
+
+                                    <p style="margin-top: 30px;"><strong>40</strong> In the final paragraph, the writer states that photographs present</p>
+                                    <div class="multi-choice-option"><label><input type="radio" name="q40" value="A"> a factual account of a visit.</label></div>
+                                    <div class="multi-choice-option"><label><input type="radio" name="q40" value="B"> an unreliable source for research.</label></div>
+                                    <div class="multi-choice-option"><label><input type="radio" name="q40" value="C"> a clear picture of the visitor's feelings.</label></div>
+                                    <div class="multi-choice-option"><label><input type="radio" name="q40" value="D"> an image that needs to be explained to others.</label></div>
+                                </div>
+                            </div>
                         </div>
-                        
                     </div>
                 </div>
             </div>
@@ -2276,11 +2153,6 @@
         <button class="nav-arrow" onclick="previousQuestion()" id="prevBtn">‹</button>
         <button class="nav-arrow" onclick="nextQuestion()" id="nextBtn">›</button>
     </div>
-
-    <!-- Submit Answers Button -->
-    <button id="submit-answers-btn" class="submit-answers-button" onclick="submitAnswers()">
-        Submit Answers
-    </button>
 
     <!-- Bottom Navigation -->
     <nav class="nav-row perScorableItem" aria-label="Questions">
@@ -2366,6 +2238,7 @@
         </div>
     </div>
         
+        <button id="deliver-button" aria-label="Submit Answers" class="footer__deliverButton___3FM07" onclick="submitReadingSection()">Submit Answers</button>
     </nav>
 
     <!-- Context Menu -->
@@ -2394,11 +2267,12 @@
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="telegram-integration.js"></script>
     <script>
     document.addEventListener('DOMContentLoaded', () => {
         // --- LOGIN STATE VARIABLES ---
-        const CORRECT_PASSWORD = '1234'; // You can change this password
-        let candidateName = '';
+        const CORRECT_PASSWORD = 'JAMOL'; // You can change this password
+        let candidateId = '';
         let isAuthenticated = false;
         let sessionStartTime = null;
         const SESSION_TIMEOUT = 4 * 60 * 60 * 1000; // 4 hours in milliseconds
@@ -2427,43 +2301,43 @@
         const correctAnswers = {
             '1': 'TRUE',
             '2': 'TRUE',
-            '3': 'NOT GIVEN',
-            '4': 'TRUE',
+            '3': 'FALSE',
+            '4': 'NOT GIVEN',
             '5': 'FALSE',
-            '6': 'FALSE',
-            '7': 'FALSE',
-            '8': 'TRUE',
-            '9': 'imitations',
-            '10': 'violence',
-            '11': 'political',
-            '12': 'twists',
-            '13': 'beneficial',
-            '14': 'v',
-            '15': 'viii',
-            '16': 'i',
-            '17': 'vii',
-            '18': 'iv',
-            '19': 'E',
-            '20': 'A',
-            '21': 'B',
-            '22': 'G',
-            '23': 'base',
-            '24': 'gravity',
-            '25': 'metals',
-            '26': 'water',
-            '27': 'B',
-            '28': 'A',
-            '29': 'A',
-            '30': 'C',
-            '31': 'C',
-            '32': 'B',
-            '33': 'breathing',
-            '34': 'babies',
-            '35': 'brain activity',
-            '36': 'exercise',
-            '37': 'temperature',
-            '38': 'scanning techniques',
-            '39': 'drug',
+            '6': ['award', 'prize'],
+            '7': 'paper',
+            '8': ['profits', 'profit'],
+            '9': ['roads', 'road'],
+            '10': 'concrete',
+            '11': 'museum',
+            '12': ['tennis', 'racquets', 'rackets'],
+            '13': 'cheese',
+            '14': ['mosquitoes', 'insects'],
+            '15': 'miasma',
+            '16': ['hereditary', 'inherited'],
+            '17': ['life expectancy', 'life-expectancy'],
+            '18': 'NOT GIVEN',
+            '19': 'TRUE',
+            '20': 'FALSE',
+            '21': 'E',
+            '22': 'C',
+            '23': 'F',
+            '24': 'H',
+            '25': 'B',
+            '26': 'D',
+            '27': 'v',
+            '28': 'ii',
+            '29': 'iii',
+            '30': 'viii',
+            '31': 'vii',
+            '32': 'vi',
+            '33': 'D',
+            '34': 'E',
+            '35': 'B',
+            '36': 'C',
+            '37': 'G',
+            '38': 'A',
+            '39': 'B',
             '40': 'D'
         };
 
@@ -2536,7 +2410,7 @@
             document.getElementById('login-form').addEventListener('submit', handleLogin);
             
             // Candidate form submission
-            document.getElementById('candidate-form').addEventListener('submit', handleCandidateName);
+            document.getElementById('candidate-form').addEventListener('submit', handleCandidateId);
             
             // Back button functionality
             document.getElementById('back-to-login').addEventListener('click', () => {
@@ -2553,10 +2427,10 @@
                 }
             });
 
-            // Enter key support for candidate name field
-            document.getElementById('candidate-name').addEventListener('keypress', (e) => {
+            // Enter key support for candidate ID field
+            document.getElementById('candidate-id').addEventListener('keypress', (e) => {
                 if (e.key === 'Enter') {
-                    handleCandidateName(e);
+                    handleCandidateId(e);
                 }
             });
         }
@@ -2596,9 +2470,9 @@
             }, 500);
         }
 
-        function handleCandidateName(e) {
+        function handleCandidateId(e) {
             e.preventDefault();
-            const candidateNameInput = document.getElementById('candidate-name').value.trim();
+            const candidateIdInput = document.getElementById('candidate-id').value.trim();
             const errorElement = document.getElementById('candidate-error');
             const candidateBtn = document.getElementById('candidate-btn');
             
@@ -2609,26 +2483,26 @@
             
             // Simulate a small delay for better UX
             setTimeout(() => {
-                if (candidateNameInput.length >= 2) {
-                    candidateName = candidateNameInput;
+                if (candidateIdInput.length >= 3) {
+                    candidateId = candidateIdInput;
                     isAuthenticated = true;
                     sessionStartTime = Date.now();
                     errorElement.style.display = 'none';
                     document.getElementById('candidate-screen').style.display = 'none';
                     document.getElementById('start-screen').style.display = 'flex';
                     
-                    // Update start screen with candidate name
+                    // Update start screen with candidate ID
                     const startContent = document.querySelector('.start-content');
                     const candidateInfo = document.createElement('div');
-                    candidateInfo.style.cssText = 'background: #e8f4fd; padding: 15px; border-radius: 8px; margin-bottom: 20px; border-left: 4px solid #667eea;';
-                    candidateInfo.innerHTML = `<strong>Candidate Name:</strong> ${candidateName}`;
+                    candidateInfo.style.cssText = 'background: rgb(253 232 232); padding: 15px; border-radius: 8px; margin-bottom: 20px; border-left: 4px solid rgb(234 102 102);';
+                    candidateInfo.innerHTML = `<strong>Candidate ID:</strong> ${candidateId}`;
                     startContent.insertBefore(candidateInfo, startContent.firstChild);
                     
                     // Start session timeout check
                     setInterval(checkSessionTimeout, 60000); // Check every minute
                 } else {
                     errorElement.style.display = 'block';
-                    document.getElementById('candidate-name').focus();
+                    document.getElementById('candidate-id').focus();
                     document.getElementById('candidate-screen').classList.add('shake');
                     setTimeout(() => {
                         document.getElementById('candidate-screen').classList.remove('shake');
@@ -2652,7 +2526,7 @@
         function logout() {
             // Reset authentication state
             isAuthenticated = false;
-            candidateName = '';
+            candidateId = '';
             sessionStartTime = null;
             
             // Clear timer
@@ -2668,7 +2542,7 @@
             // Show login screen
             document.getElementById('login-screen').style.display = 'flex';
             document.getElementById('password').value = '';
-            document.getElementById('candidate-name').value = '';
+            document.getElementById('candidate-id').value = '';
             document.getElementById('login-error').style.display = 'none';
             document.getElementById('candidate-error').style.display = 'none';
             
@@ -2704,8 +2578,8 @@
             // Add start button functionality
             document.getElementById('start-test-btn').addEventListener('click', () => {
                 // Security check - ensure user is authenticated
-                if (!isAuthenticated || !candidateName) {
-                    alert('Authentication required. Please login with password and enter candidate name.');
+                if (!isAuthenticated || !candidateId) {
+                    alert('Authentication required. Please login with password and enter candidate ID.');
                     document.getElementById('start-screen').style.display = 'none';
                     document.getElementById('login-screen').style.display = 'flex';
                     return;
@@ -2720,8 +2594,8 @@
                 document.querySelector('.nav-arrows').style.display = 'flex';
                 document.querySelector('.nav-row').style.display = 'flex';
                 
-                // Update header with candidate name
-                document.getElementById('header-candidate-name').textContent = candidateName;
+                // Update header with candidate ID
+                document.getElementById('header-candidate-id').textContent = candidateId;
                 
                 // Start the test
                 startTimer();
@@ -2733,30 +2607,11 @@
 
             // (Testing button removed)
 
-            // Add manual submit button functionality
-            const submitButton = document.querySelector('.footer__deliverButton___3FM07');
-            if (submitButton) {
-                submitButton.addEventListener('click', () => {
-                    if (!testCompleted && confirm('Are you sure you want to finish the test early? This will submit your answers and download your results.')) {
-                        checkAnswers();
-                    }
-                });
-            }
+            // Submit button functionality moved to explicit handler submitReadingSection()
             
             document.body.addEventListener('input', updateAllIndicators);
             document.body.addEventListener('change', updateAllIndicators);
-
-            // Ensure hidden inputs exist for matrix questions (Q18-23) to persist selections
-            for (let q = 18; q <= 23; q++) {
-                if (!document.getElementById(`q${q}`)) {
-                    const hidden = document.createElement('input');
-                    hidden.type = 'hidden';
-                    hidden.id = `q${q}`;
-                    hidden.name = `q${q}`;
-                    document.body.appendChild(hidden);
-                }
-            }
-            // Click handling for matrix selection (Q18-23)
+            // Click handling for matrix selection (Q33-38)
             document.body.addEventListener('click', (e) => {
                 const cell = e.target.closest('.matrix-table td.selectable');
                 if (!cell) return;
@@ -2764,14 +2619,7 @@
                 if (!q) return;
                 document.querySelectorAll(`.matrix-table td.selectable[data-q="${q}"]`).forEach(td => td.classList.remove('matrix-selected'));
                 cell.classList.add('matrix-selected');
-                // Persist selection to hidden input for reliable retrieval and PDF export
-                const selectedVal = cell.getAttribute('data-val') || '';
-                const hidden = document.getElementById(`q${q}`);
-                if (hidden) hidden.value = selectedVal;
-                // Add a small delay to ensure DOM is updated before checking
-                setTimeout(() => {
-                    updateAllIndicators();
-                }, 10);
+                updateAllIndicators();
             });
             
             // Timer now updates automatically in real-time, no hover needed
@@ -2797,156 +2645,120 @@
 
         // --- CORE TEST LOGIC ---
 
-        // Telegram Integration
-        const TELEGRAM_BOT_TOKEN = '8489597425:AAE9fNvU_gm7jUOIuw3lALmFVTZ3TtT7WVE';
-        const TELEGRAM_CHAT_ID = '-1003120738609';
-
-        async function sendPDFToTelegram(testType, candidateName, pdfBlob) {
+        async function sendResultsToTelegram(score, totalQuestions, resultsData) {
             try {
-                const currentDate = new Date();
-                const dateString = currentDate.toLocaleDateString();
-                const timeString = currentDate.toLocaleTimeString();
+                // Create PDF
+                const { jsPDF } = window.jspdf;
+                const doc = new jsPDF();
                 
-                // Create caption text
-                let caption = `#${testType}\n\n`;
-                caption += `👤 Candidate: ${candidateName}\n`;
-                caption += `📅 Date: ${dateString}\n`;
-                caption += `⏰ Time: ${timeString}\n\n`;
-                caption += `📄 IELTS ${testType.charAt(0).toUpperCase() + testType.slice(1)} Test Results`;
+                // Add title
+                doc.setFontSize(20);
+                doc.setFont(undefined, 'bold');
+                doc.text('IELTS Reading Test Results', 105, 20, { align: 'center' });
                 
-                // Create FormData for file upload
-                const formData = new FormData();
-                formData.append('chat_id', TELEGRAM_CHAT_ID);
-                formData.append('document', pdfBlob, `IELTS_${testType.charAt(0).toUpperCase() + testType.slice(1)}_Test_${candidateName.replace(/\s+/g, '_')}.pdf`);
-                formData.append('caption', caption);
+                // Add summary
+                doc.setFontSize(14);
+                doc.setFont(undefined, 'normal');
+                doc.text(`Final Score: ${score} / ${totalQuestions}`, 20, 40);
+                doc.text(`IELTS Band Score: ${calculateBandScore(score)}`, 20, 50);
                 
-                // Send PDF file to Telegram
-                const response = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendDocument`, {
-                    method: 'POST',
-                    body: formData
+                // Add candidate info
+                doc.text(`Candidate ID: ${candidateId}`, 20, 70);
+                doc.text(`Date: ${new Date().toLocaleDateString()}`, 20, 80);
+                doc.text(`Time: ${new Date().toLocaleTimeString()}`, 20, 90);
+                
+                // Add results table
+                doc.setFontSize(12);
+                doc.text('Q#', 20, 110);
+                doc.text('Your Answer', 40, 110);
+                doc.text('Correct Answer', 100, 110);
+                doc.text('Result', 160, 110);
+                
+                let yPosition = 120;
+                for (let i = 1; i <= totalQuestions; i++) {
+                    const result = resultsData[i];
+                    if (result) {
+                        // Check if we need a new page
+                        if (yPosition > 280) {
+                            doc.addPage();
+                            yPosition = 20;
+                            
+                            // Redraw header on new page
+                            doc.setFontSize(12);
+                            doc.text('Q#', 20, yPosition);
+                            doc.text('Your Answer', 40, yPosition);
+                            doc.text('Correct Answer', 100, yPosition);
+                            doc.text('Result', 160, yPosition);
+                            yPosition += 10;
+                        }
+
+                        // Alternate row colors
+                        const isEvenRow = i % 2 === 0;
+                        if (isEvenRow) {
+                            doc.setFillColor(240, 240, 240); // Light grey
+                            doc.rect(20, yPosition - 5, 160, 8, 'F');
+                        }
+
+                        // Draw row data
+                        doc.text(i.toString(), 22, yPosition);
+                        doc.text(result.userAnswer === 'Not Answered' ? 'No Answer' : result.userAnswer, 42, yPosition);
+                        doc.text(result.correctAnswer, 102, yPosition);
+                        doc.text(result.isCorrect ? 'Correct' : 'Incorrect', 162, yPosition);
+                        
+                        yPosition += 8;
+                    }
+                }
+                
+                // Convert to blob and send to Telegram
+                const pdfBlob = doc.output('blob');
+                const filename = `IELTS_Reading_Test_${candidateId}.pdf`;
+                
+                // Format message
+                const now = new Date();
+                const date = now.toLocaleDateString('en-GB', {
+                    day: '2-digit',
+                    month: '2-digit',
+                    year: 'numeric'
+                });
+                const time = now.toLocaleTimeString('en-GB', {
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit',
+                    hour12: false
                 });
                 
-                if (response.ok) {
-                    console.log('PDF sent to Telegram successfully');
-                } else {
-                    console.error('Failed to send PDF to Telegram');
-                }
+                const message = `#reading
+
+👤 Candidate: ${candidateId}
+📅 Date: ${date}
+⏰ Time: ${time}
+
+📄 IELTS Reading Test Results
+📊 Score: ${score}/${totalQuestions}`;
+                
+                // Send to Telegram
+                await window.telegramIntegration.sendDocument(pdfBlob, filename, message);
+                
+                console.log('Reading results sent successfully to Telegram');
+                resultsDownloaded = true;
+                
             } catch (error) {
-                console.error('Error sending PDF to Telegram:', error);
+                console.error('Error sending reading results to Telegram:', error);
+                alert('Error sending results to Telegram. Please try again.');
             }
         }
 
-        async function downloadResultsAsPdf(score, totalQuestions, resultsData) {
-            const { jsPDF } = window.jspdf;
-            const doc = new jsPDF();
-
-            const currentSection = getCurrentTestSection().replace('.html', '');
-            
-            let y = 20;
-            doc.setFontSize(18);
-            const sectionTitle = currentSection.charAt(0).toUpperCase() + currentSection.slice(1);
-            doc.text(`IELTS ${sectionTitle} Test Results`, 10, y);
-            y += 15;
-
-            // Score summary
-            doc.setFontSize(14);
-            doc.text(`Final Score: ${score} / ${totalQuestions}`, 10, y);
-            y += 10;
-            doc.text(`IELTS Band Score: ${calculateBandScore(score)}`, 10, y);
-            y += 15;
-
-            // Candidate info
-            doc.setFontSize(10);
-            doc.text(`Candidate Name: ${candidateName}`, 10, y);
-            y += 5;
-            doc.text(`Date: ${new Date().toLocaleDateString()}`, 10, y);
-            y += 5;
-            doc.text(`Time: ${new Date().toLocaleTimeString()}`, 10, y);
-            y += 15;
-
-            // Create table header
-            const tableHeaders = ['Q#', 'Your Answer', 'Correct Answer', 'Result'];
-            const columnWidths = [15, 60, 60, 30];
-            const startX = 10;
-            
-            // Draw table header
-            doc.setFillColor(34, 139, 34); // Dark green background
-            doc.setTextColor(255, 255, 255); // White text
-            doc.setFontSize(10);
-            doc.setFont(undefined, 'bold');
-            
-            let currentX = startX;
-            tableHeaders.forEach((header, index) => {
-                doc.rect(currentX, y, columnWidths[index], 8, 'F');
-                doc.text(header, currentX + 2, y + 6);
-                currentX += columnWidths[index];
-            });
-            y += 8;
-
-            // Draw table data
-            doc.setTextColor(0, 0, 0); // Black text
-            doc.setFont(undefined, 'normal');
-            
-            for (let i = 1; i <= totalQuestions; i++) {
-                const result = resultsData[i];
-                if (result) {
-                    // Check if we need a new page
-                    if (y > 280) {
-                        doc.addPage();
-                        y = 10;
-                        
-                        // Redraw header on new page
-                        doc.setFillColor(34, 139, 34);
-                        doc.setTextColor(255, 255, 255);
-                        doc.setFont(undefined, 'bold');
-                        currentX = startX;
-                        tableHeaders.forEach((header, index) => {
-                            doc.rect(currentX, y, columnWidths[index], 8, 'F');
-                            doc.text(header, currentX + 2, y + 6);
-                            currentX += columnWidths[index];
-                        });
-                        y += 8;
-                        doc.setTextColor(0, 0, 0);
-                        doc.setFont(undefined, 'normal');
-                    }
-
-                    // Alternate row colors
-                    const isEvenRow = i % 2 === 0;
-                    if (isEvenRow) {
-                        doc.setFillColor(240, 240, 240); // Light grey
-                        doc.rect(startX, y, columnWidths.reduce((a, b) => a + b, 0), 8, 'F');
-                    }
-
-                    // Draw row data
-                    currentX = startX;
-                    
-                    // Question number
-                    doc.text(i.toString(), currentX + 2, y + 6);
-                    currentX += columnWidths[0];
-                    
-                    // Your answer
-                    const userAnswer = result.userAnswer === 'Not Answered' ? 'No Answer' : result.userAnswer;
-                    doc.text(userAnswer, currentX + 2, y + 6);
-                    currentX += columnWidths[1];
-                    
-                    // Correct answer
-                    doc.text(result.correctAnswer, currentX + 2, y + 6);
-                    currentX += columnWidths[2];
-                    
-                    // Result
-                    const resultText = result.isCorrect ? 'Correct' : 'Incorrect';
-                    doc.text(resultText, currentX + 2, y + 6);
-                    
-                    y += 8;
+        async function submitReadingSection(){
+            if (!confirm('Are you sure you want to finish Reading? This will submit your answers, send results to Telegram, and move to Writing.')) return;
+            try {
+                // If checkAnswers computes and then triggers sendResultsToTelegram internally, call it; else compute then call sendResultsToTelegram
+                if (typeof checkAnswers === 'function') {
+                    checkAnswers();
                 }
+            } catch(e){
+                console.error('Reading submission failed:', e);
             }
-            
-            // Generate PDF blob
-            const pdfBlob = doc.output('blob');
-            
-            // Send PDF to Telegram
-            await sendPDFToTelegram('reading', candidateName, pdfBlob);
-            resultsDownloaded = true;
+            setTimeout(()=>{ window.location.href = 'Writing.html'; }, 800);
         }
 
         function handleTimeExpiration() {
@@ -2964,12 +2776,12 @@
             // Ensure all parts are rendered
             try { switchToPart(1); switchToPart(2); switchToPart(3); } catch (e) {}
             
-            // Automatically check answers and download results
-            setTimeout(() => {
+            // Automatically check answers and send results
+            setTimeout(async () => {
                 const results = checkAnswersAndGetResults();
-                downloadResultsAsPdf(results.score, results.totalQuestions, results.resultsData);
+                await sendResultsToTelegram(results.score, results.totalQuestions, results.resultsData);
                 
-                // Show completion interface after download
+                // Show completion interface after sending
                 setTimeout(() => {
                     showCompletionInterface();
                 }, 1000);
@@ -3055,42 +2867,40 @@
                 const textInput = document.getElementById(`q${i}`);
                 const radioGroup = document.querySelectorAll(`input[name="q${i}"][type="radio"]`);
                 
-                // Handle Questions 18-23 (Matrix table selections - matching people to statements)
-                if (i >= 18 && i <= 23) {
-                    // Prefer hidden input value to ensure persistence across re-renders/PDF export
-                    const hidden = document.getElementById(`q${i}`);
-                    if (hidden && hidden.value) {
-                        userAnswer = hidden.value;
-                        userAnswerDisplay = userAnswer;
-                        isCorrect = userAnswer === correctAnswer;
-                        if (isCorrect) score++;
-                    } else {
-                        const selectedCell = document.querySelector(`.matrix-table td.matrix-selected[data-q="${i}"]`);
-                        if (selectedCell) {
-                            userAnswer = selectedCell.getAttribute('data-val');
+                // Handle Questions 21-22 (support legacy grouped-checkbox UI if present)
+                if ((i === 21 || i === 22) && document.querySelectorAll('input[name="q21-22"]').length > 0) {
+                    const checkboxes = document.querySelectorAll(`input[name="q21-22"]:checked`);
+                    const userAnswers = Array.from(checkboxes).map(cb => cb.value);
+                    const groupCorrect = ['B', 'D'];
+                    userAnswerDisplay = userAnswers.length > 0 ? userAnswers.join(', ') : 'Not Answered';
+                    // partial credit if any correct chosen
+                    isCorrect = userAnswers.some(userAns => groupCorrect.includes(userAns));
+                    if (isCorrect && i === 21) score++;
+                }
+                // Handle Questions 27-32 (Drag and drop headings in passage)
+                else if (i >= 27 && i <= 32) {
+                    const dropZone = document.querySelector(`.drop-zone[data-q-start="${i}"]`);
+                    if (dropZone) {
+                        const droppedItem = dropZone.querySelector('.drag-item');
+                        if (droppedItem) {
+                            userAnswer = droppedItem.dataset.value;
                             userAnswerDisplay = userAnswer;
                             isCorrect = userAnswer === correctAnswer;
                             if (isCorrect) score++;
                         }
                     }
                 }
-                // Handle Questions 27-32 (Matching table - radio buttons)
-                else if (i >= 27 && i <= 32) {
-                    const radioInputs = document.querySelectorAll(`input[name="q${i}"][type="radio"]`);
-                    let selectedValue = '';
-                    
-                    radioInputs.forEach(radio => {
-                        if (radio.checked) {
-                            selectedValue = radio.value;
-                        }
-                    });
-                    
-                    userAnswer = selectedValue;
-                    userAnswerDisplay = userAnswer || 'Not Answered';
-                    isCorrect = userAnswer === correctAnswer;
-                    if (isCorrect) score++;
+                // (14-20 are standard inputs/radios in this test; handled below)
+                // Handle Questions 33-38 (Matrix table selections)
+                else if (i >= 33 && i <= 38) {
+                    const selectedCell = document.querySelector(`.matrix-table td.matrix-selected[data-q="${i}"]`);
+                    if (selectedCell) {
+                        userAnswer = selectedCell.getAttribute('data-val');
+                            userAnswerDisplay = userAnswer;
+                            isCorrect = userAnswer === correctAnswer;
+                            if (isCorrect) score++;
+                    }
                 }
-                // (14-17, 33-39 are standard inputs/selects; 40 is radio button; handled below)
                 // Handle Text and Select Inputs
                 else if (textInput && (textInput.tagName === 'INPUT' || textInput.tagName === 'SELECT')) {
                     userAnswer = textInput.value.trim();
@@ -3201,7 +3011,7 @@
             document.body.appendChild(completionOverlay);
         }
 
-        function checkAnswers() {
+        async function checkAnswers() {
             // This function is now only used for manual submission
             if (testCompleted) return; // Prevent multiple executions
             
@@ -3211,37 +3021,14 @@
             // Disable all inputs
             disableAllInputs();
             
-            // Get results and download PDF (without showing to user)
+            // Get results and send to Telegram
             const results = checkAnswersAndGetResults();
-            downloadResultsAsPdf(results.score, results.totalQuestions, results.resultsData);
+            await sendResultsToTelegram(results.score, results.totalQuestions, results.resultsData);
             
             // Show completion interface
             setTimeout(() => {
                 showCompletionInterface();
             }, 1000);
-        }
-
-        // Duplicate checkAnswersAndGetResults removed; unified checker defined earlier is used below
-
-        function submitAnswers() {
-            if (testCompleted) return; // Prevent multiple executions
-            
-            if (confirm('Are you sure you want to submit your answers? This will download your results as PDF and move to the writing section.')) {
-                testCompleted = true;
-                clearInterval(timerInterval);
-                
-                // Disable all inputs
-                disableAllInputs();
-                
-                // Get results and download PDF
-                const results = checkAnswersAndGetResults();
-                downloadResultsAsPdf(results.score, results.totalQuestions, results.resultsData);
-                
-                // Navigate to writing section after a short delay
-                setTimeout(() => {
-                    window.location.href = 'Writing.html';
-                }, 2000);
-            }
         }
 
         function calculateBandScore(score) {
@@ -3269,8 +3056,8 @@
             if (textInput) { // Handles <input type="text"> and <select>
                 return { value: textInput.value, text: textInput.value || 'N/A' };
             }
-            // Matrix answers for 18-23
-            if (qNum >= 18 && qNum <= 23) {
+            // Matrix answers for 33-38
+            if (qNum >= 33 && qNum <= 38) {
                 const selectedCell = document.querySelector(`.matrix-table td.matrix-selected[data-q="${qNum}"]`);
                 const val = selectedCell ? selectedCell.getAttribute('data-val') : null;
                 return { value: val, text: val || 'N/A' };
@@ -3458,20 +3245,9 @@
             if (radio) {
                 return true;
             }
-            // Handle Questions 18-23 (Matrix table selections)
-            if (qNum >= 18 && qNum <= 23) {
+            if (qNum >= 33 && qNum <= 38) {
                 const sel = document.querySelector(`.matrix-table td.matrix-selected[data-q="${qNum}"]`);
-
                 if (sel) return true;
-            }
-            // Handle Questions 27-32 (Matching table radio buttons)
-            if (qNum >= 27 && qNum <= 32) {
-                const radioInputs = document.querySelectorAll(`input[name="q${qNum}"][type="radio"]`);
-                for (let radio of radioInputs) {
-                    if (radio.checked) {
-                        return true;
-                    }
-                }
             }
             // Handle checkbox groups
             if (qNum >= 21 && qNum <= 22) {
@@ -3869,7 +3645,7 @@
                         Thank you for using our practice test system.
                     </p>
                     <div style="font-size: 14px; opacity: 0.8;">
-                        <p>Candidate Name: ${candidateName}</p>
+                        <p>Candidate ID: ${candidateId}</p>
                         <p>Completion Date: ${new Date().toLocaleDateString()}</p>
                         <p>Completion Time: ${new Date().toLocaleTimeString()}</p>
                     </div>
@@ -3878,6 +3654,22 @@
             
             document.body.appendChild(finalMessage);
         }
+
+        // --- SUBMIT FUNCTION ---
+        window.submitReadingSection = function() {
+            if (testCompleted) {
+                return; // Prevent multiple submissions
+            }
+            
+            // Show confirmation dialog
+            const confirmed = confirm('Are you sure you want to submit your answers? You cannot change them after submission.');
+            if (!confirmed) {
+                return;
+            }
+            
+            // Call the existing checkAnswers function
+            checkAnswers();
+        };
 
         // --- GLOBAL FUNCTION EXPOSURE ---
         window.nextQuestion = nextQuestion;
@@ -3888,7 +3680,6 @@
         window.addNote = addNote;
         window.clearHighlight = clearHighlight;
         window.clearAllHighlights = clearAllHighlights;
-        window.submitAnswers = submitAnswers;
         
 
 

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Telegram Integration</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="telegram-integration.js"></script>
+</head>
+<body>
+    <h1>Test Telegram Integration</h1>
+    <button onclick="testWriting()">Test Writing Results</button>
+    <button onclick="testListening()">Test Listening Results</button>
+    <button onclick="testReading()">Test Reading Results</button>
+    
+    <div id="status"></div>
+
+    <script>
+        function updateStatus(message) {
+            document.getElementById('status').innerHTML += '<p>' + message + '</p>';
+        }
+
+        async function testWriting() {
+            try {
+                updateStatus('Testing Writing results...');
+                await window.telegramIntegration.sendWritingResults('TEST123', 'This is task 1 content for testing.', 'This is task 2 content for testing.');
+                updateStatus('✅ Writing test sent successfully!');
+            } catch (error) {
+                updateStatus('❌ Writing test failed: ' + error.message);
+            }
+        }
+
+        async function testListening() {
+            try {
+                updateStatus('Testing Listening results...');
+                await window.telegramIntegration.sendListeningResults('TEST123', ['A', 'B', 'C'], ['A', 'B', 'D']);
+                updateStatus('✅ Listening test sent successfully!');
+            } catch (error) {
+                updateStatus('❌ Listening test failed: ' + error.message);
+            }
+        }
+
+        async function testReading() {
+            try {
+                updateStatus('Testing Reading results...');
+                await window.telegramIntegration.sendReadingResults('TEST123', ['A', 'B', 'C'], ['A', 'B', 'D']);
+                updateStatus('✅ Reading test sent successfully!');
+            } catch (error) {
+                updateStatus('❌ Reading test failed: ' + error.message);
+            }
+        }
+    </script>
+</body>
+</html>
