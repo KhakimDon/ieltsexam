@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Writing Test</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            line-height: 1.4;
+            font-size: 16px;
+            padding-bottom: 90px;
+        }
+
+        .header {
+            background-color: #ffffff;
+            padding: 12px 20px;
+            border-bottom: 1px solid #e0e0e0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            height: 60px;
+        }
+
+        .timer-container {
+            color: #333;
+            font-size: 16px;
+            font-weight: 500;
+            display: flex;
+            position: relative;
+            cursor: default;
+            align-items: center;
+        }
+
+        .telegram-link {
+            color: #3e3e3e;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 16px;
+    display: flex
+;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    border: 2px solid #3e3e3e;
+    border-radius: 9999px;
+    background-color: #ffffff;
+    line-height: 1;
+        }
+
+        
+        .telegram-link:hover {
+            background-color: #f6f6f6;
+        }
+
+        .telegram-link::before {
+            content: '';
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-color: currentColor;
+            -webkit-mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.78 18.65l.28-4.23l7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3L3.64 12c-.88-.25-.89-1.37.2-1.64l16.56-6.4c.75-.29 1.4.22 1.2.94l-2.67 12.61c-.22.95-1.13 1.18-1.78.73l-4.5-3.32l-2.23 2.15c-.47.44-1.29.21-1.48-.37z"/></svg>');
+            mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.78 18.65l.28-4.23l7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3L3.64 12c-.88-.25-.89-1.37.2-1.64l16.56-6.4c.75-.29 1.4.22 1.2.94l-2.67 12.61c-.22.95-1.13 1.18-1.78.73l-4.5-3.32l-2.23 2.15c-.47.44-1.29.21-1.48-.37z"/></svg>');
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+
+        body::after {
+            content: "@MINDLESS_WRITER";
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%) rotate(-20deg);
+            font-size: 72px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            color: #000000;
+            opacity: 0.02; /* subtle */
+            pointer-events: none;
+            z-index: 0;
+            white-space: nowrap;
+        }
+
+        .main-container {
+            margin-top: 60px;
+            display: flex;
+            background: #ffffff;
+            height: calc(100vh - 120px);
+            flex-direction: column;
+        }
+
+        .panels-container {
+            display: flex;
+            flex-grow: 1;
+            overflow: hidden;
+        }
+
+        .left-panel {
+            width: 50%;
+            padding: 20px;
+            border-right: 1px solid #e0e0e0;
+            overflow-y: auto;
+        }
+
+        .right-panel {
+            width: 50%;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+        }
+
+        .part-header {
+            background-color: #f1f2ec;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            margin-top: 20px;
+            border: 1px solid #e0e0e0;
+            width: auto;
+            text-align: left;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+
+        .part-header p {
+            margin: 0;
+        }
+
+        .chart-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .writing-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .writing-textarea {
+            border: 1px solid #ccc;
+            padding: 15px;
+            font-size: 16px;
+            font-family: Arial, sans-serif;
+            line-height: 1.5;
+            resize: none;
+            outline: none;
+            min-height: 300px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .writing-textarea:focus {
+            border-color: #4a90e2;
+        }
+
+        .word-count {
+            text-align: right;
+            margin-top: 10px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .instructions {
+            margin-bottom: 20px;
+        }
+
+        .instructions p {
+            margin-bottom: 10px;
+        }
+
+        .instructions strong {
+            font-weight: bold;
+        }
+
+        .task-prompt {
+            padding: 15px;
+            margin: 20px 0;
+            border: 1px solid #000;
+            font-style: italic;
+        }
+
+        .task-prompt p {
+            margin-bottom: 10px;
+        }
+
+        .task-prompt p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Success Message Styles */
+        .success-message {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            text-align: center;
+            z-index: 1000;
+            max-width: 400px;
+        }
+
+        .success-message h3 {
+            color: #28a745;
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+
+        .success-message p {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .success-message .btn {
+            padding: 10px 20px;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .success-message .btn:hover {
+            background: #218838;
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 999;
+        }
+
+        /* Bottom Navigation */
+        .nav-row {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #ffffff;
+            border-top: 1px solid #e0e0e0;
+            padding: 0;
+            display: flex;
+            align-items: stretch;
+            height: 60px;
+            z-index: 100;
+        }
+
+        .footer__questionWrapper___1tZ46 {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            position: relative;
+        }
+
+        .footer__questionWrapper___1tZ46.completed::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background-color: #28a745;
+            z-index: 1;
+        }
+
+        .footer__questionNo___3WNct {
+            background: none;
+            border: none;
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+            cursor: pointer;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.2s;
+            width: 100%;
+            height: 100%;
+            position: relative;
+            text-align: left;
+            padding-left: 20px;
+        }
+
+        .footer__questionWrapper___1tZ46 .footer__questionNo___3WNct:hover {
+            background-color: #f8f9fa;
+        }
+
+        .footer__questionWrapper___1tZ46.selected .footer__questionNo___3WNct {
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        .part-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            line-height: 1.2;
+        }
+
+        .footer__questionWrapper___1tZ46.selected .attemptedCount {
+            display: none;
+        }
+
+        .attemptedCount {
+            font-size: 14px;
+            color: #666;
+            font-weight: 400;
+            line-height: 1.2;
+        }
+
+        .footer__deliverButton___3FM07 {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: #f0f0f0;
+            color: #333;
+            border: 1px solid #ccc;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.2s, border-color 0.2s;
+            width: 40px;
+            height: 40px;
+        }
+
+        .footer__deliverButton___3FM07:hover {
+            background-color: #e0e0e0;
+            border-color: #bbb;
+        }
+
+        .fa-check::before {
+            content: "✓";
+            font-size: 18px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .ielts-logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .ielts-logo img {
+            height: 40px;
+            margin-right: 20px;
+        }
+
+        .login-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgb(255, 255, 255);
+            backdrop-filter: blur(10px);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .login-modal-content {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            padding: 40px;
+            width: 100%;
+            max-width: 450px;
+            position: relative;
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .login-header h2 {
+            color: #333;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .login-header p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .login-form-group {
+            margin-bottom: 20px;
+        }
+
+        .login-form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .login-form-group input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+            outline: none;
+            box-sizing: border-box;
+        }
+
+        .login-form-group input:focus {
+            border-color: #667eea;
+        }
+
+        .login-error-message {
+            color: #dc3545;
+            font-size: 14px;
+            margin-top: 8px;
+            display: none;
+        }
+
+        .login-error-message.show {
+            display: block;
+        }
+
+        .login-submit-btn {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            margin-top: 10px;
+        }
+
+        .login-submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .login-submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .login-modal-overlay.hidden {
+            display: none;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .main-container {
+                flex-direction: column;
+            }
+            
+            .left-panel,
+            .right-panel {
+                width: 100% !important;
+                border-right: none;
+            }
+            
+            .left-panel {
+                border-bottom: 1px solid #e0e0e0;
+            }
+        }
+
+        
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="telegram-integration.js"></script>
+</head>
+<body>
+    <div id="login-modal" class="login-modal-overlay">
+        <div class="login-modal-content">
+            <div class="login-header">
+                <img height="100" src="./logo.png"/>
+                <h2>IELTS Writing Test</h2>
+                <p>Enter your credentials to continue</p>
+            </div>
+
+            <form id="login-form">
+                <div class="login-form-group">
+                    <label for="login-password">Password</label>
+                    <input 
+                        type="password" 
+                        id="login-password" 
+                        name="password" 
+                        placeholder="Enter password" 
+                        required
+                        autocomplete="off"
+                    >
+                    <div class="login-error-message" id="login-password-error">Incorrect password. Please try again.</div>
+                </div>
+
+                <div class="login-form-group">
+                    <label for="login-candidate-id">Candidate ID</label>
+                    <input 
+                        type="text" 
+                        id="login-candidate-id" 
+                        name="candidate-id" 
+                        placeholder="Enter your Candidate ID" 
+                        required
+                        autocomplete="off"
+                    >
+                    <div class="login-error-message" id="login-candidate-error">Please enter a valid Candidate ID.</div>
+                </div>
+
+                <button type="submit" class="login-submit-btn">Start Test</button>
+            </form>
+        </div>
+    </div>
+    
+    <div class="header">
+        <div class="ielts-logo">
+            <img src="./logo.png" alt="IELTS Logo" style="height: 40px;">
+        </div>
+        <div class="timer-container">
+            <span class="timer-display">60:00</span>
+        </div>
+        <div class="header-icons">
+        </div>
+    </div>
+
+    <!-- Test Interface -->
+    <div class="main-container" id="mainContainer">
+        <div id="part-header-1" class="part-header">
+            <p><strong>Part 1</strong></p>
+            <p>You should spend about 20 minutes on this task. Write at least 150 words.</p>
+        </div>
+        <div id="part-header-2" class="part-header hidden">
+            <p><strong>Part 2</strong></p>
+            <p>You should spend about 40 minutes on this task. Write at least 250 words.</p>
+        </div>
+
+        <div class="panels-container">
+            <div class="left-panel">
+                <div id="part-1" class="writing-part">
+                    <div class="task-prompt">
+                        <p><strong>The maps below show the layout of a medical centre in 2005 and its development at the present day.
+                        </strong></p>
+                        <p><strong>Summarize the information by selecting and reporting the main points and make comparisons where relevant.</strong></p>
+                    </div>
+
+                    <div class="chart-container">
+                        <div class="image-container">
+                            <img src="https://www.ielts-mentor.com/images/writingsamples/graph-155-health-centre-in-2005-and-in-present-day.png" alt="Bar chart showing types of music bought in USA in 2010 by age group" style="max-width:60%; height:auto; border:1px solid #ccc;"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="part-2" class="writing-part hidden">
+                    <div class="instructions">
+                        <p><strong>Write about the following topic:</strong></p>
+                        <div class="task-prompt">
+                            <p><em><strong> Countries with a long average working time are more economically successful, but they are also likely to suffer from negative social consequences.
+
+                                <br><br> To what extent do you agree or disagree?</strong></em></p>
+                        </div>
+                        <p>Give reasons for your answer and include any relevant examples from your own knowledge or experience.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right-panel">
+                <div class="writing-area">
+                    <textarea 
+                        class="writing-textarea" 
+                        id="writingTextarea"
+                        placeholder="Start writing your response here..."
+                        oninput="updateWordCount()"
+                    ></textarea>
+                    <div class="word-count">
+                        Words: <span id="wordCount">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Message -->
+    <div class="overlay" id="overlay"></div>
+    <div class="success-message" id="successMessage">
+        <h3>✅ Writing Test Submitted Successfully!</h3>
+        <p>Your writing test results have been sent to Telegram. The PDF contains both Task 1 and Task 2 responses.</p>
+        <button class="btn" onclick="closeSuccessMessage()">Continue</button>
+    </div>
+
+    <!-- Bottom Navigation -->
+    <nav class="nav-row perScorableItem" aria-label="Questions" id="navigation">
+        <div class="footer__questionWrapper___1tZ46 selected single" role="tablist">
+            <button role="tab" class="footer__questionNo___3WNct writing" data-sectionid="part1" tabindex="-1" onclick="switchPart(1)">
+                <div class="part-title">Part 1</div>
+                <div class="attemptedCount">0 of 1</div>
+            </button>
+        </div>
+        <div class="footer__questionWrapper___1tZ46 single" role="tablist">
+            <button role="tab" class="footer__questionNo___3WNct writing" data-sectionid="part2" tabindex="0" onclick="switchPart(2)">
+                <div class="part-title">Part 2</div>
+                <div class="attemptedCount">0 of 1</div>
+            </button>
+        </div>
+        <button id="deliver-button" aria-label="Submit Writing" class="footer__deliverButton___3FM07" onclick="submitTest()">
+            <i class="fa fa-check" aria-hidden="true"></i>
+        </button>
+    </nav>
+
+    
+
+    <script>
+        let currentPart = 1;
+        let timeInSeconds = 3600;
+        let timerInterval;
+        let partCompletionStatus = { 1: false, 2: false };
+        let candidateId = 'Unknown';
+
+        // --- AUTHENTICATION ---
+        const CORRECT_PASSWORD = '001D';
+        const loginModal = document.getElementById('login-modal');
+        
+        // Always show login modal on page load
+        loginModal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+
+        // Login form handler
+        const loginForm = document.getElementById('login-form');
+        const passwordInput = document.getElementById('login-password');
+        const candidateInput = document.getElementById('login-candidate-id');
+        const passwordError = document.getElementById('login-password-error');
+        const candidateError = document.getElementById('login-candidate-error');
+
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            passwordError.classList.remove('show');
+            candidateError.classList.remove('show');
+
+            const password = passwordInput.value.trim();
+            const candidateIdValue = candidateInput.value.trim();
+
+            if (password !== CORRECT_PASSWORD) {
+                passwordError.classList.add('show');
+                passwordInput.focus();
+                return;
+            }
+
+            if (!candidateIdValue || candidateIdValue.length < 2) {
+                candidateError.classList.add('show');
+                candidateInput.focus();
+                return;
+            }
+
+            // Save candidate ID in memory (not localStorage)
+            candidateId = candidateIdValue;
+
+            loginModal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        });
+
+        // Timer functionality
+        function startTimer() {
+            if (timerInterval) clearInterval(timerInterval);
+            timerInterval = setInterval(() => {
+                timeInSeconds--;
+                updateTimerDisplay();
+                
+                if (timeInSeconds <= 0) {
+                    clearInterval(timerInterval);
+                    alert("Time's up! Your test will be submitted automatically.");
+                    submitTest();
+                }
+            }, 1000);
+        }
+        
+        function updateTimerDisplay() {
+            const minutes = Math.floor(timeInSeconds / 60);
+            const seconds = timeInSeconds % 60;
+            document.querySelector('.timer-display').textContent =
+                `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
+
+        // Test submission function - saves to file
+        function submitTest() {
+            const part1Content = localStorage.getItem('ielts-writing-part-1') || '';
+            const part2Content = localStorage.getItem('ielts-writing-part-2') || '';
+
+            if (!part1Content.trim() && !part2Content.trim()) {
+                alert('Please write your responses before submitting the test.');
+                return;
+            }
+
+            const part1WordCount = part1Content.trim() === '' ? 0 : part1Content.trim().split(/\s+/).length;
+            const part2WordCount = part2Content.trim() === '' ? 0 : part2Content.trim().split(/\s+/).length;
+
+            if (confirm(`Are you sure you want to submit your writing?\n\nPart 1: ${part1WordCount} words\nPart 2: ${part2WordCount} words`)) {
+                clearInterval(timerInterval);
+                saveWritingToFile(part1Content, part2Content);
+            }
+        }
+
+        // Generate PDF and send to Telegram
+        function saveWritingToFile(part1Content, part2Content) {
+            const currentDate = new Date();
+            const dateString = currentDate.toLocaleDateString();
+            const timeString = currentDate.toLocaleTimeString();
+            
+            // Create PDF
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            
+            // Set font
+            doc.setFont("helvetica");
+            
+            // Title
+            doc.setFontSize(24);
+            doc.setFont("helvetica", "bold");
+            doc.text("IELTS Writing Test", 105, 20, { align: "center" });
+            
+            // Candidate info
+            doc.setFontSize(12);
+            doc.setFont("helvetica", "normal");
+            doc.text(`Candidate ID: ${candidateId}`, 20, 35);
+            doc.text(`Date: ${dateString}`, 20, 42);
+            doc.text(`Time: ${timeString}`, 20, 49);
+            
+            // ===== TASK 1 =====
+            doc.setFontSize(18);
+            doc.setFont("helvetica", "bold");
+            doc.text("TASK 1", 20, 65);
+            
+            // Task 1 description
+            doc.setFontSize(14);
+            doc.setFont("helvetica", "bold");
+            doc.text("Question:", 20, 75);
+            
+            doc.setFontSize(11);
+            doc.setFont("helvetica", "normal");
+            const task1Question = "The maps below show the layout of a medical centre in 2005 and its development at the present day.\n\nSummarize the information by selecting and reporting the main points and make comparisons where relevant.";
+            
+            const splitQuestion1 = doc.splitTextToSize(task1Question, 170);
+            doc.text(splitQuestion1, 20, 85);
+            
+            // Task 1 word count
+            const wordCount1 = part1Content.trim() === '' ? 0 : part1Content.trim().split(/\s+/).length;
+            doc.setFontSize(12);
+            doc.setFont("helvetica", "bold");
+            doc.text(`Word Count: ${wordCount1}`, 20, 130);
+            
+            // Task 1 response
+            doc.setFontSize(14);
+            doc.setFont("helvetica", "bold");
+            doc.text("Response:", 20, 145);
+            
+            doc.setFontSize(11);
+            doc.setFont("helvetica", "normal");
+            const response1 = part1Content || '[No response provided]';
+            const splitResponse1 = doc.splitTextToSize(response1, 170);
+            doc.text(splitResponse1, 20, 155);
+            
+            // Add new page for Task 2
+            doc.addPage();
+            
+            // ===== TASK 2 =====
+            doc.setFontSize(18);
+            doc.setFont("helvetica", "bold");
+            doc.text("TASK 2", 20, 20);
+            
+            // Task 2 description
+            doc.setFontSize(14);
+            doc.setFont("helvetica", "bold");
+            doc.text("Question:", 20, 30);
+            
+            doc.setFontSize(11);
+            doc.setFont("helvetica", "normal");
+            const task2Question = "Countries with a long average working time are more economically successful, but they are also likely to suffer from negative social consequences.\n\nTo what extent do you agree or disagree?";
+            
+            const splitQuestion2 = doc.splitTextToSize(task2Question, 170);
+            doc.text(splitQuestion2, 20, 40);
+            
+            // Task 2 word count
+            const wordCount2 = part2Content.trim() === '' ? 0 : part2Content.trim().split(/\s+/).length;
+            doc.setFontSize(12);
+            doc.setFont("helvetica", "bold");
+            doc.text(`Word Count: ${wordCount2}`, 20, 85);
+            
+            // Task 2 response
+            doc.setFontSize(14);
+            doc.setFont("helvetica", "bold");
+            doc.text("Response:", 20, 100);
+            
+            doc.setFontSize(11);
+            doc.setFont("helvetica", "normal");
+            const response2 = part2Content || '[No response provided]';
+            const splitResponse2 = doc.splitTextToSize(response2, 170);
+            doc.text(splitResponse2, 20, 110);
+            
+            // Summary on last page
+            doc.addPage();
+            doc.setFontSize(18);
+            doc.setFont("helvetica", "bold");
+            doc.text("SUMMARY", 20, 20);
+            
+            doc.setFontSize(12);
+            doc.setFont("helvetica", "normal");
+            doc.text(`Total Words: ${wordCount1 + wordCount2}`, 20, 35);
+            doc.text(`Task 1 Words: ${wordCount1}`, 20, 45);
+            doc.text(`Task 2 Words: ${wordCount2}`, 20, 55);
+            doc.text(`Date: ${dateString}`, 20, 65);
+            doc.text(`Time: ${timeString}`, 20, 75);
+            doc.text(`Candidate ID: ${candidateId}`, 20, 85);
+            
+            // Send PDF to Telegram (without downloading)
+            try {
+                const pdfBlob = doc.output('blob');
+                const message = window.telegramIntegration.formatWritingMessage(candidateId, 'writing');
+                window.telegramIntegration.sendDocument(pdfBlob, `IELTS_Writing_Test_${candidateId}.pdf`, message)
+                    .then(() => {
+                        console.log('Writing test results sent to Telegram successfully');
+                        showSuccessMessage();
+                    })
+                    .catch((error) => {
+                        console.error('Failed to send Writing test results to Telegram:', error);
+                        alert('Failed to send results to Telegram. Please try again.');
+                    });
+            } catch (error) {
+                console.error('Error sending Writing test to Telegram:', error);
+                alert('Error sending results to Telegram. Please try again.');
+            }
+        }
+
+        // Show success message
+        function showSuccessMessage() {
+            document.getElementById('overlay').style.display = 'block';
+            document.getElementById('successMessage').style.display = 'block';
+        }
+
+        // Close success message
+        function closeSuccessMessage() {
+            document.getElementById('overlay').style.display = 'none';
+            document.getElementById('successMessage').style.display = 'none';
+        }
+
+        // Test interface functions
+        function checkPartCompletion(partNumber) {
+            const savedContent = localStorage.getItem(`ielts-writing-part-${partNumber}`);
+            if (!savedContent) return false;
+            const wordCount = savedContent.trim() === '' ? 0 : savedContent.trim().split(/\s+/).length;
+            const minWords = partNumber === 1 ? 150 : 250;
+            return wordCount >= minWords;
+        }
+
+        function updateCompletionIndicators() {
+            for (let i = 1; i <= 2; i++) {
+                const isCompleted = checkPartCompletion(i);
+                partCompletionStatus[i] = isCompleted;
+                const wrapper = document.querySelectorAll('.footer__questionWrapper___1tZ46')[i - 1];
+                if (wrapper) {
+                    if (isCompleted) {
+                        wrapper.classList.add('completed');
+                    } else {
+                        wrapper.classList.remove('completed');
+                    }
+                }
+            }
+        }
+
+        function switchPart(partNumber) {
+            const currentContent = document.getElementById('writingTextarea').value;
+            localStorage.setItem(`ielts-writing-part-${currentPart}`, currentContent);
+            
+            currentPart = partNumber;
+            
+            document.querySelectorAll('.writing-part').forEach(part => {
+                part.classList.add('hidden');
+            });
+            document.querySelectorAll('.part-header').forEach(header => {
+                header.classList.add('hidden');
+            });
+            
+            document.getElementById(`part-${partNumber}`).classList.remove('hidden');
+            document.getElementById(`part-header-${partNumber}`).classList.remove('hidden');
+            
+            document.querySelectorAll('.footer__questionWrapper___1tZ46').forEach(wrapper => {
+                wrapper.classList.remove('selected');
+            });
+            
+            const wrappers = document.querySelectorAll('.footer__questionWrapper___1tZ46');
+            if (wrappers[partNumber - 1]) {
+                wrappers[partNumber - 1].classList.add('selected');
+            }
+            
+            document.querySelectorAll('.footer__questionNo___3WNct').forEach((btn, index) => {
+                btn.tabIndex = index === (partNumber - 1) ? -1 : 0;
+            });
+            
+            const savedContent = localStorage.getItem(`ielts-writing-part-${partNumber}`);
+            document.getElementById('writingTextarea').value = savedContent || '';
+            updateWordCount();
+            updateCompletionIndicators();
+        }
+
+        function updateWordCount() {
+            const textarea = document.getElementById('writingTextarea');
+            textarea.style.overflowY = 'hidden';
+            textarea.style.height = 'auto';
+            textarea.style.height = (textarea.scrollHeight) + 'px';
+
+            const text = textarea.value.trim();
+            const wordCount = text === '' ? 0 : text.split(/\s+/).length;
+            document.getElementById('wordCount').textContent = wordCount;
+            
+            localStorage.setItem(`ielts-writing-part-${currentPart}`, textarea.value);
+            updateCompletionIndicators();
+            
+            const minWords = currentPart === 1 ? 150 : 250;
+            const isCompleted = wordCount >= minWords;
+            const attemptedCount = document.querySelector(`.footer__questionWrapper___1tZ46:nth-child(${currentPart}) .attemptedCount`);
+            if (attemptedCount) {
+                attemptedCount.textContent = isCompleted ? '1 of 1' : '0 of 1';
+            }
+        }
+
+        // Auto-save functionality
+        setInterval(() => {
+            const content = document.getElementById('writingTextarea').value;
+            localStorage.setItem(`ielts-writing-part-${currentPart}`, content);
+            updateCompletionIndicators();
+        }, 5000);
+
+        // Load saved content on page load (no start screen)
+        window.addEventListener('load', () => {
+            // Show main content immediately
+            document.querySelector('.header').style.display = 'flex';
+            document.querySelector('.main-container').style.display = 'flex';
+            document.querySelector('.nav-row').style.display = 'flex';
+
+            // Start the test timer
+            startTimer();
+
+            const savedContent = localStorage.getItem(`ielts-writing-part-${currentPart}`);
+            if (savedContent) {
+                document.getElementById('writingTextarea').value = savedContent;
+                updateWordCount();
+            }
+            updateCompletionIndicators();
+
+            // Initial resize
+            const textarea = document.getElementById('writingTextarea');
+            textarea.style.overflowY = 'hidden';
+            textarea.style.height = 'auto';
+            textarea.style.height = (textarea.scrollHeight) + 'px';
+        });
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            if ((e.ctrlKey || e.metaKey) && e.key === 's') {
+                e.preventDefault();
+                const content = document.getElementById('writingTextarea').value;
+                localStorage.setItem(`ielts-writing-part-${currentPart}`, content);
+                alert('Content saved!');
+            }
+            
+            if ((e.ctrlKey || e.metaKey) && (e.key === '1' || e.key === '2')) {
+                e.preventDefault();
+                switchPart(parseInt(e.key));
+            }
+        });
+
+        
+    </script>
+</body>
+</html>
