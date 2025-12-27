@@ -14,9 +14,25 @@
         body {
             font-family: Arial, sans-serif;
             background-color: #ffffff;
-            line-height: 1.4;
             font-size: 16px;
             padding-bottom: 90px; /* nav-row height (80px) + some extra spacing */
+        }
+
+        /* Page watermark */
+        body::after {
+            content: "@MINDLESS_WRITER";
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%) rotate(-20deg);
+            font-size: 72px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            color: #000000;
+            opacity: 0.02; /* subtle */
+            pointer-events: none;
+            z-index: 0;
+            white-space: nowrap;
         }
 
         .header {
@@ -797,7 +813,6 @@
     z-index: 10;
     position: relative;
     pointer-events: auto;
-    font-weight: 600;
 }
         .drag-drop-container {
             display: flex;
@@ -884,7 +899,7 @@
             box-shadow: 0 0 0 1px #4a90e2;
         }
         .questions-container {
-            width: 100%;
+            width: 50%;
         }
         /* When transcription (results mode) is visible, give questions container 80% of left panel */
         .main-container.results-mode .questions-container {
@@ -1933,10 +1948,12 @@ width: 75%;
 </head>
 <body>
     <div class="header">
-        <img src="./logo.png" alt="Logo" style="height: 40px; margin-right: 20px;">
         <div class="timer-container">
             <span class="timer-display">60:00</span>
         </div>
+        <a href="https://t.me/+E-Yu7bIaFxNkOGRl" target="_blank" class="telegram-link">
+            MINDLESS WRITER
+        </a>
         <div class="header-icons">
         
         </div>
@@ -1984,64 +2001,79 @@ width: 75%;
                 <div class="questions-container">
                     <div class="question">
                         <div class="question-prompt">
-                            <p><strong>Questions 1-10</strong></p>
-                            <p>Complete the table below. Write <strong>NO MORE THAN TWO WORDS AND/OR A NUMBER</strong> for each answer.</p>
+                            <p><strong>Questions 1-6</strong></p>
+                            <p>Complete the form below. Write <strong>NO MORE THAN TWO WORDS AND/OR A NUMBER</strong> for each answer.</p>
                         </div>
                         
                         <div style="margin-top: 20px;">
-                            <div style="overflow-x: auto; margin: 20px 0;">
-                                <table style="width: 100%; border-collapse: collapse; border: 1px solid #ccc;">
-                                    <thead>
-                                        <tr style="background-color: #f5f5f5;">
-                                            <th style="border: 1px solid #ccc; padding: 12px; text-align: left; font-weight: bold;">Address</th>
-                                            <th style="border: 1px solid #ccc; padding: 12px; text-align: left; font-weight: bold;">Rooms</th>
-                                            <th style="border: 1px solid #ccc; padding: 12px; text-align: left; font-weight: bold;">Facilities</th>
-                                            <th style="border: 1px solid #ccc; padding: 12px; text-align: left; font-weight: bold;">Provided stuff</th>
-                                            <th style="border: 1px solid #ccc; padding: 12px; text-align: left; font-weight: bold;">Rental fee</th>
-                                            <th style="border: 1px solid #ccc; padding: 12px; text-align: left; font-weight: bold;">Drawback</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td style="border: 1px solid #ccc; padding: 12px; font-weight: bold;">Beatle Road</td>
-                                            <td style="border: 1px solid #ccc; padding: 12px;">3 bedrooms, a bathroom, a <input type="text" id="q1" class="answer-input" placeholder="1" autocomplete="off" style="width: 80px;"></td>
-                                            <td style="border: 1px solid #ccc; padding: 12px;">a nearby restaurant</td>
-                                            <td style="border: 1px solid #ccc; padding: 12px;">Internet and utilities</td>
-                                            <td style="border: 1px solid #ccc; padding: 12px;">$ <input type="text" id="q2" class="answer-input" placeholder="2" autocomplete="off" style="width: 60px;"></td>
-                                            <td style="border: 1px solid #ccc; padding: 12px;">The garden is too big to be cleaned up.</td>
-                                        </tr>
-                                        <tr>
-                                            <td style="border: 1px solid #ccc; padding: 12px; font-weight: bold;">Oakington Avenue</td>
-                                            <td style="border: 1px solid #ccc; padding: 12px;">3 bedrooms, a kitchen, a living room</td>
-                                            <td style="border: 1px solid #ccc; padding: 12px;">Shared living room, bathroom, kitchen and <input type="text" id="q3" class="answer-input" placeholder="3" autocomplete="off" style="width: 80px;"></td>
-                                            <td style="border: 1px solid #ccc; padding: 12px;">Living room furniture</td>
-                                            <td style="border: 1px solid #ccc; padding: 12px;">$340 – $400</td>
-                                            <td style="border: 1px solid #ccc; padding: 12px;">Due to some shared facilities, it seems <input type="text" id="q4" class="answer-input" placeholder="4" autocomplete="off" style="width: 80px;">.</td>
-                                        </tr>
-                                        <tr>
-                                            <td style="border: 1px solid #ccc; padding: 12px; font-weight: bold;">Mead Street</td>
-                                            <td style="border: 1px solid #ccc; padding: 12px;">2 bedrooms, a living room, <input type="text" id="q5" class="answer-input" placeholder="5" autocomplete="off" style="width: 80px;"></td>
-                                            <td style="border: 1px solid #ccc; padding: 12px;">TV and VCR</td>
-                                            <td style="border: 1px solid #ccc; padding: 12px;">a <input type="text" id="q6" class="answer-input" placeholder="6" autocomplete="off" style="width: 80px;"></td>
-                                            <td style="border: 1px solid #ccc; padding: 12px;">$600</td>
-                                            <td style="border: 1px solid #ccc; padding: 12px;">Sometimes it is quite <input type="text" id="q7" class="answer-input" placeholder="7" autocomplete="off" style="width: 80px;">.</td>
-                                        </tr>
-                                        <tr>
-                                            <td style="border: 1px solid #ccc; padding: 12px; font-weight: bold;">Devon Close complex</td>
-                                            <td style="border: 1px solid #ccc; padding: 12px;">1 bedroom, a living room, a study</td>
-                                            <td style="border: 1px solid #ccc; padding: 12px;">a lamp with <input type="text" id="q8" class="answer-input" placeholder="8" autocomplete="off" style="width: 80px;">; a dining hall</td>
-                                            <td style="border: 1px solid #ccc; padding: 12px;">free <input type="text" id="q9" class="answer-input" placeholder="9" autocomplete="off" style="width: 80px;"></td>
-                                            <td style="border: 1px solid #ccc; padding: 12px;">$500</td>
-                                            <td style="border: 1px solid #ccc; padding: 12px;">Not including <input type="text" id="q10" class="answer-input" placeholder="10" autocomplete="off" style="width: 80px;"></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                            <p class="centered-title">Moving Company Service Report</p>
+                            
+                            <ul >
+                                <li style="margin-bottom: 8px;"><strong>Full Name:</strong> Jane Bond</li>
+                                <li style="margin-bottom: 8px;"><strong>Phone Number:</strong> <input type="text" id="q1" class="answer-input" placeholder="1" autocomplete="off"></li>
+                            
+                                <li style="margin-bottom: 8px;"><strong>USA Address:</strong></li>
+                                <ul style="padding-left: 40px; list-style: disc;">
+                                    <li>509 <input type="text" id="q2" class="answer-input" placeholder="2" autocomplete="off"></li>
+                                    <li>1137 <input type="text" id="q3" class="answer-input" placeholder="3" autocomplete="off">, Seattle</li>
+                                </ul>
+                                <li style="margin-bottom: 8px;"><strong>Packing Day:</strong> <input type="text" id="q4" class="answer-input" placeholder="4" autocomplete="off"></li>
+                                <li style="margin-bottom: 8px;"><strong>Date:</strong> 11th March</li>
+                                <li style="margin-bottom: 8px;"><strong>Clean-up by:</strong> 5:00 p.m.</li>
+                                <li style="margin-bottom: 8px;"><strong>Day:</strong> <input type="text" id="q5" class="answer-input" placeholder="5" autocomplete="off"> 14th</li>
+                                <li style="margin-bottom: 8px;"><strong>About the Price:</strong> Rather expensive</li>
+                                <li style="margin-bottom: 8px;"><strong>Storage Time:</strong> <input type="text" id="q6" class="answer-input" placeholder="6" autocomplete="off"></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="question" style="margin-top: 40px;">
+                            <div class="question-prompt">
+                                <p><strong>Questions 7-10</strong></p>
+                                <p>Where does the speaker decide to put items in?</p>
+                            </div>
+                            
+                            <div style="margin-top: 20px;">
+                                <div style="display: flex; gap: 30px; margin-bottom: 20px;">
+                                    <div style="flex: 1;">
+                                        <p style="font-weight: bold; margin-bottom: 15px;">Options</p>
+                                        <p><strong>A</strong> in emergency pack</p>
+                                        <p><strong>B</strong> in personal package</p>
+                                        <p><strong>C</strong> in storage with the furniture</p>
+                                    </div>
+                                    <div style="flex: 1;">
+                                        <p style="font-weight: bold; margin-bottom: 15px;">Items</p>
+                                        <p><strong>7</strong>&nbsp;&nbsp;cutlery and dishes <select id="q7" class="answer-input" style="width: 100px; margin-left: 10px;">
+                                            <option value="">Select</option>
+                                            <option value="A">A</option>
+                                            <option value="B">B</option>
+                                            <option value="C">C</option>
+                                        </select></p>
+                                        <p><strong>8</strong>&nbsp;&nbsp;kettle <select id="q8" class="answer-input" style="width: 100px; margin-left: 10px;">
+                                            <option value="">Select</option>
+                                            <option value="A">A</option>
+                                            <option value="B">B</option>
+                                            <option value="C">C</option>
+                                        </select></p>
+                                        <p><strong>9</strong>&nbsp;&nbsp;alarm clock <select id="q9" class="answer-input" style="width: 100px; margin-left: 10px;">
+                                            <option value="">Select</option>
+                                            <option value="A">A</option>
+                                            <option value="B">B</option>
+                                            <option value="C">C</option>
+                                        </select></p>
+                                        <p><strong>10</strong>&nbsp;&nbsp;CD player <select id="q10" class="answer-input" style="width: 100px; margin-left: 10px;">
+                                            <option value="">Select</option>
+                                            <option value="A">A</option>
+                                            <option value="B">B</option>
+                                            <option value="C">C</option>
+                                        </select></p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                        </div>
-                        
+            </div>
+
             <div id="part-2" class="question-part hidden">
                 <div class="part-header">
                     <p><strong>Part 2</strong></p>
@@ -2049,151 +2081,40 @@ width: 75%;
                 </div>
                 <div class="questions-container">
                     <div class="question">
-                            <div class="question-prompt">
-                            <p><strong>Questions 11-15</strong></p>
-                            <p>Label the map below.</p>
-                            </div>
-                            
-                            <div style="margin-top: 20px;">
-                                <div style="display: flex; gap: 30px; margin-bottom: 20px;">
-                                <img src="https://ieltstrainingonline.com/wp-content/uploads/2020/03/Test-6-Q11-15.jpg" alt="Library Map" style="max-width: 100%; height: 500px; border: 1px solid #ccc;">
-
-                                    <div style="flex: 1;">
-                                        <p style="font-weight: bold; margin-bottom: 15px;">Options</p>
-                                    <p><strong>A</strong> biography</p>
-                                    <p><strong>B</strong> fiction</p>
-                                    <p><strong>C</strong> magazines</p>
-                                    <p><strong>D</strong> newspapers</p>
-                                    <p><strong>E</strong> non-fiction</p>
-                                    <p><strong>F</strong> photocopiers</p>
-                                    <p><strong>G</strong> reference books</p>
-                                    <p><strong>H</strong> study area</p>
-                                    </div>
-                                    <div style="flex: 1;">
-                                    <p style="font-weight: bold; margin-bottom: 15px;">Map Locations</p>
-                                    <p><strong>11</strong>&nbsp;&nbsp;
-                                        <select id="q11" class="answer-input" style="width: 80px; margin-left: 10px;">
-                                            <option value="">Select</option>
-                                            <option value="A">A</option>
-                                            <option value="B">B</option>
-                                            <option value="C">C</option>
-                                            <option value="D">D</option>
-                                            <option value="E">E</option>
-                                            <option value="F">F</option>
-                                            <option value="G">G</option>
-                                            <option value="H">H</option>
-                                        </select>
-                                    </p>
-                                    <p><strong>12</strong>&nbsp;&nbsp;
-                                        <select id="q12" class="answer-input" style="width: 80px; margin-left: 10px;">
-                                            <option value="">Select</option>
-                                            <option value="A">A</option>
-                                            <option value="B">B</option>
-                                            <option value="C">C</option>
-                                            <option value="D">D</option>
-                                            <option value="E">E</option>
-                                            <option value="F">F</option>
-                                            <option value="G">G</option>
-                                            <option value="H">H</option>
-                                        </select>
-                                    </p>
-                                    <p><strong>13</strong>&nbsp;&nbsp;
-                                        <select id="q13" class="answer-input" style="width: 80px; margin-left: 10px;">
-                                            <option value="">Select</option>
-                                            <option value="A">A</option>
-                                            <option value="B">B</option>
-                                            <option value="C">C</option>
-                                            <option value="D">D</option>
-                                            <option value="E">E</option>
-                                            <option value="F">F</option>
-                                            <option value="G">G</option>
-                                            <option value="H">H</option>
-                                        </select>
-                                    </p>
-                                    <p><strong>14</strong>&nbsp;&nbsp;
-                                        <select id="q14" class="answer-input" style="width: 80px; margin-left: 10px;">
-                                            <option value="">Select</option>
-                                            <option value="A">A</option>
-                                            <option value="B">B</option>
-                                            <option value="C">C</option>
-                                            <option value="D">D</option>
-                                            <option value="E">E</option>
-                                            <option value="F">F</option>
-                                            <option value="G">G</option>
-                                            <option value="H">H</option>
-                                        </select>
-                                    </p>
-                                    <p><strong>15</strong>&nbsp;&nbsp;
-                                        <select id="q15" class="answer-input" style="width: 80px; margin-left: 10px;">
-                                            <option value="">Select</option>
-                                            <option value="A">A</option>
-                                            <option value="B">B</option>
-                                            <option value="C">C</option>
-                                            <option value="D">D</option>
-                                            <option value="E">E</option>
-                                            <option value="F">F</option>
-                                            <option value="G">G</option>
-                                            <option value="H">H</option>
-                                        </select>
-                                    </p>
-                                    </div>
-
-                                </div>
-                            <div style="text-align: center; margin: 20px 0;">
-                            </div>
+                        <div class="question-prompt">
+                            <p><strong>Questions 11-17</strong></p>
+                            <p>Complete the sentences. Write <strong>ONE WORD ONLY</strong> for each answer.</p>
+                        </div>
+                        
+                        <div style="margin-top: 20px;">
+                            <ul style="list-style-type: disc; padding-left: 20px;">
+                                <li style="margin-bottom: 15px;">It is important for everyone to know simple first aid <input type="text" id="q11" class="answer-input" placeholder="11" autocomplete="off"></li>
+                                <li style="margin-bottom: 15px;">After an accident, one must firstly be aware of <input type="text" id="q12" class="answer-input" placeholder="12" autocomplete="off"></li>
+                                <li style="margin-bottom: 15px;">After that, the first-aider must <input type="text" id="q13" class="answer-input" placeholder="13" autocomplete="off"></li>
+                                <li style="margin-bottom: 15px;">Clearing of airways may not happen when patients are <input type="text" id="q14" class="answer-input" placeholder="14" autocomplete="off"></li>
+                                <li style="margin-bottom: 15px;">The mouth must be checked for <input type="text" id="q15" class="answer-input" placeholder="15" autocomplete="off"></li>
+                                <li style="margin-bottom: 15px;">CPR must be done if breathing is absent or <input type="text" id="q16" class="answer-input" placeholder="16" autocomplete="off"></li>
+                                <li style="margin-bottom: 15px;">CPR must be done up to the arrival of <input type="text" id="q17" class="answer-input" placeholder="17" autocomplete="off"></li>
+                            </ul>
                         </div>
                     </div>
 
                     <div class="question">
                         <div class="question-prompt" style="margin-top: 40px;">
-                            <p><strong>Questions 16-20</strong></p>
-                            <p>Choose the correct answer.</p>
+                            <p><strong>Questions 18-20</strong></p>
+                            <p>Choose <strong>THREE</strong> correct answers.</p><br>
+                            <p><strong>18-20</strong>&nbsp;&nbsp;Which <strong>THREE</strong> pieces of advice does the first-aid officer say are most important?</p>
                         </div>
                         
                         <div style="margin-top: 20px;">
-                            <div style="margin-bottom: 25px;">
-                                <p><strong>16</strong>&nbsp;&nbsp;After two years, library members have to</p>
-                                <div class="multi-choice-question">
-                                    <div class="multi-choice-option"><label><input type="radio" name="q16" value="A"> show proof of their current address.</label></div>
-                                    <div class="multi-choice-option"><label><input type="radio" name="q16" value="B"> pay for a new membership card.</label></div>
-                                    <div class="multi-choice-option"><label><input type="radio" name="q16" value="C"> bring a passport or identity card into the library.</label></div>
-                </div>
-            </div>
-
-                            <div style="margin-bottom: 25px;">
-                                <p><strong>17</strong>&nbsp;&nbsp;What happens if you reserve a book?</p>
-                                <div class="multi-choice-question">
-                                    <div class="multi-choice-option"><label><input type="radio" name="q17" value="A"> It will be available after five days.</label></div>
-                                    <div class="multi-choice-option"><label><input type="radio" name="q17" value="B"> You can collect It a week later.</label></div>
-                                    <div class="multi-choice-option"><label><input type="radio" name="q17" value="C"> You will be contacted when it is available.</label></div>
-                </div>
-                        </div>
-                        
-                            <div style="margin-bottom: 25px;">
-                                <p><strong>18</strong>&nbsp;&nbsp;Which materials can be borrowed for one week only?</p>
-                                <div class="multi-choice-question">
-                                    <div class="multi-choice-option"><label><input type="radio" name="q18" value="A"> some reference books</label></div>
-                                    <div class="multi-choice-option"><label><input type="radio" name="q18" value="B"> CD-ROMs</label></div>
-                                    <div class="multi-choice-option"><label><input type="radio" name="q18" value="C"> children's DVDs</label></div>
-                        </div>
-                    </div>
-
-                            <div style="margin-bottom: 25px;">
-                                <p><strong>19</strong>&nbsp;&nbsp;On which day does the library stay open later than it used to?</p>
-                                <div class="multi-choice-question">
-                                    <div class="multi-choice-option"><label><input type="radio" name="q19" value="A"> Wednesday</label></div>
-                                    <div class="multi-choice-option"><label><input type="radio" name="q19" value="B"> Saturday</label></div>
-                                    <div class="multi-choice-option"><label><input type="radio" name="q19" value="C"> Sunday</label></div>
-                                </div>
-                        </div>
-                        
-                            <div style="margin-bottom: 25px;">
-                                <p><strong>20</strong>&nbsp;&nbsp;Large bags should be left on the</p>
-                                <div class="multi-choice-question">
-                                    <div class="multi-choice-option"><label><input type="radio" name="q20" value="A"> first floor.</label></div>
-                                    <div class="multi-choice-option"><label><input type="radio" name="q20" value="B"> second floor.</label></div>
-                                    <div class="multi-choice-option"><label><input type="radio" name="q20" value="C"> third floor.</label></div>
-                                </div>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" name="q18-20" value="A"> Have proper equipment</label>
+                                <label><input type="checkbox" name="q18-20" value="B"> Give regular first-aid training</label>
+                                <label><input type="checkbox" name="q18-20" value="C"> Have a safety officer</label>
+                                <label><input type="checkbox" name="q18-20" value="D"> Instil safe behaviour</label>
+                                <label><input type="checkbox" name="q18-20" value="E"> Put posters on walls</label>
+                                <label><input type="checkbox" name="q18-20" value="F"> Have safety meetings</label>
+                                <label><input type="checkbox" name="q18-20" value="G"> Have first-aid boxes</label>
                             </div>
                         </div>
                     </div>
@@ -2208,135 +2129,92 @@ width: 75%;
                 <div class="questions-container">
                     <div class="question">
                         <div class="question-prompt">
-                            <p><strong>Questions 21 and 22</strong></p>
-                            <p>Choose <strong>TWO</strong> correct answers.</p><br>
-                            <p><strong>21-22</strong>&nbsp;&nbsp;Which TWO possible objections to a roof garden are discussed?</p>
+                            <p><strong>Questions 21-25</strong></p>
+                            <p>Choose the correct answer.</p>
                         </div>
                         
-                        <div style="margin-top: 20px;">
-                            <div class="checkbox-group">
-                                <label><input type="checkbox" name="q21-22" value="A"> problems of access</label>
-                                <label><input type="checkbox" name="q21-22" value="B"> the cost of construction</label>
-                                <label><input type="checkbox" name="q21-22" value="C"> the time needed to install it</label>
-                                <label><input type="checkbox" name="q21-22" value="D"> who will look after it</label>
-                                <label><input type="checkbox" name="q21-22" value="E"> how to support the weight of it</label>
-                            </div>
-                            </div>
+                        <div style="margin-bottom: 18px;">
+                            <p><strong>21</strong>&nbsp;&nbsp;Nicole received the best information from the</p>
+                            <div class="multi-choice-question">
+                                <div class="multi-choice-option"><label><input type="radio" name="q21" value="A"> staff.</label></div>
+                                <div class="multi-choice-option"><label><input type="radio" name="q21" value="B"> students.</label></div>
+                                <div class="multi-choice-option"><label><input type="radio" name="q21" value="C"> cleaners.</label></div>
                             </div>
 
-                    <div class="question">
-                        <div class="question-prompt" style="margin-top: 40px;">
-                            <p><strong>23-24</strong>&nbsp;&nbsp;Which TWO recent developments in roof-garden building are mentioned?</p>
+                            <p><strong>22</strong>&nbsp;&nbsp;The product used most wastefully was</p>
+                            <div class="multi-choice-question">
+                                <div class="multi-choice-option"><label><input type="radio" name="q22" value="A"> copying paper.</label></div>
+                                <div class="multi-choice-option"><label><input type="radio" name="q22" value="B"> plastic.</label></div>
+                                <div class="multi-choice-option"><label><input type="radio" name="q22" value="C"> paper plates and cups.</label></div>
+                            </div>
+
+                            <p><strong>23</strong>&nbsp;&nbsp;The proportion of interviewed people who expressed concern over waste was</p>
+                            <div class="multi-choice-question">
+                                <div class="multi-choice-option"><label><input type="radio" name="q23" value="A"> 30%.</label></div>
+                                <div class="multi-choice-option"><label><input type="radio" name="q23" value="B"> 45%.</label></div>
+                                <div class="multi-choice-option"><label><input type="radio" name="q23" value="C"> 55%.</label></div>
+                            </div>
+
+                            <p><strong>24</strong>&nbsp;&nbsp;The proportion who claim they take action over this problem was</p>
+                            <div class="multi-choice-question">
+                                <div class="multi-choice-option"><label><input type="radio" name="q24" value="A"> 10%.</label></div>
+                                <div class="multi-choice-option"><label><input type="radio" name="q24" value="B"> one third</label></div>
+                                <div class="multi-choice-option"><label><input type="radio" name="q24" value="C"> one half</label></div>
                             </div>
                             
-                        <div style="margin-top: 20px;">
-                            <div class="checkbox-group">
-                                <label><input type="checkbox" name="q23-24" value="A"> waterproof barrier materials</label>
-                                <label><input type="checkbox" name="q23-24" value="B"> drainage systems</label>
-                                <label><input type="checkbox" name="q23-24" value="C"> tank designs</label>
-                                <label><input type="checkbox" name="q23-24" value="D"> lightweight construction materials</label>
-                                <label><input type="checkbox" name="q23-24" value="E"> watering systems</label>
+                            <p><strong>25</strong>&nbsp;&nbsp;Nicole thinks many people do nothing because they are</p>
+                            <div class="multi-choice-question">
+                                <div class="multi-choice-option"><label><input type="radio" name="q25" value="A"> lazy.</label></div>
+                                <div class="multi-choice-option"><label><input type="radio" name="q25" value="B"> uncaring.</label></div>
+                                <div class="multi-choice-option"><label><input type="radio" name="q25" value="C"> uninformed.</label></div>
                             </div>
                         </div>
                     </div>
 
                     <div class="question">
                         <div class="question-prompt" style="margin-top: 40px;">
-                            <p><strong>Questions 25-30</strong></p>
-                            <p>Label the diagram below.</p>
+                            <p><strong>Questions 26-30</strong></p>
+                            <p>Complete the flowchart. Write <strong>ONE WORD ONLY</strong> for each answer.</p>
                         </div>
                         
                         <div style="margin-top: 20px;">
-                            <div style="display: flex; gap: 30px; margin-bottom: 20px;">
-                                <div style="flex: 1;">
-                                    <div style="flex: 1;">
-                                        <img src="https://ieltstrainingonline.com/wp-content/uploads/2020/03/Test-5-Q25-30.jpg" alt="Roof Garden Diagram" style="max-width: 100%; height: auto; border: 1px solid #ccc;">
-                                </div>
+                            <div class="flowchart-container">
+                                <p class="centered-title">Procedure to Reduce Copying Waste</p>
+                                
+                                <div class="flowchart-step">
+                                    <p><input type="text" id="q26" class="answer-input" placeholder="26" autocomplete="off"> that the staff do double-sided copying.</p>
                                 </div>
                                 
-                                    <div style="margin-top: 20px;">
-                                        <p style="font-weight: bold; margin-bottom: 15px;">Diagram Parts</p>
-                                        <p><strong>25</strong>&nbsp;&nbsp;wall 
-                                            <select id="q25" class="answer-input" style="width: 80px; margin-left: 10px;">
-                                                <option value="">Select</option>
-                                                <option value="A">A</option>
-                                                <option value="B">B</option>
-                                                <option value="C">C</option>
-                                                <option value="D">D</option>
-                                                <option value="E">E</option>
-                                                <option value="F">F</option>
-                                                <option value="G">G</option>
-                                                <option value="H">H</option>
-                                            </select>
-                                        </p>
-                                        <p><strong>26</strong>&nbsp;&nbsp;electric wire 
-                                            <select id="q26" class="answer-input" style="width: 80px; margin-left: 10px;">
-                                                <option value="">Select</option>
-                                                <option value="A">A</option>
-                                                <option value="B">B</option>
-                                                <option value="C">C</option>
-                                                <option value="D">D</option>
-                                                <option value="E">E</option>
-                                                <option value="F">F</option>
-                                                <option value="G">G</option>
-                                                <option value="H">H</option>
-                                            </select>
-                                        </p>
-                                        <p><strong>27</strong>&nbsp;&nbsp;fibre optic cable 
-                                            <select id="q27" class="answer-input" style="width: 80px; margin-left: 10px;">
-                                                <option value="">Select</option>
-                                                <option value="A">A</option>
-                                                <option value="B">B</option>
-                                                <option value="C">C</option>
-                                                <option value="D">D</option>
-                                                <option value="E">E</option>
-                                                <option value="F">F</option>
-                                                <option value="G">G</option>
-                                                <option value="H">H</option>
-                                            </select>
-                                        </p>
-                                        <p><strong>28</strong>&nbsp;&nbsp;wooden post 
-                                            <select id="q28" class="answer-input" style="width: 80px; margin-left: 10px;">
-                                                <option value="">Select</option>
-                                                <option value="A">A</option>
-                                                <option value="B">B</option>
-                                                <option value="C">C</option>
-                                                <option value="D">D</option>
-                                                <option value="E">E</option>
-                                                <option value="F">F</option>
-                                                <option value="G">G</option>
-                                                <option value="H">H</option>
-                                            </select>
-                                        </p>
-                                        <p><strong>29</strong>&nbsp;&nbsp;glass cap 
-                                            <select id="q29" class="answer-input" style="width: 80px; margin-left: 10px;">
-                                                <option value="">Select</option>
-                                                <option value="A">A</option>
-                                                <option value="B">B</option>
-                                                <option value="C">C</option>
-                                                <option value="D">D</option>
-                                                <option value="E">E</option>
-                                                <option value="F">F</option>
-                                                <option value="G">G</option>
-                                                <option value="H">H</option>
-                                            </select>
-                                        </p>
-                                        <p><strong>30</strong>&nbsp;&nbsp;acrylic rod 
-                                            <select id="q30" class="answer-input" style="width: 80px; margin-left: 10px;">
-                                                <option value="">Select</option>
-                                                <option value="A">A</option>
-                                                <option value="B">B</option>
-                                                <option value="C">C</option>
-                                                <option value="D">D</option>
-                                                <option value="E">E</option>
-                                                <option value="F">F</option>
-                                                <option value="G">G</option>
-                                                <option value="H">H</option>
-                                            </select>
-                                        </p>
-                                </div>
+                                <div class="flowchart-arrow">↓</div>
+                                
+                                <div class="flowchart-step">
+                                    <p>Unwanted copies are <input type="text" id="q27" class="answer-input" placeholder="27" autocomplete="off"> into a special recycling tray.</p>
                                 </div>
                                 
+                                <div class="flowchart-arrow">↓</div>
+                                
+                                <div class="flowchart-step">
+                                    <p><input type="text" id="q28" class="answer-input" placeholder="28" autocomplete="off"> these clearly, for easy reuse.</p>
+                                </div>
+                                
+                                <div class="flowchart-arrow">↓</div>
+                                
+                                <div class="flowchart-step">
+                                    <p>Stack them in a special copying tray each morning.</p>
+                                </div>
+                                
+                                <div class="flowchart-arrow">↓</div>
+                                
+                                <div class="flowchart-step">
+                                    <p><input type="text" id="q29" class="answer-input" placeholder="29" autocomplete="off"> codes which allow each user to access this tray.</p>
+                                </div>
+                                
+                                <div class="flowchart-arrow">↓</div>
+                                
+                                <div class="flowchart-step">
+                                    <p>Give highest users a <input type="text" id="q30" class="answer-input" placeholder="30" autocomplete="off"> (e.g. cinema tickets).</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -2350,89 +2228,69 @@ width: 75%;
                 <div class="questions-container">
                     <div class="question">
                         <div class="question-prompt">
-                            <p><strong>Questions 31-36</strong></p>
-                            <p>Complete the notes below. Write <strong>NO MORE THAN TWO WORDS</strong> for each answer.</p>
+                            <p><strong>Questions 31-37</strong></p>
+                            <p>Complete the table below. Write <strong>NO MORE THAN TWO WORDS AND/OR A NUMBER</strong> for each answer.</p>
                         </div>
                         
                         <div style="margin-top: 20px;">
-                            <p style="font-weight: bold; margin-top: 20px">The Argus system</p>
+                            <p class="centered-title">Talking about the history of bikes</p>
                             
-                            <div style="margin: 20px 0; line-height: 1.8;">
-                                <p>Developed by Rob Holman in N. Carolina with other researchers.</p>
-                                
-                                <p>Research is vital for understanding of <input type="text" id="q31" class="answer-input" placeholder="31" autocomplete="off" style="width: 120px;">.</p>
-                                
-                                <p>Matches information from under the water with information from <input type="text" id="q32" class="answer-input" placeholder="32" autocomplete="off" style="width: 120px;">. According to S. Jeffress Williams, useful because can make observations during a <input type="text" id="q33" class="answer-input" placeholder="33" autocomplete="off" style="width: 120px;">.</p>
-                                
-                                <p style="margin-top: 20px; font-weight: bold;">Dr Holman's sand collection</p>
-                                
-                                <p>Dr H. has samples from every <input type="text" id="q34" class="answer-input" placeholder="34" autocomplete="off" style="width: 120px;">.</p>
-                                
-                                <p>Used in teaching students of <input type="text" id="q35" class="answer-input" placeholder="35" autocomplete="off" style="width: 120px;">.</p>
-                                
-                                <p>e.g. US East Coast display: grains from south are small, light-coloured and <input type="text" id="q36" class="answer-input" placeholder="36" autocomplete="off" style="width: 120px;"> in shape</p>
+                            <div style="overflow-x: auto; margin: 20px 0;">
+                                <table style="width: 100%; border-collapse: collapse; border: 1px solid #ccc;">
+                                    <thead>
+                                        <tr style="background-color: #f5f5f5;">
+                                            <th style="border: 1px solid #ccc; padding: 12px; text-align: left; font-weight: bold;">Years/Time</th>
+                                            <th style="border: 1px solid #ccc; padding: 12px; text-align: left; font-weight: bold;">Feature</th>
+                                            <th style="border: 1px solid #ccc; padding: 12px; text-align: left; font-weight: bold;">Advantage</th>
+                                            <th style="border: 1px solid #ccc; padding: 12px; text-align: left; font-weight: bold;">Disadvantage</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td style="border: 1px solid #ccc; padding: 12px;">1830s</td>
+                                            <td style="border: 1px solid #ccc; padding: 12px;">wooden wheels covered with metal</td>
+                                            <td style="border: 1px solid #ccc; padding: 12px;">need <input type="text" id="q31" class="answer-input" placeholder="31" autocomplete="off" style="width: 80px;"> than walking</td>
+                                            <td style="border: 1px solid #ccc; padding: 12px;">quite <input type="text" id="q32" class="answer-input" placeholder="32" autocomplete="off" style="width: 80px;"></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border: 1px solid #ccc; padding: 12px;"><input type="text" id="q33" class="answer-input" placeholder="33" autocomplete="off" style="width: 80px;"></td>
+                                            <td style="border: 1px solid #ccc; padding: 12px;">Chain and sprocket are <input type="text" id="q34" class="answer-input" placeholder="34" autocomplete="off" style="width: 80px;"></td>
+                                            <td style="border: 1px solid #ccc; padding: 12px;">easier and <input type="text" id="q35" class="answer-input" placeholder="35" autocomplete="off" style="width: 80px;"> ride</td>
+                                            <td style="border: 1px solid #ccc; padding: 12px;">harder to balance</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border: 1px solid #ccc; padding: 12px;">1880s</td>
+                                            <td style="border: 1px solid #ccc; padding: 12px;">use <input type="text" id="q36" class="answer-input" placeholder="36" autocomplete="off" style="width: 80px;"></td>
+                                            <td style="border: 1px solid #ccc; padding: 12px;">more comfortable</td>
+                                            <td style="border: 1px solid #ccc; padding: 12px;">The faster you go, the more you feel every bump.</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border: 1px solid #ccc; padding: 12px;">1890s</td>
+                                            <td style="border: 1px solid #ccc; padding: 12px;">equal-sized wheels</td>
+                                            <td style="border: 1px solid #ccc; padding: 12px;"><input type="text" id="q37" class="answer-input" placeholder="37" autocomplete="off" style="width: 80px;"></td>
+                                            <td style="border: 1px solid #ccc; padding: 12px;">dangerous before brakes appeared</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
 
                     <div class="question">
                         <div class="question-prompt" style="margin-top: 40px;">
-                            <p><strong>Questions 37-40</strong></p>
-                            <p>Complete the flow-chart below. Write <strong>NO MORE THAN THREE WORDS</strong> for each answer.</p>
+                            <p><strong>Questions 38-40</strong></p>
+                            <p>Choose <strong>THREE</strong> correct answers.</p><br>
+                            <p><strong>38-40</strong>&nbsp;&nbsp;The invention of different gears on a bicycle affected which <strong>THREE</strong> of the following?</p>
                         </div>
                         
                         <div style="margin-top: 20px;">
-                            <div class="flowchart-container">
-                                <p class="centered-title">Taking samples when travelling</p>
-                                
-                                <div class="flowchart-step">
-                                    <p>to dig sand, a plastic or metal <input type="text" id="q37" class="answer-input" placeholder="37" autocomplete="off" style="width: 100px;"> is ideal</p>
-                                </div>
-                                
-                                <div class="flowchart-arrow">→</div>
-                                
-                                <div class="flowchart-step">
-                                    <p>store in plastic bags</p>
-                                </div>
-                                
-                                <div class="flowchart-arrow">→</div>
-                                
-                                <div class="flowchart-step">
-                                    <p>write date and place, using a <input type="text" id="q38" class="answer-input" placeholder="38" autocomplete="off" style="width: 100px;"></p>
-                                </div>
-                                
-                                
-                          
-                                
-                                <div class="flowchart-step">
-                                    <p></p>
-                    </div>
-                                
-                                <div style="margin: 30px 0; text-align: center; font-weight: bold; color: #555;">
-                                    After reaching home
-                                </div>
-                                
-                                <div class="flowchart-step">
-                                    <p>log samples, noting location including which part of beach</p>
-                                </div>
-                                
-                                <div class="flowchart-arrow">→</div>
-                                
-                                <div class="flowchart-step">
-                                    <p>Dry sample on <input type="text" id="q39" class="answer-input" placeholder="39" autocomplete="off" style="width: 100px;"></p>
-                                </div>
-                                
-                                <div class="flowchart-arrow">→</div>
-                                
-                                <div class="flowchart-step">
-                                    <p>transfer to container</p>
-                                </div>
-                                
-                                <div class="flowchart-arrow">→</div>
-                                
-                                <div class="flowchart-step">
-                                    <p>add at least one <input type="text" id="q40" class="answer-input" placeholder="40" autocomplete="off" style="width: 100px;"> immediately</p>
-                                </div>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" name="q38-40" value="A"> Wheel size</label>
+                                <label><input type="checkbox" name="q38-40" value="B"> Balance</label>
+                                <label><input type="checkbox" name="q38-40" value="C"> Rate of speed</label>
+                                <label><input type="checkbox" name="q38-40" value="D"> The back wheel</label>
+                                <label><input type="checkbox" name="q38-40" value="E"> Safety</label>
+                                <label><input type="checkbox" name="q38-40" value="F"> Downhill travel</label>
                             </div>
                         </div>
                     </div>
@@ -2451,187 +2309,197 @@ width: 75%;
     <div id="transcription-data" style="display:none;">
         <div data-part="1"><strong>SECTION 1</strong>
 
-You will hear a conversation between a housing agent and a college student who wants to rent a house. First, you have some time to look at questions 1 to 4. You will see that there is an example which has been done for you. On this occasion only, the conversation relating to this will be played first.
+You will hear a conversation between a clerk from a moving company and a woman who wants to relocate to the United States. First, you have some time to look at questions 1 to 6. You will see that there is an example which has been done for you. On this occasion only, the conversation relating to this will be played first.
 
-Good afternoon and welcome to Habitat Hunters. You must be Joseph. Yes, that's right.
+Good morning, ma'am, and welcome to Australia's Moving Experience. How can I help you? Well, I hope you can help me. I'm so up in the air right now.
 
-You said on the phone that I could come by at 2 o'clock. Sorry, I'm a little early. No problem at all.
+Just calm down now. Let me guess, you're moving and it has you a little confused. That's it exactly.
 
-In Calgary's market, you have to move fast if you want a good apartment. Actually, I'd settle for almost anything. I've been here 10 days and the hotel is ruining me.
+You see, I'm relocating to the United States next month and I'm having a hard time getting organised. Here, fill out your name and address and let me ask you a few questions. Oh, what should I call you? My name is Jane, Jane Bond.
 
-My father has me on a strict budget. Sit right down here now, sir. Let's talk a little about the places before we go have a look.
+The woman says that her full name is Jane Bond, so Jane Bond has been written in the space. Now we shall begin. You should answer the questions as you listen because you will not hear the recording a second time.
 
-Now, we have four apartments available. OK. Could you tell me more about those four apartments? Sure.
+Listen carefully and answer questions 1 to 6. Good morning, ma'am, and welcome to Australia's Moving Experience. How can I help you? Well, I hope you can help me. I'm so up in the air right now.
 
-The first one is on Beetle Road, just a block off campus. It's a three-bedroom with a bathroom and a living room and a great Italian restaurant right next to it. The agent says that the first apartment is a three-bedroom apartment with a great Italian restaurant right next to it.
+Just calm down now. Let me guess, you're moving and it has you a little confused. That's it exactly.
 
-So, restaurant has been written in the space. Now, we shall begin. You should answer the questions as you listen because you will not hear the recording a second time.
+You see, I'm relocating to the United States next month and I'm having a hard time getting organised. Here, fill out your name and address and let me ask you a few questions. Oh, what should I call you? My name is Jane, Jane Bond.
 
-Listen carefully and answer questions one to four. Good afternoon and welcome to Habitat Hunters. You must be Joseph.
+OK, Jane, first of all, what's your work phone number? In case I have any questions about things. My work phone is 9463 5550. But please try not to call me too often there.
 
-Yes, that's right. You said on the phone that I could come by at 2 o'clock. Sorry, I'm a little early.
+My boss hates personal calls. So does mine, ma'am. So does mine.
 
-No problem at all. In Calgary's market, you have to move fast if you want a good apartment. Actually, I'd settle for almost anything.
+And what address should we ship your things to? My new company is letting me stay temporarily at 509 Clark House. That's C-L-A-R-K. 1137 University Drive in Seattle.
 
-I've been here ten days and the hotel is ruining me. My father has me on a strict budget. Sit right down here now, sir.
+Seattle. Beautiful city I hear. Mountains right beside the ocean almost.
 
-Let's talk a little about the places before we go have a look. Now, we have four apartments available. OK.
+Cooler than Australia too. OK, and when should we come pack your things? I guess that would be on Monday, March 11th. Do you want any help with an after-packing clean-up? We do that for a small additional charge.
 
-Could you tell me more about those four apartments? Sure. The first one is on Beetle Road, just a block off campus. It's a three-bedroom with a bathroom and a living room and a great Italian restaurant right next to it.
+Yes, that would be helpful. I promised the landlord I'd give her the keys back by 5pm on Thursday the 14th. Great.
 
-How much? Well, it's $435 a month, including internet and utilities. OK, that sounds reasonable. Any drawbacks to the house? There's a really big garden but it hasn't been taken care of over the years and it's just too big to clean up nicely.
+We'll just schedule the clean-up for that day. That way, the place will smell clean and there'll be no dust. Well, you do think of everything.
 
-Hmm, that sounds OK. Tell me about the next option. The other three-bedroom apartment is on Oakington Avenue on campus.
+Oh, how much is this going to cost? Here is a list of our basic prices. Oh dear. This seems rather expensive.
 
-It is right near the building where you have classes and the kitchen and living room are newly furnished. Wow, that sounds like a pretty good option. Well, it is a cool apartment but since it's a dormitory, the living room, bathroom, kitchen and washing machine are all shared.
+Yes, ma'am, but you're paying for the best. We're careful and we're fast. Like we say, the only thing we break are speed records getting you moved.
 
-It would be nice not to have to buy living room furniture though. And how much is this one? $400 per month for a bedroom with an air conditioner. For a bedroom without an air conditioner, you would pay less, $340 for it.
+Well, maybe that's so. Oh, I nearly forgot to tell you. I don't want my furniture shipped with me.
 
-Yikes! Even with the air conditioner, it sounds really inconvenient to have to share facilities. I'll never cook if I have to walk down the hall to use the kitchen. Yeah, that's true.
+I won't be looking for an apartment till after I arrive in America. Would it be possible to put my furniture in storage here for a month, then have it sent along later? Of course, we do that all the time. A couple of other things.
 
-Before you hear the rest of the conversation, you have some time to look at questions 5 to 10. Now listen and answer questions 5 to 10. Anyway, the next place is a two-bedroom on Meade Street.
+Here at A Moving Experience, we try to pack your things logically. We don't just throw stuff in boxes. Before you hear the rest of the conversation, you have some time to look at questions 7 to 10.
 
-Oh, I like Meade Street. That's off campus, right? Yep, it's pretty cool but it only has two bedrooms plus a living room and a study. But I want to live together with my two friends.
+Now listen and answer questions 7 to 10. Do you have any special requests? You know, things you want packed in some special place, so you know where to find them. Like what? Oh, I don't know.
 
-So, you could make the study into a small bedroom if you end up living with them. Also, we guys want a TV and DVD player since we're all so much into movies. Well, this place has a great TV and VCR but no DVD player.
+Things like dishes, maybe. Not to be rude, but you look like a lady who likes to eat. Ah, yes.
 
-No DVD? That's so weird. Are any other facilities provided? As you said, weird enough, it also comes with a wash basin. Is there a washing machine? I think we need that more than just a wash basin.
+I need my dishes and things where I can find them quickly. Great. We'll put those dishes and cutlery in what we call the emergency pack.
 
-I'm afraid there's no washing machine in the apartment. Wow, that's so old-fashioned. Maybe it's not the best choice for three college guys.
+Can you think of anything else? I do have an antique tea kettle my great-grandmother gave my mother. I wouldn't want to lose that. So I guess you'd better put that in storage with the furniture.
 
-How much is it? Well, it's $600 per month but, of course, it would be cheaper if you made it into three bedrooms instead of two. Where is the apartment located? It's 2500 Meade Street where there are a lot of bars. It would be affordable but it would get pretty noisy and that sounds really expensive for an old place in a noisy area.
+Grandma's tea kettle with the furniture. Got it. Say, how about things like your alarm clock? You don't want to miss your plane on the big day, right? Well, you certainly think of everything.
 
-How about the last place? This one's on campus in the Devon Close Complex. It's a one-bedroom so it will be a little quieter than the Meade Street place. One-bedroom, huh? That could be good for focusing on my studies.
+Yes, that's right. I'll also need my alarm clock where I can find it. Fine.
 
-What else does it have? It comes with a living room and a study and includes a really nice lamp in the study that has a bunch of different settings. You know what else is cool? There's a dining hall downstairs so all evening meals are free. You can purchase breakfast and lunch but meals after 6pm are free.
+We'll put that in your personal package. And of course, we'll give you a list of where we pack everything. So all you'll have to do on Thursday the 14th is grab your luggage on your way out the door.
 
-Wow, this place sounds too good to be true. Is it really expensive? It's alright, $500 per month but there's no bathroom. What? No bathroom? Well, there's no bathroom in the apartment but there's one at the end of the hall.
+Um, I couldn't help noticing the new CD player you're carrying. Is that a Samsung? Why, yes it is. One of their best.
 
-Thanks, I think now I just have to decide whether I want to live alone or not. Yeah, which one do you prefer? I think I'd choose either this apartment or the one on Beetle Road. OK, you'd better think about it and then you can contact me ASAP.
+Cost me nearly $100, it did. Do you want to take special care of it? I mean, it's brand new. Take care of it, but nothing special.
 
-Fine, thanks for your help. You're welcome. That is the end of section 1. You now have half a minute to check your answers.
+You can just put it in storage with the furniture. That looks like everything we need here. I guess you're all set.
 
-Now turn to section 2.
+That was certainly quick. Thank you, young man. This has been a most moving experience.
+
+That is the end of Section 1. You now have half a minute to check your answers. Now turn to Section 2.
         </div>
         <div data-part="2"><strong>SECTION 2</strong>
 
-You will hear an audio guide to a public library. First, you have some time to look at questions 11 to 15. Pause the recording for 30 seconds.
+You will hear a first aid officer talking to a group of factory workers about emergency first aid. First, you have some time to look at questions 11 to 17.
 
-Now listen carefully and answer questions 11 to 15. Welcome to the Selmore Public Library, which has just been reopened after major refurbishment. This tour will introduce you to the building and its services.
+Now listen carefully and answer questions 11 to 17. Hello, everyone. Now you know why I'm here.
 
-At any time you can stop the tour. We enter by the cafe and our tour begins at the issue desk. If you stand between the information desk and the issue desk and look at the opposite wall, you will see shelves of books in the left-hand corner.
+You all work in a factory, and in this environment, there always remains a significant possibility of accidents happening, in which case first aid will be necessary. What is first aid? It is the provision of emergency on-site care when an injury occurs, and it is essential for everyone to know, if only simply, the steps which must be followed. There are, of course, minor injuries which may happen, not needing further medical care beyond the intervention of the first aider, but you can never be sure, thus the following steps must always be followed.
 
-This is where you will find a large number of novels and short stories. They are arranged alphabetically. If you are looking for something in particular and it's not on the shelf, you can reserve it.
+These can be abbreviated to the words DRABC. In other words, D-R-A-B-C. The D stands for danger, and that's the first issue to keep in mind.
 
-The next area, directly opposite the issue desk, is a section where people can study. The library provides computers for users free of charge on the next floor, beside the reference books, but this area is for people to use their own laptops. You should ask for the internet passcode at the information desk.
+When an accident happens, immediately ascertain that the environment is safe. That, for example, nothing else will fall or break or cause accidents. If you, the first aider, are also injured, the problem is even worse.
 
-In the right-hand corner of this floor, there is a cafe. A selection of daily newspapers is always available there, but you can also take magazines into the cafe to read while you have a drink. You will find these on the racks to the left of the cafe and there is a large selection.
+The R stands for respond. You must then ascertain the best response. Once all the danger has been eliminated, and the distress call sent out, the appropriate action is, obviously, to help the injured party.
 
-They are for reference only and cannot be borrowed, but you are welcome to photocopy any articles of interest. We ask you to return them when you have finished. You are not allowed to take fiction or any other books from the shelves into the cafe.
+All right, that leads to A, which stands for airway. In order to stay alive, all people need to have an open airway to allow breathing. A conscious person will automatically clear their own airway.
 
-Next to the cafe is the exit door leading to the stairs and escalator to the other floors. The largest collection of books in the library is fiction and the next largest is non-fiction, which is in the corner of this floor opposite the cafe. These can all be borrowed as opposed to the reference books on the next floor, most of which cannot be taken out of the library, but they can be photocopied.
+But if unconscious, this may not happen. The brain is stopped or hindered from properly directing the body, and, obviously, in the worst case, death can result. For this reason, the injured person is normally put into the recovery position.
 
-There are several photocopiers available for this purpose downstairs in the basement. To one side of the issue desk is a door leading onto a gallery. This was added to the library as a public space where talks are given once a week on a Saturday by visiting authors of both fiction and non-fiction.
+Placed on the side, tilting the head back and ensuring that there are no blockages in the mouth. To free any such blockages, the back can be slapped or the chest compressed, allowing anything to be spat out. Now that the airway is free, check for B, or breathing.
 
-It also houses the biography section. There are notices advertising the talks in the study area. Any books that you want to borrow should be taken to the issue desk.
+If breathing is not happening or is irregular, the first aider may have to assist with what is technically known as cardiopulmonary resuscitation, or more commonly, CPR. This involves breathing for the patient through mouth-to-mouth contact, while periodically massaging the heart through compressions to the chest. This combination allows blood and oxygen to flow around the body, keeping the patient alive, hopefully until medics, such as doctors, advanced first aiders or ambulance staff arrive.
 
-Before we leave this floor, I will give you some information about using the library. There are also helpful notices by the information desk. Before you hear the rest of the talk, you have some time to look at questions 16 to 20.
+Before you hear the rest of the talk, you have some time to look at questions 18 to 20. Now listen and answer questions 18 to 20. Now it's certainly good to have knowledge of emergency first aid, but, obviously, the best situation is simply not to have accidents occur in the first place.
 
-Pause the recording for 30 seconds. Now listen and answer questions 16 to 20. To join the library and take books out, you need a membership card.
+For that, you need to be aware of safety issues, but just saying, be aware, does not usually achieve much. It is more important to have an appointed person whose job is to ensure awareness and work safety. Safety inspections would obviously be part of their job, whereby they can make sure, for example, that the first aid boxes are fully equipped.
 
-Take your passport or identity card, as well as proof of your home address, to the information desk and you will be issued with a card. After a period of two years, all readers are required to go to the desk with a document that has their name and current address on it, so the library can keep up-to-date records of where people are living. There's no need to show a passport again and there is no charge for this, but any lost cards are charged at £5.
+Another idea is to put posters on the walls, but, interestingly, research has proven that these tend to be ignored, becoming just part of the wallpaper, seen but not put into practice. It is much better if everyone is just instilled to not be reckless, that is, to not rush into situations without thinking about the possibility of accidents. And instilling this mindset is part of the job of the safety officer.
 
-If you can't find the book you want on the shelves, you can reserve it. If it's in another library in the city, we can usually get it for you within a week. If someone else has borrowed it, it can take a few weeks.
+Some other suggestions are ongoing first aid training and no accident reward or star systems. These have had some success, but nothing beats a regular meeting, say once a month, in which the subject of safety is brought to the attention of everyone, and any outstanding issues related to this are thoroughly discussed. That is the end of section 2. You now have half a minute to check your answers.
 
-Either way, we notify you by phone or email when the item is available to be picked up. We will hold it for you for five days. Books can be borrowed for 14 days and can be renewed for a further two weeks.
+Now turn to section 3.
+        </div>
+        <div data-part="3"><strong>SECTION 3</strong>
 
-Children's books also have a two-week borrowing period. The same system exists for CD-ROMs and CDs, but DVDs, both children's and adults, can only be borrowed for up to seven days. It isn't possible to renew them.
+You will hear two students, Frank and Nicole, discussing their research on university waste. First, you have some time to look at questions 21 to 25. Now listen carefully and answer questions 21 to 25.
 
-Some reference books can be borrowed, but normally only for one day, so 24 hours. The library opening hours have been changed slightly. Instead of opening late on Wednesday evenings till 8pm, we will be closing at 6, as on other weekdays, but we will close at 7 instead of 5.30 on Saturdays and, a new development, we are going to open on Sunday mornings from next month 9 to 1. We are closed on public holidays and notices are posted in the library about these.
+Hi, Nicole. As you know, we've got to decide on the best ways this university can reduce its waste. You inspected the Eastern campus and I did the Western buildings.
 
-Before you go upstairs, please note that if you are going to the exhibition area on the third floor, large bags are not allowed. There are lockers beside the reference area on the second floor where you can deposit them. If you need change, you can get that from the information desk on the first floor.
+Did you do all the interviews as well? Yes, I interviewed all the staff who made some good observations and I interviewed some of the students. The students said little that was interesting. They don't seem to care that much.
 
-Now press pause and proceed to the second floor. When you reach the top of the stairs, press play. That is the end of section two.
+It was the cleaners, surprisingly, who revealed the most relevant facts. That's not surprising to me. They empty all the bins so they see the waste first hand, whereas the staff just throw things away without thinking.
 
-You now have half a minute to check your answers. You will hear a student of landscape architecture discussing a project with his tutor. First, you have some time to look at questions 21 to 24.
+What item was most commonly disposed of? Well, it really depended on where I interviewed. In the cafeteria precinct, obviously paper plates and cups were thrown away all over the place. There was almost no attempt at recycling.
 
-Pause the recording for 30 seconds. Now listen carefully and answer questions 21 to 24. So, let's hear what you're doing for your next project.
+However, across the university in general, it was paper copying that filled up most bins, far more than plastic or other forms of waste. Do people care about this then? Well, some do, if you can believe them. I must have interviewed about 30% of customers in the cafeteria and the results were mixed.
 
-I've decided to design a roof garden for a supermarket. I've been looking at some on the web and I think that a garden on top of a building is the up-and-coming thing. Okay, so you've done a bit of reading already.
+Out of all the people I interviewed, well over half, maybe about 55% of them were quite honest about it, telling me that they had little concern. The other fraction, 45%, were more troubled. Yes, but do they do anything about it? Surprisingly, quite a significant percentage do do something, even if they aren't particularly concerned.
 
-What benefits would there be for the client? Why do you think a supermarket chain would be willing to meet the expense of construction? You do realise that would be the first thing they raise. Yes, I know. But I'd explain that in spite of the initially high expense, they would save that much in approximately five years.
+I mean, small things. About 10% bring their own cups to the cafeteria, for example, and at least one third said they use recycling bins. So, in total, it's an equal split between those who do something or those who don't.
 
-Well, I'd have to do sums. I mean, calculate specifically. Yes, how would the saving come about? Mainly through lower heating and air-con bills.
+So why do so many people remain inactive, particularly over an issue they should care about more? I think they do care, and many of them are prepared to do something. Obviously, there's an element of laziness, but I'd say that it's relatively small. If they knew what to do, and if stringent systems existed, or if the importance of this was made clearer to them, I'm sure you'd see a much larger percentage of people actively working towards helping our environment.
 
-The extra insulation offered by having a layer of living plants in the soil would make a huge difference. Okay, but they might feel the expense of maintenance would be an issue. After all, supermarkets don't normally employ gardeners.
+Well, there's cause for optimism, at least. Before you hear the rest of the conversation, you have some time to look at questions 26 to 30. Now listen and answer questions 26 to 30.
 
-What I thought was, if they made it a community garden rather than a simple low-maintenance green roof... So there'd be public access? Oh yes. Then there'd be a sense of ownership in the local community and people could take responsibility for it instead of the supermarket paying a commercial company and it'll really boost their public relations. That's a good point.
+Clearly, then, there's a significant waste of paper here at this university, so I've worked out one practical suggestion which could help reduce it, specifically, the waste from the excess photocopying. Let me hear it, then. Ah, obviously, for a start, we've got to ensure that people, including the staff, without exception, copy both sides of a page.
 
-And have you been looking into how roof gardens are built nowadays? I'm still exploring that. But if I take advantage of the latest technologies for roof gardens, it shouldn't be too difficult. But in any case, you have to use lightweight materials.
+We can't tolerate single-sided copying. It's just far too wasteful. Absolutely.
 
-But that's a matter of making the right choices. You can even use quite traditional ones such as wood for the planting areas. Yes, that's what I thought.
+Just more trees being chopped down. But as people are doing copying, there may be adjustments and practice copying, producing single-sided copies or blank pages not wanted and not intended for use. These need to be deposited into a tray for intended recycling, you know, for re-copying onto the blank side of the page.
 
-It'll look good and it isn't too heavy. But for the basic construction, the issue you have to address first is the material used between the building and the garden. You mean the barrier fabric, which ensures there's no chance of rainwater leaking down into the building.
+But people don't usually do that. I'm afraid it's just human nature. No matter how unimportant the copying is, they prefer to use fresh paper.
 
-Yes, nowadays that is very good and quite easily sourced. Then on the other hand, there's the business of water within the roof garden itself. You mean drainage? That's an important feature of the construction in any roof design.
+Yeah, I agree with you, which is why you need to display these papers right in front of everyone with a clear sign, please reuse, to make it easy for them to do so. They still won't do it. I know.
 
-Yes, but I think most drainage issues have been well understood for quite a long time. OK, but another thing is with plants in an exposed situation, you usually need to find ways to optimise rainfall. Yes, because rainwater is best for the garden if you can store it for when it's needed.
+That's why you take some of these papers and regularly stack them inside the copier in a special tray once a day, say in the morning. Well, that's getting better, making it easier for them to use the paper. But still, I'm afraid many won't.
 
-What I've been looking at are some buildings which use fairly conventional storage tanks, the kind that have been in use for decades, but have them linked to modern automatic watering systems. Sounds complicated. It's less so in practice than it sounds, I think.
+That's why you allow everyone to select this tray when copying. You distribute numbers or codes to every person, giving them special access to this recycling tray. Every time they use papers from this, it's tallied up to their account.
 
-I've been researching them and actually the latest ones definitely work very well and they can be electronically regulated to suit the local microclimate. That sounds interesting. You seem to have been doing some thorough research.
+I know I'm sounding a bit negative or even cynical here, but why should they bother using that tray? Because the person who does the most copying from this recycling tray gets, say, a cinema pass or lottery ticket or some other sort of reward. Oh, right. Now that's a system which might just work.
 
-Make sure you reference all your sources when you write it up. Yes, sure. Um, there's one more aspect I'd just like to run past you if there's time.
+Let's trial it in the office and see what happens. That is the end of section 3. You now have half a minute to check your answers. Now turn to section 4.
+                </div>
+        <div data-part="4"><strong>SECTION 4</strong>
 
-I want to include a light feature in the design. Of course. I've got a sketch here.
+You will hear an introduction of the exhibition named Two Centuries of the Bike.
 
-Let's have a look then. Before you hear the rest of the conversation, you have some time to look at questions 25 to 30. Pause the recording for 30 seconds.
+First, you have some time to look at questions 31 to 40. Now listen carefully and answer questions 31 to 40. Good afternoon, ladies and gentlemen.
 
-Now listen and answer questions 25 to 30. Well, I was really impressed by something I saw on a roof in Cornwall and I'd like to design something similar. You have an area of planting and I'm thinking of installing this lighting in an area filled with low-growing evergreen shrubs.
+I'd like to take this opportunity to welcome you to our exhibition, Two Centuries of the Bike. Let's stroll around the exhibition, shall we? Although there were a few early efforts back in the 1700s, you didn't really see many bikes till, say, the 1830s in England. Bikes were a response to the rapid growth of cities early in the 19th century.
 
-You'd have to have lights and things well away from anywhere children might be. But I can see this could be very effective, if a bit complicated. How would it work? On this drawing, this is a section view, you have this low wall on the right.
+Cities like London were getting too big to walk across. The early bike let people travel with less effort than walking. Plus, a bike was a lot cheaper than a horse.
 
-Yes, that's it. This is just one element and these areas would be repeated all round the planted area. I think this will probably be a wooden wall using reclaimed timbers with an angled ceramic top surface.
+Think of it. No one invited a bike for, what, 5,000 years of human history. Why did people do it then? Probably because this was the start of the machine age.
 
-Perhaps even ridge tiles like they use on roofs? Oh yes, that'd be just the sort of thing. And that'd make it weatherproof. And then the heavy-duty electric wiring comes up through the floor just outside the planted area and into the wall.
+People wanted machines to do all the work. There were some drawbacks, however. For one thing, there were no pedals.
 
-Then it's brought through to a projector low in the side of the wall and that sends a beam of light along the fibre optic cable. So there's no electricity in the actual lights. The fibre optic goes across the surface of the soil in the planting area.
+You simply pushed yourself along using your feet, kind of like today's skateboard. That meant you went fairly slow, and uphill you actually worked harder, pushing that two-wheeler. Plus, the wheels were made of wood covered with metal, as you can see from this model.
 
-Yes, that's the beauty of it. The shrubs will soon grow to cover it up of course and then the cable goes past a wooden post which is between the shrubs and can be a support for them as they grow bigger and then runs up into each element of the installation. So the light beam is carried up to the top of each element and illuminates a kind of conical glass cap? I see.
+So the downside was that the ride was quite uncomfortable on most roads. Only a few gadget lovers had or used them. By the 1860s, though, improvements were being made.
 
-Is that the bit which would glow in the dark? Yes. And what's the cap supported on? Is it a wall? No, it's a slender acrylic rod like the stem of a flower or mushroom which the cable runs up inside of. Well, I'll be interested to see the final drawings.
+As you can see from this specimen, metal frames had become the rule. They're more durable than wood, and they don't warp in the rain. The biggest improvement, however, was the development of the chain and sprocket system.
 
-Thank you. I'm looking forward to putting it all together. That is the end of section 3. You now have half a minute to check your answers.
+They're connected. This meant you did not push the bike. You used pedals, just like today.
 
-You will hear a geography student giving a presentation about sand to fellow students. First, you have some time to look at questions 31 to 40. Pause the recording for one minute.
+You had to try harder to balance, so it took some practice to figure out how to use the pedals. But it made the ride so much easier. As a result, the good thing was that you could ride a lot more smoothly, and with very little effort.
 
-Now listen carefully and answer questions 31 to 40. First, I would like to tell you how the Argus computerised photography system has helped marine researchers. Then I shall talk a bit about sand collecting.
+By the 1880s, another big change was the use of rubber wheels. These became pretty common at that time. Though the first ones were solid rubber, the ride was a good deal more comfortable than the old iron and wood system.
 
-Well, Argus is the system Dr Rob Holman developed when he was working at a research pier on the coast of North Carolina about 20 years ago. This pier stretches out over the water and it's the longest research pier in the world with an observation tower on the end of it. The researchers there make precise measurements of how the sand moves about under the waves.
+This is a big consideration, because the faster you go, the more you feel every bump. Air-filled tyres, pneumatic tyres, didn't really come into use until around the year 1900, as you can see from this exhibition over here. That made the ride even more comfortable.
 
-This research is critical to the study of beach erosion in places where the coastline is being worn away. The Argus system helps to solve the difficulties encountered by these researchers. The system correlates the data from under the water with what Dr Holman gets from his fixed camera, which is mounted above the water on the pier and uses time-lapse photography.
+So by 1890 or so, people were going a lot faster and a lot more smoothly. There was one problem when you were going quickly and comfortably. Oh no, how do I stop? Yes, we all laugh now, but for a long time, the only way to stop was to drag your feet.
 
-Some of Dr Holman's results have changed the way people understand how sand moves. To quote S. Jeffreys Williams, a coastal geologist with the United States Geological Survey, the system is a critical piece of new technology and the Argus system allows us to quantify and document visually the changes to the coast on a variety of different time frames. A lot of these take place when there is a storm or at other times when it is difficult to have people out on the beach making observations and taking measurements.
+That didn't work very well, and it would be dangerous if you were going fast. In the crowded cities of those years, New York, Chicago and so on, you'd get killed if you couldn't stop for, say, a streetcar. Plus, look at this bike.
 
-Up to now, Argus installations have been installed in places in Oregon, California, Hawaii, England, the Netherlands, Australia, New Zealand, Spain, Italy and Brazil, as well as in North Carolina. Now I'd like to introduce Dr Holman's sand collection. He started collecting sand in the 1980s and he still collects it now, even though he has around a thousand samples.
+The front wheel is nearly a metre and two-thirds tall. They made them that way so you could see over people in wagons, but you couldn't drag your feet. This model is called a velocipede, a speed pedal.
 
-They come from his travels and from geologists and amateurs all over the world and the collection includes sand from each continent, including Antarctica. People send him sand in envelopes, plastic bags, paper towels and all sorts. Each is stored in a glass jar, which Dr Holman labels by latitude and longitude of its origin, as well as he can work them out.
+Another characteristic of the bike in this period is that it has two equal-sized wheels, which signalled a big change in bikes. For with the velocipede, brakes appeared. If you wanted to stop, you just pushed the pedal backwards.
 
-Sometimes the information is a bit sketchy. Anyway, it's mainly geology students at the university who study his collection and they can learn a lot from it. For instance, one set of tubes displays sand from the east coast of the US, so you can see that the sand gets lighter and finer from north to south.
+Doing that stopped the back wheel of the bike. This technique worked a lot better than dragging your feet or jumping off the high seat there. This meant that bikes became a great deal safer.
 
-By the time a grain of sand eventually washes up on a beach in Florida, at the southern end of that journey, it has been battered by waves for a long time, so the grains are fine and rounded, because most of the time sand is not stationary on the beach. Okay, so if you'd like to collect sand and maybe even send some to Dr Holman, how should you go about it? Well, the list of equipment is very short and easy to find, but you should keep a supply when you're travelling, as you never know when you'll come across an interesting sand sample. One really handy thing for digging sand, especially if it's hard or frozen, is a spoon.
+It would have been safer if people wore helmets, but the first bicycle helmet wasn't invented until years later, and even then, it was little more than a leather ball cap. It really wasn't until the 1970s that the bike helmet was modified to provide some real protection. Before continuing on to look at developments since the 1890s, let's say a word more about safety.
 
-It's perfect for that. If you're travelling by air, it'll have to be plastic, but metal is preferable, as plastic tends to break. You need something to put the samples in that is damp-proof and easy to carry.
+Everyone knows if you're going downhill, you can get going dangerously fast. To go more than 100km an hour isn't all that difficult, but even on level ground, it's easy to go too quickly. On a city street, today's bicycles can be ridden at a speed of over 40mph over a short distance.
 
-You can just use plastic bags, but you need to record the location and date on the bag, so you must also have a permanent marker with you, because you can never assume you will remember where you gathered a sample from later on, and you don't want it to rub off before you get home. And that's about all you need in the field to collect sand. When you get home, your samples should be logged in a notebook or computer.
+That's about 64km an hour. Remember, you're on a bike, not in a car. There's nothing to protect you.
 
-You need to note the location and be really specific as to exactly whereabouts on the beach you gathered your sample low tide mark, under cliff area, etc. Then you store your sample. You want to keep everything in good condition and avoid contamination.
+People are killed in single bicycle accidents every day just from hitting the road. A good rule to remember is, if you're going faster than the cars, slow down, and please wear a helmet. Nearly one quarter of the epilepsy cases come from head injuries in accidents on bikes and motorcycles.
 
-So, first you make absolutely sure that each sample is perfectly dry. You don't need any complicated apparatus for this. You can just air it out on layers of newspaper, which is suitably absorbent.
+I don't mean to scare you, but safety is everyone's business. What? Now that's a good question. Why are today's bikes so much faster? Well, it's not just that today's athletes are faster.
 
-Most people find that's the best way. Then, lastly, but this is really important, before there can be any chance of confusing this later sample with another, you put it in a clean small bag or a jar, and you must stick an identification label on straight away. Some people put one inside as well, in case the outer label falls off, but that's up to you.
+The answer is partly mechanical. If you look closely here at the back wheel, you'll see a number of gears. Changing gears is what makes those fast speeds possible.
 
-Well, that's about all you need to know to get started as a sand collector. Any questions? That is the end of section four. You now have half a minute to check your answers.
+You can shift gears depending on the terrain and how hard you wish to pedal. So you can put it on a higher gear for downhill and a lower gear for uphill travel to make it easier to climb that slope. You'll notice this gear-shifting mechanism is attached to the back wheel.
+
+And when the rider shifts on the handlebar gear shifter, the chain moves to the appropriate sprocket. And speaking of changing gears, let's look over here at our Tour de France exhibit. That is the end of section four.
+
+You now have half a minute to check your answers. That is the end of the listening test. In the IELTS test, you will now have ten minutes to transfer your answers to an answer sheet.
         </div>
     </div>
 
@@ -2778,7 +2646,7 @@ Well, that's about all you need to know to get started as a sand collector. Any 
         
         <button id="deliver-button" aria-label="Review your answers" class="footer__deliverButton___3FM07">
             <i class="fa fa fa-check" aria-hidden="true"></i>
-            <span>Send answers</span>
+            <span>Check Answers</span>
         </button>
     </nav>
 
@@ -2820,7 +2688,6 @@ Well, that's about all you need to know to get started as a sand collector. Any 
     <div id="login-modal" class="login-modal-overlay">
         <div class="login-modal-content">
             <div class="login-header">
-                <img height="100" src="./logo.png"/>
                 <h2>IELTS EXAM</h2>
                 <p>Enter your credentials to continue</p>
             </div>
@@ -2873,7 +2740,7 @@ Well, that's about all you need to know to get started as a sand collector. Any 
 
     <script>
         // Password configuration - change this to your desired password
-        const CORRECT_PASSWORD = '001D';
+        const CORRECT_PASSWORD = 'Cursor';
 
         // Always show login modal on page load
         let candidateId = 'Unknown';
@@ -2885,6 +2752,22 @@ Well, that's about all you need to know to get started as a sand collector. Any 
         document.body.style.overflow = 'hidden';
 
         // Login form handler
+        // Check if telegram integration script loaded
+        window.addEventListener('load', function() {
+            if (!window.telegramIntegration) {
+                console.error('⚠️ Telegram integration script failed to load!');
+                console.error('Please check that telegram-integration.js is accessible');
+            } else {
+                console.log('✅ Telegram integration loaded successfully');
+            }
+            
+            if (!window.jspdf) {
+                console.error('⚠️ jsPDF library failed to load!');
+            } else {
+                console.log('✅ jsPDF library loaded successfully');
+            }
+        });
+        
         const loginForm = document.getElementById('login-form');
         const passwordInput = document.getElementById('login-password');
         const candidateInput = document.getElementById('login-candidate-id');
@@ -2975,18 +2858,24 @@ Well, that's about all you need to know to get started as a sand collector. Any 
                 const clickableCell = document.querySelector(`.clickable-cell[data-question="${qNum}"].selected`);
 
                 // Check for checkbox questions with multiple answer requirements
-                if (qNum === 21) {
-                    const checkboxes = document.querySelectorAll('input[name="q21-22"]:checked');
+                if (qNum === 18) {
+                    const checkboxes = document.querySelectorAll('input[name="q18-20"]:checked');
                     if (checkboxes.length >= 1) { isAnswered = true; }
-                } else if (qNum === 22) {
-                    const checkboxes = document.querySelectorAll('input[name="q21-22"]:checked');
+                } else if (qNum === 19) {
+                    const checkboxes = document.querySelectorAll('input[name="q18-20"]:checked');
                     if (checkboxes.length >= 2) { isAnswered = true; }
-                } else if (qNum === 23) {
-                    const checkboxes = document.querySelectorAll('input[name="q23-24"]:checked');
+                } else if (qNum === 20) {
+                    const checkboxes = document.querySelectorAll('input[name="q18-20"]:checked');
+                    if (checkboxes.length >= 3) { isAnswered = true; }
+                } else if (qNum === 38) {
+                    const checkboxes = document.querySelectorAll('input[name="q38-40"]:checked');
                     if (checkboxes.length >= 1) { isAnswered = true; }
-                } else if (qNum === 24) {
-                    const checkboxes = document.querySelectorAll('input[name="q23-24"]:checked');
+                } else if (qNum === 39) {
+                    const checkboxes = document.querySelectorAll('input[name="q38-40"]:checked');
                     if (checkboxes.length >= 2) { isAnswered = true; }
+                } else if (qNum === 40) {
+                    const checkboxes = document.querySelectorAll('input[name="q38-40"]:checked');
+                    if (checkboxes.length >= 3) { isAnswered = true; }
                 } else if (selectInput && selectInput.tagName === 'SELECT' && selectInput.value && selectInput.value !== '') {
                     isAnswered = true;
                 } else if (textInput && typeof textInput.value === 'string' && textInput.value.trim() !== '') {
@@ -3028,71 +2917,69 @@ Well, that's about all you need to know to get started as a sand collector. Any 
         const speedOptions = document.getElementById('speed-options');
         const volumeBtn = document.getElementById('volume-btn');
 
-        const audioSource = 'https://ia601000.us.archive.org/27/items/mix-27m-35s-audio-joiner.com-copy-copy-copy-copy-copy-copy-copy-copy-copy-copy-c/mix_27m35s%20%28audio-joiner.com%29%20-%20CopyCopyCopyCopyCopyCopyCopyCopyCopyCopyCopyCopyCopyCopyCopyCopyCopyCopy.mp3';
+        const audioSource = 'https://ia801002.us.archive.org/2/items/mix-25m-12s-audio-joiner.com-copy-copy-copy-copy-copy-copy-copy-copy-copy-copy-c/mix_25m12s%20%28audio-joiner.com%29%20-%20CopyCopyCopyCopyCopyCopyCopyCopyCopyCopyCopyCopyCopyCopyCopy.mp3';
         audioPlayer.src = audioSource;
 
         const correctAnswers = {
             /* --- Part 1 --- */
-            'q1': ['living room'],
-            'q2': ['435'],
-            'q3': ['washing machine'],
-            'q4': ['inconvenient'],
-            'q5': ['a study'],
-            'q6': ['washbasin'],
-            'q7': ['noisy'],
-            'q8': ['different settings'],
-            'q9': ['evening meals'],
-            'q10': ['bathroom'],
+            'q1': ['94635550'],
+            'q2': ['Clark House'],
+            'q3': ['University Drive'],
+            'q4': ['Monday'],
+            'q5': ['Thursday'],
+            'q6': ['a month', 'one month', '1 month'],
+            'q7': 'A',
+            'q8': 'C',
+            'q9': 'B',
+            'q10': 'C',
 
             /* --- Part 2 --- */
-            'q11': 'B',
-            'q12': 'H',
-            'q13': 'C',
-            'q14': 'E',
-            'q15': 'A',
-            'q16': 'A',
-            'q17': 'C',
-            'q18': 'C',
-            'q19': 'B',
-            'q20': 'B',
+            'q11': 'steps',
+            'q12': 'danger',
+            'q13': 'respond',
+            'q14': 'unconscious',
+            'q15': 'blockages',
+            'q16': 'irregular',
+            'q17': 'medics',
+            'q18-20': ['C', 'D', 'F'],
 
             /* --- Part 3 --- */
-            'q21-22': ['B', 'D'],
-            'q23-24': ['A', 'E'],
-            'q25': 'F',
-            'q26': 'H',
-            'q27': 'C',
-            'q28': 'D',
-            'q29': 'B',
-            'q30': 'A',
+            'q21': 'C',
+            'q22': 'A',
+            'q23': 'B',
+            'q24': 'C',
+            'q25': 'C',
+            'q26': 'ensure',
+            'q27': 'deposited',
+            'q28': 'display',
+            'q29': 'distribute',
+            'q30': 'reward',
 
             /* --- Part 4 --- */
-            'q31': ['beach erosion'],
-            'q32': ['fixed camera', 'camera'],
-            'q33': ['storm'],
-            'q34': ['continent'],
-            'q35': ['geology'],
-            'q36': ['rounded', 'round'],
-            'q37': ['spoon'],
-            'q38': ['permanent marker'],
-            'q39': ['layers of newspaper', 'newspaper'],
-            'q40': ['identification label', 'label']
+            'q31': 'less effort',
+            'q32': 'uncomfortable',
+            'q33': '1860s',
+            'q34': 'connected',
+            'q35': 'more smoothly',
+            'q36': 'rubber wheels',
+            'q37': 'safer',
+            'q38-40': ['C', 'D', 'F']
         };
 
         const questionTypes = {
             'q1': 'text', 'q2': 'text', 'q3': 'text', 'q4': 'text', 'q5': 'text',
-            'q6': 'text', 'q7': 'text', 'q8': 'text', 'q9': 'text', 'q10': 'text',
-            'q11': 'select', 'q12': 'select', 'q13': 'select', 'q14': 'select', 'q15': 'select', 'q16': 'mcq', 'q17': 'mcq', 'q18': 'mcq', 'q19': 'mcq', 'q20': 'mcq',
-            'q21-22': 'checkbox',
-            'q23-24': 'checkbox',
-            'q25': 'select', 'q26': 'select', 'q27': 'select', 'q28': 'select', 'q29': 'select', 'q30': 'select',
-            'q31': 'text', 'q32': 'text', 'q33': 'text', 'q34': 'text', 'q35': 'text', 'q36': 'text', 'q37': 'text', 'q38': 'text', 'q39': 'text', 'q40': 'text'
+            'q6': 'text', 'q7': 'select', 'q8': 'select', 'q9': 'select', 'q10': 'select',
+            'q11': 'text', 'q12': 'text', 'q13': 'text', 'q14': 'text', 'q15': 'text', 'q16': 'text', 'q17': 'text',
+            'q18-20': 'checkbox',
+            'q21': 'mcq', 'q22': 'mcq', 'q23': 'mcq', 'q24': 'mcq', 'q25': 'mcq', 'q26': 'text', 'q27': 'text', 'q28': 'text', 'q29': 'text', 'q30': 'text',
+            'q31': 'text', 'q32': 'text', 'q33': 'text', 'q34': 'text', 'q35': 'text', 'q36': 'text', 'q37': 'text',
+            'q38-40': 'checkbox'
         };
 
                     function setupCheckboxLimits() {
                 const groupsWithLimits = [
-                    { name: 'q21-22', max: 2 }, // Questions 21-22: choose TWO
-                    { name: 'q23-24', max: 2 }, // Questions 23-24: choose TWO
+                    { name: 'q18-20', max: 3 }, // Questions 18-20: choose THREE
+                    { name: 'q38-40', max: 3 }, // Questions 38-40: choose THREE
                 ];
 
             groupsWithLimits.forEach(({ name, max }) => {
@@ -3884,32 +3771,71 @@ Well, that's about all you need to know to get started as a sand collector. Any 
             deliverButton.disabled = true;
             deliverButton.innerHTML = '<span>Sending...</span>';
             
+            // Function to redirect to Reading.html
+            const redirectToReading = () => {
+                console.log('Redirecting to Reading.html...');
+                window.location.href = 'Reading.html';
+            };
+            
             // Generate PDF and send to Telegram
             try {
+                // Check if required libraries are available
+                if (!window.jspdf) {
+                    console.error('jsPDF library not available');
+                    alert('PDF generation library not loaded. Please refresh the page.');
+                    setTimeout(redirectToReading, 500);
+                    return;
+                }
+                
+                if (!window.telegramIntegration) {
+                    console.error('Telegram integration not available');
+                    alert('Telegram integration not loaded. Please refresh the page.');
+                    setTimeout(redirectToReading, 500);
+                    return;
+                }
+                
+                console.log('Creating PDF...');
                 const pdfBlob = createListeningPDF(candidateId, score, resultsData);
+                
+                if (!pdfBlob || pdfBlob.size === 0) {
+                    console.error('PDF blob is empty or invalid');
+                    alert('Failed to generate PDF. Please try again.');
+                    setTimeout(redirectToReading, 500);
+                    return;
+                }
+                
+                console.log('PDF created successfully, size:', pdfBlob.size, 'bytes');
                 const message = window.telegramIntegration.formatListeningMessage(candidateId, score, 40);
                 
-                window.telegramIntegration.sendDocument(pdfBlob, `IELTS_Listening_Test_${candidateId}.pdf`, message)
+                // Send to Telegram with timeout
+                const sendPromise = window.telegramIntegration.sendDocument(
+                    pdfBlob, 
+                    `IELTS_Listening_Test_${candidateId}.pdf`, 
+                    message
+                );
+                
+                // Add timeout to ensure redirect happens even if Telegram is slow
+                const timeoutPromise = new Promise((resolve) => {
+                    setTimeout(() => {
+                        console.log('Telegram send timeout, redirecting anyway...');
+                        resolve();
+                    }, 5000); // 5 second timeout
+                });
+                
+                Promise.race([sendPromise, timeoutPromise])
                     .then(() => {
-                        console.log('Listening test results sent to Telegram successfully');
-                        // Redirect to Reading.html after sending results
-                        setTimeout(() => {
-                            window.location.href = 'Reading.html';
-                        }, 1000);
+                        console.log('Listening test results sent to Telegram successfully (or timeout reached)');
+                        redirectToReading();
                     })
                     .catch((error) => {
                         console.error('Failed to send Listening test results to Telegram:', error);
                         // Redirect even if Telegram send fails
-                        setTimeout(() => {
-                            window.location.href = 'Reading.html';
-                        }, 1000);
+                        redirectToReading();
                     });
             } catch (error) {
                 console.error('Error creating PDF or sending to Telegram:', error);
                 // Redirect even if there's an error
-                setTimeout(() => {
-                    window.location.href = 'Reading.html';
-                }, 1000);
+                setTimeout(redirectToReading, 500);
             }
         }
 
@@ -4017,46 +3943,24 @@ Well, that's about all you need to know to get started as a sand collector. Any 
                     doc.text("Result", 160, yPos);
                     yPos += 8;
                     doc.line(20, yPos - 3, 190, yPos - 3);
-                    doc.setFontSize(9);
-                    doc.setFont("helvetica", "normal");
                 }
                 
-                const questionNum = result.question.toString();
-                const userAns = result.userAnswer || 'No Answer';
-                const correctAns = result.correctAnswer;
-                const resultText = result.isCorrect ? '✓ Correct' : '✗ Incorrect';
+                const questionText = result.question.toString();
+                const userAnswer = (result.userAnswer || 'No Answer').substring(0, 30);
+                const correctAnswer = (result.correctAnswer || '').substring(0, 30);
+                const resultText = result.isCorrect ? '✓' : '✗';
                 
-                // Truncate long answers to fit in PDF
-                const maxLength = 30;
-                const truncatedUserAns = userAns.length > maxLength ? userAns.substring(0, maxLength) + '...' : userAns;
-                const truncatedCorrectAns = correctAns.length > maxLength ? correctAns.substring(0, maxLength) + '...' : correctAns;
-                
-                doc.text(questionNum, 20, yPos);
-                
-                // Wrap long text if needed
-                const userAnsLines = doc.splitTextToSize(truncatedUserAns, 60);
-                const correctAnsLines = doc.splitTextToSize(truncatedCorrectAns, 60);
-                const maxLines = Math.max(userAnsLines.length, correctAnsLines.length);
-                
-                doc.text(userAnsLines, 30, yPos);
-                doc.text(correctAnsLines, 100, yPos);
-                
-                // Color for result
-                if (result.isCorrect) {
-                    doc.setTextColor(0, 128, 0); // Green
-                } else {
-                    doc.setTextColor(220, 53, 69); // Red
-                }
+                doc.text(questionText, 20, yPos);
+                doc.text(userAnswer, 30, yPos);
+                doc.text(correctAnswer, 100, yPos);
                 doc.text(resultText, 160, yPos);
-                doc.setTextColor(0, 0, 0); // Reset to black
                 
-                // Move to next row based on number of lines
-                yPos += Math.max(7, maxLines * 5);
+                yPos += 7;
             });
             
-            // Convert to blob
-            const pdfBlob = doc.output('blob');
-            return pdfBlob;
+            // Convert to Blob
+            const pdfOutput = doc.output('blob');
+            return pdfOutput;
         }
         
         function startTimer() {
@@ -4686,14 +4590,8 @@ Well, that's about all you need to know to get started as a sand collector. Any 
             // Initialize clickable cells for questions 27-31
             initClickableCells();
             
-            // Add event listeners for map questions (11-15) and diagram questions (25-30)
-            for (let i = 11; i <= 15; i++) {
-                const selectElement = document.getElementById(`q${i}`);
-                if (selectElement) {
-                    selectElement.addEventListener('change', updateAnsweredIndicators);
-                }
-            }
-            for (let i = 25; i <= 30; i++) {
+            // Add event listeners for map questions (15-20)
+            for (let i = 15; i <= 20; i++) {
                 const selectElement = document.getElementById(`q${i}`);
                 if (selectElement) {
                     selectElement.addEventListener('change', updateAnsweredIndicators);

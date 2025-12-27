@@ -36,35 +36,66 @@ class TelegramIntegration {
     // Отправка документа (PDF)
     async sendDocument(documentBlob, filename, caption = '') {
         try {
-            console.log('Converting Blob to File...');
+            console.log('=== Starting Telegram document send ===');
+            console.log('Filename:', filename);
+            console.log('Caption length:', caption ? caption.length : 0);
+            console.log('Blob size:', documentBlob ? documentBlob.size : 'undefined');
+            console.log('Blob type:', documentBlob ? documentBlob.type : 'undefined');
+            
+            if (!documentBlob) {
+                throw new Error('Document blob is undefined or null');
+            }
+            
             // Конвертируем Blob в File
             const file = new File([documentBlob], filename, { type: 'application/pdf' });
             console.log('File created:', file.name, file.size, 'bytes', file.type);
+            
+            if (!file.size || file.size === 0) {
+                throw new Error('PDF file is empty (0 bytes)');
+            }
             
             const formData = new FormData();
             formData.append('chat_id', this.chatId);
             formData.append('document', file, filename);
             if (caption) {
-                formData.append('caption', caption);
+                // Очищаем caption от HTML тегов для документа (Telegram API для sendDocument не поддерживает HTML в caption)
+                const plainCaption = caption.replace(/<[^>]*>/g, '').trim();
+                formData.append('caption', plainCaption);
+                console.log('Caption (plain text):', plainCaption.substring(0, 100));
             }
 
             console.log('Sending to Telegram API...', this.apiUrl + '/sendDocument');
+            console.log('Chat ID:', this.chatId);
+            
             const response = await fetch(`${this.apiUrl}/sendDocument`, {
                 method: 'POST',
                 body: formData
             });
 
             console.log('Response status:', response.status);
+            console.log('Response headers:', Object.fromEntries(response.headers.entries()));
+            
+            if (!response.ok) {
+                const errorText = await response.text();
+                console.error('HTTP Error Response:', errorText);
+                throw new Error(`HTTP ${response.status}: ${errorText}`);
+            }
+            
             const result = await response.json();
-            console.log('Telegram API response:', result);
+            console.log('Telegram API response:', JSON.stringify(result, null, 2));
             
             if (!result.ok) {
                 console.error('Telegram API Error:', result);
                 throw new Error(result.description || 'Failed to send document');
             }
+            
+            console.log('=== Document sent successfully ===');
             return result;
         } catch (error) {
-            console.error('Error sending document to Telegram:', error);
+            console.error('=== Error sending document to Telegram ===');
+            console.error('Error type:', error.constructor.name);
+            console.error('Error message:', error.message);
+            console.error('Error stack:', error.stack);
             throw error;
         }
     }
