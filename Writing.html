@@ -34,6 +34,121 @@
             height: 60px;
         }
 
+        .header-logo {
+            height: 40px;
+            margin-right: 20px;
+        }
+
+        /* Login Modal Styles */
+        .login-modal-overlay {
+            display: flex;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-modal-content {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+            max-width: 450px;
+            width: 90%;
+            text-align: center;
+        }
+
+        .login-header {
+            margin-bottom: 30px;
+        }
+
+        .login-header img {
+            height: 100px;
+            margin-bottom: 20px;
+        }
+
+        .login-header h2 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .login-header p {
+            color: #666;
+            font-size: 16px;
+        }
+
+        .login-form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .login-form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .login-form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+            box-sizing: border-box;
+        }
+
+        .login-form-group input:focus {
+            outline: none;
+            border-color: #4a90e2;
+        }
+
+        .login-error-message {
+            display: none;
+            color: #dc3545;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+
+        .login-error-message.show {
+            display: block;
+        }
+
+        .login-submit-btn {
+            width: 100%;
+            padding: 14px;
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+        }
+
+        .login-submit-btn:hover {
+            background-color: #357abd;
+        }
+
+        .login-submit-btn:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
         .timer-container {
             color: #333;
             font-size: 16px;
@@ -65,33 +180,7 @@
             background-color: #f6f6f6;
         }
 
-        .telegram-link::before {
-            content: '';
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            background-color: currentColor;
-            -webkit-mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.78 18.65l.28-4.23l7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3L3.64 12c-.88-.25-.89-1.37.2-1.64l16.56-6.4c.75-.29 1.4.22 1.2.94l-2.67 12.61c-.22.95-1.13 1.18-1.78.73l-4.5-3.32l-2.23 2.15c-.47.44-1.29.21-1.48-.37z"/></svg>');
-            mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.78 18.65l.28-4.23l7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3L3.64 12c-.88-.25-.89-1.37.2-1.64l16.56-6.4c.75-.29 1.4.22 1.2.94l-2.67 12.61c-.22.95-1.13 1.18-1.78.73l-4.5-3.32l-2.23 2.15c-.47.44-1.29.21-1.48-.37z"/></svg>');
-            background-size: contain;
-            background-repeat: no-repeat;
-        }
 
-        body::after {
-            content: "@MINDLESS_WRITER";
-            position: fixed;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%) rotate(-20deg);
-            font-size: 72px;
-            font-weight: 800;
-            letter-spacing: 2px;
-            color: #000000;
-            opacity: 0.02; /* subtle */
-            pointer-events: none;
-            z-index: 0;
-            white-space: nowrap;
-        }
 
         .main-container {
             margin-top: 60px;
@@ -425,154 +514,31 @@
             }
         }
 
-        /* Login Modal Styles */
-        .login-modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgb(255, 255, 255);
-            backdrop-filter: blur(10px);
-            z-index: 10000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-
-        .login-modal-content {
-            background: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-            padding: 40px;
-            width: 100%;
-            max-width: 450px;
-            position: relative;
-        }
-
-        .login-header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .login-header h2 {
-            color: #333;
-            font-size: 28px;
-            margin-bottom: 10px;
-        }
-
-        .login-header p {
-            color: #666;
-            font-size: 14px;
-        }
-
-        .login-form-group {
-            margin-bottom: 20px;
-        }
-
-        .login-form-group label {
-            display: block;
-            margin-bottom: 8px;
-            color: #333;
-            font-weight: 600;
-            font-size: 14px;
-        }
-
-        .login-form-group input {
-            width: 100%;
-            padding: 12px 16px;
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
-            font-size: 16px;
-            transition: border-color 0.3s ease;
-            outline: none;
-            box-sizing: border-box;
-        }
-
-        .login-form-group input:focus {
-            border-color: #667eea;
-        }
-
-        .login-error-message {
-            color: #dc3545;
-            font-size: 14px;
-            margin-top: 8px;
-            display: none;
-        }
-
-        .login-error-message.show {
-            display: block;
-        }
-
-        .login-submit-btn {
-            width: 100%;
-            padding: 14px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            margin-top: 10px;
-        }
-
-        .login-submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
-        }
-
-        .login-submit-btn:active {
-            transform: translateY(0);
-        }
-
-        .login-modal-overlay.hidden {
-            display: none;
-        }
+        
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="telegram-integration.js"></script>
 </head>
 <body>
     <!-- Login Modal -->
     <div id="login-modal" class="login-modal-overlay">
         <div class="login-modal-content">
             <div class="login-header">
+                <img src="./logo.png" alt="Logo" height="100"/>
                 <h2>IELTS EXAM</h2>
                 <p>Enter your credentials to continue</p>
             </div>
-
-            <form id="login-form">
+            <form id="login-form" onsubmit="return false;">
+                <div class="login-form-group">
+                    <label for="login-name">Name (Candidate ID)</label>
+                    <input type="text" id="login-name" name="name" placeholder="Enter your name" required autocomplete="off">
+                    <div class="login-error-message" id="login-name-error">Please enter your name.</div>
+                </div>
                 <div class="login-form-group">
                     <label for="login-password">Password</label>
-                    <input 
-                        type="password" 
-                        id="login-password" 
-                        name="password" 
-                        placeholder="Enter password" 
-                        required
-                        autocomplete="off"
-                    >
+                    <input type="password" id="login-password" name="password" placeholder="Enter password" required autocomplete="off">
                     <div class="login-error-message" id="login-password-error">Incorrect password. Please try again.</div>
                 </div>
-
-                <div class="login-form-group">
-                    <label for="login-candidate-id">Candidate ID</label>
-                    <input 
-                        type="text" 
-                        id="login-candidate-id" 
-                        name="candidate-id" 
-                        placeholder="Enter your Candidate ID" 
-                        required
-                        autocomplete="off"
-                    >
-                    <div class="login-error-message" id="login-candidate-error">Please enter a valid Candidate ID.</div>
-                </div>
-
-                <button type="submit" class="login-submit-btn">Enter Exam</button>
+                <button type="button" class="login-submit-btn" id="login-submit-btn">Enter Exam</button>
             </form>
         </div>
     </div>
@@ -582,9 +548,7 @@
             <span class="timer-display">60:00</span>
         </div>
 
-        <a href="https://t.me/+Gj0ZjqhKScUwNWRl" target="_blank" class="telegram-link">
-            MINDLESS_WRITER
-        </a>
+        <img src="./logo.png" alt="Logo" class="header-logo">
     </div>
 
     <!-- Test Interface -->
@@ -602,14 +566,14 @@
             <div class="left-panel">
                 <div id="part-1" class="writing-part">
                     <div class="task-prompt">
-                        <p><strong>The chart below shows the number of people employed in five types of work in one region of Australia in 2001 and 2008.
+                        <p><strong>The chart below illustrates the number of international students applying to universities in a European country.
                         </strong></p>
                         <p><strong>Summarize the information by selecting and reporting the main points and make comparisons where relevant.</strong></p>
                     </div>
 
                     <div class="chart-container">
                         <div class="image-container">
-                            <img src="https://engnovatewebsitestorage.blob.core.windows.net/ielts-writing-task-1-images/ed1699e6c1c41313" alt="Bar chart showing types of music bought in USA in 2010 by age group" style="max-width:60%; height:auto; border:1px solid #ccc;"/>
+                            <img src="https://engnovatewebsitestorage.blob.core.windows.net/ielts-writing-task-1-images/e530b83794649786" alt="Bar chart showing types of music bought in USA in 2010 by age group" style="max-width:60%; height:auto; border:1px solid #ccc;"/>
                         </div>
                     </div>
                 </div>
@@ -618,9 +582,7 @@
                     <div class="instructions">
                         <p><strong>Write about the following topic:</strong></p>
                         <div class="task-prompt">
-                            <p><em><strong>  Extreme sports such as skydiving and rock climbing are very dangerous and should be banned.
-
-                                <br><br> To what extent do you agree or disagree?</strong></em></p>
+                            <p><em><strong>  Some people say that tourists cannot learn very much about a place from visiting it on holiday. Others say that they can learn a lot.<br><br> Discuss both views and give your opinion.</strong></em></p>
                         </div>
                         <p>Give reasons for your answer and include any relevant examples from your own knowledge or experience.</p>
                     </div>
@@ -685,94 +647,142 @@
         let timeInSeconds = 3600;
         let timerInterval;
         let partCompletionStatus = { 1: false, 2: false };
+        let candidateId = 'Unknown'; // Will be set from login if available
 
-        // Password configuration - change this to your desired password
-        const CORRECT_PASSWORD = 'Cursor';
+        // Login functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const loginModal = document.getElementById('login-modal');
+            const loginForm = document.getElementById('login-form');
+            const nameInput = document.getElementById('login-name');
+            const passwordInput = document.getElementById('login-password');
+            const nameError = document.getElementById('login-name-error');
+            const passwordError = document.getElementById('login-password-error');
+            const header = document.querySelector('.header');
+            const mainContainer = document.querySelector('.main-container');
+            const navRow = document.querySelector('.nav-row');
 
-        // Always show login modal on page load
-        let candidateId = 'Unknown';
-        const loginModal = document.getElementById('login-modal');
-        
-        // Show login modal every time page loads
-        loginModal.classList.remove('hidden');
-        // Prevent interaction with page content while modal is open
-        document.body.style.overflow = 'hidden';
-
-        // Check if telegram integration script loaded
-        window.addEventListener('load', function() {
-            if (!window.telegramIntegration) {
-                console.error('⚠️ Telegram integration script failed to load!');
-                console.error('Please check that telegram-integration.js is accessible');
-            } else {
-                console.log('✅ Telegram integration loaded successfully');
+            // Hide main content until login
+            if (header) {
+                header.classList.add('hidden');
             }
-            
-            if (!window.jspdf) {
-                console.error('⚠️ jsPDF library failed to load!');
-            } else {
-                console.log('✅ jsPDF library loaded successfully');
+            if (mainContainer) {
+                mainContainer.style.display = 'none';
             }
-        });
-        
-        // Login form handler
-        const loginForm = document.getElementById('login-form');
-        const passwordInput = document.getElementById('login-password');
-        const candidateInput = document.getElementById('login-candidate-id');
-        const passwordError = document.getElementById('login-password-error');
-        const candidateError = document.getElementById('login-candidate-error');
+            if (navRow) {
+                navRow.style.display = 'none';
+            }
+            document.body.style.overflow = 'hidden';
 
-        loginForm.addEventListener('submit', function(e) {
-            e.preventDefault();
+            // Handle form submit
+            function handleLoginSubmit() {
+                console.log('Login form submitted');
+                
+                const nameValue = nameInput.value.trim();
+                const passwordValue = passwordInput.value.trim();
+                
+                console.log('Name:', nameValue, 'Password entered:', passwordValue ? 'Yes' : 'No');
 
-            // Reset error messages
-            passwordError.classList.remove('show');
-            candidateError.classList.remove('show');
+                // Clear previous errors
+                nameError.classList.remove('show');
+                passwordError.classList.remove('show');
 
-            const password = passwordInput.value.trim();
-            const candidateIdValue = candidateInput.value.trim();
+                // Validate name
+                if (!nameValue) {
+                    nameError.classList.add('show');
+                    nameInput.focus();
+                    return false;
+                }
 
-            // Validate password
-            if (password !== CORRECT_PASSWORD) {
-                passwordError.classList.add('show');
-                passwordInput.focus();
-                return;
+                // Validate password
+                if (!passwordValue) {
+                    passwordError.classList.add('show');
+                    passwordInput.focus();
+                    return false;
+                }
+
+                if (passwordValue !== 'AGENT69') {
+                    passwordError.classList.add('show');
+                    passwordInput.focus();
+                    passwordInput.value = '';
+                    return false;
+                }
+
+                // Save candidate ID in memory (not localStorage)
+                candidateId = nameValue;
+
+                // Hide login modal and show content
+                loginModal.classList.add('hidden');
+                loginModal.style.display = 'none'; // Explicitly hide modal
+                if (header) {
+                    header.classList.remove('hidden');
+                    header.style.display = ''; // Reset to default
+                }
+                // Show all main content - need to query again as scope may have changed
+                const mainContainerEl = document.querySelector('.main-container');
+                if (mainContainerEl) {
+                    mainContainerEl.style.display = 'flex';
+                }
+                const navRowEl = document.querySelector('.nav-row');
+                if (navRowEl) {
+                    navRowEl.style.display = 'flex';
+                }
+                document.body.style.overflow = 'auto';
+                
+                console.log('Login successful, modal hidden');
+                return false;
             }
 
-            // Validate candidate ID
-            if (!candidateIdValue || candidateIdValue.length < 2) {
-                candidateError.classList.add('show');
-                candidateInput.focus();
-                return;
+            // Prevent form submission
+            if (loginForm) {
+                loginForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    handleLoginSubmit();
+                    return false;
+                });
             }
 
-            // Save candidate ID in memory (not localStorage)
-            candidateId = candidateIdValue;
-
-            // Hide login modal and enable page interaction
-            loginModal.classList.add('hidden');
-            document.body.style.overflow = 'auto';
-
-        });
-
-        // Clear error messages on input
-        passwordInput.addEventListener('input', function() {
-            passwordError.classList.remove('show');
-        });
-
-        candidateInput.addEventListener('input', function() {
-            candidateError.classList.remove('show');
-        });
-
-        // Allow Enter key to submit form
-        passwordInput.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                candidateInput.focus();
+            // Handle button click
+            const loginSubmitBtn = document.getElementById('login-submit-btn');
+            if (loginSubmitBtn) {
+                loginSubmitBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    handleLoginSubmit();
+                    return false;
+                });
             }
-        });
 
-        candidateInput.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                loginForm.dispatchEvent(new Event('submit'));
+            // Clear error messages on input
+            if (nameInput) {
+                nameInput.addEventListener('input', function() {
+                    nameError.classList.remove('show');
+                });
+            }
+
+            if (passwordInput) {
+                passwordInput.addEventListener('input', function() {
+                    passwordError.classList.remove('show');
+                });
+            }
+
+            // Allow Enter key to submit form
+            if (nameInput) {
+                nameInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        e.preventDefault();
+                        passwordInput.focus();
+                    }
+                });
+            }
+
+            if (passwordInput) {
+                passwordInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        e.preventDefault();
+                        handleLoginSubmit();
+                    }
+                });
             }
         });
 
@@ -819,33 +829,103 @@
 
         // Generate PDF and send to Telegram
         function saveWritingToFile(part1Content, part2Content) {
-            const currentDate = new Date();
-            const dateString = currentDate.toLocaleDateString('en-GB', {
+            const deliverButton = document.getElementById('deliver-button');
+            deliverButton.disabled = true;
+            deliverButton.innerHTML = '<span>Sending...</span>';
+
+            try {
+                // Check if required libraries are available
+                if (!window.jspdf) {
+                    console.error('jsPDF library not available');
+                    alert('Error: PDF library not loaded');
+                    deliverButton.disabled = false;
+                    deliverButton.innerHTML = '<i class="fa fa-check" aria-hidden="true"></i>';
+                    return;
+                }
+                
+                if (!window.telegramIntegration) {
+                    console.error('Telegram integration not available');
+                    alert('Error: Telegram not available');
+                    deliverButton.disabled = false;
+                    deliverButton.innerHTML = '<i class="fa fa-check" aria-hidden="true"></i>';
+                    return;
+                }
+
+                console.log('Creating PDF...');
+                const pdfBlob = createWritingPDF(candidateId, part1Content, part2Content);
+                
+                if (!pdfBlob || pdfBlob.size === 0) {
+                    console.error('PDF blob is empty or invalid');
+                    alert('Error: PDF generation failed');
+                    deliverButton.disabled = false;
+                    deliverButton.innerHTML = '<i class="fa fa-check" aria-hidden="true"></i>';
+                    return;
+                }
+
+                console.log('PDF created successfully, size:', pdfBlob.size, 'bytes');
+                
+                // Create enhanced message with word counts
+                const wordCount1 = part1Content.trim() === '' ? 0 : part1Content.trim().split(/\s+/).length;
+                const wordCount2 = part2Content.trim() === '' ? 0 : part2Content.trim().split(/\s+/).length;
+                const baseMessage = window.telegramIntegration.formatWritingMessage(candidateId, 'writing');
+                const message = `${baseMessage}
+📝 Task 1: ${wordCount1} words
+📝 Task 2: ${wordCount2} words
+📊 Total: ${wordCount1 + wordCount2} words`;
+                
+                // Send to Telegram with timeout
+                const sendPromise = window.telegramIntegration.sendDocument(
+                    pdfBlob, 
+                    `IELTS_Writing_Test_${candidateId}.pdf`, 
+                    message
+                );
+                
+                // Add timeout to ensure we show result even if Telegram is slow
+                const timeoutPromise = new Promise((resolve) => {
+                    setTimeout(() => {
+                        console.log('Telegram send timeout, showing result anyway...');
+                        resolve();
+                    }, 5000); // 5 second timeout
+                });
+                
+                Promise.race([sendPromise, timeoutPromise])
+                    .then(() => {
+                        console.log('Writing test results sent to Telegram successfully (or timeout reached)');
+                        // Show test completed modal (non-closable)
+                        showTestCompletedModal();
+                    })
+                    .catch((error) => {
+                        console.error('Failed to send Writing test results to Telegram:', error);
+                        // Show test completed modal even on error (test was submitted)
+                        showTestCompletedModal();
+                    });
+            } catch (error) {
+                console.error('Error sending Writing test to Telegram:', error);
+                // Show test completed modal even on error (test was submitted)
+                showTestCompletedModal();
+            }
+        }
+
+        // Create PDF for Writing test
+        function createWritingPDF(candidateId, part1Content, part2Content) {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            
+            const now = new Date();
+            const dateString = now.toLocaleDateString('en-GB', {
                 day: '2-digit',
                 month: '2-digit',
                 year: 'numeric'
             });
-            const timeString = currentDate.toLocaleTimeString('en-GB', {
+            const timeString = now.toLocaleTimeString('en-GB', {
                 hour: '2-digit',
                 minute: '2-digit',
                 second: '2-digit',
                 hour12: false
             });
             
-            // Disable submit button and show sending status
-            const deliverButton = document.getElementById('deliver-button');
-            deliverButton.disabled = true;
-            deliverButton.innerHTML = '<span>Sending...</span>';
-            
-            // Create PDF
-            const { jsPDF } = window.jspdf;
-            const doc = new jsPDF();
-            
-            // Set font
-            doc.setFont("helvetica");
-            
             // Title
-            doc.setFontSize(24);
+            doc.setFontSize(20);
             doc.setFont("helvetica", "bold");
             doc.text("IELTS Writing Test", 105, 20, { align: "center" });
             
@@ -868,8 +948,7 @@
             
             doc.setFontSize(11);
             doc.setFont("helvetica", "normal");
-            const task1Question = "The bar chart shows the type of music bought in the USA in 2010, by age group.\n\nSummarize the information by selecting and reporting the main points and make comparisons where relevant.";
-            
+            const task1Question = "The chart below illustrates the number of international students applying to universities in a European country.\n\nSummarize the information by selecting and reporting the main points and make comparisons where relevant.";
             const splitQuestion1 = doc.splitTextToSize(task1Question, 170);
             doc.text(splitQuestion1, 20, 85);
             
@@ -905,8 +984,7 @@
             
             doc.setFontSize(11);
             doc.setFont("helvetica", "normal");
-            const task2Question = "Modern buildings change the character and appearance of towns and cities. The government should insist that new buildings be built in traditional styles to protect cultural identity.\n\nTo what extent do you agree or disagree?";
-            
+            const task2Question = "Some people say that tourists cannot learn very much about a place from visiting it on holiday. Others say that they can learn a lot.\n\nDiscuss both views and give your opinion.";
             const splitQuestion2 = doc.splitTextToSize(task2Question, 170);
             doc.text(splitQuestion2, 20, 40);
             
@@ -942,90 +1020,7 @@
             doc.text(`Time: ${timeString}`, 20, 75);
             doc.text(`Candidate ID: ${candidateId}`, 20, 85);
             
-            // Send PDF to Telegram
-            try {
-                // Check if required libraries are available
-                if (!window.jspdf) {
-                    console.error('jsPDF library not available');
-                    deliverButton.innerHTML = '<span>Error: PDF library not loaded</span>';
-                    deliverButton.disabled = true;
-                    deliverButton.style.backgroundColor = '#dc3545';
-                    deliverButton.style.color = '#fff';
-                    return;
-                }
-                
-                if (!window.telegramIntegration) {
-                    console.error('Telegram integration not available');
-                    deliverButton.innerHTML = '<span>Error: Telegram not available</span>';
-                    deliverButton.disabled = true;
-                    deliverButton.style.backgroundColor = '#dc3545';
-                    deliverButton.style.color = '#fff';
-                    return;
-                }
-                
-                console.log('Creating PDF...');
-                const pdfBlob = doc.output('blob');
-                
-                if (!pdfBlob || pdfBlob.size === 0) {
-                    console.error('PDF blob is empty or invalid');
-                    deliverButton.innerHTML = '<span>Error: PDF generation failed</span>';
-                    deliverButton.disabled = true;
-                    deliverButton.style.backgroundColor = '#dc3545';
-                    deliverButton.style.color = '#fff';
-                    return;
-                }
-                
-                console.log('PDF created successfully, size:', pdfBlob.size, 'bytes');
-                // Create enhanced message with word counts
-                const baseMessage = window.telegramIntegration.formatWritingMessage(candidateId, 'writing');
-                const message = `${baseMessage}
-📝 Task 1: ${wordCount1} words
-📝 Task 2: ${wordCount2} words
-📊 Total: ${wordCount1 + wordCount2} words`;
-                
-                // Send to Telegram with timeout
-                const sendPromise = window.telegramIntegration.sendDocument(
-                    pdfBlob, 
-                    `IELTS_Writing_Test_${candidateId}.pdf`, 
-                    message
-                );
-                
-                // Add timeout to ensure we show result even if Telegram is slow
-                const timeoutPromise = new Promise((resolve) => {
-                    setTimeout(() => {
-                        console.log('Telegram send timeout, showing result anyway...');
-                        resolve();
-                    }, 5000); // 5 second timeout
-                });
-                
-                Promise.race([sendPromise, timeoutPromise])
-                    .then(() => {
-                        console.log('Writing test results sent to Telegram successfully (or timeout reached)');
-                        deliverButton.innerHTML = '<span>Results Sent</span>';
-                        deliverButton.disabled = true;
-                        deliverButton.style.backgroundColor = '#28a745';
-                        deliverButton.style.color = '#fff';
-                        // Show test completed modal (non-closable)
-                        showTestCompletedModal();
-                    })
-                    .catch((error) => {
-                        console.error('Failed to send Writing test results to Telegram:', error);
-                        deliverButton.innerHTML = '<span>Error Sending</span>';
-                        deliverButton.disabled = true;
-                        deliverButton.style.backgroundColor = '#dc3545';
-                        deliverButton.style.color = '#fff';
-                        // Show test completed modal even on error (test was submitted)
-                        showTestCompletedModal();
-                    });
-            } catch (error) {
-                console.error('Error sending Writing test to Telegram:', error);
-                deliverButton.innerHTML = '<span>Error Sending</span>';
-                deliverButton.disabled = true;
-                deliverButton.style.backgroundColor = '#dc3545';
-                deliverButton.style.color = '#fff';
-                // Show test completed modal even on error (test was submitted)
-                showTestCompletedModal();
-            }
+            return doc.output('blob');
         }
 
         // Show success message
@@ -1182,5 +1177,10 @@
 
         
     </script>
+    
+    <!-- jsPDF library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <!-- Telegram Integration -->
+    <script src="telegram-integration.js"></script>
 </body>
 </html>
