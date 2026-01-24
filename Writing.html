@@ -34,121 +34,6 @@
             height: 60px;
         }
 
-        .header-logo {
-            height: 40px;
-            margin-right: 20px;
-        }
-
-        /* Login Modal Styles */
-        .login-modal-overlay {
-            display: flex;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.7);
-            z-index: 10000;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .login-modal-content {
-            background: white;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
-            max-width: 450px;
-            width: 90%;
-            text-align: center;
-        }
-
-        .login-header {
-            margin-bottom: 30px;
-        }
-
-        .login-header img {
-            height: 100px;
-            margin-bottom: 20px;
-        }
-
-        .login-header h2 {
-            color: #333;
-            margin-bottom: 10px;
-            font-size: 28px;
-        }
-
-        .login-header p {
-            color: #666;
-            font-size: 16px;
-        }
-
-        .login-form-group {
-            margin-bottom: 20px;
-            text-align: left;
-        }
-
-        .login-form-group label {
-            display: block;
-            margin-bottom: 8px;
-            color: #333;
-            font-weight: 600;
-            font-size: 14px;
-        }
-
-        .login-form-group input {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
-            font-size: 16px;
-            transition: border-color 0.3s;
-            box-sizing: border-box;
-        }
-
-        .login-form-group input:focus {
-            outline: none;
-            border-color: #4a90e2;
-        }
-
-        .login-error-message {
-            display: none;
-            color: #dc3545;
-            font-size: 14px;
-            margin-top: 8px;
-        }
-
-        .login-error-message.show {
-            display: block;
-        }
-
-        .login-submit-btn {
-            width: 100%;
-            padding: 14px;
-            background-color: #4a90e2;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 18px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            margin-top: 10px;
-        }
-
-        .login-submit-btn:hover {
-            background-color: #357abd;
-        }
-
-        .login-submit-btn:disabled {
-            background-color: #ccc;
-            cursor: not-allowed;
-        }
-
-        .hidden {
-            display: none !important;
-        }
-
         .timer-container {
             color: #333;
             font-size: 16px;
@@ -180,6 +65,17 @@
             background-color: #f6f6f6;
         }
 
+        .telegram-link::before {
+            content: '';
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-color: currentColor;
+            -webkit-mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.78 18.65l.28-4.23l7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3L3.64 12c-.88-.25-.89-1.37.2-1.64l16.56-6.4c.75-.29 1.4.22 1.2.94l-2.67 12.61c-.22.95-1.13 1.18-1.78.73l-4.5-3.32l-2.23 2.15c-.47.44-1.29.21-1.48-.37z"/></svg>');
+            mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.78 18.65l.28-4.23l7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3L3.64 12c-.88-.25-.89-1.37.2-1.64l16.56-6.4c.75-.29 1.4.22 1.2.94l-2.67 12.61c-.22.95-1.13 1.18-1.78.73l-4.5-3.32l-2.23 2.15c-.47.44-1.29.21-1.48-.37z"/></svg>');
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
 
 
         .main-container {
@@ -343,45 +239,6 @@
             z-index: 999;
         }
 
-        /* Test Completed Modal (non-closable) */
-        .test-completed-modal {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: white;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
-            text-align: center;
-            z-index: 1001;
-            max-width: 500px;
-            width: 90%;
-            pointer-events: auto;
-        }
-
-        .test-completed-modal h2 {
-            color: #28a745;
-            margin-bottom: 20px;
-            font-size: 32px;
-            font-weight: bold;
-        }
-
-        .test-completed-modal p {
-            color: #333;
-            margin-bottom: 15px;
-            font-size: 18px;
-            line-height: 1.6;
-        }
-
-        #testCompletedOverlay {
-            background: rgba(0,0,0,0.7);
-            z-index: 1000;
-            /* Prevent closing on click - no click handler will be added */
-            pointer-events: auto;
-        }
-
         /* Bottom Navigation */
         .nav-row {
             position: fixed;
@@ -514,41 +371,135 @@
             }
         }
 
+        /* Login Screen Styles */
+        .login-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .login-container {
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+        }
+
+        .login-logo {
+            width: 120px;
+            margin-bottom: 20px;
+        }
+
+        .login-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .login-subtitle {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .login-input {
+            padding: 14px 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.2s;
+            outline: none;
+        }
+
+        .login-input:focus {
+            border-color: #667eea;
+        }
+
+        .login-input::placeholder {
+            color: #999;
+        }
+
+        .login-btn {
+            padding: 14px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+
+        .login-error {
+            color: #dc3545;
+            font-size: 14px;
+            margin-top: 10px;
+            display: none;
+        }
+
+        .app-content {
+            display: none;
+        }
+
+        .app-content.visible {
+            display: block;
+        }
+
+        .login-screen.hidden {
+            display: none;
+        }
         
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="telegram-integration.js"></script>
 </head>
 <body>
-    <!-- Login Modal -->
-    <div id="login-modal" class="login-modal-overlay">
-        <div class="login-modal-content">
-            <div class="login-header">
-                <img src="./logo.png" alt="Logo" height="100"/>
-                <h2>IELTS EXAM</h2>
-                <p>Enter your credentials to continue</p>
-            </div>
-            <form id="login-form" onsubmit="return false;">
-                <div class="login-form-group">
-                    <label for="login-name">Name (Candidate ID)</label>
-                    <input type="text" id="login-name" name="name" placeholder="Enter your name" required autocomplete="off">
-                    <div class="login-error-message" id="login-name-error">Please enter your name.</div>
-                </div>
-                <div class="login-form-group">
-                    <label for="login-password">Password</label>
-                    <input type="password" id="login-password" name="password" placeholder="Enter password" required autocomplete="off">
-                    <div class="login-error-message" id="login-password-error">Incorrect password. Please try again.</div>
-                </div>
-                <button type="button" class="login-submit-btn" id="login-submit-btn">Enter Exam</button>
+    <!-- Login Screen -->
+    <div class="login-screen" id="loginScreen">
+        <div class="login-container">
+            <img src="logo.png" alt="Logo" class="login-logo">
+            <h1 class="login-title">IELTS Writing Test</h1>
+            <p class="login-subtitle">Введите ваше имя и пароль для входа</p>
+            <form class="login-form" id="loginForm">
+                <input type="text" class="login-input" id="userName" placeholder="Ваше имя" required>
+                <input type="password" class="login-input" id="userPassword" placeholder="Пароль" required>
+                <button type="button" class="login-btn" onclick="handleLogin(event)">Войти</button>
+                <p class="login-error" id="loginError">Неверный пароль</p>
             </form>
         </div>
     </div>
-    
+
+    <div class="app-content" id="appContent">
     <div class="header">
         <div class="timer-container">
             <span class="timer-display">60:00</span>
         </div>
 
-        <img src="./logo.png" alt="Logo" class="header-logo">
+        <img src="logo.png" alt="Logo" style="height: 30px;">
     </div>
 
     <!-- Test Interface -->
@@ -566,14 +517,13 @@
             <div class="left-panel">
                 <div id="part-1" class="writing-part">
                     <div class="task-prompt">
-                        <p><strong>The chart below illustrates the number of international students applying to universities in a European country.
-                        </strong></p>
+                        <p><strong>The maps indicate how Huntingdon has changed throughout time, both in terms of present changes and anticipated future changes.</strong></p>
                         <p><strong>Summarize the information by selecting and reporting the main points and make comparisons where relevant.</strong></p>
                     </div>
 
                     <div class="chart-container">
                         <div class="image-container">
-                            <img src="https://engnovatewebsitestorage.blob.core.windows.net/ielts-writing-task-1-images/e530b83794649786" alt="Bar chart showing types of music bought in USA in 2010 by age group" style="max-width:60%; height:auto; border:1px solid #ccc;"/>
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoGnybqIU8k-VdkNpBfmuR_mRw9XeGxhofoA&s" style="max-width:60%; height:auto; border:1px solid #ccc;"/>
                         </div>
                     </div>
                 </div>
@@ -582,7 +532,7 @@
                     <div class="instructions">
                         <p><strong>Write about the following topic:</strong></p>
                         <div class="task-prompt">
-                            <p><em><strong>  Some people say that tourists cannot learn very much about a place from visiting it on holiday. Others say that they can learn a lot.<br><br> Discuss both views and give your opinion.</strong></em></p>
+                            <p><em><strong> The research indicates that nowadays some consumers are less influenced by advertising than in the past.<br><br>What are the reasons and is it a positive or negative development?</strong></em></p>
                         </div>
                         <p>Give reasons for your answer and include any relevant examples from your own knowledge or experience.</p>
                     </div>
@@ -608,21 +558,13 @@
     <!-- Success Message -->
     <div class="overlay" id="overlay"></div>
     <div class="success-message" id="successMessage">
-        <h3>✅ Writing Saved Successfully!</h3>
-        <p>Your writing has been saved to a file on your desktop. The file contains both Task 1 and Task 2 responses.</p>
-        <button class="btn" onclick="closeSuccessMessage()">Continue</button>
-    </div>
-
-    <!-- Test Completed Modal (non-closable) -->
-    <div class="overlay" id="testCompletedOverlay"></div>
-    <div class="test-completed-modal" id="testCompletedModal">
-        <h2>✅ Тест сдан!</h2>
-        <p>Ваш Writing тест успешно отправлен.</p>
-        <p>Спасибо за прохождение теста!</p>
+        <h3>🎉 Тест завершён!</h3>
+        <p>Все ваши ответы успешно отправлены. Спасибо за прохождение IELTS теста!</p>
+        <button class="btn" onclick="closeSuccessMessage()">Завершить</button>
     </div>
 
     <!-- Bottom Navigation -->
-    <nav class="nav-row perScorableItem" aria-label="Questions" id="navigation">
+    <nav class="nav-row perScorableItem" aria-label="Questions" id="navigation" style="display: none;">
         <div class="footer__questionWrapper___1tZ46 selected single" role="tablist">
             <button role="tab" class="footer__questionNo___3WNct writing" data-sectionid="part1" tabindex="-1" onclick="switchPart(1)">
                 <div class="part-title">Part 1</div>
@@ -639,152 +581,13 @@
             <i class="fa fa-check" aria-hidden="true"></i>
         </button>
     </nav>
-
-    
+    </div><!-- end app-content -->
 
     <script>
         let currentPart = 1;
         let timeInSeconds = 3600;
         let timerInterval;
         let partCompletionStatus = { 1: false, 2: false };
-        let candidateId = 'Unknown'; // Will be set from login if available
-
-        // Login functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const loginModal = document.getElementById('login-modal');
-            const loginForm = document.getElementById('login-form');
-            const nameInput = document.getElementById('login-name');
-            const passwordInput = document.getElementById('login-password');
-            const nameError = document.getElementById('login-name-error');
-            const passwordError = document.getElementById('login-password-error');
-            const header = document.querySelector('.header');
-            const mainContainer = document.querySelector('.main-container');
-            const navRow = document.querySelector('.nav-row');
-
-            // Hide main content until login
-            if (header) {
-                header.classList.add('hidden');
-            }
-            if (mainContainer) {
-                mainContainer.style.display = 'none';
-            }
-            if (navRow) {
-                navRow.style.display = 'none';
-            }
-            document.body.style.overflow = 'hidden';
-
-            // Handle form submit
-            function handleLoginSubmit() {
-                console.log('Login form submitted');
-                
-                const nameValue = nameInput.value.trim();
-                const passwordValue = passwordInput.value.trim();
-                
-                console.log('Name:', nameValue, 'Password entered:', passwordValue ? 'Yes' : 'No');
-
-                // Clear previous errors
-                nameError.classList.remove('show');
-                passwordError.classList.remove('show');
-
-                // Validate name
-                if (!nameValue) {
-                    nameError.classList.add('show');
-                    nameInput.focus();
-                    return false;
-                }
-
-                // Validate password
-                if (!passwordValue) {
-                    passwordError.classList.add('show');
-                    passwordInput.focus();
-                    return false;
-                }
-
-                if (passwordValue !== 'Omega7') {
-                    passwordError.classList.add('show');
-                    passwordInput.focus();
-                    passwordInput.value = '';
-                    return false;
-                }
-
-                // Save candidate ID in memory (not localStorage)
-                candidateId = nameValue;
-
-                // Hide login modal and show content
-                loginModal.classList.add('hidden');
-                loginModal.style.display = 'none'; // Explicitly hide modal
-                if (header) {
-                    header.classList.remove('hidden');
-                    header.style.display = ''; // Reset to default
-                }
-                // Show all main content - need to query again as scope may have changed
-                const mainContainerEl = document.querySelector('.main-container');
-                if (mainContainerEl) {
-                    mainContainerEl.style.display = 'flex';
-                }
-                const navRowEl = document.querySelector('.nav-row');
-                if (navRowEl) {
-                    navRowEl.style.display = 'flex';
-                }
-                document.body.style.overflow = 'auto';
-                
-                console.log('Login successful, modal hidden');
-                return false;
-            }
-
-            // Prevent form submission
-            if (loginForm) {
-                loginForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    handleLoginSubmit();
-                    return false;
-                });
-            }
-
-            // Handle button click
-            const loginSubmitBtn = document.getElementById('login-submit-btn');
-            if (loginSubmitBtn) {
-                loginSubmitBtn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    handleLoginSubmit();
-                    return false;
-                });
-            }
-
-            // Clear error messages on input
-            if (nameInput) {
-                nameInput.addEventListener('input', function() {
-                    nameError.classList.remove('show');
-                });
-            }
-
-            if (passwordInput) {
-                passwordInput.addEventListener('input', function() {
-                    passwordError.classList.remove('show');
-                });
-            }
-
-            // Allow Enter key to submit form
-            if (nameInput) {
-                nameInput.addEventListener('keypress', function(e) {
-                    if (e.key === 'Enter') {
-                        e.preventDefault();
-                        passwordInput.focus();
-                    }
-                });
-            }
-
-            if (passwordInput) {
-                passwordInput.addEventListener('keypress', function(e) {
-                    if (e.key === 'Enter') {
-                        e.preventDefault();
-                        handleLoginSubmit();
-                    }
-                });
-            }
-        });
 
         // Timer functionality
         function startTimer() {
@@ -808,7 +611,7 @@
                 `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
         }
 
-        // Test submission function - saves to file
+        // Test submission function - sends to Telegram
         function submitTest() {
             const part1Content = localStorage.getItem('ielts-writing-part-1') || '';
             const part2Content = localStorage.getItem('ielts-writing-part-2') || '';
@@ -823,204 +626,118 @@
 
             if (confirm(`Are you sure you want to submit your writing?\n\nPart 1: ${part1WordCount} words\nPart 2: ${part2WordCount} words`)) {
                 clearInterval(timerInterval);
-                saveWritingToFile(part1Content, part2Content);
+                sendWritingToTelegram(part1Content, part2Content);
             }
         }
 
-        // Generate PDF and send to Telegram
-        function saveWritingToFile(part1Content, part2Content) {
+        // Send writing to Telegram
+        async function sendWritingToTelegram(part1Content, part2Content) {
+            const candidateName = localStorage.getItem('ielts-user-name') || 'Unknown';
             const deliverButton = document.getElementById('deliver-button');
+            
+            // Show loading
+            deliverButton.innerHTML = '<span>Отправка...</span>';
             deliverButton.disabled = true;
-            deliverButton.innerHTML = '<span>Sending...</span>';
 
             try {
-                // Check if required libraries are available
-                if (!window.jspdf) {
-                    console.error('jsPDF library not available');
-                    alert('Error: PDF library not loaded');
-                    deliverButton.disabled = false;
-                    deliverButton.innerHTML = '<i class="fa fa-check" aria-hidden="true"></i>';
-                    return;
-                }
+                const { jsPDF } = window.jspdf;
+                const doc = new jsPDF();
                 
-                if (!window.telegramIntegration) {
-                    console.error('Telegram integration not available');
-                    alert('Error: Telegram not available');
-                    deliverButton.disabled = false;
-                    deliverButton.innerHTML = '<i class="fa fa-check" aria-hidden="true"></i>';
-                    return;
-                }
+                const now = new Date();
+                const dateString = now.toLocaleDateString('ru-RU');
+                const timeString = now.toLocaleTimeString('ru-RU');
+                
+                const part1WordCount = part1Content.trim() === '' ? 0 : part1Content.trim().split(/\s+/).length;
+                const part2WordCount = part2Content.trim() === '' ? 0 : part2Content.trim().split(/\s+/).length;
 
-                console.log('Creating PDF...');
-                const pdfBlob = createWritingPDF(candidateId, part1Content, part2Content);
-                
-                if (!pdfBlob || pdfBlob.size === 0) {
-                    console.error('PDF blob is empty or invalid');
-                    alert('Error: PDF generation failed');
-                    deliverButton.disabled = false;
-                    deliverButton.innerHTML = '<i class="fa fa-check" aria-hidden="true"></i>';
-                    return;
-                }
+                // Title
+                doc.setFontSize(24);
+                doc.setFont("helvetica", "bold");
+                doc.text("IELTS Writing Test", 105, 20, { align: "center" });
 
-                console.log('PDF created successfully, size:', pdfBlob.size, 'bytes');
+                // Candidate info
+                doc.setFontSize(12);
+                doc.setFont("helvetica", "normal");
+                doc.text(`Candidate: ${candidateName}`, 20, 40);
+                doc.text(`Date: ${dateString}`, 20, 48);
+                doc.text(`Time: ${timeString}`, 20, 56);
+
+                // Task 1
+                doc.setFontSize(16);
+                doc.setFont("helvetica", "bold");
+                doc.text("TASK 1", 20, 75);
                 
-                // Create enhanced message with word counts
-                const wordCount1 = part1Content.trim() === '' ? 0 : part1Content.trim().split(/\s+/).length;
-                const wordCount2 = part2Content.trim() === '' ? 0 : part2Content.trim().split(/\s+/).length;
-                const baseMessage = window.telegramIntegration.formatWritingMessage(candidateId, 'writing');
-                const message = `${baseMessage}
-📝 Task 1: ${wordCount1} words
-📝 Task 2: ${wordCount2} words
-📊 Total: ${wordCount1 + wordCount2} words`;
+                doc.setFontSize(12);
+                doc.setFont("helvetica", "normal");
+                doc.text(`Word Count: ${part1WordCount}`, 20, 85);
                 
-                // Send to Telegram with timeout
-                const sendPromise = window.telegramIntegration.sendDocument(
-                    pdfBlob, 
-                    `IELTS_Writing_Test_${candidateId}.pdf`, 
-                    message
-                );
-                
-                // Add timeout to ensure we show result even if Telegram is slow
-                const timeoutPromise = new Promise((resolve) => {
-                    setTimeout(() => {
-                        console.log('Telegram send timeout, showing result anyway...');
-                        resolve();
-                    }, 5000); // 5 second timeout
+                doc.setFontSize(11);
+                const task1Lines = doc.splitTextToSize(part1Content || '[No response]', 170);
+                let yPos = 95;
+                task1Lines.forEach(line => {
+                    if (yPos > 270) {
+                        doc.addPage();
+                        yPos = 20;
+                    }
+                    doc.text(line, 20, yPos);
+                    yPos += 6;
                 });
-                
-                Promise.race([sendPromise, timeoutPromise])
-                    .then(() => {
-                        console.log('Writing test results sent to Telegram successfully (or timeout reached)');
-                        // Show test completed modal (non-closable)
-                        showTestCompletedModal();
-                    })
-                    .catch((error) => {
-                        console.error('Failed to send Writing test results to Telegram:', error);
-                        // Show test completed modal even on error (test was submitted)
-                        showTestCompletedModal();
-                    });
-            } catch (error) {
-                console.error('Error sending Writing test to Telegram:', error);
-                // Show test completed modal even on error (test was submitted)
-                showTestCompletedModal();
-            }
-        }
 
-        // Create PDF for Writing test
-        function createWritingPDF(candidateId, part1Content, part2Content) {
-            const { jsPDF } = window.jspdf;
-            const doc = new jsPDF();
-            
-            const now = new Date();
-            const dateString = now.toLocaleDateString('en-GB', {
-                day: '2-digit',
-                month: '2-digit',
-                year: 'numeric'
-            });
-            const timeString = now.toLocaleTimeString('en-GB', {
-                hour: '2-digit',
-                minute: '2-digit',
-                second: '2-digit',
-                hour12: false
-            });
-            
-            // Title
-            doc.setFontSize(20);
-            doc.setFont("helvetica", "bold");
-            doc.text("IELTS Writing Test", 105, 20, { align: "center" });
-            
-            // Candidate info
-            doc.setFontSize(12);
-            doc.setFont("helvetica", "normal");
-            doc.text(`Candidate ID: ${candidateId}`, 20, 35);
-            doc.text(`Date: ${dateString}`, 20, 42);
-            doc.text(`Time: ${timeString}`, 20, 49);
-            
-            // ===== TASK 1 =====
-            doc.setFontSize(18);
-            doc.setFont("helvetica", "bold");
-            doc.text("TASK 1", 20, 65);
-            
-            // Task 1 description
-            doc.setFontSize(14);
-            doc.setFont("helvetica", "bold");
-            doc.text("Question:", 20, 75);
-            
-            doc.setFontSize(11);
-            doc.setFont("helvetica", "normal");
-            const task1Question = "The chart below illustrates the number of international students applying to universities in a European country.\n\nSummarize the information by selecting and reporting the main points and make comparisons where relevant.";
-            const splitQuestion1 = doc.splitTextToSize(task1Question, 170);
-            doc.text(splitQuestion1, 20, 85);
-            
-            // Task 1 word count
-            const wordCount1 = part1Content.trim() === '' ? 0 : part1Content.trim().split(/\s+/).length;
-            doc.setFontSize(12);
-            doc.setFont("helvetica", "bold");
-            doc.text(`Word Count: ${wordCount1}`, 20, 130);
-            
-            // Task 1 response
-            doc.setFontSize(14);
-            doc.setFont("helvetica", "bold");
-            doc.text("Response:", 20, 145);
-            
-            doc.setFontSize(11);
-            doc.setFont("helvetica", "normal");
-            const response1 = part1Content || '[No response provided]';
-            const splitResponse1 = doc.splitTextToSize(response1, 170);
-            doc.text(splitResponse1, 20, 155);
-            
-            // Add new page for Task 2
-            doc.addPage();
-            
-            // ===== TASK 2 =====
-            doc.setFontSize(18);
-            doc.setFont("helvetica", "bold");
-            doc.text("TASK 2", 20, 20);
-            
-            // Task 2 description
-            doc.setFontSize(14);
-            doc.setFont("helvetica", "bold");
-            doc.text("Question:", 20, 30);
-            
-            doc.setFontSize(11);
-            doc.setFont("helvetica", "normal");
-            const task2Question = "Some people say that tourists cannot learn very much about a place from visiting it on holiday. Others say that they can learn a lot.\n\nDiscuss both views and give your opinion.";
-            const splitQuestion2 = doc.splitTextToSize(task2Question, 170);
-            doc.text(splitQuestion2, 20, 40);
-            
-            // Task 2 word count
-            const wordCount2 = part2Content.trim() === '' ? 0 : part2Content.trim().split(/\s+/).length;
-            doc.setFontSize(12);
-            doc.setFont("helvetica", "bold");
-            doc.text(`Word Count: ${wordCount2}`, 20, 85);
-            
-            // Task 2 response
-            doc.setFontSize(14);
-            doc.setFont("helvetica", "bold");
-            doc.text("Response:", 20, 100);
-            
-            doc.setFontSize(11);
-            doc.setFont("helvetica", "normal");
-            const response2 = part2Content || '[No response provided]';
-            const splitResponse2 = doc.splitTextToSize(response2, 170);
-            doc.text(splitResponse2, 20, 110);
-            
-            // Summary on last page
-            doc.addPage();
-            doc.setFontSize(18);
-            doc.setFont("helvetica", "bold");
-            doc.text("SUMMARY", 20, 20);
-            
-            doc.setFontSize(12);
-            doc.setFont("helvetica", "normal");
-            doc.text(`Total Words: ${wordCount1 + wordCount2}`, 20, 35);
-            doc.text(`Task 1 Words: ${wordCount1}`, 20, 45);
-            doc.text(`Task 2 Words: ${wordCount2}`, 20, 55);
-            doc.text(`Date: ${dateString}`, 20, 65);
-            doc.text(`Time: ${timeString}`, 20, 75);
-            doc.text(`Candidate ID: ${candidateId}`, 20, 85);
-            
-            return doc.output('blob');
+                // Task 2 on new page
+                doc.addPage();
+                doc.setFontSize(16);
+                doc.setFont("helvetica", "bold");
+                doc.text("TASK 2", 20, 20);
+                
+                doc.setFontSize(12);
+                doc.setFont("helvetica", "normal");
+                doc.text(`Word Count: ${part2WordCount}`, 20, 30);
+                
+                doc.setFontSize(11);
+                const task2Lines = doc.splitTextToSize(part2Content || '[No response]', 170);
+                yPos = 40;
+                task2Lines.forEach(line => {
+                    if (yPos > 270) {
+                        doc.addPage();
+                        yPos = 20;
+                    }
+                    doc.text(line, 20, yPos);
+                    yPos += 6;
+                });
+
+                // Summary page
+                doc.addPage();
+                doc.setFontSize(16);
+                doc.setFont("helvetica", "bold");
+                doc.text("SUMMARY", 20, 20);
+                
+                doc.setFontSize(12);
+                doc.setFont("helvetica", "normal");
+                doc.text(`Total Words: ${part1WordCount + part2WordCount}`, 20, 35);
+                doc.text(`Task 1 Words: ${part1WordCount}`, 20, 45);
+                doc.text(`Task 2 Words: ${part2WordCount}`, 20, 55);
+
+                const pdfBlob = doc.output('blob');
+                const filename = `Writing_${candidateName.replace(/\s+/g, '_')}_${now.getTime()}.pdf`;
+
+                // Send PDF with caption to Telegram (one message)
+                const caption = window.telegramIntegration.formatWritingMessage(candidateName, 'writing') + `\n\n📝 Task 1: ${part1WordCount} words\n📝 Task 2: ${part2WordCount} words\n📊 Total: ${part1WordCount + part2WordCount} words`;
+                await window.telegramIntegration.sendDocument(pdfBlob, filename, caption);
+
+                // Clear localStorage
+                localStorage.removeItem('ielts-writing-part-1');
+                localStorage.removeItem('ielts-writing-part-2');
+                localStorage.removeItem('ielts-user-name');
+
+                // Show completion message
+                showSuccessMessage();
+
+            } catch (error) {
+                console.error('Error sending to Telegram:', error);
+                alert('Ошибка при отправке. Попробуйте ещё раз.');
+                deliverButton.innerHTML = '<i class="fa fa-check" aria-hidden="true"></i>';
+                deliverButton.disabled = false;
+            }
         }
 
         // Show success message
@@ -1033,20 +750,8 @@
         function closeSuccessMessage() {
             document.getElementById('overlay').style.display = 'none';
             document.getElementById('successMessage').style.display = 'none';
-        }
-
-        // Show test completed modal (non-closable)
-        function showTestCompletedModal() {
-            document.getElementById('testCompletedOverlay').style.display = 'block';
-            document.getElementById('testCompletedModal').style.display = 'block';
-            // Prevent body scrolling
-            document.body.style.overflow = 'hidden';
-            // Disable all inputs and buttons
-            document.querySelectorAll('textarea, input, button').forEach(el => {
-                if (el.id !== 'testCompletedModal' && !el.closest('#testCompletedModal')) {
-                    el.disabled = true;
-                }
-            });
+            // Redirect to home or show completion
+            window.location.href = 'index.html';
         }
 
         // Test interface functions
@@ -1136,16 +841,8 @@
             updateCompletionIndicators();
         }, 5000);
 
-        // Load saved content on page load (no start screen)
-        window.addEventListener('load', () => {
-            // Show main content immediately
-            document.querySelector('.header').style.display = 'flex';
-            document.querySelector('.main-container').style.display = 'flex';
-            document.querySelector('.nav-row').style.display = 'flex';
-
-            // Start the test timer
-            startTimer();
-
+        // Load saved content on page load
+        function initializeApp() {
             const savedContent = localStorage.getItem(`ielts-writing-part-${currentPart}`);
             if (savedContent) {
                 document.getElementById('writingTextarea').value = savedContent;
@@ -1158,7 +855,9 @@
             textarea.style.overflowY = 'hidden';
             textarea.style.height = 'auto';
             textarea.style.height = (textarea.scrollHeight) + 'px';
-        });
+        }
+        
+        window.addEventListener('load', initializeApp);
 
         // Keyboard shortcuts
         document.addEventListener('keydown', function(e) {
@@ -1175,12 +874,69 @@
             }
         });
 
+        // Login functionality
+        const CORRECT_PASSWORD = 'exam123';
+        let currentUserName = '';
+
+        function handleLogin(event) {
+            if (event) event.preventDefault();
+            
+            const userNameInput = document.getElementById('userName');
+            const passwordInput = document.getElementById('userPassword');
+            const loginError = document.getElementById('loginError');
+            const loginScreen = document.getElementById('loginScreen');
+            const appContent = document.getElementById('appContent');
+            const navRow = document.querySelector('.nav-row');
+            
+            if (!userNameInput || !passwordInput) {
+                console.error('Login inputs not found');
+                return false;
+            }
+            
+            const userName = userNameInput.value.trim();
+            const password = passwordInput.value;
+            
+            if (password === CORRECT_PASSWORD) {
+                currentUserName = userName;
+                localStorage.setItem('ielts-user-name', userName);
+                
+                if (loginScreen) loginScreen.style.display = 'none';
+                if (appContent) {
+                    appContent.style.display = 'block';
+                    appContent.classList.add('visible');
+                }
+                if (navRow) navRow.style.display = 'flex';
+                startTimer();
+            } else {
+                if (loginError) loginError.style.display = 'block';
+            }
+            return false;
+        }
+
+        // Show login screen or auto-login
+        window.addEventListener('load', () => {
+            const savedUser = localStorage.getItem('ielts-user-name');
+            const loginScreen = document.getElementById('loginScreen');
+            const appContent = document.getElementById('appContent');
+            const navRow = document.querySelector('.nav-row');
+            
+            if (savedUser) {
+                // Auto-login if user came from previous test
+                currentUserName = savedUser;
+                if (loginScreen) loginScreen.style.display = 'none';
+                if (appContent) {
+                    appContent.style.display = 'block';
+                    appContent.classList.add('visible');
+                }
+                if (navRow) navRow.style.display = 'flex';
+                startTimer();
+            } else {
+                // Make sure login screen is visible
+                if (loginScreen) loginScreen.style.display = 'flex';
+                if (appContent) appContent.style.display = 'none';
+            }
+        });
         
     </script>
-    
-    <!-- jsPDF library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <!-- Telegram Integration -->
-    <script src="telegram-integration.js"></script>
 </body>
 </html>
