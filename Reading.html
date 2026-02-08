@@ -65,21 +65,22 @@
             gap: 10px;
             align-items: center;
         }
-  .telegram-link {
-            color: #3e3e3e;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 16px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 6px 12px;
-            border: 2px solid #3e3e3e;
-            border-radius: 9999px;
-            background-color: #ffffff;
-            line-height: 1;
-        }
 
+        .telegram-link {
+            color: #3e3e3e;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 16px;
+    display: flex
+;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    border: 2px solid #3e3e3e;
+    border-radius: 9999px;
+    background-color: #ffffff;
+    line-height: 1;
+        }
 
         .telegram-link:hover {
             text-decoration: underline;
@@ -157,6 +158,22 @@
             position: relative;
         }
 
+        /* Page watermark */
+        body::after {
+            content: "@MINDLESS_WRITER";
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%) rotate(-20deg);
+            font-size: 72px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            color: #000000;
+            opacity: 0.04; /* subtle */
+            pointer-events: none;
+            z-index: 0;
+            white-space: nowrap;
+        }
 
         .panels-container {
             display: flex;
@@ -789,8 +806,8 @@
             opacity: 0.5;
         }
         .drag-item.selected {
-            border-color: #4a90e2;
-            box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.5);
+            /* border-color: #4a90e2; */
+            /* box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.5); */
         }
         .drop-zone {
             border: 2px dashed #aaa;
@@ -843,6 +860,55 @@
         }
         .drag-options-container .drag-item:last-child {
             margin-bottom: 0;
+        }
+        
+        .passage-drag-zone {
+            margin-bottom: 10px;
+            padding: 8px;
+            border: 2px dashed #ccc;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+            /* text-align: center; */
+            color: #666;
+            font-size: 14px;
+            transition: all 0.2s ease;
+            max-height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* width: 50%; */
+        }
+        
+        .passage-drag-zone.drag-over {
+            background-color: #e6f4ff;
+            border-color: #4a90e2;
+            border-style: solid;
+        }
+        
+        .passage-drag-zone.filled {
+            background-color: #e9f7ef;
+            border-color: #28a745;
+            border-style: solid;
+            color: #155724;
+            font-weight: bold;
+        }
+        
+        .passage-drag-zone .drag-item {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            /* align-items: center; */
+            justify-content: center;
+            font-size: 14px;
+            padding: 4px;
+            background-color: transparent;
+            border: none;
+            margin: 0;
+        }
+        
+        .passage-drag-zone.disabled {
+            pointer-events: none;
+            opacity: 0.7;
         }
         .q-number {
             color: #888;
@@ -1105,9 +1171,7 @@
             border-radius: 4px;
             transition: border-color 0.3s;
         }
-        .matching-question-item > span {
-            flex: 1;
-        }
+        
         .matching-question-item.correct {
             background-color: #e9f7ef;
             border-color: #28a745 !important;
@@ -1129,7 +1193,6 @@
         }
         .matching-options-bank .drag-item {
             font-size: 15px;
-            text-align: center;
             border: 1px solid #ccc;
             background: #f9f9f9;
         }
@@ -1158,11 +1221,12 @@
             margin-bottom: 10px;
         }
         .summary-drop-zone {
-            display: inline-flex;
+            display: inline-flex
+;
             align-items: center;
             justify-content: center;
             vertical-align: middle;
-            max-width:200px;
+    min-width: 200px;
             height: 25px;
             border: 2px dashed #999;
             border-radius: 4px;
@@ -1171,6 +1235,7 @@
             transition: border-color 0.3s, box-shadow 0.3s, background-color 0.3s;
             color: #aaa;
             font-weight: bold;
+    text-align: center;
         }
         .summary-drop-zone.filled {
             border-color: #4a90e2;
@@ -1192,6 +1257,7 @@
             align-items: center;
             justify-content: center;
         }
+
         .summary-options-bank {
             display: flex;
             flex-wrap: wrap;
@@ -1216,40 +1282,17 @@
             padding: 0;
         }
         .drop-zone.filled .drag-item {
+            width: auto;
+            height: auto;
+            display: inline-block;
             border: 2px solid #4a90e2;
             border-radius: 10px;
-            padding: 4px 10px 4px 36px; /* extra left space for letter badge */
+            padding: 4px 10px;
             font-weight: 700;
             background: #fff;
             box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.15);
             cursor: default;
             white-space: nowrap;
-            position: relative;          /* allow left badge positioning */
-            text-align: center;          /* center the option text */
-        }
-
-        /* Show the letter as a left badge inside the pill when dropped */
-        .drop-zone.filled .drag-item::before {
-            content: attr(data-value);
-            position: absolute;
-            left: 8px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 20px;
-            height: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 4px;
-            color: #4a90e2;
-            background: #ffffff;
-            font-weight: 800;
-            line-height: 1;
-        }
-
-        /* Hide the inline <strong>letter</strong> inside the pill to avoid duplication */
-        .drop-zone.filled .drag-item strong {
-            display: none;
         }
         .multi-choice-question {
             margin-bottom: 20px;
@@ -1437,7 +1480,7 @@
         }
         .result-row {
             display: grid;
-            grid-template-columns: 56px 1fr 1fr;
+            grid-template-columns: 56px 1fr 1fr 120px;
             gap: 12px;
             padding: 10px 8px;
             border-bottom: 1px solid #eef2f7;
@@ -1476,6 +1519,24 @@
             border: 1px solid #a7f3d0;
             padding: 4px 8px;
             border-radius: 6px;
+        }
+        .status-badge {
+            justify-self: end;
+            padding: 4px 10px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 700;
+            border: 1px solid transparent;
+        }
+        .status-badge.ok {
+            background: #ecfdf5;
+            color: #065f46;
+            border-color: #a7f3d0;
+        }
+        .status-badge.bad {
+            background: #fff5f5;
+            color: #7f1d1d;
+            border-color: #f5c6cb;
         }
         .correct-answer-display {
             font-weight: bold;
@@ -1582,45 +1643,41 @@
         
         .matching-table .clickable-cell {
             cursor: pointer;
-            transition: background-color 0.2s ease;
+            transition: all 0.2s ease;
             min-height: 40px;
-            border: 1px solid #ddd;
+            border: 2px solid #e0e0e0;
             position: relative;
+            background-color: #fafafa;
+            /* Debug styling - make cells very obvious */
+            min-width: 40px;
+            text-align: center;
+            vertical-align: middle;
+            font-size: 12px;
+            color: #333;
+            font-weight: bold;
         }
         
         .matching-table .clickable-cell:hover {
             background-color: #f0f8ff;
-            border-color: #007bff;
+            box-shadow: 0 2px 8px rgba(0, 123, 255, 0.2);
         }
         
         .matching-table .clickable-cell.selected {
             background-color: #e3f2fd;
+            box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.3);
         }
         
         .matching-table .clickable-cell.correct {
             background-color: #d4edda !important;
-            border-color: #c3e6cb;
         }
         
         .matching-table .clickable-cell.incorrect {
             background-color: #f8d7da !important;
-            border-color: #f5c6cb;
-        }
-        
-        .matching-table .clickable-cell::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background-color: transparent;
-            transition: background-color 0.2s ease;
         }
         
         
+        
+        .matching-table .clickable-cell.selected::after { background-color: #007bff; }
         
         /* Explanation Section Styles */
         .explanation-section {
@@ -1665,128 +1722,222 @@
         #show-explanation-btn:hover {
             background-color: #357abd;
         }
-
-        /* Login Screen Styles */
-        .login-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-        }
-
-        .login-container {
-            background: white;
-            padding: 40px;
-            border-radius: 16px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            text-align: center;
-            max-width: 400px;
-            width: 90%;
-        }
-
-        .login-logo {
-            width: 120px;
-            margin-bottom: 20px;
-        }
-
-        .login-title {
-            font-size: 24px;
-            font-weight: 700;
-            color: #333;
-            margin-bottom: 8px;
-        }
-
-        .login-subtitle {
-            font-size: 14px;
-            color: #666;
-            margin-bottom: 30px;
-        }
-
-        .login-form {
+        /* Flow Chart Styling */
+        .flow-chart {
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            align-items: center;
+            gap: 0;
+            margin: 20px 0;
+            padding: 20px;
+            /* background: #f8f9fa; */
+            /* border-radius: 8px; */
+            /* border: 1px solid #dee2e6; */
         }
 
-        .login-input {
-            padding: 14px 16px;
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
-            font-size: 16px;
-            transition: border-color 0.2s;
-            outline: none;
-        }
-
-        .login-input:focus {
-            border-color: #667eea;
-        }
-
-        .login-input::placeholder {
-            color: #999;
-        }
-
-        .login-btn {
-            padding: 14px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .login-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
-        }
-
-        .login-error {
-            color: #dc3545;
+        .flow-step {
+            background: white;
+            border: 2px solid #333;
+            border-radius: 0;
+            padding: 15px 20px;
+            /* width: 400px; */
+            text-align: left;
+            position: relative;
             font-size: 14px;
-            margin-top: 10px;
-            display: none;
+            line-height: 2.5;
+            margin: 0;
         }
 
-        .app-content {
-            display: none;
+        .flow-step.input-step {
+            background: white;
+            border-color: #333;
         }
 
-        .app-content.visible {
+        .flow-arrow {
+            font-size: 24px;
+            color: #333;
+            font-weight: 600;
+            margin: 0;
+            padding: 5px 0;
+            line-height: 1;
+        }
+
+        .flow-step .answer-input {
+            margin: 0 2px;
+            width: 40px;
+            height: 24px;
+            background: #fff;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .flow-title {
+            font-weight: bold;
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 20px;
+            text-align: left;
+            width: 400px;
+        }
+
+        /* Auth gate overlay (shared) */
+        .auth-overlay {
+            position: fixed;
+            inset: 0;
+            background: radial-gradient(circle at 20% 20%, rgba(255,255,255,0.08), transparent 35%),
+                        radial-gradient(circle at 80% 30%, rgba(255,255,255,0.08), transparent 35%),
+                        #050505;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            backdrop-filter: blur(6px);
+        }
+        .auth-card {
+            position: relative;
+            width: min(420px, 92vw);
+            padding: 32px 28px;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 20px;
+            color: #f5f5f5;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.45);
+            overflow: hidden;
+            isolation: isolate;
+        }
+        .auth-card::after, .auth-card::before {
+            content: '';
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            background: radial-gradient(circle, rgba(255,255,255,0.12), transparent 55%);
+            filter: blur(20px);
+            z-index: -1;
+            animation: floatPulse 9s ease-in-out infinite;
+        }
+        .auth-card::before { top: -60px; right: -40px; }
+        .auth-card::after { bottom: -70px; left: -30px; animation-delay: 1.2s; }
+        @keyframes floatPulse {
+            0%,100% { transform: translateY(0) scale(1); opacity: 0.7; }
+            50% { transform: translateY(-8px) scale(1.03); opacity: 1; }
+        }
+        .auth-logo {
+            width: 88px;
+            height: 88px;
+            object-fit: contain;
+            display: block;
+            margin: 0 auto 12px;
+        }
+        .auth-title {
+            text-align: center;
+            font-size: 22px;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+        .auth-subtitle {
+            text-align: center;
+            color: #cfcfcf;
+            font-size: 14px;
+            margin-bottom: 18px;
+        }
+        .auth-form {
+            display: grid;
+            gap: 12px;
+        }
+        .auth-form label {
+            font-size: 13px;
+            color: #dcdcdc;
+            letter-spacing: 0.3px;
+        }
+        .auth-input {
+            width: 100%;
+            padding: 12px 14px;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 12px;
+            color: #fff;
+            transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .auth-input:focus {
+            border-color: #ffffff;
+            outline: none;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 18px rgba(255,255,255,0.08);
+        }
+        .auth-hint {
+            font-size: 12px;
+            color: #b5b5b5;
+            text-align: right;
+        }
+        .auth-error {
+            color: #ff7b7b;
+            font-size: 12px;
+            min-height: 16px;
+        }
+        .auth-submit {
+            width: 100%;
+            padding: 12px 14px;
+            margin-top: 4px;
+            background: linear-gradient(90deg, #ffffff, #dcdcdc);
+            color: #050505;
+            border: none;
+            border-radius: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.18s ease, box-shadow 0.2s ease;
+        }
+        .auth-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(255,255,255,0.15);
+        }
+        .auth-submit:active {
+            transform: translateY(0);
+        }
+        .auth-overlay.hidden {
+            display: none;
+        }
+        body.auth-locked {
+            overflow: hidden;
+        }
+        body.auth-locked .main-container,
+        body.auth-locked nav,
+        body.auth-locked header {
+            filter: blur(4px);
+            pointer-events: none;
+            user-select: none;
+        }
+        .submission-toast {
+            position: fixed;
+            bottom: 22px;
+            right: 22px;
+            background: #050505;
+            color: #f5f5f5;
+            padding: 14px 16px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.12);
+            box-shadow: 0 12px 28px rgba(0,0,0,0.4);
+            z-index: 9998;
+            opacity: 0;
+            transform: translateY(12px);
+            transition: opacity 0.2s ease, transform 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+        }
+        .submission-toast.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .brand-logo {
+            height: 38px;
+            width: auto;
+            object-fit: contain;
             display: block;
         }
-
-        .login-screen.hidden {
-            display: none;
-        }
     </style>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="telegram-integration.js"></script>
 </head>
 <body>
-    <!-- Login Screen -->
-    <div class="login-screen" id="loginScreen">
-        <div class="login-container">
-            <img src="logo.png" alt="Logo" class="login-logo">
-            <h1 class="login-title">IELTS Reading Test</h1>
-            <p class="login-subtitle">Введите ваше имя и пароль для входа</p>
-            <form class="login-form" id="loginForm">
-                <input type="text" class="login-input" id="userName" placeholder="Ваше имя" required>
-                <input type="password" class="login-input" id="userPassword" placeholder="Пароль" required>
-                <button type="button" class="login-btn" onclick="handleLogin(event)">Войти</button>
-                <p class="login-error" id="loginError">Неверный пароль</p>
-            </form>
-        </div>
-    </div>
-
-    <div class="app-content" id="appContent">
     <div class="header">
         <div class="timer-container">
             <span class="timer-display">60:00</span>
@@ -1799,8 +1950,31 @@
                 </button>
             </div>
         </div>
-        <img src="logo.png" alt="Logo" style="height: 30px;">
+            <img src="./logo.png" alt="Mindless Writer" class="brand-logo">
     </div>
+
+    <div id="auth-overlay" class="auth-overlay">
+        <div class="auth-card">
+            <img src="./logo.png" alt="MR" class="auth-logo">
+            <h2 class="auth-title">Secure Entry</h2>
+            <p class="auth-subtitle">Введите имя и пароль перед Reading.</p>
+            <form id="auth-form" class="auth-form">
+                <div>
+                    <label for="candidate-name">Имя</label>
+                    <input id="candidate-name" name="candidateName" class="auth-input" placeholder="Ваше имя" autocomplete="name" required>
+                </div>
+                <div>
+                    <label for="access-password">Пароль</label>
+                    <input id="access-password" name="accessPassword" type="password" class="auth-input" placeholder="Введите пароль" required>
+
+                </div>
+                <div id="auth-error" class="auth-error"></div>
+                <button type="submit" class="auth-submit">Начать Reading</button>
+            </form>
+        </div>
+    </div>
+
+
 
     <div class="main-container" id="main-container">
         <div id="passage-header-container">
@@ -1820,402 +1994,395 @@
         <div class="panels-container">
             <div class="passage-panel" id="passage-panel">
                 <div id="passage-text-1" class="reading-passage">
-                    <h4 class="text-center">An important language development</h4>
-                    <p>Cuneiform, the world's first known system of handwriting, originated some 6.000 years ago in Summer in what is now southern Iraq. It was most often inscribed on palmsized, rectangular clay tablets measuring several centimetres across, although occasionally, larger tablets or cylinders were used. Clay was an excellent medium for writing. Other surfaces which have been employed -for example, parchment, papyrus and paper - are not long - lasting and are easily destroyed by fire and water. But clay has proved to be resistant to those particular kinds of damage.</p>
-                    <p>The word 'cuneiform' actually refers to the marks or signs inscribed in the clay. The original cuneiform signs consisted of a series of lines - triangular, vertical, diagonal and horizontal. Sumerian writers would impress these lines into the wet clay with a stylus - a long, thin, pointed instrument which looked somewhat like a pen. Oddly, the signs were often almost too small to see with the naked eye. Cuneiform signs were used for the writing of at least a dozen languages. This is similar to how the Latin alphabet is used today for writing English, French, Spanish and German for example.</p>
-                    <p>Before the development of cuneiform, tokens were used by the Sumerians to record certain information. For example, they might take small stones and use them as tokens or representations of something else, like a goat. A number of tokens, then, might mean a herd of goat. These tokens might then be placed in a cloth container and provided to a buyer as a receipt for a transaction, perhaps five tokens for five animals. It was not that different from what we do today when we buy some bread and the clerk gives us back a piece of paper with numbers on it to confirm the exchange.</p>
-                    <p>By the 4th century BCE, the Sumerians had adapted this system to a form of writing. They began putting tokens in a container resembling an envelope, and now made of clay instead of cloth. They then stamped the outside to indicate the number and type of tokens inside. A person could then 'read' what was stamped on the container and know what was inside.</p>
-                    <p>Gradually, Sumerians developed symbols for words. When first developed, each symbol looked like the concrete thing it represented. For example, an image which resembled the drawing of a sheep meant just that. Then another level of abstraction was introduced when symbols were developed for intangible ideas such as 'female' of 'hot' or 'God'. Cuneiform, in other words, evolved from a way used primarily to track and store information into a way to represent the world symbolically. Over the centuries, the marks became ever more abstract, finally evolving into signs that looked nothing like what they referred to, just as the letters 'h-o-u-s-e' have no visual connection to the place we live in. At this last stage in the evolution of cuneiform, the signs took the form of tringles, which became common cuneiform signs.</p>
-                    <p>As the marks became more abstract, the system became more efficient because there were fewer marks a 'reader' needed to learn. But cuneiform also became more complex because society itself was becoming more complex, so there were more ideas and concepts that needed to be expressed. However, most linguists and historians agree cuneiform developed primarily as a tool for accounting. Of the cuneiform tablets that have been discovered, excavated and translated, about 75 percent contain this type of practical information, rather than artistic or imaginative work.</p>
-                    <p>Cuneiform writing was used for thousands of years, but it eventually ceased to be used in everyday life. In fact, it died out and remained unintelligible for almost 2.000 years. In the late 19th century, a British army officer, Henry Rawlinson, discovered cuneiform inscriptions which had been carved in the surface of rocks in the Behistun mountains in what is present-day Iran. Rawlinson made impressions of the marks on large pieces of paper, as he balanced dangerously on the surrounding rocks.</p>
-                    <p>Rawlinson took his copies home to Britain and studied them for years to determine what each line stood for, and what each group of symbols meant. He found that in the writing on those particular rocks every word was repeated three times in three languages: Old Persian, Elamite and Babylonian. Since the meanings in these languages were already known to linguists, he could thus translate the cuneiform. Eventually, he fully decoded the cuneiform marks and he discovered that they described the life of Darius, a king of the Persian Empire in the 5th century BCE.</p>
+                    <h4 class="text-center">The Last March of the Emperor Penguins</h4>
+                    <p><strong>A</strong> THE emperor penguin is an impossible bird. It breeds in the middle of winter in some of the coldest places on Earth, surviving temperatures as low as -50℃ and hurricane-force winds. In March or April, just as the Antarctic winter begins, the birds waddle across the sea ice to their colonies, where they mate. After the egg is laid, the females head back to sea to feed, leaving the males behind to incubate it. By the time the females return in July or August, when the eggs hatch, the males will have spent almost four months huddling together in the bitter cold without eating, losing half of their body weight. This extraordinary lifestyle has made the emperors famous. They have even been held up as role models by evangelical Christians. But these breathtaking birds will soon have to face the one thing they haven't evolved to cope with: warmth. Fast-forward a few decades, and many colonies will be on the road to extinction. Are we witnessing the last march of the emperor penguins?</p>
+                    <p><strong>B</strong> Finding out what's going on with emperor penguins is a huge challenge as almost all of their colonies are exceedingly difficult to get to. In fact, it was only this year that the first global census of the birds was published, based on an automated analysis of satellite images by the British Antarctic Survey. This revealed four previously unknown colonies, bringing the total to 46 (see map), and put the number of adults at 600,000, nearly double earlier estimates. That might sound like good news, but it's impossible to say whether the overall number of birds is rising or falling. "It's simply that we now have a better method to find them-remote sensing," says team member Phil Trathan.</p>
+                    <p><strong>C</strong> By far the most comprehensive insight into the highs and lows of emperor populations comes from just one colony, which happens to be next to the Dumont d'Urville research station on the Adelie coast of Antarctica. "After a snowstorm, they can see how many eggs have got frozen, and how many chicks have died," says biologist Stephanie Jenouvrier of the Woods Hole Oceanographic Institution in Massachusetts, who studies the birds. This relatively small colony of 2500 birds featured in the 2005 blockbuster documentary March of the Penguins.</p>
+                    <p><strong>D</strong> The Dumont d'Urville emperor's have been closely monitored since 1962. During the 1970s and early 80s, the average winter temperature was-14.7℃, compared with a more typical-17.3℃. This "warm spell" reduced the extent of winter sea ice by around 11 percent and the penguin population by half. "When sea ice decreased, it caused strong mortality of emperor penguins," says Jenouvrier. Why are emperors so sensitive to changes in sea ice? Well to start with, most never set foot on land. They aren't agile enough to scale the steep rocks and ice precipices that guard most of Antarctica's shoreline. All but two of the 46 colonies are on fast ice-sea ice stuck fast to the shore. So if the sea ice forms late or breaks up early, it won't last for the eight months or so these large birds need to breed and raise chicly.</p>
+                    <p><strong>E</strong> "Early break-up of sea ice can cause catastrophic breeding failure," says Trathan. Emperors live around 20 years, so colonies can survive a few bad breeding seasons, but persistent changes can be disastrous. What's more, emperors moult every year in January or February. The birds would freeze to death if they tried to swim during the 30 or so days it takes to grow new feathers, so they must find ice floes to shelter on that are large enough to survive this period. This may be an even more demanding period in the emperors' lives than the winter, because they have little time to fatten themselves up beforehand. "The adults are reliant on stable sea ice for moulting, and for me, that's the greatest concern," says Gerald Kooyman of Scripps Institution of Oceanography, one of the world's leading emperor penguin biologists. "They don't have any options. They have to moult."</p>
+                    <p><strong>F</strong> Last, but not least, the source of much of the penguins' energy, directly or indirectly, is krill-and krill also depend on sea ice. Young krill shelter and feed under it. "The sea ice is the basis of the Antarctic ecosystem," says Jenouvrier. For now, there is still plenty of sea ice. In fact, the extent of Antarctic sea ice in winter has increased slightly over the last 30 years. This has been caused by stronger winds blowing sea ice further away from the land, with more ice forming in the open water exposed by this movement. The stronger winds are thought to be a consequence of ozone loss, rather than global warming.</p>
+                    <p><strong>G</strong> But unlike the Arctic Ocean, where thick sea ice used to survive from year to year, in Antarctica almost all the sea ice melts every year. That means the extent of winter sea ice changes rapidly in response to any change in conditions. This can be seen around the rapidly warming Antarctic Peninsula, where winter sea ice extent is falling 1 or 2 percent each year. Here one small emperor colony, on the Dion Islands, has already died out. When it was discovered in 1948 it was home to 300 adults. By 1999， just 40 remained and 10 years later they were all gone. Though no one knows for sure what caused the colony's demise, it coincided with a decline in the duration of winter sea ice. On the peninsula, populations of the other Antarctic native penguins, the Adelie and chinstrap, are also plummeting, probably because of the changing environment and declining krill. Matters haven't been helped by an invasion of non-native gentoo penguins, and other species like the king and macaroni penguins could follow.</p>
+                    <p><strong>H</strong> What's happening on the peninsula today could be happening all around Antarctica in the decades to come. "With a doubling of greenhouse gas concentrations over the next century, we estimate that the extent of Antarctic sea ice would decrease by about one third, says John Turner, a climatologist with the British Antarctic Survey. Earlier this year the emperor penguin was added to the IUCN's Red List for species threatened with extinction in the near future-"near" meaning in a century or two. When Jenouvrier's team used the observations at Dumont d'Urville to predict what will happen as the continent warms, they concluded that the colony is likely to decline by 81 per cent by 2100 and be heading towards extinction.</p>
+                    <p><strong>I</strong> That is in line with a 2010 study by a team including Jenouvrier and David Ainley of the California-based ecological consultants H. T. Harvey and Associates. It predicted that all emperor colonies north of 70 degrees latitude- about 35 percent of the total population-would decline or disappear if the world warms by 2℃, although a few colonies south of 73 degrees might grow a little. This might not sound too bad, but both these studies are based on what increasingly appear to be overly optimistic assumptions. If we continue as we are, the global temperature will climb above 2℃ before 2050, on course to a 5 or 6℃ rise by 2100. "If the earth warms by 5 or 6 degrees, I can't see that there's going to be much sea ice left anywhere on Earth," says Ainley. And if the sea ice vanishes, the emperor penguins will vanish too.</p>
                 </div>
                 <div id="passage-text-2" class="reading-passage hidden">
-                    <h4 class="text-center">Children's comprehension of television advertising</h4>
-                    <p><strong>A</strong>&nbsp;&nbsp;In 1874, long before the advent of television, the English Parliament passed a law to protect children 'from their own lack of experience and from the wiles of pushing tradesmen and moneylenders' (James, 1965). The act is one of the earliest governmental policies to address children's vulnerability to commercial exploitation and was produced before major corporations earned huge profits by marketing products directly to children. Yet the issues underlying this 19th-century policy remain much the same in the 21st century.</p>
-                    <p><strong>B</strong>&nbsp;&nbsp;Television has long been the predominant medium that advertisers have chosen for marketing products to children. It is estimated that the average child sees more than 40.000 television commercials a year, most of which are 15 to 30 seconds in length (Kunkel, 2001 ). According to another estimate, children aged 14 years and under make $24 billion in direct, purchases and influence $190 billion in family purchases, underscoring the high stakes involved (McNeal, 1987).</p>
-                    <p><strong>C</strong>&nbsp;&nbsp;A number of factors have contributed to an unprecedented growth in both the amount and type of advertising directed at children. First and foremost among these are changes in the media environment. In decades past, television programming targeted at children was limited and relegated to time slots unpopular with their parents, such as Saturday mornings (Turow, 1981 ). Today, the number of channels received in the average US home has escalated with the diffusion of cable television and satellite technologies. In this new multi-channel era, there are numerous national program services devoted exclusively to children. Naturally, these channels deliver significant amounts of childoriented marketing messages. Although parent may be pleased that their youngsters can now watch children's programming at any hour of the day, they may not recognize that such viewing opportunities entail much greater exposure to advertising than any previous generation of youth has experienced.</p>
-                    <p><strong>D</strong>&nbsp;&nbsp;Approximately 80% of all advertising targeted at children falls within four product categories: toys, cereals, candies, and fast-food restaurants (Kunkel et al, 1992). Commercials are highly effective at employing specific features designed to attract children's attention. For example, they use the strategy of introducing unique sound effects and rapidly moving images (Greer et al, 1982). The other most common persuasive strategy employed in advertising to children is to associate the product with playfulness and happiness, rather than to provide any actual product-related information (Kunkel et al, 1992). For example, a commercial featuring Ronald McDonald dancing, singing, and smiling in McDonald's restaurants without any mention of the actual food products available reflects a playful or happy theme. This strategy is also found frequently with cereal ads, which often include cartoon characters to help children identify the product. In contrast, most commercials fail to mention even the major grain used in each cereal.</p>
-                    <p><strong>E</strong>&nbsp;&nbsp;Another common feature of advertising to children is the use of product disclosures such as 'batteries not included' or 'each part sold separately'. Studies make clear that young children do not comprehend the intended meaning of these disclaimers. For example, fewer than one in four kindergarten through second grade children could grasp the meaning of 'some assembly required' in a commercial. In contrast, the use of child-friendly language such as 'you have to put it together' more than doubled the proportion of children who understood the qualifying message (Liebert et al, 1977). The phrase 'part of a balanced breakfast' is also a frequent disclosure included in most cereal ads to combat the concern that sugared cereal holds little nutritional value for children. Research shows that most children below age 7 years have no idea what the term 'balanced breakfast' means (Palmer & McDowell, 1981 ). Rather than informing young viewers about the importance of a nutritious breakfast, this common disclaimer actually leaves many children with the misimpression that cereal alone is sufficient for a meal. This pattern of employing creative terminology in advertising content so as to obscure certain information that might be unhelpful to the sponsor is a long-standing practice that often misleads the consumer (Geis, 1982).</p>
-                    <p><strong>F</strong>&nbsp;&nbsp;Very young children do not recognize that there are two fundamentally different categories of television content: programs and commercials. Most children below the age of 4 or 6 exhibit low awareness of the concept of commercials, frequently explaining them as if they were a scene in the program itself. Once this confusion diminishes, children first recognize the difference between programs and commercials based on either affective ('commercials are funnier than TV programs') or perceptual ('commercials are short and programs are long') cues (Blatt et al, 1972).</p>
-                    <p><strong>G</strong>&nbsp;&nbsp;Although most children's programs indicate that a commercial break is coming (e.g. by saying 'We'll be right back after these messages'), research reveals that these 'separators' generally do not help children to recognize advertising content (Palmer & McDowell, 1979). This likely occurs because they are not perceptually distinct from the adjacent programming that surrounds them; in fact, many separators feature characters that appear in the same show that the commercial has just interrupted. When an ad includes one of the characters featured in a program, this is known as host-selling. This type of advertising makes the task of discriminating between program and commercial content particularly difficult for young children (Kunkel, 1988) and is thus restricted in the US by the Federal Communications Commission during children's programs.</p>
-                    <p><strong>H</strong>&nbsp;&nbsp;In sum, because young children lack the cognitive skills and abilities of older children and adults, they do not comprehend commercial messages in the same way as more mature audiences, and are therefore uniquely susceptible to advertising influence.</p>
+                    <h4 class="text-center">Water Filter</h4>
+                    <p><strong>A</strong> An ingenious invention is set to bring clean water to the third world, and while the science may be cutting edge, the materials are extremely down to earth. A handful of clay yesterday's coffee grounds and some cow manure are the ingredients that could bring clean, safe drinking water to much of the third world.</p>
+                    <p><strong>B</strong> The simple new technology, developed by ANU materials scientist Mr. Tony Flynn, allows water filters to be made from commonly available materials and fired on the ground using cow manure as the source of heat, without the need for a kiln. The filters have been tested and shown to remove common pathogens (disease-producing organisms) including E-coli. Unlike other water filtering devices, the filters are simple and inexpensive to make. "They are very simple to explain and demonstrate and can be made by anyone, anywhere," says Mr. Flynn. "They don't require any western technology. All you need is terracotta clay, a compliant cow and a match."</p>
+                    <p><strong>C</strong> The production of the filters is extremely simple. Take a handful of dry, crushed clay, mix it with a handful of organic material, such as used tea leaves, coffee grounds or rice hulls, add enough water to make a stiff biscuit-like mixture and form a cylindrical pot that has one end closed, then dry it in the sun. According to Mr. Flynn, used coffee grounds have given the best results to date. Next, surround the pots with straw; put them in a mound of cow manure, light the straw and then top up the burning manure as required. In less than 60 minutes the filters are finished. The walls of the finished pot should be about as thick as an adult's index. The properties of cow manure are vital as the fuel can reach a temperature of 700 degrees in half an hour and will be up to 950 degrees after another 20 to 30 minutes. The manure makes a good fuel because it is very high in organic material that bums readily and quickly; the manure has to be dry and is best used exactly as found in the field, there is no need to break it up or process it any further.</p>
+                    <p><strong>D</strong> "A potter's din is an expensive item and can take up to four or five hours to get up to 800 degrees. It needs expensive or scarce fuel, such as gas or wood to heat it and experience to run it. With no technology, no insulation and nothing other than a pile of cow manure and a match, none of these restrictions apply," Mr. Flynn says.</p>
+                    <p><strong>E</strong> It is also helpful that, like terracotta clay and organic material, cow dung is freely available across the developing world. "A cow is a natural fuel factory. My understanding is that cow dung as a fuel would be pretty much the same wherever you would find it." Just as using manure as a fuel for domestic uses is not a new idea, the porosity of clay is something that potters have known about for years, and something that as a former ceramics lecturer in the ANU School of Art, Mr. Flynn is well aware of. The difference is that rather than viewing the porous nature of the material as a problem — after all not many people want a pot that won't hold water — his filters capitalize on this property.</p>
+                    <p><strong>F</strong> Other commercial ceramic filters do exist, but, even if available, with prices starting at US$5 each, they are often outside the budgets of most people in the developing world. The filtration process is simple, but effective. The basic principle is that there are passages through the filter that are wide enough for water droplets to pass through, but too narrow for pathogens. Tests with the deadly E-coli bacterium have seen the filters remove 96.4 to 99.8 per cent of the pathogen — well within safe levels. Using only one filter it takes two hours to filter a litre of water. The use of organic material, which burns away after firing, helps produce the structure in which pathogens will become trapped. It overcomes the potential problems of finer clays that may not let water through and also means that cracks are soon halted. And like clay and cow dung, it is universally available.</p>
+                    <p><strong>G</strong> The invention was born out of a World Vision project involving the Manatuto community in East Timor The charity wanted to help set up a small industry manufacturing water filters, but initial research found the local clay to be too fine — a problem solved by the addition of organic material. While the AF problems of producing a working ceramic filter in East Timor were overcome, the solution was kiln-based and particular to that community's materials and couldn't be applied elsewhere. Manure firing, with no requirement for a kiln, has made this zero technology approach available anywhere it is needed. With all the components being widely available, Mr. Flynn says there is no reason the technology couldn't be applied throughout the developing world, and with no plans to patent his idea, there will be no legal obstacles to it being adopted in any community that needs it. "Everyone has a right to clean water, these filters have the potential to enable anyone in the world to drink water safely," says Mr. Flynn.</p>
                 </div>
                 <div id="passage-text-3" class="reading-passage hidden">
-                    <h4 class="text-center">A New Voyage Round the World</h4>
-                    <p class="text-center" style="font-style: italic; margin-bottom: 20px;">A very old travel hook that holds an unusual place in English literature</p>
-                    
-                    <p>Part travelogue, part historical record of the Caribbean pirates, part scientific treatise, A New Voyage Round the World was William Dampier's account of his twelve-year series of journeys around the globe from 1679 to 1691. The wealth and novelty of Dampier's descriptions, combined with the highly counts of his comrades', escapades, proved so popular with a public hungry for tales of discovery and adventure that A New Voyage went into its third reprint within a year of publication. So groundbreaking was Dampier's account that the writers Swift and Defoe were inspired to create two of the most famous books in the English language, Gulliver's Travels and Robinson Crusoe.</p>
-
-                    <p>Dampier's commentators have portrayed him as an unusual, not to say peculiar, man. Notwithstanding his undoubted qualities as an observer, he has been variously characterised as aloof, arrogant, hot-tempered and a weak leader of men. When he arrived on the western coast of Australia, he promptly elected to leave and head north out of dislike for the cold of more southerly latitudes. This physical sensitivity has often been seized on by his detractors, who point out that, as a result, Dampier missed out on becoming the name forever associated with the European discovery of Australia, that honour instead going to Captain James Cook some 80 years later. Yet it should be remembered that he was able to endure a never-ending plague of discomforts and ailments in the tropics. And once, wrecked off Ascension Island in the South Atlantic Ocean, he managed with his crew to survive for five weeks without help, living entirely on turtles and goats.</p>
-
-                    <p>What of his early life, then? Dampier was born in 1651 in Somerset, England, the son of a tenant farmer, George, and his wife Ann. His birthplace, Hymerford House, stands to this day. His parents died before he reached seniority and his guardians apprenticed the young William to a ship's captain, the boy having shown very early inclinations to see the world'. There was nothing in his childhood to set Dampier apart from the numerous other young boys who were sent to sea at this time.</p>
-
-                    <p>Having made brief passages to France and Newfoundland, he completed a more extended voyage to Java, where he began to learn the art of navigation. Returning briefly to Somerset, a neighbour offered Dampier a position overseeing his plantation in Jamaica, which he took up for a time, but he soon returned to sea on a trading voyage among the Caribbean islands. From the viewpoint of posterity, the most significant aspect of this time was that, as plantation manager, Dampier first started to keep a journal.</p>
-
-                    <p>Although Dampier wrote several books, A New Voyage Round the World is the most important and it is worth considering just why this text met with such success. Certainly, the book would not have done so well purely on the merits of Dampier's findings regarding meteorology and natural history, even though they broke new ground at the time. What appealed more to book buyers of this era was his narrative of life among the pirates of the Caribbean islands, whom he joined for several years after leaving Jamaica. These tales of adventure among rogues and villains who had no regard for the law sparked widespread interest among his countrymen back home. More important even than this, however, it is the superb nature of Dampier's prose, and his ability to communicate so vividly that raised the book above the common lot.</p>
-
-                    <p>Dampier himself admits in the book's preface that he received help with the writing of the book, and other evidence exists to suggest that he was assisted by an unknown source. But whatever outside assistance he may have had, the book still has certain problems. In particular, his observations about nature are sometimes roughly dropped into the narrative at very odd junctures and these asides can sometimes interrupt the flow of the story Dampier himself kept his observations about nature entirely separate from the main body of his travels, and we should therefore hold James Knapton responsible, as he was in charge of checking and revising Dampier's text, and his publishing company brought the finished book to a wider audience.</p>
-
-                    <p>Dampier's life has been chronicled in full by numerous biographers, and I refer the reader in particular to Clennell Wilkinson's excellent (and sadly out-of-print) 1929 biography, as well as the recent portrait by Anton Gill. In short, despite wide acclaim for his writing, Dampier was not blessed in the art of wealth accumulation Travelling with the pirates, while providing subsistence and adventure, never netted him the treasure chest that a more astute financial operative might have acquired. He died in 1715, aged sixty-three, in Colerman Street, London.</p>
-
-                    <p>We have then a man of myriad and colourful parts, and perhaps not always the easiest of sailors to get along with because of his arrogance and hot temper. But to dwell on these aspects today is to miss the point: it is A New Voyage Round the World that should provide the most illuminating and entertaining of Dampier's legacies. Above all, the text is studded with some wonderfully colourful expressions, and readers will enjoy some of the finest descriptions of storms in the English language, and the liberal wit throughout.</p>
+                    <h4 class="text-center">High Speed Photography</h4>
+                    <p><strong>A</strong> Photography gained the interest of many scientists and artists from its inception. Scientists have used photography to record and study movements, such as Eadweard Muybridge's study of human and animal locomotion in 1887. Artists are equally interested by these aspects but also try to explore avenues other than the photo-mechanical representation of reality, such as the pictorialist movement. Military, police, and security forces use photography for surveillance, recognition and data storage. Photography is used by amateurs to preserve memories, to capture special moments, to tell stories, to send messages, and as a source of entertainment. Various technological improvements and techniques have even allowed for visualising events that are too fast or too slow for the human eye.</p>
+                    <p><strong>B</strong> One of such techniques is called fast motion or professionally known as time-lapse. Time-lapse photography is the perfect technique for capturing events and movements in the natural world that occur over a timescale too slow for human perception to follow. The life cycle of a mushroom, for example, is incredibly subtle to the human eye. To present its growth in front of audiences, the principle applied is a simple one: a series of photographs are taken and used in sequence to make a moving-image film, but since each frame is taken with a lapse at a time interval between each shot, when played back at normal speed, a continuous action is produced and it appears to speed up. Put simply: we are shrinking time. Objects and events that: would normally take several minutes, days or even months can be viewed to completion in seconds having been sped up by factors of tens to millions.</p>
+                    <p><strong>C</strong> Another commonly used technique is high-speed photography, the science of taking pictures of very fast phenomena. High-speed photography can be considered to be the opposite of time-lapse photography. One of the many applications is found in biology studies to study birds, bats and even spider silk. Imagine a hummingbird hovering almost completely still in the air, feeding on nectar. With every flap, its wings bend, flex and change shape. These subtle movements precisely control the lift its wings generate, making it an excellent hoverer. But a hummingbird flaps its wings up to 80 times every second. The only way to truly capture this motion is with cameras that will, in effect, slow down time. To do this, a greater length of film is taken at a high sampling frequency or frame rate, which is much faster than it will be projected on screen. When replayed at normal speed, time appears to be slowed down proportionately. That is why high-speed cameras have become such a mainstay of biology.</p>
+                    <p><strong>D</strong> In common usage, high-speed photography can also refer to the use of high-speed cameras that the photograph itself may be taken in a way as to appear to freeze the motion, especially to reduce motion blur. It requires a sensor with good sensitivity and either a very good shuttering system or a very fast strobe light. The recent National Geographic footage—captured last summer during an intensive three-day shoot at the Cincinnati Zoo—is unprecedented in its clarity and detail. "I've watched cheetahs run for 30 years," said Cathryn Milker, founder of the zoo's Cat Ambassador Program. "But I saw things in that super slow-motion video that I've never seen before." The slow-motion video is entrancing. Every part of the sprinting cat's anatomy—supple limbs, rippling muscles, hyperflexible spine—works together in a symphony of speed, revealing the fluid grace of the world's fastest land animal.</p>
+                    <p><strong>E</strong> But things can't get any more complicated in the case of filming a frog catching its prey. Frogs can snatch up prey in a few thousandths of a second—striking out with elastic tongues. Biologists would love to see how a frog's tongue roll out, adhere to prey, and roll back into the frog's mouth. But this all happened too fast, 50 times faster than an eye blink. So naturally people thought of using high-speed camera to capture this fantastic movement in slow motion. Yet one problem still remains—viewers would be bored if they watch the frog swim in slow motion for too long. So how to skip this? The solution is a simple one—adjust the playback speed, which is also called by some the film speed adjustment. The film will originally be shot at a high frame (often 300 frames per second, because it can be converted to much lower frame rates without major issues), but at later editing stage this high frame rate will only be preserved for the prey catching part, while the swimming part will be converted to the normal speed at 24 frames per second. Voila, the scientists can now sit back and enjoy watching without having to go through the pain of waiting.</p>
+                    <p><strong>F</strong> Sometimes taking a good picture or shooting a good film is not all about technology, but patience, like in the case of bat. Bats are small, dark-colored; they fly fast and are active only at night. To capture bats on film, one must use some type of camera-tripping device. Photographers or film-makers often place camera near the bat cave, on the path of the flying bats. The camera must be hard-wired with a tripping device so that every time a bat breaks the tripping beam the camera fires and it will keep doing so through the night until the camera's battery runs out. Though highly-advanced tripping device can now allow for unmanned shooting, it still may take several nights to get a truly high quality film.</p>
+                    <p><strong>G</strong> Is it science? Is it art? Since the technique was first pioneered around two hundred years ago, photography has developed to a state where it is almost unrecognisable. Some people would even say the future of photography will be nothing like how we imagine it. No matter what future it may hold, photography will continue to develop as it has been repeatedly demonstrated in many aspects of our life that "a picture is worth a thousand words."</p>
                 </div>
             </div>
             <div class="resizer" id="resizer"></div>
             <div class="questions-panel" id="questions-panel">
                 <div id="questions-1" class="question-set">
                     <div class="questions-container">
-                        <!-- Q1-5 TRUE/FALSE/NOT GIVEN -->
-                        <div class="question" data-q-start="1" data-q-end="5">
+                        <div class="question" data-q-start="1" data-q-end="6">
                             <div class="question-prompt">
-                                <p><strong>Questions 1-5</strong></p>
-                                <p>Do the following statements agree with the information given in Reading Passage 1?</p>
+                                <p><strong>Questions 1-6</strong></p>
+                                <p>Use the information in the text to match the people with opinions.</p>
+                                <p><strong>NB</strong> You may use any letter more than once.</p>
+                                
+                            </div>
+                            <div class="matching-table-container">
+                                <p><strong>List of People</strong></p>
+                                <p><strong>A</strong> Stephanie Jenouvrier</p>
+                                <p><strong>B</strong> Gerald Kooyman</p>
+                                <p><strong>C</strong> Phil Trathan</p>
+                                <p><strong>D</strong> David Ainley</p>
+                                <p><strong>E</strong> John Turner</p>
+                                
+                                <table class="matching-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Questions</th>
+                                            <th>A</th>
+                                            <th>B</th>
+                                            <th>C</th>
+                                            <th>D</th>
+                                            <th>E</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="statement"><strong>1.</strong> Penguin breeding is threatened by sea ice melting in advance.</td>
+                                            <td class="clickable-cell" data-value="A" data-question="1"></td>
+                                            <td class="clickable-cell" data-value="B" data-question="1"></td>
+                                            <td class="clickable-cell" data-value="C" data-question="1"></td>
+                                            <td class="clickable-cell" data-value="D" data-question="1"></td>
+                                            <td class="clickable-cell" data-value="E" data-question="1"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="statement"><strong>2.</strong> About 30% sea ice would disappear in the future.</td>
+                                            <td class="clickable-cell" data-value="A" data-question="2"></td>
+                                            <td class="clickable-cell" data-value="B" data-question="2"></td>
+                                            <td class="clickable-cell" data-value="C" data-question="2"></td>
+                                            <td class="clickable-cell" data-value="D" data-question="2"></td>
+                                            <td class="clickable-cell" data-value="E" data-question="2"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="statement"><strong>3.</strong> Penguin needs constant sea ice for feather changing.</td>
+                                            <td class="clickable-cell" data-value="A" data-question="3"></td>
+                                            <td class="clickable-cell" data-value="B" data-question="3"></td>
+                                            <td class="clickable-cell" data-value="C" data-question="3"></td>
+                                            <td class="clickable-cell" data-value="D" data-question="3"></td>
+                                            <td class="clickable-cell" data-value="E" data-question="3"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="statement"><strong>4.</strong> Dead chicks are easy to be counted after a storm.</td>
+                                            <td class="clickable-cell" data-value="A" data-question="4"></td>
+                                            <td class="clickable-cell" data-value="B" data-question="4"></td>
+                                            <td class="clickable-cell" data-value="C" data-question="4"></td>
+                                            <td class="clickable-cell" data-value="D" data-question="4"></td>
+                                            <td class="clickable-cell" data-value="E" data-question="4"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="statement"><strong>5.</strong> No sea ice left in case global temperature increased certain degrees.</td>
+                                            <td class="clickable-cell" data-value="A" data-question="5"></td>
+                                            <td class="clickable-cell" data-value="B" data-question="5"></td>
+                                            <td class="clickable-cell" data-value="C" data-question="5"></td>
+                                            <td class="clickable-cell" data-value="D" data-question="5"></td>
+                                            <td class="clickable-cell" data-value="E" data-question="5"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="statement"><strong>6.</strong> Sea ice provides foundation for Antarctic ecology.</td>
+                                            <td class="clickable-cell" data-value="A" data-question="6"></td>
+                                            <td class="clickable-cell" data-value="B" data-question="6"></td>
+                                            <td class="clickable-cell" data-value="C" data-question="6"></td>
+                                            <td class="clickable-cell" data-value="D" data-question="6"></td>
+                                            <td class="clickable-cell" data-value="E" data-question="6"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="question" data-q-start="7" data-q-end="10">
+                            <div class="question-prompt">
+                                <p><strong>Questions 7-10</strong></p>
+                                <p>Do the following statements agree with the information given in the text?</p>
                                 <ul style="list-style: none; padding-left: 0;">
                                     <li><strong>TRUE</strong> if the statement agrees with the information</li>
                                     <li><strong>FALSE</strong> if the statement contradicts the information</li>
                                     <li><strong>NOT GIVEN</strong> if there is no information on this</li>
                                 </ul>
                             </div>
-                            
-                            <div class="tf-question" data-q-start="1" data-q-end="1">
-                                <div class="tf-question-line"><span class="tf-question-number">1</span><span class="tf-question-text">Cuneiform tablets were produced in different shapes and sizes.</span></div>
+                            <div class="tf-question" data-q-start="7" data-q-end="7">
+                                <div class="tf-question-line"><span class="tf-question-number">7</span><span class="tf-question-text">It is the female emperor penguin that carried more incubation duty.</span></div>
                                 <div class="tf-options">
-                                    <label class="tf-option"><input type="radio" name="q1" value="TRUE"> TRUE</label>
-                                    <label class="tf-option"><input type="radio" name="q1" value="FALSE"> FALSE</label>
-                                    <label class="tf-option"><input type="radio" name="q1" value="NOT GIVEN"> NOT GIVEN</label>
+                                    <label class="tf-option"><input type="radio" name="q7" value="TRUE"> TRUE</label>
+                                    <label class="tf-option"><input type="radio" name="q7" value="FALSE"> FALSE</label>
+                                    <label class="tf-option"><input type="radio" name="q7" value="NOT GIVEN"> NOT GIVEN</label>
                                 </div>
                             </div>
+                            <div class="tf-question" data-q-start="8" data-q-end="8">
+                                <div class="tf-question-line"><span class="tf-question-number">8</span><span class="tf-question-text">Evangelical Christian lives a similar lifestyle as penguin.</span></div>
+                                <div class="tf-options">
+                                    <label class="tf-option"><input type="radio" name="q8" value="TRUE"> TRUE</label>
+                                    <label class="tf-option"><input type="radio" name="q8" value="FALSE"> FALSE</label>
+                                    <label class="tf-option"><input type="radio" name="q8" value="NOT GIVEN"> NOT GIVEN</label>
+                                </div>
+                            </div>
+                            <div class="tf-question" data-q-start="9" data-q-end="9">
+                                <div class="tf-question-line"><span class="tf-question-number">9</span><span class="tf-question-text">With the advanced satellite photographs, fluctuation of penguin number is easily observed.</span></div>
+                                <div class="tf-options">
+                                    <label class="tf-option"><input type="radio" name="q9" value="TRUE"> TRUE</label>
+                                    <label class="tf-option"><input type="radio" name="q9" value="FALSE"> FALSE</label>
+                                    <label class="tf-option"><input type="radio" name="q9" value="NOT GIVEN"> NOT GIVEN</label>
+                                </div>
+                            </div>
+                            <div class="tf-question" data-q-start="10" data-q-end="10">
+                                <div class="tf-question-line"><span class="tf-question-number">10</span><span class="tf-question-text">Strong winds caused by Ozone depletion, blow away the sea ice.</span></div>
+                                <div class="tf-options">
+                                    <label class="tf-option"><input type="radio" name="q10" value="TRUE"> TRUE</label>
+                                    <label class="tf-option"><input type="radio" name="q10" value="FALSE"> FALSE</label>
+                                    <label class="tf-option"><input type="radio" name="q10" value="NOT GIVEN"> NOT GIVEN</label>
+                                </div>
+                            </div>
+                                </div>
 
-                            <div class="tf-question" data-q-start="2" data-q-end="2">
-                                <div class="tf-question-line"><span class="tf-question-number">2</span><span class="tf-question-text">When Sumerian writers marked on the clay tablets, the tablets were dry.</span></div>
-                                <div class="tf-options">
-                                    <label class="tf-option"><input type="radio" name="q2" value="TRUE"> TRUE</label>
-                                    <label class="tf-option"><input type="radio" name="q2" value="FALSE"> FALSE</label>
-                                    <label class="tf-option"><input type="radio" name="q2" value="NOT GIVEN"> NOT GIVEN</label>
-                                </div>
-                            </div>
-
-                            <div class="tf-question" data-q-start="3" data-q-end="3">
-                                <div class="tf-question-line"><span class="tf-question-number">3</span><span class="tf-question-text">Cuneiform was often difficult to read because of its size.</span></div>
-                                <div class="tf-options">
-                                    <label class="tf-option"><input type="radio" name="q3" value="TRUE"> TRUE</label>
-                                    <label class="tf-option"><input type="radio" name="q3" value="FALSE"> FALSE</label>
-                                    <label class="tf-option"><input type="radio" name="q3" value="NOT GIVEN"> NOT GIVEN</label>
-                                </div>
-                            </div>
-                            
-                            <div class="tf-question" data-q-start="4" data-q-end="4">
-                                <div class="tf-question-line"><span class="tf-question-number">4</span><span class="tf-question-text">A number of languages adopted cuneiform.</span></div>
-                                <div class="tf-options">
-                                    <label class="tf-option"><input type="radio" name="q4" value="TRUE"> TRUE</label>
-                                    <label class="tf-option"><input type="radio" name="q4" value="FALSE"> FALSE</label>
-                                    <label class="tf-option"><input type="radio" name="q4" value="NOT GIVEN"> NOT GIVEN</label>
-                                </div>
-                            </div>
-
-                            <div class="tf-question" data-q-start="5" data-q-end="5">
-                                <div class="tf-question-line"><span class="tf-question-number">5</span><span class="tf-question-text">Cuneiform signs, can be found in some modern alphabets.</span></div>
-                                <div class="tf-options">
-                                    <label class="tf-option"><input type="radio" name="q5" value="TRUE"> TRUE</label>
-                                    <label class="tf-option"><input type="radio" name="q5" value="FALSE"> FALSE</label>
-                                    <label class="tf-option"><input type="radio" name="q5" value="NOT GIVEN"> NOT GIVEN</label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Q6-13 Note Completion -->
-                        <div class="question" data-q-start="6" data-q-end="13">
+                        <div class="question" data-q-start="11" data-q-end="13">
                             <div class="question-prompt">
-                                <p><strong>Questions 6-13</strong></p>
-                                <p>Complete the notes below.</p>
-                                <p>Choose <strong>ONE WORD ONLY</strong> from the passage for each answer.</p>
+                                <p><strong>Questions 11-13</strong></p>
+                                <p>Complete the following summary. Write <strong>ONE WORD ONLY</strong> from the text for each answer.</p>
                             </div>
-                            <div class="notes-content">
-                                <h4 style="font-weight: bold; margin-bottom: 15px; text-align: center;">The development and translation of cuneiform</h4>
-                                
-                                <h5 style="margin-top: 10px;">Before cuneiform</h5>
-                                <ul style="list-style-type: disc; margin-left: 40px;">
-                                    <li>tokens, for example, <input type="text" class="answer-input" id="q6" placeholder="6"> were often used</li>
-                                    <li>the first tokens were kept in containers made of <input type="text" class="answer-input" id="q7" placeholder="7"></li>
-                                    <li>tokens were used as a <input type="text" class="answer-input" id="q8" placeholder="8"> to give when selling something</li>
-                                </ul>
-
-                                <h5 style="font-weight: bold; margin-top: 10px;">By 4th century BCE</h5>
-                                <ul style="list-style-type: disc; margin-left: 40px;">
-                                    <li>tokens were put in a container that looked like a clay <input type="text" class="answer-input" id="q9" placeholder="9"></li>
-                                </ul>
-
-                                <h5 style="font-weight: bold; margin-top: 10px;">Complex, abstract symbols developed</h5>
-                                <ul style="list-style-type: disc; margin-left: 40px;">
-                                    <li>at first, signs looked like what they indicated, e.g. <input type="text" class="answer-input" id="q10" placeholder="10"></li>
-                                    <li>then signs became more abstract</li>
-                                    <li>eventually, cuneiform signs shaped like <input type="text" class="answer-input" id="q11" placeholder="11"> were developed</li>
-                                    <li>according to experts, cuneiform was mainly used for <input type="text" class="answer-input" id="q12" placeholder="12"></li>
-                                </ul>
-                                
-                                <h5 style="font-weight: bold; margin-top: 10px;">19th-century translation of cuneiform inscriptions by Henry Rawlinson</h5>
-                                <ul style="list-style-type: disc; margin-left: 40px;">
-                                    <li>Rawlinson found cuneiform inscriptions in the Behistun mountains</li>
-                                    <li>Rawlinson copied inscriptions onto <input type="text" class="answer-input" id="q13" placeholder="13"></li>
-                                    <li>Rawlinson realised that each word of the inscriptions appeared in different languages</li>
-                                    <li>When translated, Rawlinson found the writings were about a 5th-century BCE king</li>
-                                </ul>
+                            <div class="summary-completion-container">
+                            <div class="summary-text">
+                                    <p>There are several reasons of why emperor penguins are vulnerable to sea ice transformation. First of all, they are not <input type="text" class="answer-input" id="q11" placeholder="11" maxlength="20"> to walk on steep rocks that all over Antarctica. They wouldn't be able to breed. Next, emperors need to <input type="text" class="answer-input" id="q12" placeholder="12" maxlength="20"> at certain time of year, which protects them from been killed by freezing water. Finally, emperor penguin's food called <input type="text" class="answer-input" id="q13" placeholder="13" maxlength="20"> is also connected to availability of sea ice.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div id="questions-2" class="question-set hidden">
                     <div class="questions-container">
-                        <!-- Questions 14-18: Dropdown -->
-                        <div class="question" data-q-start="14" data-q-end="18">
+                        <div class="question" data-q-start="14" data-q-end="19">
                             <div class="question-prompt">
-                                <p><strong>Questions 14-18</strong></p>
-                                <p>Reading Passage 2 has eight sections.</p>
-                                <p>Which section contains the following information?</p>
-                                <p><em>NB You may use any letter more than once.</em></p>
+                                <p><strong>Questions 14-19</strong></p>
+                                <p>Complete the flow chart. Write <strong>NO MORE THAN TWO WORDS</strong> from the text for each answer.</p>
                             </div>
-                            <div class="matching-form-container">
-                                <div class="matching-form-row">
-                                    <div class="matching-form-label">
-                                        <strong>14</strong> a description of recent innovations in TV broadcasting
-                                    </div>
-                                    <select class="answer-input" id="q14">
-                                        <option value="">Select</option>
-                                        <option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option>
-                                        <option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option>
-                                    </select>
+                            <div class="flow-chart"> 
+                                <div class="centered-title" style="font-size: 1.2em;">Guide to Making Water Filters</div>
+                                <div class="flow-step">Step one: combination of <input type="text" class="answer-input" id="q14" placeholder="14"> and organic material, with sufficient <input type="text" class="answer-input" id="q15" placeholder="15"> to create a thick mixture sun dried</div>
+                                <div class="flow-arrow" style="font-weight: bold;">↓</div>
+                                <div class="flow-step">Step two: pack <input type="text" class="answer-input" id="q16" placeholder="16"> around the cylinders. Place them in <input type="text" class="answer-input" id="q17" placeholder="17"> which is as burning fuel for firing (maximum temperature: <input type="text" class="answer-input" id="q18" placeholder="18">) filter being baked in under <input type="text" class="answer-input" id="q19" placeholder="19"></div>
+                            </div>
+                        </div>
+
+                        <div class="question" data-q-start="20" data-q-end="23">
+                            <div class="question-prompt">
+                                <p><strong>Questions 20-23</strong></p>
+                                <p>Do the following statements agree with the information given in the text?</p>
+                                <ul style="list-style: none; padding-left: 0;">
+                                    <li><strong>TRUE</strong> if the statement agrees with the information</li>
+                                    <li><strong>FALSE</strong> if the statement contradicts the information</li>
+                                    <li><strong>NOT GIVEN</strong> if there is no information on this</li>
+                                </ul>
+                            </div>
+                            <div class="tf-question" data-q-start="20" data-q-end="20">
+                                <div class="tf-question-line"><span class="tf-question-number">20</span><span class="tf-question-text">It takes half an hour for the manure to reach 950 degrees.</span></div>
+                                <div class="tf-options">
+                                    <label class="tf-option"><input type="radio" name="q20" value="TRUE"> TRUE</label>
+                                    <label class="tf-option"><input type="radio" name="q20" value="FALSE"> FALSE</label>
+                                    <label class="tf-option"><input type="radio" name="q20" value="NOT GIVEN"> NOT GIVEN</label>
                                 </div>
-                                <div class="matching-form-row">
-                                    <div class="matching-form-label">
-                                        <strong>15</strong> a mention of the main goods and services advertised to children
-                                    </div>
-                                    <select class="answer-input" id="q15">
-                                        <option value="">Select</option>
-                                        <option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option>
-                                        <option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option>
-                                    </select>
                                 </div>
-                                <div class="matching-form-row">
-                                    <div class="matching-form-label">
-                                        <strong>16</strong> a reference to a current limitation on television advertising aimed at children
-                                    </div>
-                                    <select class="answer-input" id="q16">
-                                        <option value="">Select</option>
-                                        <option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option>
-                                        <option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option>
-                                    </select>
+                            <div class="tf-question" data-q-start="21" data-q-end="21">
+                                <div class="tf-question-line"><span class="tf-question-number">21</span><span class="tf-question-text">Clay was initially found to be unsuitable for filter making.</span></div>
+                                <div class="tf-options">
+                                    <label class="tf-option"><input type="radio" name="q21" value="TRUE"> TRUE</label>
+                                    <label class="tf-option"><input type="radio" name="q21" value="FALSE"> FALSE</label>
+                                    <label class="tf-option"><input type="radio" name="q21" value="NOT GIVEN"> NOT GIVEN</label>
                                 </div>
-                                <div class="matching-form-row">
-                                    <div class="matching-form-label">
-                                        <strong>17</strong> two techniques used to encourage children to watch TV commercials
-                                    </div>
-                                    <select class="answer-input" id="q17">
-                                        <option value="">Select</option>
-                                        <option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option>
-                                        <option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option>
-                                    </select>
                                 </div>
-                                <div class="matching-form-row">
-                                    <div class="matching-form-label">
-                                        <strong>18</strong> a type of advertisement that may make children believe the opposite of what is true
-                                    </div>
-                                    <select class="answer-input" id="q18">
-                                        <option value="">Select</option>
-                                        <option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option>
-                                        <option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option>
-                                    </select>
+                            <div class="tf-question" data-q-start="22" data-q-end="22">
+                                <div class="tf-question-line"><span class="tf-question-number">22</span><span class="tf-question-text">Coffee grounds are twice as effective as other materials.</span></div>
+                                <div class="tf-options">
+                                    <label class="tf-option"><input type="radio" name="q22" value="TRUE"> TRUE</label>
+                                    <label class="tf-option"><input type="radio" name="q22" value="FALSE"> FALSE</label>
+                                    <label class="tf-option"><input type="radio" name="q22" value="NOT GIVEN"> NOT GIVEN</label>
+                                </div>
+                            </div>
+                            <div class="tf-question" data-q-start="23" data-q-end="23">
+                                <div class="tf-question-line"><span class="tf-question-number">23</span><span class="tf-question-text">E-coli is the most difficult bacteria to combat.</span></div>
+                                <div class="tf-options">
+                                    <label class="tf-option"><input type="radio" name="q23" value="TRUE"> TRUE</label>
+                                    <label class="tf-option"><input type="radio" name="q23" value="FALSE"> FALSE</label>
+                                    <label class="tf-option"><input type="radio" name="q23" value="NOT GIVEN"> NOT GIVEN</label>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Questions 19-22: Drag and Drop ( Researchers ) -->
-                        <div class="question" data-q-start="19" data-q-end="22">
+                        <div class="question" data-q-start="24" data-q-end="26">
                             <div class="question-prompt">
-                                <p><strong>Questions 19-22</strong></p>
-                                <p>Look at the following statements and the list of researchers below.</p>
-                                <p>Match each statement with the correct researcher(s).</p>
+                                <p><strong>Questions 24-26</strong></p>
+                                <p>Choose the correct answer.</p>
                             </div>
-
-                            <div class="matching-question-container">
-                                <div class="matching-questions">
-                                    <div class="matching-question-item">
-                                        <span><strong>19</strong> Ads often aim to teach children that a brand is fun rather than telling them about what is being sold.</span>
-                                        <div class="drop-zone" data-dnd-group="q19-22" data-q-start="19"></div>
+                            <div class="multi-choice-question" data-q-start="24" data-q-end="24">
+                                <div class="question-prompt"><p><strong>24</strong> When making the pot, the thickness of the wall</p></div>
+                                <div class="multi-choice-option"><label><input type="radio" name="q24" value="A">is large enough to let the pathogens to pass.</label></div>
+                                <div class="multi-choice-option"><label><input type="radio" name="q24" value="B">varied according to the temperature of the fuel.</label></div>
+                                <div class="multi-choice-option"><label><input type="radio" name="q24" value="C">should be the same as an adult's forefinger.</label></div>
+                                <div class="multi-choice-option"><label><input type="radio" name="q24" value="D">is not mentioned by Mr. Flynn.</label></div>
                                     </div>
-                                    <div class="matching-question-item">
-                                        <span><strong>20</strong> Originally, children's programmes were only broadcast when adults rarely watched TV.</span>
-                                        <div class="drop-zone" data-dnd-group="q19-22" data-q-start="20"></div>
+                            <div class="multi-choice-question" data-q-start="25" data-q-end="25">
+                                <div class="question-prompt"><p><strong>25</strong> What is true about the charity, it</p></div>
+                                <div class="multi-choice-option"><label><input type="radio" name="q25" value="A">failed in searching the appropriate materials.</label></div>
+                                <div class="multi-choice-option"><label><input type="radio" name="q25" value="B">thought a kiln is essential.</label></div>
+                                <div class="multi-choice-option"><label><input type="radio" name="q25" value="C">found that the local clay are good enough.</label></div>
+                                <div class="multi-choice-option"><label><input type="radio" name="q25" value="D">intended to build a filter production factory.</label></div>
                                     </div>
-                                    <div class="matching-question-item">
-                                        <span><strong>21</strong> Children have a significant impact on what adults buy.</span>
-                                        <div class="drop-zone" data-dnd-group="q19-22" data-q-start="21"></div>
+                            <div class="multi-choice-question" data-q-start="26" data-q-end="26">
+                                <div class="question-prompt"><p><strong>26</strong> Mr. Flynn's design is purposed not being patented</p></div>
+                                <div class="multi-choice-option"><label><input type="radio" name="q26" value="A">because he hopes it can be freely used around the world</label></div>
+                                <div class="multi-choice-option"><label><input type="radio" name="q26" value="B">because he doesn't think the technology is perfect enough</label></div>
+                                <div class="multi-choice-option"><label><input type="radio" name="q26" value="C">because there are some legal obstacles</label></div>
+                                <div class="multi-choice-option"><label><input type="radio" name="q26" value="D">because the design has already been applied thoroughly</label></div>
                                     </div>
-                                    <div class="matching-question-item">
-                                        <span><strong>22</strong> Tests showed that children can follow information if simple words are used.</span>
-                                        <div class="drop-zone" data-dnd-group="q19-22" data-q-start="22"></div>
-                                    </div>
-                                </div>
-
-                                <div class="matching-options-bank drag-options-container" data-dnd-group="q19-22">
-                                    <div class="drag-item" draggable="true" data-dnd-group="q19-22" data-value="A"><strong>A</strong> Kunkel</div>
-                                    <div class="drag-item" draggable="true" data-dnd-group="q19-22" data-value="B"><strong>B</strong> Kunkel et al</div>
-                                    <div class="drag-item" draggable="true" data-dnd-group="q19-22" data-value="C"><strong>C</strong> McNeal</div>
-                                    <div class="drag-item" draggable="true" data-dnd-group="q19-22" data-value="D"><strong>D</strong> Turow</div>
-                                    <div class="drag-item" draggable="true" data-dnd-group="q19-22" data-value="E"><strong>E</strong> Greer et al</div>
-                                    <div class="drag-item" draggable="true" data-dnd-group="q19-22" data-value="F"><strong>F</strong> Liebert et al</div>
-                                    <div class="drag-item" draggable="true" data-dnd-group="q19-22" data-value="G"><strong>G</strong> Palmer & McDowell</div>
-                                    <div class="drag-item" draggable="true" data-dnd-group="q19-22" data-value="H"><strong>H</strong> Geis</div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Questions 23-26: Summary Completion -->
-                        <div class="question" data-q-start="23" data-q-end="26">
-                            <div class="question-prompt">
-                                <p><strong>Questions 23-26</strong></p>
-                                <p>Complete the summary below.</p>
-                                <p>Write <strong>NO MORE THAN TWO WORDS</strong> from the passage for each answer.</p>
-                            </div>
-                            
-                            <div class="summary-box" >
-                                <h4 style="text-align: center; margin-bottom: 20px;">How very young children perceive commercials</h4>
-                                
-                                <p style="line-height: 2;">
-                                    Children below the age of 4 or 6 do not understand the difference between television programmes and commercials. In fact, these children often mistake an advertisement for a <input type="text" class="answer-input inline-input" id="q23"> from the programe they are watching. This is despite the fact that children's TV programmes usually include announcements called <input type="text" class="answer-input inline-input" id="q24"> to show that there is going to be a commercial break. The problem is made more difficult because of a technique called <input type="text" class="answer-input inline-input" id="q25"> . Whereby a person or cartoon figure from the programme is used to sell a product during the commercial break. From the age of 4 or 6, children begin to realise that commercials are different from TV programmes; for example, they may recognise that there is a difference in length or that advertisements are <input type="text" class="answer-input inline-input" id="q26"> than actual TV.
-                                </p>
-                            </div>
                         </div>
                     </div>
                 </div>
                 <div id="questions-3" class="question-set hidden">
                     <div class="questions-container">
-                        <!-- Questions 27-31: Multiple Choice -->
-                        <div class="question" data-q-start="27" data-q-end="31">
+                        <div class="question" data-q-start="27" data-q-end="30">
                             <div class="question-prompt">
-                                <p><strong>Questions 27-31</strong></p>
-                                <p>Choose the correct answer.</p>
+                                <p><strong>Questions 27-30</strong></p>
+                                <p>Match each organism with the correct feature.</p>
                             </div>
-                            
-                            <div class="multi-choice-question" data-q-start="27" data-q-end="27">
-                                <div class="question-prompt"><p><strong>27</strong> Which of the following best summarises the writer's point in the first paragraph?</p></div>
-                                <div class="multi-choice-option"><label><input type="radio" name="q27" value="A"> Dampier's book does not fall into a single category.</label></div>
-                                <div class="multi-choice-option"><label><input type="radio" name="q27" value="B">  Readers were not interested in books on the subject of travel.</label></div>
-                                <div class="multi-choice-option"><label><input type="radio" name="q27" value="C">  Today's readers do not appreciate the style of Dampier's writing</label></div>
-                                <div class="multi-choice-option"><label><input type="radio" name="q27" value="D">  Dampier sailed round the world more quickly than anyone before.</label></div>
-                            </div>
-
-                            <div class="multi-choice-question" data-q-start="28" data-q-end="28">
-                                <div class="question-prompt"><p><strong>28</strong> The writer refers to Swift and Defoe in order to</p></div>
-                                <div class="multi-choice-option"><label><input type="radio" name="q28" value="A">  provide information regarding Dampier's sources.</label></div>
-                                <div class="multi-choice-option"><label><input type="radio" name="q28" value="B">  compare Dampier to two earlier writers.</label></div>
-                                <div class="multi-choice-option"><label><input type="radio" name="q28" value="C">  give an example of Dampier's influence</label></div>
-                                <div class="multi-choice-option"><label><input type="radio" name="q28" value="D">  highlight two of Dampier's critics</label></div>
-                            </div>
-
-                            <div class="multi-choice-question" data-q-start="29" data-q-end="29">
-                                <div class="question-prompt"><p><strong>29</strong> Dampier left the western coast of Australia because</p></div>
-                                <div class="multi-choice-option"><label><input type="radio" name="q29" value="A">  He wanted to get to the north before Cook arrived</label></div>
-                                <div class="multi-choice-option"><label><input type="radio" name="q29" value="B">  He found the temperature there unpleasant</label></div>
-                                <div class="multi-choice-option"><label><input type="radio" name="q29" value="C">  He had problems with his crews</label></div>
-                                <div class="multi-choice-option"><label><input type="radio" name="q29" value="D">  He requested medical attention</label></div>
-                            </div>
-
-                            <div class="multi-choice-question" data-q-start="30" data-q-end="30">
-                                <div class="question-prompt"><p><strong>30</strong> What does the writer more about Dampier in the second paragraph?</p></div>
-                                <div class="multi-choice-option"><label><input type="radio" name="q30" value="A">  He could cope with physical hardship</label></div>
-                                <div class="multi-choice-option"><label><input type="radio" name="q30" value="B">  He was a more adventurous explorer than Cook was</label></div>
-                                <div class="multi-choice-option"><label><input type="radio" name="q30" value="C">  He had a kind personality than he is given credit for</label></div>
-                                <div class="multi-choice-option"><label><input type="radio" name="q30" value="D">  He was calm in a crisis</label></div>
-                            </div>
-
-                            <div class="multi-choice-question" data-q-start="31" data-q-end="31">
-                                <div class="question-prompt"><p><strong>31</strong> What information is given about Dampier's early life?</p></div>
-                                <div class="multi-choice-option"><label><input type="radio" name="q31" value="A">  He had a difficult relationship with the people looking after him</label></div>
-                                <div class="multi-choice-option"><label><input type="radio" name="q31" value="B">  He was different from other youths who went to see</label></div>
-                                <div class="multi-choice-option"><label><input type="radio" name="q31" value="C">  He wanted to travel from a young age</label></div>
-                                <div class="multi-choice-option"><label><input type="radio" name="q31" value="D">  He came from a family of sailors</label></div>
+                            <div class="matching-question-container">
+                                <div class="matching-questions">
+                                    <div class="matching-question-item" data-q-start="27">
+                                        <span><strong>27.</strong> Mushroom</span>
+                                        <div class="drop-zone" data-dnd-group="p3-27-30" data-q-start="27"></div>
+                                    </div>
+                                    <div class="matching-question-item" data-q-start="28">
+                                        <span><strong>28.</strong> Hummingbird</span>
+                                        <div class="drop-zone" data-dnd-group="p3-27-30" data-q-start="28"></div>
+                                    </div>
+                                    <div class="matching-question-item" data-q-start="29">
+                                        <span><strong>29.</strong> Frog</span>
+                                        <div class="drop-zone" data-dnd-group="p3-27-30" data-q-start="29"></div>
+                                </div>
+                                    <div class="matching-question-item" data-q-start="30">
+                                        <span><strong>30.</strong> Bat</span>
+                                        <div class="drop-zone" data-dnd-group="p3-27-30" data-q-start="30"></div>
+                                    </div>
+                                </div>
+                                <div class="matching-options-bank" data-dnd-group="p3-27-30">
+                                    <span class="drag-item" draggable="true" data-dnd-group="p3-27-30" data-value="A"><strong>A</strong>&nbsp;&nbsp;too fast to be perceived</span>
+                                    <span class="drag-item" draggable="true" data-dnd-group="p3-27-30" data-value="B"><strong>B</strong>&nbsp;&nbsp;film at the place where the animal will pass</span>
+                                    <span class="drag-item" draggable="true" data-dnd-group="p3-27-30" data-value="C"><strong>C</strong>&nbsp;&nbsp;too slow to be visible to human eyes</span>
+                                    <span class="drag-item" draggable="true" data-dnd-group="p3-27-30" data-value="D"><strong>D</strong>&nbsp;&nbsp;adjust the filming speed to make it interesting</span>
+                                </div>
                             </div>
                         </div>
 
-                        <!-- Questions 32-35: Summary Completion (Drag and Drop) -->
-                        <div class="question" data-q-start="32" data-q-end="35">
+                        <div class="question" data-q-start="31" data-q-end="35">
                             <div class="question-prompt">
-                                <p><strong>Questions 32-35</strong></p>
-                                <p>Complete the summary using the list of words below.</p>
+                                <p><strong>Questions 31-35</strong></p>
+                                <p>Complete the summary below. Write <strong>NO MORE THAN THREE WORDS</strong> from the text for each answer.</p>
                             </div>
-                            
-                            <div class="summary-text" style="background-color: #f9f9f9; padding: 20px; border-radius: 8px;">
-                                <h4 style="margin-bottom: 20px; text-align: center;">The Text of A New Voyage Round the World</h4>
-                                <p>The success of the book cannot solely be attributed to the originality of Dampier's <span class="drop-zone summary-drop-zone" data-dnd-group="p3-32-35" data-q-start="32">32</span> . Readers of the time were fascinated with his stories of the time he spent with outlaws and his colorful way of writing. It seems certain that Dampier worked on the book with a mystery <span class="drop-zone summary-drop-zone" data-dnd-group="p3-32-35" data-q-start="33">33</span> . Some aspects of A New Voyage Round the World are problematic, descriptions of <span class="drop-zone summary-drop-zone" data-dnd-group="p3-32-35" data-q-start="34">34</span> were inserted into the account of Dampier's adventures in a way that distracted the reader. It seems that the responsibility for the final version of the book lies with the <span class="drop-zone summary-drop-zone" data-dnd-group="p3-32-35" data-q-start="35">35</span> .</p>
-                            </div>
-                            
-                            <div class="summary-options-bank drag-options-container" data-dnd-group="p3-32-35" style="margin-top: 20px;">
-                                <div class="drag-item" draggable="true" data-dnd-group="p3-32-35" data-value="A"><strong>A</strong> Detailed illustrations</div>
-                                <div class="drag-item" draggable="true" data-dnd-group="p3-32-35" data-value="B"><strong>B</strong> Traveller</div>
-                                <div class="drag-item" draggable="true" data-dnd-group="p3-32-35" data-value="C"><strong>C</strong> Nature</div>
-                                <div class="drag-item" draggable="true" data-dnd-group="p3-32-35" data-value="D"><strong>D</strong> Editor</div>
-                                <div class="drag-item" draggable="true" data-dnd-group="p3-32-35" data-value="E"><strong>E</strong> Writer</div>
-                                <div class="drag-item" draggable="true" data-dnd-group="p3-32-35" data-value="F"><strong>F</strong> Scientific observations</div>
-                                <div class="drag-item" draggable="true" data-dnd-group="p3-32-35" data-value="G"><strong>G</strong> The crew</div>
-                                <div class="drag-item" draggable="true" data-dnd-group="p3-32-35" data-value="H"><strong>H</strong> Artist</div>
-                                <div class="drag-item" draggable="true" data-dnd-group="p3-32-35" data-value="I"><strong>I</strong> Plain language</div>
+                            <div class="summary-text">
+                                <p>Fast motion (professionally known as time-lapse photography) and slow motion (or high-speed photography) are two commonest techniques of photography. To present before audiences something that occurs naturally slow, photographers take each picture at a <input type="text" class="answer-input" id="q31" placeholder="31"> before another picture. When these pictures are finally shown on screen in sequence at a normal motion picture rate, audiences see a <input type="text" class="answer-input" id="q32" placeholder="32"> that is faster than what it naturally is. This technique can make audiences feel as if <input type="text" class="answer-input" id="q33" placeholder="33"> is shrunk. On the other hand, to demonstrate how fast things move, the movement is exposed on a <input type="text" class="answer-input" id="q34" placeholder="34"> of film, and then projected on screen at normal playback speed. This makes viewers feel time is <input type="text" class="answer-input" id="q35" placeholder="35">.</p>
                             </div>
                         </div>
 
-                        <!-- Questions 36-40: YES/NO/NOT GIVEN -->
                         <div class="question" data-q-start="36" data-q-end="40">
                             <div class="question-prompt">
                                 <p><strong>Questions 36-40</strong></p>
-                                <p>Do the following statements agree with the claims of the writer in Reading Passage 3?</p>
-                                <ul style="list-style: none; padding-left: 0;">
-                                    <li><strong>YES</strong> if the statement agrees with the information</li>
-                                    <li><strong>NO</strong> if the statement contradicts the information</li>
-                                    <li><strong>NOT GIVEN</strong> if there is no information on this</li>
-                                </ul>
+                                <p>The text has seven paragraphs. Choose the correct heading.</p>
+                    </div>
+                            <div class="paragraph-matching-container">
+                                                                <div class="paragraph-matching-question" data-q-start="36">
+                            <div class="question-prompt">
+                                        <p><strong>36.</strong> a description of photography's application in various fields <select name="q36" id="q36" class="answer-input">
+                                            <option value="">Select answer</option>
+                                            <option value="A">A</option>
+                                            <option value="B">B</option>
+                                            <option value="C">C</option>
+                                            <option value="D">D</option>
+                                            <option value="E">E</option>
+                                            <option value="F">F</option>
+                                            <option value="G">G</option>
+                                        </select></p>
                             </div>
-                            
-                            <div class="tf-question" data-q-start="36" data-q-end="36">
-                                <div class="tf-question-line"><span class="tf-question-number">36</span><span class="tf-question-text">Many people wrote biographies of Dampier as a result of personal contact with him</span></div>
-                                <div class="tf-options">
-                                    <label class="tf-option"><input type="radio" name="q36" value="YES"> YES</label>
-                                    <label class="tf-option"><input type="radio" name="q36" value="NO"> NO</label>
-                                    <label class="tf-option"><input type="radio" name="q36" value="NOT GIVEN"> NOT GIVEN</label>
-                                </div>
-                            </div>
+                                    
+                        </div>
 
-                            <div class="tf-question" data-q-start="37" data-q-end="37">
-                                <div class="tf-question-line"><span class="tf-question-number">37</span><span class="tf-question-text">Dampier was skilled at making money</span></div>
-                                <div class="tf-options">
-                                    <label class="tf-option"><input type="radio" name="q37" value="YES"> YES</label>
-                                    <label class="tf-option"><input type="radio" name="q37" value="NO"> NO</label>
-                                    <label class="tf-option"><input type="radio" name="q37" value="NOT GIVEN"> NOT GIVEN</label>
-                                </div>
+                                <div class="paragraph-matching-question" data-q-start="37">
+                            <div class="question-prompt">
+                                        <p><strong>37.</strong> a reference to why high-speed photography has a significant role in biology <select name="q37" id="q37" class="answer-input">
+                                            <option value="">Select answer</option>
+                                            <option value="A">A</option>
+                                            <option value="B">B</option>
+                                            <option value="C">C</option>
+                                            <option value="D">D</option>
+                                            <option value="E">E</option>
+                                            <option value="F">F</option>
+                                            <option value="G">G</option>
+                                        </select></p>
                             </div>
+                                    
+                                </div>
+                                
+                                <div class="paragraph-matching-question" data-q-start="38">
+                                    <div class="question-prompt">
+                                        <p><strong>38.</strong> a traditional wisdom that assures readers of the prospects of photography <select name="q38" id="q38" class="answer-input">
+                                            <option value="">Select answer</option>
+                                            <option value="A">A</option>
+                                            <option value="B">B</option>
+                                            <option value="C">C</option>
+                                            <option value="D">D</option>
+                                            <option value="E">E</option>
+                                            <option value="F">F</option>
+                                            <option value="G">G</option>
+                                        </select></p>
+                            </div>
+                                    
+                                </div>
+                                
+                                <div class="paragraph-matching-question" data-q-start="39">
+                                    <div class="question-prompt">
+                                        <p><strong>39.</strong> a reference to how film is processed before final release  <select name="q39" id="q39" class="answer-input">
+                                            <option value="">Select answer</option>
+                                            <option value="A">A</option>
+                                            <option value="B">B</option>
+                                            <option value="C">C</option>
+                                            <option value="D">D</option>
+                                            <option value="E">E</option>
+                                            <option value="F">F</option>
+                                            <option value="G">G</option>
+                                        </select></p>
+                            </div>
+                                    
+                        </div>
 
-                            <div class="tf-question" data-q-start="38" data-q-end="38">
-                                <div class="tf-question-line"><span class="tf-question-number">38</span><span class="tf-question-text">Dampier's patience was represented by the writer</span></div>
-                                <div class="tf-options">
-                                    <label class="tf-option"><input type="radio" name="q38" value="YES"> YES</label>
-                                    <label class="tf-option"><input type="radio" name="q38" value="NO"> NO</label>
-                                    <label class="tf-option"><input type="radio" name="q38" value="NOT GIVEN"> NOT GIVEN</label>
-                                </div>
+                                <div class="paragraph-matching-question" data-q-start="40">
+                            <div class="question-prompt">
+                                        <p><strong>40.</strong> a description of filming shooting without human effort <select name="q40" id="q40" class="answer-input">
+                                            <option value="">Select answer</option>
+                                            <option value="A">A</option>
+                                            <option value="B">B</option>
+                                            <option value="C">C</option>
+                                            <option value="D">D</option>
+                                            <option value="E">E</option>
+                                            <option value="F">F</option>
+                                            <option value="G">G</option>
+                                        </select></p>
                             </div>
-                            
-                            <div class="tf-question" data-q-start="39" data-q-end="39">
-                                <div class="tf-question-line"><span class="tf-question-number">39</span><span class="tf-question-text">A New Voyage Round the World is considered as one of the most modern books</span></div>
-                                <div class="tf-options">
-                                    <label class="tf-option"><input type="radio" name="q39" value="YES"> YES</label>
-                                    <label class="tf-option"><input type="radio" name="q39" value="NO"> NO</label>
-                                    <label class="tf-option"><input type="radio" name="q39" value="NOT GIVEN"> NOT GIVEN</label>
-                                </div>
-                            </div>
-                            
-                            <div class="tf-question" data-q-start="40" data-q-end="40">
-                                <div class="tf-question-line"><span class="tf-question-number">40</span><span class="tf-question-text">Dampier supervised his neighbour's plantation in Jamaica</span></div>
-                                <div class="tf-options">
-                                    <label class="tf-option"><input type="radio" name="q40" value="YES"> YES</label>
-                                    <label class="tf-option"><input type="radio" name="q40" value="NO"> NO</label>
-                                    <label class="tf-option"><input type="radio" name="q40" value="NOT GIVEN"> NOT GIVEN</label>
                                 </div>
                             </div>
                         </div>
@@ -2242,7 +2409,7 @@
     </div>
 
     <!-- Bottom Navigation -->
-    <nav class="nav-row perScorableItem" aria-label="Questions" id="navRow" style="display: none;">
+    <nav class="nav-row perScorableItem" aria-label="Questions">
         <div class="footer__questionWrapper___1tZ46 multiple" role="tablist">
             <button role="tab" class="footer__questionNo___3WNct" onclick="switchToPart(1)">
                 <span>
@@ -2321,7 +2488,7 @@
         
         <button id="deliver-button" aria-label="Review your answers" class="footer__deliverButton___3FM07">
             <i class="fa fa fa-check" aria-hidden="true"></i>
-            <span>Check Answers</span>
+            <span>Send & Continue</span>
         </button>
     </nav>
 
@@ -2354,70 +2521,10 @@
             </div>
         </div>
     </div>
-    </div><!-- end app-content -->
 
+    <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+    <script src="./telegram-integration.js"></script>
     <script>
-    // Login functionality
-    const CORRECT_PASSWORD = 'exam123';
-    let currentUserName = '';
-
-    function handleLogin(event) {
-        if (event) event.preventDefault();
-        
-        const userNameInput = document.getElementById('userName');
-        const passwordInput = document.getElementById('userPassword');
-        const loginError = document.getElementById('loginError');
-        const loginScreen = document.getElementById('loginScreen');
-        const appContent = document.getElementById('appContent');
-        const navRow = document.getElementById('navRow');
-        
-        if (!userNameInput || !passwordInput) {
-            console.error('Login inputs not found');
-            return false;
-        }
-        
-        const userName = userNameInput.value.trim();
-        const password = passwordInput.value;
-        
-        if (password === CORRECT_PASSWORD) {
-            currentUserName = userName;
-            localStorage.setItem('ielts-user-name', userName);
-            
-            if (loginScreen) loginScreen.style.display = 'none';
-            if (appContent) {
-                appContent.style.display = 'block';
-                appContent.classList.add('visible');
-            }
-            if (navRow) navRow.style.display = 'flex';
-        } else {
-            if (loginError) loginError.style.display = 'block';
-        }
-        return false;
-    }
-
-    // Show login screen or auto-login
-    document.addEventListener('DOMContentLoaded', () => {
-        const savedUser = localStorage.getItem('ielts-user-name');
-        const loginScreen = document.getElementById('loginScreen');
-        const appContent = document.getElementById('appContent');
-        const navRow = document.getElementById('navRow');
-        
-        if (savedUser) {
-            // Auto-login if user came from previous test
-            currentUserName = savedUser;
-            if (loginScreen) loginScreen.style.display = 'none';
-            if (appContent) {
-                appContent.style.display = 'block';
-                appContent.classList.add('visible');
-            }
-            if (navRow) navRow.style.display = 'flex';
-        } else {
-            // Make sure login screen is visible
-            if (loginScreen) loginScreen.style.display = 'flex';
-            if (appContent) appContent.style.display = 'none';
-        }
-    });
-
     document.addEventListener('DOMContentLoaded', () => {
         // --- STATE VARIABLES ---
         let currentPassage = 1;
@@ -2428,6 +2535,55 @@
         let draggedItem = null;
         let activeQuestionElement = null;
         let selectedDragItem = null;
+        let submissionInProgress = false;
+
+        const submissionToast = document.getElementById('submission-toast');
+        const authOverlay = document.getElementById('auth-overlay');
+        const authForm = document.getElementById('auth-form');
+        const authError = document.getElementById('auth-error');
+        const candidateNameInput = document.getElementById('candidate-name');
+        const passwordInput = document.getElementById('access-password');
+
+        function showSubmissionToast(message, isError = false) {
+            if (!submissionToast) return;
+            submissionToast.textContent = message;
+            submissionToast.style.background = isError ? '#7a1c1c' : '#050505';
+            submissionToast.classList.add('visible');
+        }
+
+        function hideSubmissionToast() {
+            if (!submissionToast) return;
+            submissionToast.classList.remove('visible');
+        }
+
+        function setupAuthGate(onUnlock) {
+            if (!authOverlay || !authForm) {
+                onUnlock && onUnlock(localStorage.getItem('candidateName') || '');
+                return;
+            }
+            document.body.classList.add('auth-locked');
+            const storedName = localStorage.getItem('candidateName') || '';
+            if (storedName) candidateNameInput.value = storedName;
+
+            authForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                authError.textContent = '';
+                const name = candidateNameInput.value.trim();
+                const password = passwordInput.value.trim();
+                if (!name) {
+                    authError.textContent = 'Введите имя.';
+                    return;
+                }
+                if (password !== 'iwant9score') {
+                    authError.textContent = 'Неверный пароль.';
+                    return;
+                }
+                localStorage.setItem('candidateName', name);
+                authOverlay.classList.add('hidden');
+                document.body.classList.remove('auth-locked');
+                onUnlock && onUnlock(name);
+            });
+        }
 
         // --- GLOBAL FUNCTIONS ---
         function getFirstQuestionOfPart(part) {
@@ -2455,50 +2611,199 @@
 
         // --- ANSWERS ---
         const correctAnswers = {
-            // Part 1 (1-13) - An important language development
-            '1': 'TRUE',
-            '2': 'FALSE',
-            '3': 'TRUE',
-            '4': 'TRUE',
-            '5': 'NOT GIVEN',
-            '6': 'stones',
-            '7': 'cloth',
-            '8': 'receipt',
-            '9': 'envelope',
-            '10': 'sheep',
-            '11': 'triangles',
-            '12': 'accounting',
-            '13': 'paper',
-            // Part 2 (14-22) - Children's comprehension of television advertising
-            '14': 'C',
-            '15': 'D',
-            '16': 'G',
-            '17': 'D',
-            '18': 'E',
-            '19': 'B',
-            '20': 'D',
-            '21': 'C',
-            '22': 'F',
-            '23': 'scene',
-            '24': 'separators',
-            '25': 'host-selling',
-            '26': 'funnier',
-            // Part 3 (27-40) - A New Voyage Round the World
-            '27': 'A',
-            '28': 'C',
-            '29': 'B',
-            '30': 'A',
-            '31': 'C',
-            '32': 'F',
-            '33': 'E',
-            '34': 'C',
-            '35': 'D',
-            '36': 'NOT GIVEN',
-            '37': 'NO',
-            '38': 'NO',
-            '39': 'NOT GIVEN',
-            '40': 'YES'
+            // Part 1 (1-13)
+            '1': 'C',
+            '2': 'E',
+            '3': 'B',
+            '4': 'A',
+            '5': 'D',
+            '6': 'A',
+            '7': 'FALSE',
+            '8': 'NOT GIVEN',
+            '9': 'FALSE',
+            '10': 'TRUE',
+            '11': 'agile',
+            '12': 'moult',
+            '13': 'krill',
+            // Part 2 (14-26)
+            '14': 'clay',
+            '15': 'water',
+            '16': 'straw',
+            '17': 'cow manure',
+            '18': '950 degrees',
+            '19': '60 minutes',
+            '20': 'FALSE',
+            '21': 'TRUE',
+            '22': 'NOT GIVEN',
+            '23': 'NOT GIVEN',
+            '24': 'C',
+            '25': 'D',
+            '26': 'A',
+            // Part 3 (27-40)
+            '27': 'C',
+            '28': 'A',
+            '29': 'D',
+            '30': 'B',
+            '31': ['lapse', 'time interval'],
+            '32': 'continuous action',
+            '33': 'time',
+            '34': 'greater length',
+            '35': 'slowed down proportionately',
+            '36': 'A',
+            '37': 'C',
+            '38': 'G',
+            '39': 'E',
+            '40': 'F'
         };
+
+        function normalizeAnswer(value) {
+            return (value || '')
+                .toString()
+                .toLowerCase()
+                .replace(/[^a-z0-9\s]/g, '')
+                .replace(/\s+/g, ' ')
+                .trim();
+        }
+
+        function collectReadingResults() {
+            const resultsData = [];
+            let score = 0;
+            const totalQuestions = 40;
+
+            for (let i = 1; i <= totalQuestions; i++) {
+                const key = String(i);
+                const correct = correctAnswers[key];
+                const correctText = Array.isArray(correct) ? correct.join(' / ') : correct;
+                let userAnswer = '';
+                let isCorrect = false;
+
+                const textInput = document.getElementById(`q${i}`);
+                const radioGroup = document.querySelectorAll(`input[name="q${i}"][type="radio"]`);
+
+                if (textInput && (textInput.tagName === 'INPUT' || textInput.tagName === 'SELECT')) {
+                    userAnswer = textInput.value.trim();
+                    if (textInput.tagName === 'SELECT') {
+                        isCorrect = userAnswer === correct;
+                    } else {
+                        const normUser = normalizeAnswer(userAnswer);
+                        if (Array.isArray(correct)) {
+                            isCorrect = correct.some(ans => normalizeAnswer(ans) === normUser);
+                        } else {
+                            isCorrect = normalizeAnswer(correct) === normUser;
+                        }
+                    }
+                }
+                else if (document.querySelector(`.drop-zone[data-q-start="${i}"]`)) {
+                    const dropZone = document.querySelector(`.drop-zone[data-q-start="${i}"]`);
+                    const droppedItem = dropZone ? dropZone.querySelector('.drag-item') : null;
+                    userAnswer = droppedItem ? droppedItem.dataset.value || droppedItem.dataset.optionId || droppedItem.textContent.trim() : '';
+                    isCorrect = userAnswer === correct;
+                }
+                else if (document.querySelector(`.summary-drop-zone[data-question="${i}"]`)) {
+                    const dropZone = document.querySelector(`.summary-drop-zone[data-question="${i}"]`);
+                    const droppedItem = dropZone ? dropZone.querySelector('.drag-item') : null;
+                    userAnswer = droppedItem ? droppedItem.dataset.value || droppedItem.textContent.trim() : '';
+                    isCorrect = userAnswer === correct;
+                }
+                else if (document.querySelector(`.passage-drag-zone[data-question="${i}"]`)) {
+                    const dropZone = document.querySelector(`.passage-drag-zone[data-question="${i}"]`);
+                    const droppedItem = dropZone ? dropZone.querySelector('.drag-item') : null;
+                    userAnswer = droppedItem ? droppedItem.dataset.value || droppedItem.textContent.trim() : '';
+                    isCorrect = userAnswer === correct;
+                }
+                else if (radioGroup.length > 0) {
+                    const checkedRadio = document.querySelector(`input[name="q${i}"]:checked`);
+                    userAnswer = checkedRadio ? checkedRadio.value : '';
+                    isCorrect = userAnswer === correct;
+                }
+                else if (document.querySelector(`.clickable-cell[data-question="${i}"]`)) {
+                    const selectedCell = document.querySelector(`.clickable-cell[data-question="${i}"][data-selected="true"]`);
+                    userAnswer = selectedCell ? selectedCell.dataset.answer || selectedCell.dataset.value || '' : '';
+                    isCorrect = userAnswer === correct;
+                }
+
+                if (isCorrect) {
+                    score += 1;
+                }
+
+                resultsData.push({
+                    question: i,
+                    userAnswer: userAnswer || 'Not Answered',
+                    correctAnswer: correctText,
+                    isCorrect
+                });
+            }
+
+            return { score, totalQuestions, resultsData };
+        }
+
+        function generateReadingPDF(candidateId, resultsData, score, totalQuestions) {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            const now = new Date();
+            const date = now.toLocaleDateString('en-GB');
+            const time = now.toLocaleTimeString('en-GB');
+
+            doc.setFont("helvetica", "bold");
+            doc.setFontSize(20);
+            doc.text("IELTS Reading Test", 105, 18, { align: "center" });
+
+            doc.setFontSize(12);
+            doc.setFont("helvetica", "normal");
+            doc.text(`Candidate: ${candidateId}`, 20, 30);
+            doc.text(`Date: ${date}`, 20, 36);
+            doc.text(`Time: ${time}`, 20, 42);
+            doc.text(`Score: ${score} / ${totalQuestions}`, 20, 48);
+
+            let y = 60;
+            resultsData.forEach((item) => {
+                if (y > 280) {
+                    doc.addPage();
+                    y = 20;
+                }
+                doc.setFont("helvetica", "bold");
+                doc.text(`Q${item.question}`, 20, y);
+                doc.setFont("helvetica", "normal");
+                doc.text(`Your answer: ${item.userAnswer}`, 35, y);
+                doc.text(`Correct: ${item.correctAnswer}`, 35, y + 6);
+                y += 14;
+            });
+
+            return doc.output('blob');
+        }
+
+        async function handleReadingSubmit(triggerSource = 'manual') {
+            if (submissionInProgress) return;
+            submissionInProgress = true;
+            if (deliverButton) {
+                deliverButton.disabled = true;
+                deliverButton.querySelector('span').textContent = 'Sending...';
+            }
+
+            const candidateId = (localStorage.getItem('candidateName') || 'Candidate').trim() || 'Candidate';
+            showSubmissionToast('Отправляем Reading в Telegram…');
+
+            try {
+                const evaluation = collectReadingResults();
+                const pdfBlob = generateReadingPDF(candidateId, evaluation.resultsData, evaluation.score, evaluation.totalQuestions);
+                const caption = window.telegramIntegration.formatReadingMessage(candidateId, evaluation.score, evaluation.totalQuestions);
+                await window.telegramIntegration.sendDocument(
+                    pdfBlob,
+                    `Reading_${candidateId.replace(/\\s+/g, '_')}_${Date.now()}.pdf`,
+                    caption
+                );
+                showSubmissionToast('Результаты отправлены. Переход к Writing…');
+                setTimeout(() => { window.location.href = 'Writing.html'; }, 1000);
+            } catch (error) {
+                console.error('Failed to send reading results', error);
+                showSubmissionToast('Не удалось отправить в Telegram', true);
+                if (deliverButton) {
+                    deliverButton.disabled = false;
+                    deliverButton.querySelector('span').textContent = 'Send & Continue';
+                }
+                submissionInProgress = false;
+            }
+        }
 
         // --- INITIALIZATION ---
         function initialize() {
@@ -2512,7 +2817,7 @@
             
             document.body.addEventListener('input', updateAllIndicators);
             document.body.addEventListener('change', updateAllIndicators);
-            deliverButton.addEventListener('click', checkAnswers);
+            deliverButton.addEventListener('click', () => handleReadingSubmit('click'));
             timerToggleButton.addEventListener('click', toggleTimer);
             timerResetButton.addEventListener('click', resetTimer);
 
@@ -2615,6 +2920,81 @@
 
             resizer.addEventListener('mousedown', initResize, false);
             initializeContextMenu();
+
+            // Ensure indicators (answered states, counts) are correct on initial load
+            updateAllIndicators();
+
+            // Ensure the bottom menu reflects the currently focused input as active
+            // 1) For text/select inputs with ids like q<number>
+            document.querySelectorAll('.answer-input').forEach(inputEl => {
+                const attach = (evtName) => inputEl.addEventListener(evtName, (e) => {
+                    const id = inputEl.id || '';
+                    if (id.startsWith('q')) {
+                        const qNum = parseInt(id.replace('q',''), 10);
+                        if (!isNaN(qNum)) {
+                            goToQuestion(qNum);
+                        }
+                    } else {
+                        // Fallback: find nearest container with data-q-start
+                        const container = inputEl.closest('[data-q-start]');
+                        if (container) {
+                            const qNum = parseInt(container.dataset.qStart, 10);
+                            if (!isNaN(qNum)) goToQuestion(qNum);
+                        }
+                    }
+                });
+                attach('focus');
+                attach('click');
+                attach('input');
+                attach('change');
+            });
+
+            // 2) For radio buttons (TF/NG and MCQ)
+            document.querySelectorAll('input[type="radio"]').forEach(radioEl => {
+                const update = () => {
+                    const name = radioEl.name || '';
+                    if (name.startsWith('q')) {
+                        const qNum = parseInt(name.replace('q',''), 10);
+                        if (!isNaN(qNum)) {
+                            goToQuestion(qNum);
+                        }
+                    }
+                };
+                radioEl.addEventListener('focus', update);
+                radioEl.addEventListener('change', update);
+                radioEl.addEventListener('click', update);
+            });
+            
+            // 3) For clickable cells in questions 1-6 (matching table)
+            const clickableCells = document.querySelectorAll('.clickable-cell');
+            console.log('Found clickable cells:', clickableCells.length);
+            
+            // Temporary debug alert
+            if (clickableCells.length === 0) {
+                alert('No clickable cells found! This might indicate a problem.');
+            } else {
+                console.log('Successfully found clickable cells');
+            }
+            
+            // Debug: Log each cell to see what we found
+            clickableCells.forEach((cell, index) => {
+                console.log(`Cell ${index}:`, cell);
+                console.log(`  - data-question:`, cell.getAttribute('data-question'));
+                console.log(`  - data-value:`, cell.getAttribute('data-value'));
+                console.log(`  - classes:`, cell.className);
+                
+                cell.addEventListener('click', function() {
+                    console.log('Cell clicked:', this);
+                    const questionNum = this.getAttribute('data-question');
+                    const value = this.getAttribute('data-value');
+                    console.log('Question:', questionNum, 'Value:', value);
+                    if (questionNum && value) {
+                        selectCell(this, questionNum, value);
+                    } else {
+                        console.log('Missing data attributes:', { questionNum, value });
+                    }
+                });
+            });
         }
 
         // --- CORE TEST LOGIC ---
@@ -2633,7 +3013,7 @@
                 item.style.pointerEvents = 'none';
             });
 
-            document.querySelectorAll('.drop-zone').forEach(zone => {
+            document.querySelectorAll('.drop-zone, .passage-drag-zone').forEach(zone => {
                 zone.style.pointerEvents = 'none';
                 zone.classList.add('disabled');
             });
@@ -2740,6 +3120,70 @@
                         if (dropZone) {
                             dropZone.classList.add('incorrect');
                         }
+                        if (correctAnswer) {
+                            const correctAnswerSpan = document.createElement('span');
+                            correctAnswerSpan.className = 'correct-answer-display';
+                            correctAnswerSpan.innerHTML = `&nbsp;➜&nbsp;<span class="correct-answer-highlight">${correctAnswer}</span>`;
+                            dropZone.appendChild(correctAnswerSpan);
+                        }
+                    }
+                }
+                // Handle summary drag-and-drop questions (27-31) using summary-drop-zone
+                else if (document.querySelector(`.summary-drop-zone[data-question="${i}"]`)) {
+                    console.log(`🔍 Checking summary drag-and-drop question ${i}`);
+                    const dropZone = document.querySelector(`.summary-drop-zone[data-question="${i}"]`);
+                    const droppedItem = dropZone ? dropZone.querySelector('.drag-item') : null;
+                    const correctAnswer = correctAnswers[questionKey];
+
+                    if (droppedItem) {
+                        userAnswer = droppedItem.dataset.value;
+                        userAnswerDisplay = userAnswer;
+                        isCorrect = userAnswer === correctAnswer;
+
+                        dropZone.classList.add(isCorrect ? 'correct' : 'incorrect');
+                        if (isCorrect) {
+                            score++;
+                        } else if (correctAnswer) {
+                            const correctAnswerSpan = document.createElement('span');
+                            correctAnswerSpan.className = 'correct-answer-display';
+                            correctAnswerSpan.innerHTML = `&nbsp;➜&nbsp;<span class="correct-answer-highlight">${correctAnswer}</span>`;
+                            dropZone.appendChild(correctAnswerSpan);
+                        }
+                    } else {
+                        userAnswerDisplay = 'Not Answered';
+                        dropZone.classList.add('incorrect');
+                        if (correctAnswer) {
+                            const correctAnswerSpan = document.createElement('span');
+                            correctAnswerSpan.className = 'correct-answer-display';
+                            correctAnswerSpan.innerHTML = `&nbsp;➜&nbsp;<span class="correct-answer-highlight">${correctAnswer}</span>`;
+                            dropZone.appendChild(correctAnswerSpan);
+                        }
+                    }
+                }
+                // Handle passage drag-and-drop questions (27-34) using passage-drag-zone
+                else if (document.querySelector(`.passage-drag-zone[data-question="${i}"]`)) {
+                    console.log(`🔍 Checking passage drag-and-drop question ${i}`);
+                    const dropZone = document.querySelector(`.passage-drag-zone[data-question="${i}"]`);
+                    const droppedItem = dropZone ? dropZone.querySelector('.drag-item') : null;
+                    const correctAnswer = correctAnswers[questionKey];
+
+                    if (droppedItem) {
+                        userAnswer = droppedItem.dataset.value;
+                        userAnswerDisplay = userAnswer;
+                        isCorrect = userAnswer === correctAnswer;
+
+                        dropZone.classList.add(isCorrect ? 'correct' : 'incorrect');
+                        if (isCorrect) {
+                            score++;
+                        } else if (correctAnswer) {
+                            const correctAnswerSpan = document.createElement('span');
+                            correctAnswerSpan.className = 'correct-answer-display';
+                            correctAnswerSpan.innerHTML = `&nbsp;➜&nbsp;<span class="correct-answer-highlight">${correctAnswer}</span>`;
+                            dropZone.appendChild(correctAnswerSpan);
+                        }
+                    } else {
+                        userAnswerDisplay = 'Not Answered';
+                        dropZone.classList.add('incorrect');
                         if (correctAnswer) {
                             const correctAnswerSpan = document.createElement('span');
                             correctAnswerSpan.className = 'correct-answer-display';
@@ -2898,10 +3342,11 @@
                  
                 // For showing results in the modal
                  const resultRow = `
-                    <div class="result-row ${isCorrect ? '' : 'incorrect'}">
+                    <div class="result-row ${isCorrect ? 'correct' : 'incorrect'}">
                         <span class="q-num">${i}</span>
                         <span class="user-ans">${userAnswerDisplay}</span>
                         <span class="correct-ans">${correctAnswerText}</span>
+                        <span class="status-badge ${isCorrect ? 'ok' : 'bad'}">${isCorrect ? 'Correct' : 'Incorrect'}</span>
                     </div>`;
                 resultsDetailsContainer.innerHTML += resultRow;
                 
@@ -2913,88 +3358,23 @@
                 }
             }
 
-            const band = calculateBandScore(score);
+            document.getElementById('results-score').textContent = score;
+            document.getElementById('results-band').textContent = calculateBandScore(score);
+            document.body.classList.add('results-mode');
+            document.getElementById('results-modal').classList.remove('hidden');
             
-            // Send to Telegram and redirect to Writing
-            sendReadingToTelegram(score, band, resultsDetailsContainer.innerHTML);
-        }
-
-        async function sendReadingToTelegram(score, band, resultsHTML) {
-            const candidateName = localStorage.getItem('ielts-user-name') || 'Unknown';
+            // Change button to "My Result" with green styling
+            deliverButton.innerHTML = `<span>My Result</span>`;
+            deliverButton.style.backgroundColor = '#4CAF50';
+            deliverButton.style.color = 'white';
+            deliverButton.style.borderColor = '#4CAF50';
+            deliverButton.disabled = false;
+            deliverButton.style.cursor = 'pointer';
+            deliverButton.removeEventListener('click', checkAnswers);
+            deliverButton.addEventListener('click', showResultsModal);
             
-            // Show loading message
-            deliverButton.innerHTML = '<span>Отправка...</span>';
-            deliverButton.disabled = true;
-
-            try {
-                // Generate PDF
-                const { jsPDF } = window.jspdf;
-                const doc = new jsPDF();
-                
-                const now = new Date();
-                const dateString = now.toLocaleDateString('ru-RU');
-                const timeString = now.toLocaleTimeString('ru-RU');
-
-                // Title
-                doc.setFontSize(24);
-                doc.setFont("helvetica", "bold");
-                doc.text("IELTS Reading Test Results", 105, 20, { align: "center" });
-
-                // Candidate info
-                doc.setFontSize(12);
-                doc.setFont("helvetica", "normal");
-                doc.text(`Candidate: ${candidateName}`, 20, 40);
-                doc.text(`Date: ${dateString}`, 20, 48);
-                doc.text(`Time: ${timeString}`, 20, 56);
-                doc.text(`Score: ${score}/40`, 20, 64);
-                doc.text(`Band: ${band}`, 20, 72);
-
-                // Extract results from HTML
-                doc.setFontSize(14);
-                doc.setFont("helvetica", "bold");
-                doc.text("Detailed Results", 20, 90);
-
-                doc.setFontSize(10);
-                doc.setFont("helvetica", "normal");
-                let yPos = 100;
-                
-                // Parse results from HTML
-                const tempDiv = document.createElement('div');
-                tempDiv.innerHTML = resultsHTML;
-                const resultRows = tempDiv.querySelectorAll('.result-row');
-                
-                resultRows.forEach((row) => {
-                    if (yPos > 270) {
-                        doc.addPage();
-                        yPos = 20;
-                    }
-                    const qNum = row.querySelector('.q-num')?.textContent || '';
-                    const userAns = row.querySelector('.user-ans')?.textContent || '';
-                    const correctAns = row.querySelector('.correct-ans')?.textContent || '';
-                    const isCorrect = !row.classList.contains('incorrect');
-                    const status = isCorrect ? '✓' : '✗';
-                    doc.text(`Q${qNum}: ${userAns} | Correct: ${correctAns} | ${status}`, 20, yPos);
-                    yPos += 7;
-                });
-
-                const pdfBlob = doc.output('blob');
-                const filename = `Reading_${candidateName.replace(/\s+/g, '_')}_${now.getTime()}.pdf`;
-
-                // Send PDF with caption to Telegram (one message)
-                const caption = window.telegramIntegration.formatReadingMessage(candidateName, score, 40);
-                await window.telegramIntegration.sendDocument(pdfBlob, filename, caption);
-
-                // Redirect to Writing test
-                deliverButton.innerHTML = '<span>Переход к Writing...</span>';
-                setTimeout(() => {
-                    window.location.href = 'Writing.html';
-                }, 1500);
-
-            } catch (error) {
-                console.error('Error sending to Telegram:', error);
-                alert('Результаты сохранены. Переход к следующему тесту...');
-                window.location.href = 'Writing.html';
-            }
+            // Highlight correct answers in the passage
+            highlightCorrectAnswersInPassage();
         }
 
         function calculateBandScore(score) {
@@ -3015,61 +3395,62 @@
         }
 
         function highlightCorrectAnswersInPassage() {
-            // Define the text passages and their corresponding question numbers for Part 1
-            // Define the text passages and their corresponding question numbers for Part 1
-            // Define the text passages and their corresponding question numbers for Part 1 (An important language development)
+            // Define highlights for Part 1 (Tench and Australia)
+            // Part 1: Emperor Penguins & Antarctic Sea Ice
             const part1Highlights = [
-                { question: 1, text: "rectangular clay tablets measuring several centimetres across", answer: "TRUE" },
-                { question: 2, text: "Sumerian writers would impress these lines into the wet clay", answer: "FALSE" },
-                { question: 3, text: "signs were often almost too small to see with the naked eye", answer: "TRUE" },
-                { question: 4, text: "Cuneiform signs were used for the writing of at least a dozen languages", answer: "TRUE" },
-                { question: 5, text: "similar to how the Latin alphabet is used today", answer: "NOT GIVEN" },
-                { question: 6, text: "take small stones and use them as tokens", answer: "stones" },
-                { question: 7, text: "placed in a cloth container", answer: "cloth" },
-                { question: 8, text: "provided to a buyer as a receipt for a transaction", answer: "receipt" },
-                { question: 9, text: "putting tokens in a container resembling an envelope", answer: "envelope" },
-                { question: 10, text: "an image which resembled the drawing of a sheep meant just that", answer: "sheep" },
-                { question: 11, text: "the signs took the form of tringles, which became common cuneiform signs", answer: "triangles" }, // Note: text has typo "tringles"
-                { question: 11, text: "signs took the form of tringles", answer: "triangles" },
-                { question: 12, text: "cuneiform developed primarily as a tool for accounting", answer: "accounting" },
-                { question: 13, text: "Rawlinson made impressions of the marks on large pieces of paper", answer: "paper" }
+                { question: 1, text: "Early break-up of sea ice can cause catastrophic breeding failure".toLowerCase() },
+                { question: 2, text: "With a doubling of greenhouse gas concentrations over the next century, we estimate that the extent of Antarctic sea ice would decrease by about one third".toLowerCase() },
+                { question: 3, text: "The adults are reliant on stable sea ice for moulting, and for me, that's the greatest concern".toLowerCase() },
+                { question: 4, text: "After a snowstorm, they can see how many eggs have got frozen, and how many chicks have died".toLowerCase() },
+                { question: 5, text: "If the earth warms by 5 or 6 degrees, I can't see that there's going to be much sea ice left anywhere on Earth".toLowerCase() },
+                { question: 6, text: "The sea ice is the basis of the Antarctic ecosystem".toLowerCase() },
+                { question: 7, text: "After the egg is laid, the females head back to sea to feed, leaving the males behind to incubate it".toLowerCase() },
+                { question: 8, text: "They have even been held up as role models by evangelical Christians".toLowerCase() },
+                { question: 9, text: "It's impossible to say whether the overall number of birds is rising or falling".toLowerCase() },
+                { question: 10, text: "The stronger winds are thought to be a consequence of ozone loss".toLowerCase() },
+                { question: 11, text: "They aren't agile enough to scale the steep rocks and ice precipices".toLowerCase() },
+                { question: 12, text: "They must find ice floes to shelter on that are large enough to survive this period. The adults are reliant on stable sea ice for moulting".toLowerCase() },
+                { question: 13, text: "The source of much of the penguins' energy, directly or indirectly, is krill".toLowerCase() }
             ];
 
-            // Define the text passages and their corresponding question numbers for Part 2 (Children's comprehension of television advertising)
+            // Part 2: Pottery Water Filters & Clean Water
             const part2Highlights = [
-                { question: 14, text: "In this new multi-channel era, there are numerous national program services", answer: "C" },
-                { question: 15, text: "toys, cereals, candies, and fast-food restaurants", answer: "D" },
-                { question: 16, text: "is known as host-selling. This type of advertising... restricted in the US", answer: "G" },
-                { question: 17, text: "unique sound effects and rapidly moving images... associate the product with playfulness and happiness", answer: "D" },
-                { question: 18, text: "disclaimer actually leaves many children with the misimpression that cereal alone is sufficient", answer: "E" },
-                { question: 19, text: "associate the product with playfulness and happiness, rather than to provide any actual product-related information", answer: "B" },
-                { question: 20, text: "time slots unpopular with their parents, such as Saturday mornings", answer: "D" },
-                { question: 21, text: "influence $190 billion in family purchases", answer: "C" },
-                { question: 22, text: "child-friendly language... more than doubled the proportion of children who understood", answer: "F" },
-                { question: 23, text: "explaining them as if they were a scene in the program itself", answer: "scene" },
-                { question: 24, text: "announcements called separators to show that there is going to be a commercial break", answer: "separators" }, // text might separate "called" and "separators" slightly but "called 'separators'"
-                { question: 25, text: "known as host-selling", answer: "host-selling" },
-                { question: 26, text: "commercials are funnier than TV programs", answer: "funnier" }
+                { question: 14, text: "Take a handful of dry, crushed clay, mix it with a handful of organic material".toLowerCase() },
+                { question: 15, text: "Add enough water to make a stiff biscuit-like mixture".toLowerCase() },
+                { question: 16, text: "Surround the pots with straw".toLowerCase() },
+                { question: 17, text: "Put them in a mound of cow manure".toLowerCase() },
+                { question: 18, text: "Will be up to 950 degrees after another 20 to 30 minutes".toLowerCase() },
+                { question: 19, text: "In less than 60 minutes the filters are finished".toLowerCase() },
+                { question: 20, text: "The fuel can reach a temperature of 700 degrees in half an hour and will be up to 950 degrees after another 20 to 30 minutes".toLowerCase() },
+                { question: 21, text: "Initial research found the local clay to be too fine".toLowerCase() },
+                { question: 22, text: "Used coffee grounds have given the best results to date".toLowerCase() },
+                { question: 23, text: "Tests with the deadly E-coli bacterium have seen the filters remove 96.4 to 99.8 per cent".toLowerCase() },
+                { question: 24, text: "The walls of the finished pot should be about as thick as an adult's index".toLowerCase() },
+                { question: 25, text: "World Vision project involving the Manatuto community in East Timor wanted to help set up a small industry manufacturing water filters".toLowerCase() },
+                { question: 26, text: "With no plans to patent his idea, there will be no legal obstacles to it being adopted".toLowerCase() }
             ];
 
-            // Define the text passages and their corresponding question numbers for Part 3 (A New Voyage Round the World)
+            // Part 3: High-Speed Photography & Time Manipulation
             const part3Highlights = [
-                { question: 27, text: "Part travelogue, part historical record... part scientific treatise", answer: "A" },
-                { question: 28, text: "so groundbreaking was Dampier's account that the writers Swift and Defoe were inspired", answer: "C" },
-                { question: 29, text: "dislike for the cold of more southerly latitudes", answer: "B" },
-                { question: 30, text: "endure a never-ending plague of discomforts and ailments... living entirely on turtles and goats", answer: "A" },
-                { question: 31, text: "very early inclinations to see the world", answer: "C" },
-                { question: 32, text: "science observations", answer: "F" }, // mapping "findings regarding meteorology and natural history"
-                { question: 32, text: "findings regarding meteorology and natural history", answer: "F" },
-                { question: 33, text: "Dampier himself admits... he received help with the writing", answer: "E" },
-                { question: 34, text: "observations about nature are sometimes roughly dropped into the narrative", answer: "C" },
-                { question: 35, text: "James Knapton responsible", answer: "D" },
-                { question: 36, text: "Dampier's life has been chronicled... I refer the reader", answer: "NOT GIVEN" },
-                { question: 37, text: "Dampier was not blessed in the art of wealth accumulation", answer: "NO" },
-                { question: 38, text: "hot-tempered and a weak leader", answer: "NO" },
-                { question: 39, text: "one of the most famous books", answer: "NOT GIVEN" },
-                { question: 40, text: "neighbour offered Dampier a position overseeing his plantation", answer: "YES" }
+                { question: 27, text: "The life cycle of a mushroom is incredibly subtle to the human eye".toLowerCase() },
+                { question: 28, text: "A hummingbird flaps its wings up to 80 times every second. The only way to truly capture this motion is with cameras that will slow down time".toLowerCase() },
+                { question: 29, text: "At later editing stage this high frame rate will only be preserved for the prey catching part".toLowerCase() },
+                { question: 30, text: "Photographers or film-makers often place camera near the bat cave, on the path of the flying bats".toLowerCase() },
+                { question: 31, text: "A series of photographs are taken and used in sequence. Each frame is taken with a lapse at a time interval".toLowerCase() },
+                { question: 32, text: "When played back at normal speed, a continuous action is produced".toLowerCase() },
+                { question: 33, text: "We are shrinking time".toLowerCase() },
+                { question: 34, text: "A greater length of film is taken at a high sampling frequency or frame rate".toLowerCase() },
+                { question: 35, text: "When replayed at normal speed, time appears to be slowed down proportionately".toLowerCase() },
+                { question: 36, text: "Scientists have used photography to record and study movements. Artists are equally interested by these aspects but also try to explore avenues other than the photo-mechanical representation of reality, such as the pictorialist movement. Military, police, and security forces use photography for surveillance, recognition and data storage".toLowerCase() },
+                { question: 37, text: "High-speed photography can be considered to be the opposite of time-lapse photography. One of the many applications is found in biology studies to study birds, bats and even spider silk".toLowerCase() },
+                { question: 38, text: "As it has been repeatedly demonstrated in many aspects of our life that 'a picture is worth a thousand words'".toLowerCase() },
+                { question: 39, text: "At later editing stage this high frame rate will only be preserved for the prey catching part".toLowerCase() },
+                { question: 40, text: "Photographers or film-makers often place camera near the bat cave. The camera must be hard-wired with a tripping device so that every time a bat breaks the tripping beam the camera fires".toLowerCase() }
             ];
+
+            // --- Make highlight matching case-insensitive ---
+            // (This is done in the applyHighlights function, not here. 
+            // To make the matching case-insensitive, ensure the RegExp uses the 'i' flag in applyHighlights.)
 
             // Function to apply highlights to a passage
             function applyHighlights(passageElement, highlights) {
@@ -3088,18 +3469,11 @@
                     paragraphs.forEach(paragraph => {
                         const html = paragraph.innerHTML;
                         if (!html || typeof html !== 'string') return;
-                        if (html.includes(item.text)) {
+                        if (html.toLowerCase().includes(item.text)) {
                             const escapeRegExp = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-                            const re = new RegExp(escapeRegExp(item.text));
-                            const replaced = html.replace(
-                                re,
-                                `<span class="answer-highlight" data-question="${item.question}" style="
-                                    background-color: #ffeb3b;
-                                    padding: 2px 4px;
-                                    border-radius: 3px;
-                                    font-weight: bold;
-                                    position: relative;
-                                ">${item.text}<span style="
+                            const re = new RegExp(escapeRegExp(item.text), 'i');
+                            const badge = (item.question !== undefined && item.question !== null && item.question !== '')
+                                ? `<span style="
                                     position: absolute;
                                     top: -8px;
                                     right: -8px;
@@ -3113,7 +3487,17 @@
                                     justify-content: center;
                                     font-size: 12px;
                                     font-weight: bold;
-                                ">${item.question}</span></span>`
+                                ">${item.question}</span>`
+                                : '';
+                            const replaced = html.replace(
+                                re,
+                                `<span class="answer-highlight" data-question="${item.question || ''}" style="
+                                    background-color: #ffeb3b;
+                                    padding: 2px 4px;
+                                    border-radius: 3px;
+                                    font-weight: bold;
+                                    position: relative;
+                                ">${item.text}${badge}</span>`
                             );
                             paragraph.innerHTML = replaced;
                         }
@@ -3129,7 +3513,7 @@
             const passageText2 = document.getElementById('passage-text-2');
             applyHighlights(passageText2, part2Highlights);
 
-            // Apply highlights to Part 3 (Paper or Computer?)
+            // Apply highlights to Part 3 (Communicating Styles and Conflict)
             const passageText3 = document.getElementById('passage-text-3');
             applyHighlights(passageText3, part3Highlights);
         }
@@ -3493,8 +3877,25 @@
         function updateAnsweredNav() {
             const navButtons = document.querySelectorAll('.subQuestion');
             navButtons.forEach(btn => {
-                const qNum = parseInt(btn.textContent, 10);
-                if (isQuestionAnswered(qNum)) {
+                let qNum = NaN;
+                // Prefer parsing from onclick attribute to avoid SR-only text interference
+                const onclickAttr = btn.getAttribute('onclick');
+                if (onclickAttr) {
+                    const match = onclickAttr.match(/goToQuestion\((\d+)\)/);
+                    if (match) {
+                        qNum = parseInt(match[1], 10);
+                    }
+                }
+
+                // Fallback: try the visible number span
+                if (isNaN(qNum)) {
+                    const visibleSpan = btn.querySelector('span[aria-hidden="true"]');
+                    if (visibleSpan) {
+                        qNum = parseInt(visibleSpan.textContent.trim(), 10);
+                    }
+                }
+
+                if (!isNaN(qNum) && isQuestionAnswered(qNum)) {
                     btn.classList.add('answered');
                 } else {
                     btn.classList.remove('answered');
@@ -3518,6 +3919,16 @@
             // Handle drag & drop questions (e.g., 20-23)
             const dz = document.querySelector(`.drop-zone[data-q-start="${qNum}"]`);
             if (dz && dz.querySelector('.drag-item')) {
+                return true;
+            }
+            // Handle summary drag & drop questions (27-31)
+            const sdz = document.querySelector(`.summary-drop-zone[data-question="${qNum}"]`);
+            if (sdz && sdz.querySelector('.drag-item')) {
+                return true;
+            }
+            // Handle passage drag & drop questions (27-34)
+            const pdz = document.querySelector(`.passage-drag-zone[data-question="${qNum}"]`);
+            if (pdz && pdz.querySelector('.drag-item')) {
                 return true;
             }
             // Handle clickable-cell matrix questions (any question using clickable cells)
@@ -3545,7 +3956,7 @@
                 item.addEventListener('dragend', handleDragEnd);
                 item.addEventListener('click', () => selectDragItem(item));
             });
-            document.querySelectorAll('.drop-zone, .drag-options-container').forEach(zone => {
+            document.querySelectorAll('.drop-zone, .summary-drop-zone, .passage-drag-zone, .drag-options-container').forEach(zone => {
                 zone.addEventListener('dragover', handleDragOver);
                 zone.addEventListener('dragleave', handleDragLeave);
                 zone.addEventListener('drop', handleDrop);
@@ -3586,17 +3997,21 @@
             const sourceZone = draggedItem.parentElement;
             if (sourceZone === targetZone) return; // Prevent dropping on itself
 
-            const existingItemInTarget = targetZone.classList.contains('drop-zone') 
-                ? targetZone.querySelector('.drag-item') 
-                : null;
+            const isTargetAcceptingZone = targetZone.classList.contains('drop-zone') || targetZone.classList.contains('summary-drop-zone') || targetZone.classList.contains('passage-drag-zone');
+            const existingItemInTarget = isTargetAcceptingZone ? targetZone.querySelector('.drag-item') : null;
 
             // First, clear the target drop-zone of any text (like question numbers) before adding the new item.
-            if (targetZone.classList.contains('drop-zone')) {
+            if (targetZone.classList.contains('drop-zone') || targetZone.classList.contains('summary-drop-zone')) {
                 Array.from(targetZone.childNodes).forEach(node => {
                     if (node.nodeType === Node.TEXT_NODE) {
                         node.remove();
                     }
                 });
+            }
+
+            // Handle passage drag zones - clear placeholder text
+            if (targetZone.classList.contains('passage-drag-zone')) {
+                targetZone.innerHTML = '';
             }
 
             // Move the item that was in the target (if any) to the source zone.
@@ -3622,6 +4037,17 @@
                  const qNum = sourceZone.dataset.qStart;
                  sourceZone.innerText = qNum; // Restore the question number
             }
+            // Also handle summary drop-zones when emptied
+            if (sourceZone.classList.contains('summary-drop-zone') && !sourceZone.querySelector('.drag-item')) {
+                 sourceZone.classList.remove('filled');
+            }
+            // Handle passage drag zones when emptied
+            if (sourceZone.classList.contains('passage-drag-zone') && !sourceZone.querySelector('.drag-item')) {
+                 sourceZone.classList.remove('filled');
+                 const questionNum = sourceZone.dataset.question;
+                 const sectionLetter = String.fromCharCode(64 + parseInt(questionNum) - 26); // Convert 27->A, 28->B, etc.
+                 sourceZone.innerHTML = `Drag heading here for Section ${sectionLetter}`;
+            }
             
             updateAllIndicators();
         }
@@ -3638,7 +4064,7 @@
                 if (timeInSeconds <= 0) {
                     clearInterval(timerInterval);
                     timerDisplay.textContent = "Time's up!";
-                    // checkAnswers(); // Disabled to prevent modal from opening automatically.
+                    handleReadingSubmit('timer');
                 }
             }, 1000);
             timerToggleButton.innerHTML = pauseIcon;
@@ -3897,7 +4323,7 @@
         };
 
         // --- START THE APP ---
-        initialize();
+        setupAuthGate(() => initialize());
 
         // Add event listeners for table radio buttons
         document.addEventListener('DOMContentLoaded', function() {
@@ -3919,8 +4345,6 @@
                     updateAllIndicators();
                 });
             });
-            
-
         });
 
         // Global function for selecting cells

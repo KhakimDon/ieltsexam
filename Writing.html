@@ -77,6 +77,21 @@
             background-repeat: no-repeat;
         }
 
+        body::after {
+            content: "@MINDLESS_WRITER";
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%) rotate(-20deg);
+            font-size: 72px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            color: #000000;
+            opacity: 0.02; /* subtle */
+            pointer-events: none;
+            z-index: 0;
+            white-space: nowrap;
+        }
 
         .main-container {
             margin-top: 60px;
@@ -371,136 +386,191 @@
             }
         }
 
-        /* Login Screen Styles */
-        .login-screen {
+        /* Auth gate overlay */
+        .auth-overlay {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            inset: 0;
+            background: radial-gradient(circle at 20% 20%, rgba(255,255,255,0.08), transparent 35%),
+                        radial-gradient(circle at 80% 30%, rgba(255,255,255,0.08), transparent 35%),
+                        #050505;
             display: flex;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
             z-index: 9999;
+            backdrop-filter: blur(6px);
         }
-
-        .login-container {
-            background: white;
-            padding: 40px;
-            border-radius: 16px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        .auth-card {
+            position: relative;
+            width: min(420px, 92vw);
+            padding: 32px 28px;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 20px;
+            color: #f5f5f5;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.45);
+            overflow: hidden;
+            isolation: isolate;
+        }
+        .auth-card::after, .auth-card::before {
+            content: '';
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            background: radial-gradient(circle, rgba(255,255,255,0.12), transparent 55%);
+            filter: blur(20px);
+            z-index: -1;
+            animation: floatPulse 9s ease-in-out infinite;
+        }
+        .auth-card::before { top: -60px; right: -40px; }
+        .auth-card::after { bottom: -70px; left: -30px; animation-delay: 1.2s; }
+        @keyframes floatPulse {
+            0%,100% { transform: translateY(0) scale(1); opacity: 0.7; }
+            50% { transform: translateY(-8px) scale(1.03); opacity: 1; }
+        }
+        .auth-logo {
+            width: 88px;
+            height: 88px;
+            object-fit: contain;
+            display: block;
+            margin: 0 auto 12px;
+        }
+        .auth-title {
             text-align: center;
-            max-width: 400px;
-            width: 90%;
+            font-size: 22px;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
         }
-
-        .login-logo {
-            width: 120px;
-            margin-bottom: 20px;
-        }
-
-        .login-title {
-            font-size: 24px;
-            font-weight: 700;
-            color: #333;
-            margin-bottom: 8px;
-        }
-
-        .login-subtitle {
+        .auth-subtitle {
+            text-align: center;
+            color: #cfcfcf;
             font-size: 14px;
-            color: #666;
-            margin-bottom: 30px;
+            margin-bottom: 18px;
         }
-
-        .login-form {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
+        .auth-form {
+            display: grid;
+            gap: 12px;
         }
-
-        .login-input {
-            padding: 14px 16px;
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
-            font-size: 16px;
-            transition: border-color 0.2s;
+        .auth-form label {
+            font-size: 13px;
+            color: #dcdcdc;
+            letter-spacing: 0.3px;
+        }
+        .auth-input {
+            width: 100%;
+            padding: 12px 14px;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 12px;
+            color: #fff;
+            transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .auth-input:focus {
+            border-color: #ffffff;
             outline: none;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 18px rgba(255,255,255,0.08);
         }
-
-        .login-input:focus {
-            border-color: #667eea;
+        .auth-hint {
+            font-size: 12px;
+            color: #b5b5b5;
+            text-align: right;
         }
-
-        .login-input::placeholder {
-            color: #999;
+        .auth-error {
+            color: #ff7b7b;
+            font-size: 12px;
+            min-height: 16px;
         }
-
-        .login-btn {
-            padding: 14px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+        .auth-submit {
+            width: 100%;
+            padding: 12px 14px;
+            margin-top: 4px;
+            background: linear-gradient(90deg, #ffffff, #dcdcdc);
+            color: #050505;
             border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: 600;
+            border-radius: 12px;
+            font-weight: 700;
             cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
+            transition: transform 0.18s ease, box-shadow 0.2s ease;
         }
-
-        .login-btn:hover {
+        .auth-submit:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 10px 25px rgba(255,255,255,0.15);
         }
-
-        .login-error {
-            color: #dc3545;
-            font-size: 14px;
-            margin-top: 10px;
+        .auth-submit:active {
+            transform: translateY(0);
+        }
+        .auth-overlay.hidden {
             display: none;
         }
-
-        .app-content {
-            display: none;
+        body.auth-locked {
+            overflow: hidden;
         }
-
-        .app-content.visible {
+        body.auth-locked .main-container,
+        body.auth-locked nav,
+        body.auth-locked header {
+            filter: blur(4px);
+            pointer-events: none;
+            user-select: none;
+        }
+        .submission-toast {
+            position: fixed;
+            bottom: 22px;
+            right: 22px;
+            background: #050505;
+            color: #f5f5f5;
+            padding: 14px 16px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.12);
+            box-shadow: 0 12px 28px rgba(0,0,0,0.4);
+            z-index: 9998;
+            opacity: 0;
+            transform: translateY(12px);
+            transition: opacity 0.2s ease, transform 0.2s ease;
+        }
+        .submission-toast.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .brand-logo {
+            height: 38px;
+            width: auto;
+            object-fit: contain;
             display: block;
         }
-
-        .login-screen.hidden {
-            display: none;
-        }
-        
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="telegram-integration.js"></script>
 </head>
 <body>
-    <!-- Login Screen -->
-    <div class="login-screen" id="loginScreen">
-        <div class="login-container">
-            <img src="logo.png" alt="Logo" class="login-logo">
-            <h1 class="login-title">IELTS Writing Test</h1>
-            <p class="login-subtitle">Введите ваше имя и пароль для входа</p>
-            <form class="login-form" id="loginForm">
-                <input type="text" class="login-input" id="userName" placeholder="Ваше имя" required>
-                <input type="password" class="login-input" id="userPassword" placeholder="Пароль" required>
-                <button type="button" class="login-btn" onclick="handleLogin(event)">Войти</button>
-                <p class="login-error" id="loginError">Неверный пароль</p>
-            </form>
-        </div>
-    </div>
-
-    <div class="app-content" id="appContent">
+    
     <div class="header">
         <div class="timer-container">
             <span class="timer-display">60:00</span>
         </div>
 
-        <img src="logo.png" alt="Logo" style="height: 30px;">
+            <img src="./logo.png" alt="Mindless Writer" class="brand-logo">
     </div>
+
+    <div id="auth-overlay" class="auth-overlay">
+        <div class="auth-card">
+            <img src="./logo.png" alt="MR" class="auth-logo">
+            <h2 class="auth-title">Secure Entry</h2>
+            <p class="auth-subtitle">Введите имя и пароль перед Writing.</p>
+            <form id="auth-form" class="auth-form">
+                <div>
+                    <label for="candidate-name">Имя</label>
+                    <input id="candidate-name" name="candidateName" class="auth-input" placeholder="Ваше имя" autocomplete="name" required>
+                </div>
+                <div>
+                    <label for="access-password">Пароль</label>
+                    <input id="access-password" name="accessPassword" type="password" class="auth-input" placeholder="Введите пароль" required>
+                </div>
+                <div id="auth-error" class="auth-error"></div>
+                <button type="submit" class="auth-submit">Начать Writing</button>
+            </form>
+        </div>
+    </div>
+
+
 
     <!-- Test Interface -->
     <div class="main-container" id="mainContainer">
@@ -517,13 +587,13 @@
             <div class="left-panel">
                 <div id="part-1" class="writing-part">
                     <div class="task-prompt">
-                        <p><strong>The maps indicate how Huntingdon has changed throughout time, both in terms of present changes and anticipated future changes.</strong></p>
+                        <p><strong>The graph below gives information about computer possession by household in one European country between 1997 and 2011.</strong></p>
                         <p><strong>Summarize the information by selecting and reporting the main points and make comparisons where relevant.</strong></p>
                     </div>
 
                     <div class="chart-container">
                         <div class="image-container">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoGnybqIU8k-VdkNpBfmuR_mRw9XeGxhofoA&s" style="max-width:60%; height:auto; border:1px solid #ccc;"/>
+                            <img src="https://video.vietjack.com/upload2/quiz_source1/2025/01/blobid16-1736527867.png" alt="Bar chart showing types of music bought in USA in 2010 by age group" style="max-width:60%; height:auto; border:1px solid #ccc;"/>
                         </div>
                     </div>
                 </div>
@@ -532,7 +602,7 @@
                     <div class="instructions">
                         <p><strong>Write about the following topic:</strong></p>
                         <div class="task-prompt">
-                            <p><em><strong> The research indicates that nowadays some consumers are less influenced by advertising than in the past.<br><br>What are the reasons and is it a positive or negative development?</strong></em></p>
+                            <p><em><strong> There is no need to go out to see live performances (concerts...) because it is better to see them on the TV or computer screen.<br><br> Do you agree or disagree?</strong></em></p>
                         </div>
                         <p>Give reasons for your answer and include any relevant examples from your own knowledge or experience.</p>
                     </div>
@@ -558,13 +628,13 @@
     <!-- Success Message -->
     <div class="overlay" id="overlay"></div>
     <div class="success-message" id="successMessage">
-        <h3>🎉 Тест завершён!</h3>
-        <p>Все ваши ответы успешно отправлены. Спасибо за прохождение IELTS теста!</p>
-        <button class="btn" onclick="closeSuccessMessage()">Завершить</button>
+        <h3>✅ Writing Sent</h3>
+        <p>Ваши ответы отправлены в Telegram. Спасибо!</p>
+        <button class="btn" onclick="closeSuccessMessage()">Continue</button>
     </div>
 
     <!-- Bottom Navigation -->
-    <nav class="nav-row perScorableItem" aria-label="Questions" id="navigation" style="display: none;">
+    <nav class="nav-row perScorableItem" aria-label="Questions" id="navigation">
         <div class="footer__questionWrapper___1tZ46 selected single" role="tablist">
             <button role="tab" class="footer__questionNo___3WNct writing" data-sectionid="part1" tabindex="-1" onclick="switchPart(1)">
                 <div class="part-title">Part 1</div>
@@ -579,15 +649,69 @@
         </div>
         <button id="deliver-button" aria-label="Submit Writing" class="footer__deliverButton___3FM07" onclick="submitTest()">
             <i class="fa fa-check" aria-hidden="true"></i>
+            <span>Send & Finish</span>
         </button>
     </nav>
-    </div><!-- end app-content -->
 
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+    <script src="./telegram-integration.js"></script>
     <script>
         let currentPart = 1;
         let timeInSeconds = 3600;
         let timerInterval;
         let partCompletionStatus = { 1: false, 2: false };
+        let submissionInProgress = false;
+
+        const submissionToast = document.getElementById('submission-toast');
+        const authOverlay = document.getElementById('auth-overlay');
+        const authForm = document.getElementById('auth-form');
+        const authError = document.getElementById('auth-error');
+        const candidateNameInput = document.getElementById('candidate-name');
+        const passwordInput = document.getElementById('access-password');
+        const deliverButton = document.getElementById('deliver-button');
+
+        function showSubmissionToast(message, isError = false) {
+            if (!submissionToast) return;
+            submissionToast.textContent = message;
+            submissionToast.style.background = isError ? '#7a1c1c' : '#050505';
+            submissionToast.classList.add('visible');
+        }
+
+        function hideSubmissionToast() {
+            if (!submissionToast) return;
+            submissionToast.classList.remove('visible');
+        }
+
+        function setupAuthGate(onUnlock) {
+            if (!authOverlay || !authForm) {
+                onUnlock && onUnlock(localStorage.getItem('candidateName') || '');
+                return;
+            }
+            document.body.classList.add('auth-locked');
+            const storedName = localStorage.getItem('candidateName') || '';
+            if (storedName) candidateNameInput.value = storedName;
+
+            authForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                authError.textContent = '';
+                const name = candidateNameInput.value.trim();
+                const password = passwordInput.value.trim();
+                if (!name) {
+                    authError.textContent = 'Введите имя.';
+                    return;
+                }
+                if (password !== 'iwant9score') {
+                    authError.textContent = 'Неверный пароль.';
+                    return;
+                }
+                localStorage.setItem('candidateName', name);
+                authOverlay.classList.add('hidden');
+                document.body.classList.remove('auth-locked');
+                onUnlock && onUnlock(name);
+            });
+        }
 
         // Timer functionality
         function startTimer() {
@@ -599,7 +723,7 @@
                 if (timeInSeconds <= 0) {
                     clearInterval(timerInterval);
                     alert("Time's up! Your test will be submitted automatically.");
-                    submitTest();
+                    submitTest(true);
                 }
             }, 1000);
         }
@@ -612,7 +736,7 @@
         }
 
         // Test submission function - sends to Telegram
-        function submitTest() {
+        async function submitTest(forceSubmit = false) {
             const part1Content = localStorage.getItem('ielts-writing-part-1') || '';
             const part2Content = localStorage.getItem('ielts-writing-part-2') || '';
 
@@ -624,119 +748,126 @@
             const part1WordCount = part1Content.trim() === '' ? 0 : part1Content.trim().split(/\s+/).length;
             const part2WordCount = part2Content.trim() === '' ? 0 : part2Content.trim().split(/\s+/).length;
 
-            if (confirm(`Are you sure you want to submit your writing?\n\nPart 1: ${part1WordCount} words\nPart 2: ${part2WordCount} words`)) {
-                clearInterval(timerInterval);
-                sendWritingToTelegram(part1Content, part2Content);
+            if (!forceSubmit) {
+                const confirmed = confirm(`Are you sure you want to submit your writing?\n\nPart 1: ${part1WordCount} words\nPart 2: ${part2WordCount} words`);
+                if (!confirmed) return;
             }
+
+            clearInterval(timerInterval);
+            await sendWritingToTelegram(part1Content, part2Content, part1WordCount, part2WordCount);
         }
 
-        // Send writing to Telegram
-        async function sendWritingToTelegram(part1Content, part2Content) {
-            const candidateName = localStorage.getItem('ielts-user-name') || 'Unknown';
-            const deliverButton = document.getElementById('deliver-button');
-            
-            // Show loading
-            deliverButton.innerHTML = '<span>Отправка...</span>';
-            deliverButton.disabled = true;
+        function generateWritingPDF(candidateId, part1Content, part2Content, part1WordCount, part2WordCount) {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            const now = new Date();
+            const dateString = now.toLocaleDateString('en-GB');
+            const timeString = now.toLocaleTimeString('en-GB');
+
+            const task1Prompt = "The bar chart shows the type of music bought in the USA in 2010, by age group. Summarize the information by selecting and reporting the main points and make comparisons where relevant.";
+            const task2Prompt = "Modern buildings change the character and appearance of towns and cities. The government should insist that new buildings be built in traditional styles to protect cultural identity. To what extent do you agree or disagree?";
+
+            doc.setFont("helvetica", "bold");
+            doc.setFontSize(20);
+            doc.text("IELTS Writing Test", 105, 18, { align: "center" });
+
+            doc.setFontSize(12);
+            doc.setFont("helvetica", "normal");
+            doc.text(`Candidate: ${candidateId}`, 20, 30);
+            doc.text(`Date: ${dateString}`, 20, 36);
+            doc.text(`Time: ${timeString}`, 20, 42);
+            doc.text(`Total Words: ${part1WordCount + part2WordCount}`, 20, 48);
+
+            // Task 1
+            doc.setFont("helvetica", "bold");
+            doc.setFontSize(16);
+            doc.text("Task 1", 20, 62);
+            doc.setFont("helvetica", "normal");
+            doc.setFontSize(11);
+            doc.text("Question:", 20, 70);
+            doc.text(doc.splitTextToSize(task1Prompt, 170), 20, 78);
+            doc.text(`Word Count: ${part1WordCount}`, 20, 108);
+            doc.text("Response:", 20, 118);
+            doc.text(doc.splitTextToSize(part1Content || '[No response provided]', 170), 20, 126);
+
+            // Task 2
+            doc.addPage();
+            doc.setFont("helvetica", "bold");
+            doc.setFontSize(16);
+            doc.text("Task 2", 20, 20);
+            doc.setFont("helvetica", "normal");
+            doc.setFontSize(11);
+            doc.text("Question:", 20, 28);
+            doc.text(doc.splitTextToSize(task2Prompt, 170), 20, 36);
+            doc.text(`Word Count: ${part2WordCount}`, 20, 70);
+            doc.text("Response:", 20, 80);
+            doc.text(doc.splitTextToSize(part2Content || '[No response provided]', 170), 20, 88);
+
+            // Summary
+            doc.addPage();
+            doc.setFont("helvetica", "bold");
+            doc.setFontSize(16);
+            doc.text("Summary", 20, 20);
+            doc.setFont("helvetica", "normal");
+            doc.setFontSize(12);
+            doc.text(`Total Words: ${part1WordCount + part2WordCount}`, 20, 32);
+            doc.text(`Task 1 Words: ${part1WordCount}`, 20, 40);
+            doc.text(`Task 2 Words: ${part2WordCount}`, 20, 48);
+            doc.text(`Date: ${dateString}`, 20, 56);
+            doc.text(`Time: ${timeString}`, 20, 64);
+            doc.text(`Candidate: ${candidateId}`, 20, 72);
+
+            return doc.output('blob');
+        }
+
+        function buildWritingCaption(candidateId, part1WordCount, part2WordCount) {
+            const now = new Date();
+            const date = now.toLocaleDateString('en-GB');
+            const time = now.toLocaleTimeString('en-GB');
+            return `#writing
+
+👤 Candidate: ${candidateId}
+📅 Date: ${date}
+⏰ Time: ${time}
+
+📄 IELTS Writing Test Results
+✏ Task 1: ${part1WordCount} words
+✏ Task 2: ${part2WordCount} words
+📊 Total: ${part1WordCount + part2WordCount} words`;
+        }
+
+        async function sendWritingToTelegram(part1Content, part2Content, part1WordCount, part2WordCount) {
+            if (submissionInProgress) return;
+            submissionInProgress = true;
+            showSubmissionToast('Отправляем Writing в Telegram…');
+
+            const candidateId = (localStorage.getItem('candidateName') || 'Candidate').trim() || 'Candidate';
+            const pdfBlob = generateWritingPDF(candidateId, part1Content, part2Content, part1WordCount, part2WordCount);
+            const caption = buildWritingCaption(candidateId, part1WordCount, part2WordCount);
 
             try {
-                const { jsPDF } = window.jspdf;
-                const doc = new jsPDF();
-                
-                const now = new Date();
-                const dateString = now.toLocaleDateString('ru-RU');
-                const timeString = now.toLocaleTimeString('ru-RU');
-                
-                const part1WordCount = part1Content.trim() === '' ? 0 : part1Content.trim().split(/\s+/).length;
-                const part2WordCount = part2Content.trim() === '' ? 0 : part2Content.trim().split(/\s+/).length;
-
-                // Title
-                doc.setFontSize(24);
-                doc.setFont("helvetica", "bold");
-                doc.text("IELTS Writing Test", 105, 20, { align: "center" });
-
-                // Candidate info
-                doc.setFontSize(12);
-                doc.setFont("helvetica", "normal");
-                doc.text(`Candidate: ${candidateName}`, 20, 40);
-                doc.text(`Date: ${dateString}`, 20, 48);
-                doc.text(`Time: ${timeString}`, 20, 56);
-
-                // Task 1
-                doc.setFontSize(16);
-                doc.setFont("helvetica", "bold");
-                doc.text("TASK 1", 20, 75);
-                
-                doc.setFontSize(12);
-                doc.setFont("helvetica", "normal");
-                doc.text(`Word Count: ${part1WordCount}`, 20, 85);
-                
-                doc.setFontSize(11);
-                const task1Lines = doc.splitTextToSize(part1Content || '[No response]', 170);
-                let yPos = 95;
-                task1Lines.forEach(line => {
-                    if (yPos > 270) {
-                        doc.addPage();
-                        yPos = 20;
-                    }
-                    doc.text(line, 20, yPos);
-                    yPos += 6;
-                });
-
-                // Task 2 on new page
-                doc.addPage();
-                doc.setFontSize(16);
-                doc.setFont("helvetica", "bold");
-                doc.text("TASK 2", 20, 20);
-                
-                doc.setFontSize(12);
-                doc.setFont("helvetica", "normal");
-                doc.text(`Word Count: ${part2WordCount}`, 20, 30);
-                
-                doc.setFontSize(11);
-                const task2Lines = doc.splitTextToSize(part2Content || '[No response]', 170);
-                yPos = 40;
-                task2Lines.forEach(line => {
-                    if (yPos > 270) {
-                        doc.addPage();
-                        yPos = 20;
-                    }
-                    doc.text(line, 20, yPos);
-                    yPos += 6;
-                });
-
-                // Summary page
-                doc.addPage();
-                doc.setFontSize(16);
-                doc.setFont("helvetica", "bold");
-                doc.text("SUMMARY", 20, 20);
-                
-                doc.setFontSize(12);
-                doc.setFont("helvetica", "normal");
-                doc.text(`Total Words: ${part1WordCount + part2WordCount}`, 20, 35);
-                doc.text(`Task 1 Words: ${part1WordCount}`, 20, 45);
-                doc.text(`Task 2 Words: ${part2WordCount}`, 20, 55);
-
-                const pdfBlob = doc.output('blob');
-                const filename = `Writing_${candidateName.replace(/\s+/g, '_')}_${now.getTime()}.pdf`;
-
-                // Send PDF with caption to Telegram (one message)
-                const caption = window.telegramIntegration.formatWritingMessage(candidateName, 'writing') + `\n\n📝 Task 1: ${part1WordCount} words\n📝 Task 2: ${part2WordCount} words\n📊 Total: ${part1WordCount + part2WordCount} words`;
-                await window.telegramIntegration.sendDocument(pdfBlob, filename, caption);
-
-                // Clear localStorage
-                localStorage.removeItem('ielts-writing-part-1');
-                localStorage.removeItem('ielts-writing-part-2');
-                localStorage.removeItem('ielts-user-name');
-
-                // Show completion message
+                if (deliverButton) {
+                    deliverButton.disabled = true;
+                    deliverButton.querySelector('span').textContent = 'Sending...';
+                }
+                await window.telegramIntegration.sendDocument(
+                    pdfBlob,
+                    `Writing_${candidateId.replace(/\\s+/g, '_')}_${Date.now()}.pdf`,
+                    caption
+                );
+                showSubmissionToast('Результаты отправлены.');
                 showSuccessMessage();
-
+                if (deliverButton) {
+                    deliverButton.querySelector('span').textContent = 'Sent';
+                }
             } catch (error) {
-                console.error('Error sending to Telegram:', error);
-                alert('Ошибка при отправке. Попробуйте ещё раз.');
-                deliverButton.innerHTML = '<i class="fa fa-check" aria-hidden="true"></i>';
-                deliverButton.disabled = false;
+                console.error('Failed to send writing results', error);
+                showSubmissionToast('Не удалось отправить в Telegram', true);
+                submissionInProgress = false;
+                if (deliverButton) {
+                    deliverButton.disabled = false;
+                    deliverButton.querySelector('span').textContent = 'Send & Finish';
+                }
             }
         }
 
@@ -750,8 +881,6 @@
         function closeSuccessMessage() {
             document.getElementById('overlay').style.display = 'none';
             document.getElementById('successMessage').style.display = 'none';
-            // Redirect to home or show completion
-            window.location.href = 'index.html';
         }
 
         // Test interface functions
@@ -841,8 +970,13 @@
             updateCompletionIndicators();
         }, 5000);
 
-        // Load saved content on page load
-        function initializeApp() {
+        function startWritingTest() {
+            document.querySelector('.header').style.display = 'flex';
+            document.querySelector('.main-container').style.display = 'flex';
+            document.querySelector('.nav-row').style.display = 'flex';
+
+            startTimer();
+
             const savedContent = localStorage.getItem(`ielts-writing-part-${currentPart}`);
             if (savedContent) {
                 document.getElementById('writingTextarea').value = savedContent;
@@ -850,14 +984,15 @@
             }
             updateCompletionIndicators();
 
-            // Initial resize
             const textarea = document.getElementById('writingTextarea');
             textarea.style.overflowY = 'hidden';
             textarea.style.height = 'auto';
             textarea.style.height = (textarea.scrollHeight) + 'px';
         }
-        
-        window.addEventListener('load', initializeApp);
+
+        window.addEventListener('load', () => {
+            setupAuthGate(startWritingTest);
+        });
 
         // Keyboard shortcuts
         document.addEventListener('keydown', function(e) {
@@ -874,68 +1009,6 @@
             }
         });
 
-        // Login functionality
-        const CORRECT_PASSWORD = 'exam123';
-        let currentUserName = '';
-
-        function handleLogin(event) {
-            if (event) event.preventDefault();
-            
-            const userNameInput = document.getElementById('userName');
-            const passwordInput = document.getElementById('userPassword');
-            const loginError = document.getElementById('loginError');
-            const loginScreen = document.getElementById('loginScreen');
-            const appContent = document.getElementById('appContent');
-            const navRow = document.querySelector('.nav-row');
-            
-            if (!userNameInput || !passwordInput) {
-                console.error('Login inputs not found');
-                return false;
-            }
-            
-            const userName = userNameInput.value.trim();
-            const password = passwordInput.value;
-            
-            if (password === CORRECT_PASSWORD) {
-                currentUserName = userName;
-                localStorage.setItem('ielts-user-name', userName);
-                
-                if (loginScreen) loginScreen.style.display = 'none';
-                if (appContent) {
-                    appContent.style.display = 'block';
-                    appContent.classList.add('visible');
-                }
-                if (navRow) navRow.style.display = 'flex';
-                startTimer();
-            } else {
-                if (loginError) loginError.style.display = 'block';
-            }
-            return false;
-        }
-
-        // Show login screen or auto-login
-        window.addEventListener('load', () => {
-            const savedUser = localStorage.getItem('ielts-user-name');
-            const loginScreen = document.getElementById('loginScreen');
-            const appContent = document.getElementById('appContent');
-            const navRow = document.querySelector('.nav-row');
-            
-            if (savedUser) {
-                // Auto-login if user came from previous test
-                currentUserName = savedUser;
-                if (loginScreen) loginScreen.style.display = 'none';
-                if (appContent) {
-                    appContent.style.display = 'block';
-                    appContent.classList.add('visible');
-                }
-                if (navRow) navRow.style.display = 'flex';
-                startTimer();
-            } else {
-                // Make sure login screen is visible
-                if (loginScreen) loginScreen.style.display = 'flex';
-                if (appContent) appContent.style.display = 'none';
-            }
-        });
         
     </script>
 </body>
